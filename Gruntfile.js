@@ -14,6 +14,9 @@
                     src: [
                         'app/assets/css/bootstrap.css',
                         'bower_components/font-awesome/css/font-awesome.css',
+                        'app/assets/css/smartadmin-production-plugins.min.css',
+                        'app/assets/css/smartadmin-production.min.css',
+                        'app/assets/css/smartadmin-skins.min.css',
                         'app/assets/css/main.css'],
                     dest: 'app/assets/css/app.css'
                 },
