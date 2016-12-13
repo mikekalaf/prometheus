@@ -12,6 +12,7 @@
             concat: {
                 css: {
                     src: [
+                        'app/assets/css/bootstrap.css',
                         'bower_components/font-awesome/css/font-awesome.css',
                         'app/assets/css/main.css'],
                     dest: 'app/assets/css/app.css'
@@ -22,6 +23,7 @@
                     },
                     src: [
                         'bower_components/jquery/dist/jquery.js',
+                        'app/assets/js/bootstrap.js',
                         'app/assets/js/math.min.js',
                     ],
                     dest: 'app/assets/js/app.js'
