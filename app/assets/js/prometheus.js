@@ -19,9 +19,9 @@ var prometheus = {
     });
   },
   adjustViewPort: function() {
-    this.environment.screen.height = $(window).height();
-    this.environment.screen.width = $(window).width();
-    if(this.environment.mobile) {$('body').attr('id', 'mobile-app');} else {$('body').attr('id','desktop-app');}
+    prometheus.environment.screen.height = $(window).height();
+    prometheus.environment.screen.width = $(window).width();
+    if(prometheus.environment.mobile) {$('body').attr('id', 'mobile-app');} else {$('body').attr('id','desktop-app');}
   },
   removeSlashScreen: function() {
     $('#loader').fadeOut();
