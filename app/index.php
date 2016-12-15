@@ -36,7 +36,7 @@
 							<div class="appLogo">Prometheus</div>
 					</div>
 					<div id="appView">
-						<p>Test</p>
+					
 					</div>
 				</div>
 		</div>

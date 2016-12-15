@@ -14328,12 +14328,12 @@ body {
       #prometheusWrapper #appContainer #topBanner .appMenuTrigger {
         position: absolute;
         left: 15px;
-        top: 15px;
-        padding: 2px 6px;
+        top: 11px;
+        padding: 5px 10px;
         border: 1px solid #333; }
         #prometheusWrapper #appContainer #topBanner .appMenuTrigger:hover {
-          border: 1px solid #999;
-          cursor: pointer; }
+          cursor: pointer;
+          background-color: #333; }
         #prometheusWrapper #appContainer #topBanner .appMenuTrigger i {
           color: #999; }
       #prometheusWrapper #appContainer #topBanner .appLogo {
