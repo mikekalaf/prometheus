@@ -47,12 +47,18 @@ body {
     &.open {
       left: 240px;
     }
+    #appView {
+      position: relative;
+      width: 100%;
+      top: 55px;
+    }
     #topBanner {
       position: fixed;
       width: 100%;
       top: 0px;
       text-align: center;
       background-color: rgba(0,0,0, 0.65);
+      z-index: 10;
       .appMenuTrigger {
         position: absolute;
         left: 15px;

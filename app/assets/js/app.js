@@ -12933,6 +12933,7 @@ if (typeof jQuery === 'undefined') {
     $(window).on('resize', prometheus.adjustViewPort);
     $('.appMenuTrigger').on('click', prometheus.toggleMenu);
     $('#prometheusSplash').on('click', prometheus.removeSlashScreen);
+    $('#appView').on('click', prometheus.closeMenu);
 
   },
   loadDefaultView: function() {
@@ -12955,6 +12956,9 @@ if (typeof jQuery === 'undefined') {
   },
   toggleMenu: function() {
     $('#appMenu, #appContainer').toggleClass('open');
+  },
+  closeMenu: function() {
+    $('#appMenu, #appContainer').removeClass('open');
   }
 };
 
