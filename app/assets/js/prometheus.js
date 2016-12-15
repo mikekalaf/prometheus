@@ -7,6 +7,10 @@ var prometheus = {
     this.environment.screen.height = $(window).height();
     this.environment.screen.width = $(window).width();
     $(window).on('resize', prometheus.adjustViewPort());
+    $('#prometheusSplash').on('click', function() {
+      $('#loader').fadeOut();
+      setTimeout(function(){ $('#prometheusSplash').addClass('fadeOut'); }, 500);
+    })
   },
   adjustViewPort: function() {
     this.environment.screen.height = $(window).height();
