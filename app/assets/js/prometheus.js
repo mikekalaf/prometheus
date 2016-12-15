@@ -16,7 +16,8 @@ var prometheus = {
     $('#appContainer').addClass('magictime vanishIn');
     $('.appBackground').particleground({
         dotColor: '#333',
-        lineColor: '#333'
+        lineColor: '#333',
+        density: 7500
     });
   },
   adjustViewPort: function() {
