@@ -11628,6 +11628,459 @@ if (typeof jQuery === 'undefined') {
 }},function(e,r,t){e.exports={name:"permutations",category:"Probability",syntax:["permutations(n)","permutations(n, k)"],description:"Compute the number of permutations of n items taken k at a time",examples:["permutations(5)","permutations(5, 3)"],seealso:["combinations","factorial"]}},function(e,r,t){e.exports={name:"pickRandom",category:"Probability",syntax:["pickRandom(array)"],description:"Pick a random entry from a given array.",examples:["pickRandom(0:10)","pickRandom([1, 3, 1, 6])"],seealso:["random","randomInt"]}},function(e,r,t){e.exports={name:"random",category:"Probability",syntax:["random()","random(max)","random(min, max)","random(size)","random(size, max)","random(size, min, max)"],description:"Return a random number.",examples:["random()","random(10, 20)","random([2, 3])"],seealso:["pickRandom","randomInt"]}},function(e,r,t){e.exports={name:"randInt",category:"Probability",syntax:["randInt()","randInt(max)","randInt(min, max)","randInt(size)","randInt(size, max)","randInt(size, min, max)"],description:"Return a random integer number",examples:["randInt()","randInt(10, 20)","randInt([2, 3], 10)"],seealso:["pickRandom","random"]}},function(e,r,t){e.exports={name:"compare",category:"Relational",syntax:["compare(x, y)"],description:"Compare two values. Returns 1 if x is larger than y, -1 if x is smaller than y, and 0 if x and y are equal.",examples:["compare(2, 3)","compare(3, 2)","compare(2, 2)","compare(5cm, 40mm)","compare(2, [1, 2, 3])"],seealso:["equal","unequal","smaller","smallerEq","largerEq"]}},function(e,r,t){e.exports={name:"deepEqual",category:"Relational",syntax:["deepEqual(x, y)"],description:"Check equality of two matrices element wise. Returns true if the size of both matrices is equal and when and each of the elements are equal.",examples:["[1,3,4] == [1,3,4]","[1,3,4] == [1,3]"],seealso:["equal","unequal","smaller","larger","smallerEq","largerEq","compare"]}},function(e,r,t){e.exports={name:"equal",category:"Relational",syntax:["x == y","equal(x, y)"],description:"Check equality of two values. Returns true if the values are equal, and false if not.",examples:["2+2 == 3","2+2 == 4","a = 3.2","b = 6-2.8","a == b","50cm == 0.5m"],seealso:["unequal","smaller","larger","smallerEq","largerEq","compare","deepEqual"]}},function(e,r,t){e.exports={name:"larger",category:"Relational",syntax:["x > y","larger(x, y)"],description:"Check if value x is larger than y. Returns true if x is larger than y, and false if not.",examples:["2 > 3","5 > 2*2","a = 3.3","b = 6-2.8","(a > b)","(b < a)","5 cm > 2 inch"],seealso:["equal","unequal","smaller","smallerEq","largerEq","compare"]}},function(e,r,t){e.exports={name:"largerEq",category:"Relational",syntax:["x >= y","largerEq(x, y)"],description:"Check if value x is larger or equal to y. Returns true if x is larger or equal to y, and false if not.",examples:["2 > 1+1","2 >= 1+1","a = 3.2","b = 6-2.8","(a > b)"],seealso:["equal","unequal","smallerEq","smaller","largerEq","compare"]}},function(e,r,t){e.exports={name:"smaller",category:"Relational",syntax:["x < y","smaller(x, y)"],description:"Check if value x is smaller than value y. Returns true if x is smaller than y, and false if not.",examples:["2 < 3","5 < 2*2","a = 3.3","b = 6-2.8","(a < b)","5 cm < 2 inch"],seealso:["equal","unequal","larger","smallerEq","largerEq","compare"]}},function(e,r,t){e.exports={name:"smallerEq",category:"Relational",syntax:["x <= y","smallerEq(x, y)"],description:"Check if value x is smaller or equal to value y. Returns true if x is smaller than y, and false if not.",examples:["2 < 1+1","2 <= 1+1","a = 3.2","b = 6-2.8","(a < b)"],seealso:["equal","unequal","larger","smaller","largerEq","compare"]}},function(e,r,t){e.exports={name:"unequal",category:"Relational",syntax:["x != y","unequal(x, y)"],description:"Check unequality of two values. Returns true if the values are unequal, and false if they are equal.",examples:["2+2 != 3","2+2 != 4","a = 3.2","b = 6-2.8","a != b","50cm != 0.5m","5 cm != 2 inch"],seealso:["equal","smaller","larger","smallerEq","largerEq","compare","deepEqual"]}},function(e,r,t){e.exports={name:"max",category:"Statistics",syntax:["max(a, b, c, ...)","max(A)","max(A, dim)"],description:"Compute the maximum value of a list of values.",examples:["max(2, 3, 4, 1)","max([2, 3, 4, 1])","max([2, 5; 4, 3])","max([2, 5; 4, 3], 1)","max([2, 5; 4, 3], 2)","max(2.7, 7.1, -4.5, 2.0, 4.1)","min(2.7, 7.1, -4.5, 2.0, 4.1)"],seealso:["mean","median","min","prod","std","sum","var"]}},function(e,r,t){e.exports={name:"mean",category:"Statistics",syntax:["mean(a, b, c, ...)","mean(A)","mean(A, dim)"],description:"Compute the arithmetic mean of a list of values.",examples:["mean(2, 3, 4, 1)","mean([2, 3, 4, 1])","mean([2, 5; 4, 3])","mean([2, 5; 4, 3], 1)","mean([2, 5; 4, 3], 2)","mean([1.0, 2.7, 3.2, 4.0])"],seealso:["max","median","min","prod","std","sum","var"]}},function(e,r,t){e.exports={name:"median",category:"Statistics",syntax:["median(a, b, c, ...)","median(A)"],description:"Compute the median of all values. The values are sorted and the middle value is returned. In case of an even number of values, the average of the two middle values is returned.",examples:["median(5, 2, 7)","median([3, -1, 5, 7])"],seealso:["max","mean","min","prod","std","sum","var"]}},function(e,r,t){e.exports={name:"min",category:"Statistics",syntax:["min(a, b, c, ...)","min(A)","min(A, dim)"],description:"Compute the minimum value of a list of values.",examples:["min(2, 3, 4, 1)","min([2, 3, 4, 1])","min([2, 5; 4, 3])","min([2, 5; 4, 3], 1)","min([2, 5; 4, 3], 2)","min(2.7, 7.1, -4.5, 2.0, 4.1)","max(2.7, 7.1, -4.5, 2.0, 4.1)"],seealso:["max","mean","median","prod","std","sum","var"]}},function(e,r,t){e.exports={name:"prod",category:"Statistics",syntax:["prod(a, b, c, ...)","prod(A)"],description:"Compute the product of all values.",examples:["prod(2, 3, 4)","prod([2, 3, 4])","prod([2, 5; 4, 3])"],seealso:["max","mean","min","median","min","std","sum","var"]}},function(e,r,t){e.exports={name:"std",category:"Statistics",syntax:["std(a, b, c, ...)","std(A)","std(A, normalization)"],description:'Compute the standard deviation of all values, defined as std(A) = sqrt(var(A)). Optional parameter normalization can be "unbiased" (default), "uncorrected", or "biased".',examples:["std(2, 4, 6)","std([2, 4, 6, 8])",'std([2, 4, 6, 8], "uncorrected")','std([2, 4, 6, 8], "biased")',"std([1, 2, 3; 4, 5, 6])"],seealso:["max","mean","min","median","min","prod","sum","var"]}},function(e,r,t){e.exports={name:"sum",category:"Statistics",syntax:["sum(a, b, c, ...)","sum(A)"],description:"Compute the sum of all values.",examples:["sum(2, 3, 4, 1)","sum([2, 3, 4, 1])","sum([2, 5; 4, 3])"],seealso:["max","mean","median","min","prod","std","sum","var"]}},function(e,r,t){e.exports={name:"var",category:"Statistics",syntax:["var(a, b, c, ...)","var(A)","var(A, normalization)"],description:'Compute the variance of all values. Optional parameter normalization can be "unbiased" (default), "uncorrected", or "biased".',examples:["var(2, 4, 6)","var([2, 4, 6, 8])",'var([2, 4, 6, 8], "uncorrected")','var([2, 4, 6, 8], "biased")',"var([1, 2, 3; 4, 5, 6])"],seealso:["max","mean","min","median","min","prod","std","sum"]}},function(e,r,t){e.exports={name:"acos",category:"Trigonometry",syntax:["acos(x)"],description:"Compute the inverse cosine of a value in radians.",examples:["acos(0.5)","acos(cos(2.3))"],seealso:["cos","atan","asin"]}},function(e,r,t){e.exports={name:"acosh",category:"Trigonometry",syntax:["acosh(x)"],description:"Calculate the hyperbolic arccos of a value, defined as `acosh(x) = ln(sqrt(x^2 - 1) + x)`.",examples:["acosh(1.5)"],seealso:["cosh","asinh","atanh"]}},function(e,r,t){e.exports={name:"acot",category:"Trigonometry",syntax:["acot(x)"],description:"Calculate the inverse cotangent of a value.",examples:["acot(0.5)","acot(cot(0.5))","acot(2)"],seealso:["cot","atan"]}},function(e,r,t){e.exports={name:"acoth",category:"Trigonometry",syntax:["acoth(x)"],description:"Calculate the hyperbolic arccotangent of a value, defined as `acoth(x) = (ln((x+1)/x) + ln(x/(x-1))) / 2`.",examples:["acoth(0.5)"],seealso:["acsch","asech"]}},function(e,r,t){e.exports={name:"acsc",category:"Trigonometry",syntax:["acsc(x)"],description:"Calculate the inverse cotangent of a value.",examples:["acsc(0.5)","acsc(csc(0.5))","acsc(2)"],seealso:["csc","asin","asec"]}},function(e,r,t){e.exports={name:"acsch",category:"Trigonometry",syntax:["acsch(x)"],description:"Calculate the hyperbolic arccosecant of a value, defined as `acsch(x) = ln(1/x + sqrt(1/x^2 + 1))`.",examples:["acsch(0.5)"],seealso:["asech","acoth"]}},function(e,r,t){e.exports={name:"asec",category:"Trigonometry",syntax:["asec(x)"],description:"Calculate the inverse secant of a value.",examples:["asec(0.5)","asec(sec(0.5))","asec(2)"],seealso:["acos","acot","acsc"]}},function(e,r,t){e.exports={name:"asech",category:"Trigonometry",syntax:["asech(x)"],description:"Calculate the inverse secant of a value.",examples:["asech(0.5)"],seealso:["acsch","acoth"]}},function(e,r,t){e.exports={name:"asin",category:"Trigonometry",syntax:["asin(x)"],description:"Compute the inverse sine of a value in radians.",examples:["asin(0.5)","asin(sin(2.3))"],seealso:["sin","acos","atan"]}},function(e,r,t){e.exports={name:"asinh",category:"Trigonometry",syntax:["asinh(x)"],description:"Calculate the hyperbolic arcsine of a value, defined as `asinh(x) = ln(x + sqrt(x^2 + 1))`.",examples:["asinh(0.5)"],seealso:["acosh","atanh"]}},function(e,r,t){e.exports={name:"atan",category:"Trigonometry",syntax:["atan(x)"],description:"Compute the inverse tangent of a value in radians.",examples:["atan(0.5)","atan(tan(2.3))"],seealso:["tan","acos","asin"]}},function(e,r,t){e.exports={name:"atanh",category:"Trigonometry",syntax:["atanh(x)"],description:"Calculate the hyperbolic arctangent of a value, defined as `atanh(x) = ln((1 + x)/(1 - x)) / 2`.",examples:["atanh(0.5)"],seealso:["acosh","asinh"]}},function(e,r,t){e.exports={name:"atan2",category:"Trigonometry",syntax:["atan2(y, x)"],description:"Computes the principal value of the arc tangent of y/x in radians.",examples:["atan2(2, 2) / pi","angle = 60 deg in rad","x = cos(angle)","y = sin(angle)","atan2(y, x)"],seealso:["sin","cos","tan"]}},function(e,r,t){e.exports={name:"cos",category:"Trigonometry",syntax:["cos(x)"],description:"Compute the cosine of x in radians.",examples:["cos(2)","cos(pi / 4) ^ 2","cos(180 deg)","cos(60 deg)","sin(0.2)^2 + cos(0.2)^2"],seealso:["acos","sin","tan"]}},function(e,r,t){e.exports={name:"cosh",category:"Trigonometry",syntax:["cosh(x)"],description:"Compute the hyperbolic cosine of x in radians.",examples:["cosh(0.5)"],seealso:["sinh","tanh","coth"]}},function(e,r,t){e.exports={name:"cot",category:"Trigonometry",syntax:["cot(x)"],description:"Compute the cotangent of x in radians. Defined as 1/tan(x)",examples:["cot(2)","1 / tan(2)"],seealso:["sec","csc","tan"]}},function(e,r,t){e.exports={name:"coth",category:"Trigonometry",syntax:["coth(x)"],description:"Compute the hyperbolic cotangent of x in radians.",examples:["coth(2)","1 / tanh(2)"],seealso:["sech","csch","tanh"]}},function(e,r,t){e.exports={name:"csc",category:"Trigonometry",syntax:["csc(x)"],description:"Compute the cosecant of x in radians. Defined as 1/sin(x)",examples:["csc(2)","1 / sin(2)"],seealso:["sec","cot","sin"]}},function(e,r,t){e.exports={name:"csch",category:"Trigonometry",syntax:["csch(x)"],description:"Compute the hyperbolic cosecant of x in radians. Defined as 1/sinh(x)",examples:["csch(2)","1 / sinh(2)"],seealso:["sech","coth","sinh"]}},function(e,r,t){e.exports={name:"sec",category:"Trigonometry",syntax:["sec(x)"],description:"Compute the secant of x in radians. Defined as 1/cos(x)",examples:["sec(2)","1 / cos(2)"],seealso:["cot","csc","cos"]}},function(e,r,t){e.exports={name:"sech",category:"Trigonometry",syntax:["sech(x)"],description:"Compute the hyperbolic secant of x in radians. Defined as 1/cosh(x)",examples:["sech(2)","1 / cosh(2)"],seealso:["coth","csch","cosh"]}},function(e,r,t){e.exports={name:"sin",category:"Trigonometry",syntax:["sin(x)"],description:"Compute the sine of x in radians.",examples:["sin(2)","sin(pi / 4) ^ 2","sin(90 deg)","sin(30 deg)","sin(0.2)^2 + cos(0.2)^2"],seealso:["asin","cos","tan"]}},function(e,r,t){e.exports={name:"sinh",category:"Trigonometry",syntax:["sinh(x)"],description:"Compute the hyperbolic sine of x in radians.",examples:["sinh(0.5)"],seealso:["cosh","tanh"]}},function(e,r,t){e.exports={name:"tan",category:"Trigonometry",syntax:["tan(x)"],description:"Compute the tangent of x in radians.",examples:["tan(0.5)","sin(0.5) / cos(0.5)","tan(pi / 4)","tan(45 deg)"],seealso:["atan","sin","cos"]}},function(e,r,t){e.exports={name:"tanh",category:"Trigonometry",syntax:["tanh(x)"],description:"Compute the hyperbolic tangent of x in radians.",examples:["tanh(0.5)","sinh(0.5) / cosh(0.5)"],seealso:["sinh","cosh"]}},function(e,r,t){e.exports={name:"to",category:"Units",syntax:["x to unit","to(x, unit)"],description:"Change the unit of a value.",examples:["5 inch to cm","3.2kg to g","16 bytes in bits"],seealso:[]}},function(e,r,t){e.exports={name:"clone",category:"Utils",syntax:["clone(x)"],description:"Clone a variable. Creates a copy of primitive variables,and a deep copy of matrices",examples:["clone(3.5)","clone(2 - 4i)","clone(45 deg)","clone([1, 2; 3, 4])",'clone("hello world")'],seealso:[]}},function(e,r,t){e.exports={name:"map",category:"Utils",syntax:["map(x, callback)"],description:"Create a new matrix or array with the results of the callback function executed on each entry of the matrix/array.",examples:["map([1, 2, 3], function(val) { return value * value })"],seealso:["filter","forEach"]}},function(e,r,t){e.exports={name:"filter",category:"Utils",syntax:["filter(x, test)"],description:"Filter items in a matrix.",examples:["isPositive(x) = x > 0","filter([6, -2, -1, 4, 3], isPositive)","filter([6, -2, 0, 1, 0], x != 0)"],seealso:["sort","map","forEach"]}},function(e,r,t){e.exports={name:"forEach",category:"Utils",syntax:["forEach(x, callback)"],description:"Iterates over all elements of a matrix/array, and executes the given callback function.",examples:["forEach([1, 2, 3], function(val) { console.log(val) })"],seealso:["map","sort","filter"]}},function(e,r,t){e.exports={name:"format",category:"Utils",syntax:["format(value)","format(value, precision)"],description:"Format a value of any type as string.",examples:["format(2.3)","format(3 - 4i)","format([])","format(pi, 3)"],seealso:["print"]}},function(e,r,t){e.exports={name:"import",category:"Utils",syntax:["import(string)"],description:"Import functions from a file.",examples:['import("numbers")','import("./mylib.js")'],seealso:[]}},function(e,r,t){e.exports={name:"sort",category:"Utils",syntax:["sort(x)","sort(x, compare)"],description:'Sort the items in a matrix. Compare can be a string "asc" or "desc", or a custom sort function.',examples:["sort([5, 10, 1])",'sort(["C", "B", "A", "D"])',"sortByLength(a, b) = size(a)[1] - size(b)[1]",'sort(["Langdon", "Tom", "Sara"], sortByLength)'],seealso:["map","filter","forEach"]}},function(e,r,t){e.exports={name:"typeof",category:"Utils",syntax:["typeof(x)"],description:"Get the type of a variable.",examples:["typeof(3.5)","typeof(2 - 4i)","typeof(45 deg)",'typeof("hello world")'],seealso:[]}},function(e,r,t){"use strict";e.exports=function(e){function r(r){if(!s.hasOwnProperty(r))throw new Error("Unknown distribution "+r);var t=Array.prototype.slice.call(arguments,1),o=s[r].apply(this,t);return function(r){var t={random:function(r,t,i){var s,c,f;if(arguments.length>3)throw new e.error.ArgumentsError("random",arguments.length,0,3);if(1===arguments.length?a(r)?s=r:f=r:2===arguments.length?a(r)?(s=r,f=t):(c=r,f=t):(s=r,c=t,f=i),void 0===f&&(f=1),void 0===c&&(c=0),void 0!==s){var l=u(s.valueOf(),c,f,o);return s instanceof n?e.matrix(l):l}return o(c,f)},randomInt:function(r,t,i){var o,c,f;if(arguments.length>3||arguments.length<1)throw new e.error.ArgumentsError("randomInt",arguments.length,1,3);if(1===arguments.length?a(r)?o=r:f=r:2===arguments.length?a(r)?(o=r,f=t):(c=r,f=t):(o=r,c=t,f=i),void 0===c&&(c=0),void 0!==o){var l=u(o.valueOf(),c,f,s);return o instanceof n?e.matrix(l):l}return s(c,f)},pickRandom:function(r){if(1!==arguments.length)throw new e.error.ArgumentsError("pickRandom",arguments.length,1);if(r instanceof n)r=r.valueOf();else if(!Array.isArray(r))throw new e.error.UnsupportedTypeError("pickRandom",e["typeof"](r));if(i.size(r).length>1)throw new Error("Only one dimensional vectors supported");return r[Math.floor(Math.random()*r.length)]}},o=function(e,t){return e+r()*(t-e)},s=function(e,t){return Math.floor(e+r()*(t-e))},u=function(e,r,t,n){var i,o,a=[];if(e=e.slice(0),e.length>1)for(o=0,i=e.shift();i>o;o++)a.push(u(e,r,t,n));else for(o=0,i=e.shift();i>o;o++)a.push(n(r,t));return a};return t}(o)}var n=e.type.Matrix,i=t(169),o=e.collection,a=o.isCollection,s={uniform:function(){return Math.random},normal:function(){return function(){for(var e,r,t=-1;0>t||t>1;)e=Math.random(),r=Math.random(),t=1/6*Math.pow(-2*Math.log(e),.5)*Math.cos(2*Math.PI*r)+.5;return t}}};return r}},function(e,r,t){"use strict";r.type=function(e){var r=typeof e;if("object"===r){if(null===e)return"null";if(e instanceof Boolean)return"boolean";if(e instanceof Number)return"number";if(e instanceof String)return"string";if(Array.isArray(e))return"array";if(e instanceof Date)return"date";if(e instanceof Function)return"function";if(e instanceof RegExp)return"regexp"}return r}},function(e,r,t){r.memoize=function(e){return function r(){"object"!=typeof r.cache&&(r.cache={});var t=JSON.stringify(arguments);return t in r.cache?r.cache[t]:r.cache[t]=e.apply(e,arguments)}}},function(e,r,t){var n;!function(i){"use strict";function o(e){for(var r,t,n=1,i=e.length,o=e[0]+"";i>n;n++){for(r=e[n]+"",t=A-r.length;t--;)r="0"+r;o+=r}for(i=o.length;48===o.charCodeAt(--i););return o.slice(0,i+1||1)}function a(e,r,t,n){var i,o,a,s,u;for(o=1,a=e[0];a>=10;a/=10,o++);return a=r-o,0>a?(a+=A,i=0):(i=Math.ceil((a+1)/A),a%=A),o=N(10,A-a),u=e[i]%o|0,null==n?3>a?(0==a?u=u/100|0:1==a&&(u=u/10|0),s=4>t&&99999==u||t>3&&49999==u||5e4==u||0==u):s=(4>t&&u+1==o||t>3&&u+1==o/2)&&(e[i+1]/o/100|0)==N(10,a-2)-1||(u==o/2||0==u)&&0==(e[i+1]/o/100|0):4>a?(0==a?u=u/1e3|0:1==a?u=u/100|0:2==a&&(u=u/10|0),s=(n||4>t)&&9999==u||!n&&t>3&&4999==u):s=((n||4>t)&&u+1==o||!n&&t>3&&u+1==o/2)&&(e[i+1]/o/1e3|0)==N(10,a-3)-1,s}function s(e,r,t){var n=e.constructor;return null==r||((y=0>r||r>8)||0!==r&&(n.errors?parseInt:parseFloat)(r)!=r)&&!p(n,"rounding mode",r,t,0)?n.rounding:0|r}function u(e,r,t,n){var i=e.constructor;return!(y=(n||0)>r||r>=z+1)&&(0===r||(i.errors?parseInt:parseFloat)(r)==r)||p(i,"argument",r,t,0)}function c(e,r){var t,n,i,s,u,c,f,l=0,p=0,m=0,h=e.constructor,d=h.ONE,v=h.rounding,y=h.precision;if(!e.c||!e.c[0]||e.e>17)return new h(e.c?e.c[0]?e.s<0?0:1/0:d:e.s?e.s<0?0:e:0/0);for(null==r?(w=!1,u=y):u=r,f=new h(.03125);e.e>-2;)e=e.times(f),m+=5;for(n=Math.log(N(2,m))/Math.LN10*2+5|0,u+=n,t=s=c=new h(d),h.precision=u;;){if(s=g(s.times(e),u,1),t=t.times(++p),f=c.plus(U(s,t,u,1)),o(f.c).slice(0,u)===o(c.c).slice(0,u)){for(i=m;i--;)c=g(c.times(c),u,1);if(null!=r)return h.precision=y,c;if(!(3>l&&a(c.c,u-n,v,l)))return g(c,h.precision=y,v,w=!0);h.precision=u+=10,t=s=f=new h(d),p=0,l++}c=f}}function f(e,r,t,n){var i,a,s=e.constructor,u=(e=new s(e)).e;if(null==r?t=0:(g(e,++r,t),t=n?r:r+e.e-u),u=e.e,i=o(e.c),1==n||2==n&&(u>=r||u<=s.toExpNeg)){for(;i.length<t;i+="0");i.length>1&&(i=i.charAt(0)+"."+i.slice(1)),i+=(0>u?"e":"e+")+u}else{if(n=i.length,0>u){for(a=t-n;++u;i="0"+i);i="0."+i}else if(++u>n){for(a=t-u,u-=n;u--;i+="0");a>0&&(i+=".")}else a=t-n,n>u?i=i.slice(0,u)+"."+i.slice(u):a>0&&(i+=".");if(a>0)for(;a--;i+="0");}return e.s<0&&e.c[0]?"-"+i:i}function l(e){var r=e.length-1,t=r*A+1;if(r=e[r]){for(;r%10==0;r/=10,t--);for(r=e[0];r>=10;r/=10,t++);}return t}function p(e,r,t,n,i){if(e.errors){var o=new Error((n||["new Decimal","cmp","div","eq","gt","gte","lt","lte","minus","mod","plus","times","toFraction","pow","random","log","sqrt","toNearest","divToInt"][b?0>b?-b:b:0>1/b?1:0])+"() "+(["number type has more than 15 significant digits","LN10 out of digits"][r]||r+([y?" out of range":" not an integer"," not a boolean or binary digit"][i]||""))+": "+t);throw o.name="Decimal Error",y=b=0,o}}function m(e,r,t){var n=new e(e.ONE);for(w=!1;1&t&&(n=n.times(r)),t>>=1,t;)r=r.times(r);return w=!0,n}function h(e,r){var t,n,i,s,u,c,f,l,m,d,v,y=1,x=10,b=e,E=b.c,N=b.constructor,M=N.ONE,_=N.rounding,A=N.precision;if(b.s<0||!E||!E[0]||!b.e&&1==E[0]&&1==E.length)return new N(E&&!E[0]?-1/0:1!=b.s?0/0:E?0:b);if(null==r?(w=!1,f=A):f=r,N.precision=f+=x,t=o(E),n=t.charAt(0),!(Math.abs(s=b.e)<15e14))return b=new N(n+"."+t.slice(1)),f+2>q.length&&p(N,1,f+2,"ln"),b=h(b,f-x).plus(new N(q.slice(0,f+2)).times(s+"")),N.precision=A,null==r?g(b,A,_,w=!0):b;for(;7>n&&1!=n||1==n&&t.charAt(1)>3;)b=b.times(e),t=o(b.c),n=t.charAt(0),y++;for(s=b.e,n>1?(b=new N("0."+t),s++):b=new N(n+"."+t.slice(1)),d=b,l=u=b=U(b.minus(M),b.plus(M),f,1),v=g(b.times(b),f,1),i=3;;){if(u=g(u.times(v),f,1),m=l.plus(U(u,new N(i),f,1)),o(m.c).slice(0,f)===o(l.c).slice(0,f)){if(l=l.times(2),0!==s&&(f+2>q.length&&p(N,1,f+2,"ln"),l=l.plus(new N(q.slice(0,f+2)).times(s+""))),l=U(l,new N(y),f,1),null!=r)return N.precision=A,l;if(!a(l.c,f-x,_,c))return g(l,N.precision=A,_,w=!0);N.precision=f+=x,m=u=b=U(d.minus(M),d.plus(M),f,1),v=g(b.times(b),f,1),i=c=1}l=m,i+=2}}function g(e,r,t,n){var i,o,a,s,u,c,f,l,p=e.constructor;e:if(null!=r){if(!(f=e.c))return e;for(i=1,s=f[0];s>=10;s/=10,i++);if(o=r-i,0>o)o+=A,a=r,u=f[l=0],c=u/N(10,i-a-1)%10|0;else if(l=Math.ceil((o+1)/A),l>=f.length){if(!n)break e;for(;f.length<=l;f.push(0));u=c=0,i=1,o%=A,a=o-A+1}else{for(u=s=f[l],i=1;s>=10;s/=10,i++);o%=A,a=o-A+i,c=0>a?0:E(u/N(10,i-a-1)%10)}if(n=n||0>r||null!=f[l+1]||(0>a?u:u%N(10,i-a-1)),n=4>t?(c||n)&&(0==t||t==(e.s<0?3:2)):c>5||5==c&&(4==t||n||6==t&&(o>0?a>0?u/N(10,i-a):0:f[l-1])%10&1||t==(e.s<0?8:7)),1>r||!f[0])return f.length=0,n?(r-=e.e+1,f[0]=N(10,r%A),e.e=-r||0):f[0]=e.e=0,e;if(0==o?(f.length=l,s=1,l--):(f.length=l+1,s=N(10,A-o),f[l]=a>0?(u/N(10,i-a)%N(10,a)|0)*s:0),n)for(;;){if(0==l){for(o=1,a=f[0];a>=10;a/=10,o++);for(a=f[0]+=s,s=1;a>=10;a/=10,s++);o!=s&&(e.e++,f[0]==_&&(f[0]=1));break}if(f[l]+=s,f[l]!=_)break;f[l--]=0,s=1}for(o=f.length;0===f[--o];f.pop());}return w&&(e.e>p.maxE?e.c=e.e=null:e.e<p.minE&&(e.c=[e.e=0])),e}var d,v,y,x=i.crypto,w=!0,b=0,E=Math.floor,N=Math.pow,M=Object.prototype.toString,_=1e7,A=7,T="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$_",S={},O=9e15,z=1e9,C=3e3,q="2.3025850929940456840179914546843642076011014886287729760333279009675726096773524802359972050895982983419677840422862486334095254650828067566662873690987816894829072083255546808437998948262331985283935053089653777326288461633662222876982198867465436674744042432743651550489343149393914796194044002221051017141748003688084012647080685567743216228355220114804663715659121373450747856947683463616792101806445070648000277502684916746550586856935673420670581136429224554405758925724208241314695689016758940256776311356919292033376587141660230105703089634572075440370847469940168269282808481184289314848524948644871927809676271275775397027668605952496716674183485704422507197965004714951050492214776567636938662976979522110718264549734772662425709429322582798502585509785265383207606726317164309505995087807523710333101197857547331541421808427543863591778117054309827482385045648019095610299291824318237525357709750539565187697510374970888692180205189339507238539205144634197265287286965110862571492198849978748873771345686209167058";S.absoluteValue=S.abs=function(){var e=new this.constructor(this);return e.s<0&&(e.s=1),g(e)},S.ceil=function(){return g(new this.constructor(this),this.e+1,2)},S.comparedTo=S.cmp=function(e,r){var t,n=this,i=n.c,o=(b=-b,e=new n.constructor(e,r),e.c),a=n.s,s=e.s,u=n.e,c=e.e;if(!a||!s)return null;if(t=i&&!i[0],r=o&&!o[0],t||r)return t?r?0:-s:a;if(a!=s)return a;if(t=0>a,!i||!o)return u==c?0:!i^t?1:-1;if(u!=c)return u>c^t?1:-1;for(a=-1,s=(u=i.length)<(c=o.length)?u:c;++a<s;)if(i[a]!=o[a])return i[a]>o[a]^t?1:-1;return u==c?0:u>c^t?1:-1},S.decimalPlaces=S.dp=function(){var e,r,t=null;if(e=this.c){if(t=((r=e.length-1)-E(this.e/A))*A,r=e[r])for(;r%10==0;r/=10,t--);0>t&&(t=0)}return t},S.dividedBy=S.div=function(e,r){return b=2,U(this,new this.constructor(e,r))},S.dividedToIntegerBy=S.divToInt=function(e,r){var t=this,n=t.constructor;return b=18,g(U(t,new n(e,r),0,1,1),n.precision,n.rounding)},S.equals=S.eq=function(e,r){return b=3,0===this.cmp(e,r)},S.exponential=S.exp=function(){return c(this)},S.floor=function(){return g(new this.constructor(this),this.e+1,3)},S.greaterThan=S.gt=function(e,r){return b=4,this.cmp(e,r)>0},S.greaterThanOrEqualTo=S.gte=function(e,r){return b=5,r=this.cmp(e,r),1==r||0===r},S.isFinite=function(){return!!this.c},S.isInteger=S.isInt=function(){return!!this.c&&E(this.e/A)>this.c.length-2},S.isNaN=function(){return!this.s},S.isNegative=S.isNeg=function(){return this.s<0},S.isZero=function(){return!!this.c&&0==this.c[0]},S.lessThan=S.lt=function(e,r){return b=6,this.cmp(e,r)<0},S.lessThanOrEqualTo=S.lte=function(e,r){return b=7,r=this.cmp(e,r),-1==r||0===r},S.logarithm=S.log=function(e,r){var t,n,i,s,u,c,f,l,m,d=this,v=d.constructor,y=v.precision,x=v.rounding,E=5;if(null==e)e=new v(10),t=!0;else{if(b=15,e=new v(e,r),n=e.c,e.s<0||!n||!n[0]||!e.e&&1==n[0]&&1==n.length)return new v(0/0);t=e.eq(10)}if(n=d.c,d.s<0||!n||!n[0]||!d.e&&1==n[0]&&1==n.length)return new v(n&&!n[0]?-1/0:1!=d.s?0/0:n?0:1/0);if(u=t&&(s=n[0],n.length>1||1!=s&&10!=s&&100!=s&&1e3!=s&&1e4!=s&&1e5!=s&&1e6!=s),w=!1,f=y+E,l=f+10,c=h(d,f),t?(l>q.length&&p(v,1,l,"log"),i=new v(q.slice(0,l))):i=h(e,f),m=U(c,i,f,1),a(m.c,s=y,x))do if(f+=10,c=h(d,f),t?(l=f+10,l>q.length&&p(v,1,l,"log"),i=new v(q.slice(0,l))):i=h(e,f),m=U(c,i,f,1),!u){+o(m.c).slice(s+1,s+15)+1==1e14&&(m=g(m,y+1,0));break}while(a(m.c,s+=10,x));return w=!0,g(m,y,x)},S.minus=function(e,r){var t,n,i,o,a=this,s=a.constructor,u=a.s;if(b=8,e=new s(e,r),r=e.s,!u||!r)return new s(0/0);if(u!=r)return e.s=-r,a.plus(e);var c=a.c,f=e.c,l=E(e.e/A),p=E(a.e/A),m=s.precision,h=s.rounding;if(!p||!l){if(!c||!f)return c?(e.s=-r,e):new s(f?a:0/0);if(!c[0]||!f[0])return a=f[0]?(e.s=-r,e):new s(c[0]?a:3==h?-0:0),w?g(a,m,h):a}if(c=c.slice(),n=c.length,u=p-l){for((o=0>u)?(u=-u,t=c,n=f.length):(l=p,t=f),(p=Math.ceil(m/A))>n&&(n=p),u>(n+=2)&&(u=n,t.length=1),t.reverse(),r=u;r--;t.push(0));t.reverse()}else for((o=n<(i=f.length))&&(i=n),u=r=0;i>r;r++)if(c[r]!=f[r]){o=c[r]<f[r];break}if(o&&(t=c,c=f,f=t,e.s=-e.s),(r=-((i=c.length)-f.length))>0)for(;r--;c[i++]=0);for(p=_-1,r=f.length;r>u;){if(c[--r]<f[r]){for(n=r;n&&!c[--n];c[n]=p);--c[n],c[r]+=_}c[r]-=f[r]}for(;0==c[--i];c.pop());for(;0==c[0];c.shift(),--l);for(c[0]||(c=[l=0],e.s=3==h?-1:1),e.c=c,u=1,r=c[0];r>=10;r/=10,u++);return e.e=u+l*A-1,w?g(e,m,h):e},S.modulo=S.mod=function(e,r){var t,n,i=this,o=i.constructor,a=o.modulo;return b=9,e=new o(e,r),r=e.s,t=!i.c||!r||e.c&&!e.c[0],t||!e.c||i.c&&!i.c[0]?t?new o(0/0):g(new o(i),o.precision,o.rounding):(w=!1,9==a?(e.s=1,n=U(i,e,0,3,1),e.s=r,n.s*=r):n=U(i,e,0,a,1),n=n.times(e),w=!0,i.minus(n))},S.naturalLogarithm=S.ln=function(){return h(this)},S.negated=S.neg=function(){var e=new this.constructor(this);return e.s=-e.s||null,g(e)},S.plus=function(e,r){var t,n=this,i=n.constructor,o=n.s;if(b=10,e=new i(e,r),r=e.s,!o||!r)return new i(0/0);if(o!=r)return e.s=-r,n.minus(e);var a=n.c,s=e.c,u=E(e.e/A),c=E(n.e/A),f=i.precision,l=i.rounding;if(!c||!u){if(!a||!s)return new i(o/0);if(!a[0]||!s[0])return n=s[0]?e:new i(a[0]?n:0*o),w?g(n,f,l):n}if(a=a.slice(),o=c-u){for(0>o?(o=-o,t=a,r=s.length):(u=c,t=s,r=a.length),(c=Math.ceil(f/A))>r&&(r=c),o>++r&&(o=r,t.length=1),t.reverse();o--;t.push(0));t.reverse()}for(a.length-s.length<0&&(t=s,s=a,a=t),o=s.length,r=0,c=_;o;a[o]%=c)r=(a[--o]=a[o]+s[o]+r)/c|0;for(r&&(a.unshift(r),++u),o=a.length;0==a[--o];a.pop());for(e.c=a,o=1,r=a[0];r>=10;r/=10,o++);return e.e=o+u*A-1,w?g(e,f,l):e},S.precision=S.sd=function(e){var r=null,t=this;return e!=r&&e!==!!e&&1!==e&&0!==e&&p(t.constructor,"argument",e,"precision",1),t.c&&(r=l(t.c),e&&t.e+1>r&&(r=t.e+1)),r},S.round=function(){var e=this,r=e.constructor;return g(new r(e),e.e+1,r.rounding)},S.squareRoot=S.sqrt=function(){var e,r,t,n,i,a,s=this,u=s.c,c=s.s,f=s.e,l=s.constructor,p=new l(.5);if(1!==c||!u||!u[0])return new l(!c||0>c&&(!u||u[0])?0/0:u?s:1/0);for(w=!1,c=Math.sqrt(+s),0==c||c==1/0?(r=o(u),(r.length+f)%2==0&&(r+="0"),c=Math.sqrt(r),f=E((f+1)/2)-(0>f||f%2),c==1/0?r="1e"+f:(r=c.toExponential(),r=r.slice(0,r.indexOf("e")+1)+f),n=new l(r)):n=new l(c.toString()),t=(f=l.precision)+3;;)if(a=n,n=p.times(a.plus(U(s,a,t+2,1))),o(a.c).slice(0,t)===(r=o(n.c)).slice(0,t)){if(r=r.slice(t-3,t+1),"9999"!=r&&(i||"4999"!=r)){(!+r||!+r.slice(1)&&"5"==r.charAt(0))&&(g(n,f+1,1),e=!n.times(n).eq(s));break}if(!i&&(g(a,f+1,0),a.times(a).eq(s))){n=a;break}t+=4,i=1}return w=!0,g(n,f,l.rounding,e)},S.times=function(e,r){var t,n,i=this,o=i.constructor,a=i.c,s=(b=11,e=new o(e,r),e.c),u=E(i.e/A),c=E(e.e/A),f=i.s;if(r=e.s,e.s=f==r?1:-1,!((u||a&&a[0])&&(c||s&&s[0])))return new o(!f||!r||a&&!a[0]&&!s||s&&!s[0]&&!a?0/0:a&&s?0*e.s:e.s/0);for(n=u+c,f=a.length,r=s.length,r>f&&(t=a,a=s,s=t,c=f,f=r,r=c),c=f+r,t=[];c--;t.push(0));for(u=r-1;u>-1;u--){for(r=0,c=f+u;c>u;)r=t[c]+s[u]*a[c-u-1]+r,t[c--]=r%_|0,r=r/_|0;t[c]=(t[c]+r)%_|0}for(r?++n:t[0]||t.shift(),c=t.length;!t[--c];t.pop());for(e.c=t,f=1,r=t[0];r>=10;r/=10,f++);return e.e=f+n*A-1,w?g(e,o.precision,o.rounding):e},S.toDecimalPlaces=S.toDP=function(e,r){var t=this;return t=new t.constructor(t),null!=e&&u(t,e,"toDP")?g(t,(0|e)+t.e+1,s(t,r,"toDP")):t},S.toExponential=function(e,r){var t=this;return t.c?f(t,null!=e&&u(t,e,"toExponential")?0|e:null,null!=e&&s(t,r,"toExponential"),1):t.toString()},S.toFixed=function(e,r){var t,n=this,i=n.constructor,o=i.toExpNeg,a=i.toExpPos;return null!=e&&(e=u(n,e,t="toFixed")?n.e+(0|e):null,r=s(n,r,t)),i.toExpNeg=-(i.toExpPos=1/0),null!=e&&n.c?(t=f(n,e,r),n.s<0&&n.c&&(n.c[0]?t.indexOf("-")<0&&(t="-"+t):t=t.replace("-",""))):t=n.toString(),i.toExpNeg=o,i.toExpPos=a,t},S.toFormat=function(e,r){var t=this;if(!t.c)return t.toString();var n,i=t.s<0,o=t.constructor.format,a=o.groupSeparator,s=+o.groupSize,u=+o.secondaryGroupSize,c=t.toFixed(e,r).split("."),f=c[0],l=c[1],p=i?f.slice(1):f,m=p.length;if(u&&(n=s,s=u,m-=u=n),s>0&&m>0){for(n=m%s||s,f=p.substr(0,n);m>n;n+=s)f+=a+p.substr(n,s);u>0&&(f+=a+p.slice(n)),i&&(f="-"+f)}return l?f+o.decimalSeparator+((u=+o.fractionGroupSize)?l.replace(new RegExp("\\d{"+u+"}\\B","g"),"$&"+o.fractionGroupSeparator):l):f},S.toFraction=function(e){var r,t,n,i,a,s,u,c,f=this,m=f.constructor,h=r=new m(m.ONE),g=s=new m(0),d=f.c,v=new m(g);if(!d)return f.toString();for(n=v.e=l(d)-f.e-1,v.c[0]=N(10,(u=n%A)<0?A+u:u),(null==e||(!(b=12,a=new m(e)).s||(y=a.cmp(h)<0||!a.c)||m.errors&&E(a.e/A)<a.c.length-1)&&!p(m,"max denominator",e,"toFraction",0)||(e=a).cmp(v)>0)&&(e=n>0?v:h),w=!1,a=new m(o(d)),u=m.precision,m.precision=n=d.length*A*2;c=U(a,v,0,1,1),t=r.plus(c.times(g)),1!=t.cmp(e);)r=g,g=t,h=s.plus(c.times(t=h)),s=t,v=a.minus(c.times(t=v)),a=t;return t=U(e.minus(r),g,0,1,1),s=s.plus(t.times(h)),r=r.plus(t.times(g)),s.s=h.s=f.s,i=U(h,g,n,1).minus(f).abs().cmp(U(s,r,n,1).minus(f).abs())<1?[h+"",g+""]:[s+"",r+""],w=!0,m.precision=u,i},S.toNearest=function(e,r){var t=this,n=t.constructor;return t=new n(t),null==e?(e=new n(n.ONE),r=n.rounding):(b=17,e=new n(e),r=s(t,r,"toNearest")),e.c?t.c&&(e.c[0]?(w=!1,t=U(t,e,0,4>r?[4,5,7,8][r]:r,1).times(e),w=!0,g(t)):t.c=[t.e=0]):t.s&&(e.s&&(e.s=t.s),t=e),t},S.toNumber=function(){var e=this;return+e||(e.s?0*e.s:0/0)},S.toPower=S.pow=function(e,r){var t,n,i,s,u=this,f=u.constructor,l=u.s,p=(b=13,+(e=new f(e,r))),d=0>p?-p:p,v=f.precision,y=f.rounding;if(!u.c||!e.c||(i=!u.c[0])||!e.c[0])return new f(N(i?0*l:+u,p));if(u=new f(u),t=u.c.length,!u.e&&u.c[0]==u.s&&1==t)return u;
 
     if(r=e.c.length-1,e.e||e.c[0]!=e.s||r)if(n=E(e.e/A),i=n>=r,!i&&0>l)s=new f(0/0);else{if(i&&C>t*A*d){if(s=m(f,u,d),e.s<0)return f.ONE.div(s)}else{if(l=0>l&&1&e.c[Math.max(n,r)]?-1:1,r=N(+u,p),n=0!=r&&isFinite(r)?new f(r+"").e:E(p*(Math.log("0."+o(u.c))/Math.LN10+u.e+1)),n>f.maxE+1||n<f.minE-1)return new f(n>0?l/0:0);w=!1,f.rounding=u.s=1,d=Math.min(12,(n+"").length),s=c(e.times(h(u,v+d)),v),s=g(s,v+5,1),a(s.c,v,y)&&(n=v+10,s=g(c(e.times(h(u,n+d)),n),n+5,1),+o(s.c).slice(v+1,v+15)+1==1e14&&(s=g(s,v+1,0))),s.s=l,w=!0,f.rounding=y}s=g(s,v,y)}else s=g(u,v,y);return s},S.toPrecision=function(e,r){var t=this;return null!=e&&u(t,e,"toPrecision",1)&&t.c?f(t,0|--e,s(t,r,"toPrecision"),2):t.toString()},S.toSignificantDigits=S.toSD=function(e,r){var t=this,n=t.constructor;return t=new n(t),null!=e&&u(t,e,"toSD",1)?g(t,0|e,s(t,r,"toSD")):g(t,n.precision,n.rounding)},S.toString=function(e){var r,t,n,i=this,a=i.constructor,s=i.e;if(null===s)t=i.s?"Infinity":"NaN";else{if(e===r&&(s<=a.toExpNeg||s>=a.toExpPos))return f(i,null,a.rounding,1);if(t=o(i.c),0>s){for(;++s;t="0"+t);t="0."+t}else if(n=t.length,s>0)if(++s>n)for(s-=n;s--;t+="0");else n>s&&(t=t.slice(0,s)+"."+t.slice(s));else if(r=t.charAt(0),n>1)t=r+"."+t.slice(1);else if("0"==r)return r;if(null!=e)if((y=!(e>=2&&65>e))||e!=(0|e)&&a.errors)p(a,"base",e,"toString",0);else if(t=d(a,t,0|e,10,i.s),"0"==t)return t}return i.s<0?"-"+t:t},S.truncated=S.trunc=function(){return g(new this.constructor(this),this.e+1,1)},S.valueOf=S.toJSON=function(){return this.toString()},d=function(){function e(e,r,t){for(var n,i,o=[0],a=0,s=e.length;s>a;){for(i=o.length;i--;o[i]*=r);for(o[n=0]+=T.indexOf(e.charAt(a++));n<o.length;n++)o[n]>t-1&&(null==o[n+1]&&(o[n+1]=0),o[n+1]+=o[n]/t|0,o[n]%=t)}return o.reverse()}return function(r,t,n,i,o){var a,s,u,c,f,l,p=t.indexOf("."),h=r.precision,g=r.rounding;for(37>i&&(t=t.toLowerCase()),p>=0&&(t=t.replace(".",""),l=new r(i),c=m(r,l,t.length-p),l.c=e(c.toFixed(),10,n),l.e=l.c.length),f=e(t,i,n),a=s=f.length;0==f[--s];f.pop());if(!f[0])return"0";if(0>p?a--:(c.c=f,c.e=a,c.s=o,c=U(c,l,h,g,0,n),f=c.c,u=c.r,a=c.e),p=f[h],s=n/2,u=u||null!=f[h+1],4>g?(null!=p||u)&&(0==g||g==(c.s<0?3:2)):p>s||p==s&&(4==g||u||6==g&&1&f[h-1]||g==(c.s<0?8:7)))for(f.length=h,--n;++f[--h]>n;)f[h]=0,h||(++a,f.unshift(1));else f.length=h;for(s=f.length;!f[--s];);for(p=0,t="";s>=p;t+=T.charAt(f[p++]));if(0>a){for(;++a;t="0"+t);t="0."+t}else if(p=t.length,++a>p)for(a-=p;a--;t+="0");else p>a&&(t=t.slice(0,a)+"."+t.slice(a));return t}}();var U=function(){function e(e,r,t){var n,i=0,o=e.length;for(e=e.slice();o--;)n=e[o]*r+i,e[o]=n%t|0,i=n/t|0;return i&&e.unshift(i),e}function r(e,r,t,n){var i,o;if(t!=n)o=t>n?1:-1;else for(i=o=0;t>i;i++)if(e[i]!=r[i]){o=e[i]>r[i]?1:-1;break}return o}function t(e,r,t,n){for(var i=0;t--;)e[t]-=i,i=e[t]<r[t]?1:0,e[t]=i*n+e[t]-r[t];for(;!e[0]&&e.length>1;e.shift());}return function(n,i,o,a,s,u){var c,f,l,p,m,h,d,v,y,x,w,b,N,M,T,S,O,z,C,q=n.constructor,U=n.s==i.s?1:-1,B=n.c,I=i.c;if(!(B&&B[0]&&I&&I[0]))return new q(n.s&&i.s&&(B?!I||B[0]!=I[0]:I)?B&&0==B[0]||!I?0*U:U/0:0/0);for(u?(p=1,f=n.e-i.e):(u=_,p=A,f=E(n.e/p)-E(i.e/p)),z=I.length,S=B.length,y=new q(U),x=y.c=[],l=0;I[l]==(B[l]||0);l++);if(I[l]>(B[l]||0)&&f--,null==o?(U=o=q.precision,a=q.rounding):U=s?o+(n.e-i.e)+1:o,0>U)x.push(1),m=!0;else{if(U=U/p+2|0,l=0,1==z){for(h=0,I=I[0],U++;(S>l||h)&&U--;l++)M=h*u+(B[l]||0),x[l]=M/I|0,h=M%I|0;m=h||S>l}else{for(h=u/(I[0]+1)|0,h>1&&(I=e(I,h,u),B=e(B,h,u),z=I.length,S=B.length),T=z,w=B.slice(0,z),b=w.length;z>b;w[b++]=0);C=I.slice(),C.unshift(0),O=I[0],I[1]>=u/2&&O++;do h=0,c=r(I,w,z,b),0>c?(N=w[0],z!=b&&(N=N*u+(w[1]||0)),h=N/O|0,h>1?(h>=u&&(h=u-1),d=e(I,h,u),v=d.length,b=w.length,c=r(d,w,v,b),1==c&&(h--,t(d,v>z?C:I,v,u))):(0==h&&(c=h=1),d=I.slice()),v=d.length,b>v&&d.unshift(0),t(w,d,b,u),-1==c&&(b=w.length,c=r(I,w,z,b),1>c&&(h++,t(w,b>z?C:I,b,u))),b=w.length):0===c&&(h++,w=[0]),x[l++]=h,c&&w[0]?w[b++]=B[T]||0:(w=[B[T]],b=1);while((T++<S||null!=w[0])&&U--);m=null!=w[0]}x[0]||x.shift()}if(1==p)y.e=f,y.r=+m;else{for(l=1,U=x[0];U>=10;U/=10,l++);y.e=l+f*p-1,g(y,s?o+y.e+1:o,a,m)}return y}}();v=function(){function e(e){var r,t,n,i=this,o="config",a=i.errors?parseInt:parseFloat;return e==t||"object"!=typeof e&&!p(i,"object expected",e,o)?i:((n=e[r="precision"])!=t&&((y=1>n||n>z)||a(n)!=n?p(i,r,n,o,0):i[r]=0|n),(n=e[r="rounding"])!=t&&((y=0>n||n>8)||a(n)!=n?p(i,r,n,o,0):i[r]=0|n),(n=e[r="toExpNeg"])!=t&&((y=-O>n||n>0)||a(n)!=n?p(i,r,n,o,0):i[r]=E(n)),(n=e[r="toExpPos"])!=t&&((y=0>n||n>O)||a(n)!=n?p(i,r,n,o,0):i[r]=E(n)),(n=e[r="minE"])!=t&&((y=-O>n||n>0)||a(n)!=n?p(i,r,n,o,0):i[r]=E(n)),(n=e[r="maxE"])!=t&&((y=0>n||n>O)||a(n)!=n?p(i,r,n,o,0):i[r]=E(n)),(n=e[r="errors"])!=t&&(n===!!n||1===n||0===n?(y=b=0,i[r]=!!n):p(i,r,n,o,1)),(n=e[r="crypto"])!=t&&(n===!!n||1===n||0===n?i[r]=!(!n||!x||"object"!=typeof x):p(i,r,n,o,1)),(n=e[r="modulo"])!=t&&((y=0>n||n>9)||a(n)!=n?p(i,r,n,o,0):i[r]=0|n),(e=e[r="format"])!=t&&("object"==typeof e?i[r]=e:p(i,"format object expected",e,o)),i)}function r(e){return new this(e).exp()}function t(e){return new this(e).ln()}function n(e,r){return new this(e).log(r)}function i(e,r,t){var n,i,o=0;for("[object Array]"==M.call(r[0])&&(r=r[0]),n=new e(r[0]);++o<r.length;){if(i=new e(r[o]),!i.s){n=i;break}n[t](i)&&(n=i)}return n}function o(){return i(this,arguments,"lt")}function a(){return i(this,arguments,"gt")}function s(e,r){return new this(e).pow(r)}function c(e){var r,t,n,i=0,o=[],a=this,s=new a(a.ONE);if(null!=e&&u(s,e,"random")?e|=0:e=a.precision,t=Math.ceil(e/A),a.crypto)if(x&&x.getRandomValues)for(r=x.getRandomValues(new Uint32Array(t));t>i;)n=r[i],n>=429e7?r[i]=x.getRandomValues(new Uint32Array(1))[0]:o[i++]=n%1e7;else if(x&&x.randomBytes){for(r=x.randomBytes(t*=4);t>i;)n=r[i]+(r[i+1]<<8)+(r[i+2]<<16)+((127&r[i+3])<<24),n>=214e7?x.randomBytes(4).copy(r,i):(o.push(n%1e7),i+=4);i=t/4}else p(a,"crypto unavailable",x,"random");if(!i)for(;t>i;)o[i++]=1e7*Math.random()|0;for(t=o[--i],e%=A,t&&e&&(n=N(10,A-e),o[i]=(t/n|0)*n);0===o[i];i--)o.pop();if(0>i)o=[t=0];else{for(t=-1;0===o[0];)o.shift(),t-=A;for(i=1,n=o[0];n>=10;)n/=10,i++;A>i&&(t-=A-i)}return s.e=t,s.c=o,s}function f(e){return new this(e).sqrt()}function l(i){function u(e,r){var t=this;if(!(t instanceof u))return p(u,"Decimal called without new",e),new u(e,r);if(t.constructor=u,e instanceof u){if(null==r)return b=0,t.s=e.s,t.e=e.e,t.c=(e=e.c)?e.slice():e,t;if(10==r)return g(new u(e),u.precision,u.rounding);e+=""}return m(u,t,e,r)}return u.precision=20,u.rounding=4,u.modulo=1,u.toExpNeg=-7,u.toExpPos=21,u.minE=-O,u.maxE=O,u.errors=!0,u.crypto=!1,u.format={decimalSeparator:".",groupSeparator:",",groupSize:3,secondaryGroupSize:0,fractionGroupSeparator:" ",fractionGroupSize:0},u.prototype=S,u.ONE=new u(1),u.ROUND_UP=0,u.ROUND_DOWN=1,u.ROUND_CEIL=2,u.ROUND_FLOOR=3,u.ROUND_HALF_UP=4,u.ROUND_HALF_DOWN=5,u.ROUND_HALF_EVEN=6,u.ROUND_HALF_CEIL=7,u.ROUND_HALF_FLOOR=8,u.EUCLID=9,u.config=e,u.constructor=l,u.exp=r,u.ln=t,u.log=n,u.max=o,u.min=a,u.pow=s,u.sqrt=f,u.random=c,null!=i&&u.config(i),u}var m=function(){var e=/^-?(\d+(\.\d*)?|\.\d+)(e[+-]?\d+)?$/i,r=String.prototype.trim||function(){return this.replace(/^\s+|\s+$/g,"")};return function(t,n,i,o){var a,s,u,c,f,l;if("string"!=typeof i&&(i=(c="number"==typeof i||"[object Number]"==M.call(i))&&0===i&&0>1/i?"-0":i+""),f=i,null==o&&e.test(i))n.s=45===i.charCodeAt(0)?(i=i.slice(1),-1):1;else{if(10==o)return g(new t(i),t.precision,t.rounding);if(i=r.call(i).replace(/^\+(?!-)/,""),n.s=45===i.charCodeAt(0)?(i=i.replace(/^-(?!-)/,""),-1):1,null!=o?o!=(0|o)&&t.errors||(y=!(o>=2&&65>o))?(p(t,"base",o,0,0),l=e.test(i)):(a="["+T.slice(0,o=0|o)+"]+",i=i.replace(/\.$/,"").replace(/^\./,"0."),(l=new RegExp("^"+a+"(?:\\."+a+")?$",37>o?"i":"").test(i))?(c&&(i.replace(/^0\.0*|\./,"").length>15&&p(t,0,f),c=!c),i=d(t,i,10,o,n.s)):"Infinity"!=i&&"NaN"!=i&&(p(t,"not a base "+o+" number",f),i="NaN")):l=e.test(i),!l)return n.c=n.e=null,"Infinity"!=i&&("NaN"!=i&&p(t,"not a number",f),n.s=null),b=0,n}for((s=i.indexOf("."))>-1&&(i=i.replace(".","")),(u=i.search(/e/i))>0?(0>s&&(s=u),s+=+i.slice(u+1),i=i.substring(0,u)):0>s&&(s=i.length),u=0;48===i.charCodeAt(u);u++);for(o=i.length;48===i.charCodeAt(--o););if(i=i.slice(u,o+1)){if(o=i.length,c&&o>15&&p(t,0,f),n.e=s=s-u-1,n.c=[],u=(s+1)%A,0>s&&(u+=A),o>u){for(u&&n.c.push(+i.slice(0,u)),o-=A;o>u;)n.c.push(+i.slice(u,u+=A));i=i.slice(u),u=A-i.length}else u-=o;for(;u--;i+="0");n.c.push(+i),w&&(n.e>t.maxE?n.c=n.e=null:n.e<t.minE&&(n.c=[n.e=0]))}else n.c=[n.e=0];return b=0,n}}();return l()}(),n=function(){return v}.call(r,t,r,e),!(void 0!==n&&(e.exports=n))}(this)},function(e,r,t){"use strict";e.exports={end:!0}},function(e,r,t){"use strict";function n(e){for(var r=e.getIdentifier(),t=0;t<a.length;t++)if(r in a[t])return t;return null}function i(e){var r=e.getIdentifier(),t=n(e);if(null===t)return null;var i=a[t][r];if(i.hasOwnProperty("associativity")){if("left"===i.associativity)return"left";if("right"===i.associativity)return"right";throw Error("'"+r+"' has the invalid associativity '"+i.associativity+"'.")}return null}function o(e,r){var t=e.getIdentifier(),i=r.getIdentifier(),o=n(e);if(null===o)return null;var s=a[o][t];if(s.hasOwnProperty("associativeWith")&&s.associativeWith instanceof Array){for(var u=0;u<s.associativeWith.length;u++)if(s.associativeWith[u]===i)return!0;return!1}return null}var a=[{AssignmentNode:{},FunctionAssignmentNode:{}},{ConditionalNode:{latexLeftParens:!1,latexRightParens:!1,latexParens:!1}},{"OperatorNode:or":{associativity:"left",associativeWith:[]}},{"OperatorNode:xor":{associativity:"left",associativeWith:[]}},{"OperatorNode:and":{associativity:"left",associativeWith:[]}},{"OperatorNode:bitOr":{associativity:"left",associativeWith:[]}},{"OperatorNode:bitXor":{associativity:"left",associativeWith:[]}},{"OperatorNode:bitAnd":{associativity:"left",associativeWith:[]}},{"OperatorNode:equal":{associativity:"left",associativeWith:[]},"OperatorNode:unequal":{associativity:"left",associativeWith:[]},"OperatorNode:smaller":{associativity:"left",associativeWith:[]},"OperatorNode:larger":{associativity:"left",associativeWith:[]},"OperatorNode:smallerEq":{associativity:"left",associativeWith:[]},"OperatorNode:largerEq":{associativity:"left",associativeWith:[]}},{"OperatorNode:leftShift":{associativity:"left",associativeWith:[]},"OperatorNode:rightArithShift":{associativity:"left",associativeWith:[]},"OperatorNode:rightLogShift":{associativity:"left",associativeWith:[]}},{"OperatorNode:to":{associativity:"left",associativeWith:[]}},{RangeNode:{}},{"OperatorNode:add":{associativity:"left",associativeWith:["OperatorNode:add","OperatorNode:subtract"]},"OperatorNode:subtract":{associativity:"left",associativeWith:[]}},{"OperatorNode:multiply":{associativity:"left",associativeWith:["OperatorNode:multiply","OperatorNode:divide","Operator:dotMultiply","Operator:dotDivide"]},"OperatorNode:divide":{associativity:"left",associativeWith:[],latexLeftParens:!1,latexRightParens:!1,latexParens:!1},"OperatorNode:dotMultiply":{associativity:"left",associativeWith:["OperatorNode:multiply","OperatorNode:divide","OperatorNode:dotMultiply","OperatorNode:doDivide"]},"OperatorNode:dotDivide":{associativity:"left",associativeWith:[]},"OperatorNode:mod":{associativity:"left",associativeWith:[]}},{"OperatorNode:unaryPlus":{associativity:"right"},"OperatorNode:unaryMinus":{associativity:"right"},"OperatorNode:bitNot":{associativity:"right"},"OperatorNode:not":{associativity:"right"}},{"OperatorNode:pow":{associativity:"right",associativeWith:[],latexRightParens:!1},"OperatorNode:dotPow":{associativity:"right",associativeWith:[]}},{"OperatorNode:factorial":{associativity:"left"}},{"OperatorNode:transpose":{associativity:"left"}}];e.exports.properties=a,e.exports.getPrecedence=n,e.exports.getAssociativity=i,e.exports.isAssociativeWith=o},function(e,r,t){"use strict";function n(e,r,t){return e=e.replace(/%name%/g,r),t.forEach(function(r,t){e=e.replace(RegExp("%"+t+"%","g"),r)}),e=e.replace("%*%",t.map(function(e){return e}).join(",")),e=e.replace("%%","%")}r.symbols={Alpha:"A",alpha:"\\alpha",Beta:"B",beta:"\\beta",Gamma:"\\Gamma",gamma:"\\gamma",Delta:"\\Delta",delta:"\\delta",Epsilon:"E",epsilon:"\\epsilon",varepsilon:"\\varepsilon",Zeta:"Z",zeta:"\\zeta",Eta:"H",eta:"\\eta",Theta:"\\Theta",theta:"\\theta",vartheta:"\\vartheta",Iota:"I",iota:"\\iota",Kappa:"K",kappa:"\\kappa",varkappa:"\\varkappa",Lambda:"\\Lambda",lambda:"\\lambda",Mu:"M",mu:"\\mu",Nu:"N",nu:"\\nu",Xi:"\\Xi",xi:"\\xi",Omicron:"O",omicron:"o",Pi:"\\Pi",pi:"\\pi",varpi:"\\varpi",Rho:"P",rho:"\\rho",varrho:"\\varrho",Sigma:"\\Sigma",sigma:"\\sigma",varsigma:"\\varsigma",Tau:"T",tau:"\\tau",Upsilon:"\\Upsilon",upsilon:"\\upsilon",Phi:"\\Phi",phi:"\\phi",varphi:"\\varphi",Chi:"X",chi:"\\chi",Psi:"\\Psi",psi:"\\psi",Omega:"\\Omega",omega:"\\omega","true":"\\mathrm{True}","false":"\\mathrm{False}",i:"i",inf:"\\infty",Inf:"\\infty",infinity:"\\infty",Infinity:"\\infty",oo:"\\infty",lim:"\\lim",undefined:"\\mathbf{?}"},r.operators={transpose:"^\\top",factorial:"!",pow:"^",dotPow:".^\\wedge",unaryPlus:"+",unaryMinus:"-",bitNot:"~",not:"\\neg",multiply:"\\cdot",divide:"\\frac",dotMultiply:".\\cdot",dotDivide:".:",mod:"\\mod",add:"+",subtract:"-",to:"\\rightarrow",leftShift:"<<",rightArithShift:">>",rightLogShift:">>>",equal:"=",unequal:"\\neq",smaller:"<",larger:">",smallerEq:"\\leq",largerEq:"\\geq",bitAnd:"\\&",bitXor:"\\underline{|}",bitOr:"|",and:"\\wedge",xor:"\\veebar",or:"\\vee"};var i="\\mathrm{%name%}\\left(%*%\\right)",o={abs:"\\left|%0%\\right|",add:"\\left(%0%+%1%\\right)",ceil:"\\left\\lceil%0%\\right\\rceil",cube:"\\left(%0%\\right)^3",divide:"\\frac{%0%}{%1%}",dotDivide:"\\left(%0%"+r.operators.dotDivide+"%1%\\right)",dotMultiply:"\\left(%0%"+r.operators.dotMultiply+"%1%\\right)",dotPow:"\\left(%0%"+r.operators.dotPow+"%1%\\right)",exp:"\\exp\\left(%0%\\right)",fix:i,floor:"\\left\\lfloor%0%\\right\\rfloor",gcd:"\\gcd\\left(%*%\\right)",lcm:i,log10:"\\log_{10}\\left(%0%\\right)",log:{1:"\\ln\\left(%0%\\right)",2:"\\log_{%1%}\\left(%0%\\right)"},mod:"\\left(%0%"+r.operators.mod+"%1%\\right)",multiply:"\\left(%0%"+r.operators.multiply+"%1%\\right)",norm:{1:"\\left\\|%0%\\right\\|",2:i},nthRoot:"\\sqrt[%1%]{%0%}",pow:"\\left(%0%\\right)"+r.operators.pow+"{%1%}",round:{1:"\\left\\lfloor%0%\\right\\rceil",2:i},sign:i,sqrt:"\\sqrt{%0%}",square:"\\left(%0%\\right)^2",subtract:"\\left(%0%"+r.operators.subtract+"%1%\\right)",unaryMinus:r.operators.unaryMinus+"\\left(%0%\\right)",unaryPlus:r.operators.unaryPlus+"\\left(%0%\\right)",xgcd:i,bitAnd:"\\left(%0%"+r.operators.bitAnd+"%1%\\right)",bitOr:"\\left(%0%"+r.operators.bitOr+"%1%\\right)",bitXor:"\\left(%0%"+r.operators.bitXor+"%1%\\right)",bitNot:r.operators.bitNot+"\\left(%0%\\right)",leftShift:"\\left(%0%"+r.operators.leftShift+"%1%\\right)",rightArithShift:"\\left(%0%"+r.operators.rightArithShift+"%1%\\right)",rightLogShift:"\\left(%0%"+r.operators.rightLogShift+"%1%\\right)",arg:"\\arg\\left(%0%\\right)",conj:"\\left(%0%\\right)^*",im:"\\Im\\left\\lbrace%0%\\right\\rbrace",re:"\\Re\\left\\lbrace%0%\\right\\rbrace",bignumber:{0:"0",1:"\\left(%0%\\right)"},"boolean":i,chain:i,complex:{0:"0",1:"\\left(%0%\\right)",2:"\\left(\\left(%0%\\right)+"+r.symbols.i+"\\cdot\\left(%1%\\right)\\right)"},index:i,matrix:{0:"\\begin{bmatrix}\\end{bmatrix}",1:"\\left(%0%\\right)",2:"\\left(%0%\\right)"},number:{0:"0",1:"\\left(%0%\\right)",2:"\\left(\\left(%0%\\right)%1%\\right)"},parser:i,string:{0:'""',1:function(e){return'"'+e.args[0].toString()+'"'}},unit:{1:"\\left(%0%\\right)",2:"\\left(\\left(%0%\\right)%1%\\right)"},compile:i,eval:i,help:i,parse:i,and:"\\left(%0%"+r.operators.and+"%1%\\right)",not:r.operators.not+"\\left(%0%\\right)",or:"\\left(%0%"+r.operators.or+"%1%\\right)",xor:"\\left(%0%"+r.operators.xor+"%1%\\right)",concat:i,cross:"\\left(%0%\\right)\\times\\left(%1%\\right)",det:"\\det\\left(%0%\\right)",diag:i,dot:"\\left(%0%\\cdot%1%\\right)",eye:i,flatten:i,inv:"\\left(%0%\\right)^{-1}",ones:i,range:i,resize:i,size:i,squeeze:i,subset:i,trace:"\\mathrm{tr}\\left(%0%\\right)",transpose:"\\left(%0%\\right)"+r.operators.transpose,zeros:i,combinations:"\\binom{%0%}{%1%}",distribution:i,factorial:"\\left(%0%\\right)"+r.operators.factorial,gamma:"\\Gamma\\left(%0%\\right)",permutations:i,pickRandom:i,randomInt:i,random:i,compare:i,deepEqual:i,equal:"\\left(%0%"+r.operators.equal+"%1%\\right)",largerEq:"\\left(%0%"+r.operators.largerEq+"%1%\\right)",larger:"\\left(%0%"+r.operators.larger+"%1%\\right)",smallerEq:"\\left(%0%"+r.operators.smallerEq+"%1%\\right)",smaller:"\\left(%0%"+r.operators.smaller+"%1%\\right)",unequal:"\\left(%0%"+r.operators.unequal+"%1%\\right)",max:"\\max\\left(%*%\\right)",mean:i,median:i,min:"\\min\\left(%*%\\right)",prod:i,std:i,sum:i,"var":"\\mathrm{Var}\\left(%*%\\right)",acosh:"\\cosh^{-1}\\left(%0%\\right)",acos:"\\cos^{-1}\\left(%0%\\right)",acoth:"\\coth^{-1}\\left(%0%\\right)",acot:"\\cot^{-1}\\left(%0%\\right)",acsch:"\\mathrm{csch}^{-1}\\left(%0%\\right)",acsc:"\\csc^{-1}\\left(%0%\\right)",asech:"\\mathrm{sech}^{-1}\\left(%0%\\right)",asec:"\\sec^{-1}\\left(%0%\\right)",asinh:"\\sinh^{-1}\\left(%0%\\right)",asin:"\\sin^{-1}\\left(%0%\\right)",atan2:"\\mathrm{atan2}\\left(%*%\\right)",atanh:"\\tanh^{-1}\\left(%0%\\right)",atan:"\\tan^{-1}\\left(%0%\\right)",cosh:"\\cosh\\left(%0%\\right)",cos:"\\cos\\left(%0%\\right)",coth:"\\coth\\left(%0%\\right)",cot:"\\cot\\left(%0%\\right)",csch:"\\mathrm{csch}\\left(%0%\\right)",csc:"\\csc\\left(%0%\\right)",sech:"\\mathrm{sech}\\left(%0%\\right)",sec:"\\sec\\left(%0%\\right)",sinh:"\\sinh\\left(%0%\\right)",sin:"\\sin\\left(%0%\\right)",tanh:"\\tanh\\left(%0%\\right)",tan:"\\tan\\left(%0%\\right)",to:"\\left(%0%"+r.operators.to+"%1%\\right)",clone:i,filter:i,forEach:i,format:i,"import":i,map:i,print:i,sort:i,"typeof":i},a={deg:"^\\circ"};r.toSymbol=function(e){if(a.hasOwnProperty(e))return a[e];if(r.symbols.hasOwnProperty(e))return r.symbols[e];if(-1!==e.indexOf("_")){var t=e.indexOf("_");return r.toSymbol(e.substring(0,t))+"_{"+r.toSymbol(e.substring(t+1))+"}"}return"\\mathrm{"+e+"}"},r.toFunction=function(e,r,t){var a=o[t],s=e.args.map(function(e){return e.toTex(r)});switch(typeof a){case"function":return a(e,r);case"string":return n(a,t,s);case"object":switch(typeof a[s.length]){case"function":return a[s.length](e,r);case"string":return n(a[s.length],t,s)}default:return n(i,t,s)}}}])});
+;/*!
+ * Particleground
+ *
+ * @author Jonathan Nicol - @mrjnicol
+ * @version 1.1.0
+ * @description Creates a canvas based particle system background
+ *
+ * Inspired by http://requestlab.fr/ and http://disruptivebydesign.com/
+ */
+
+;(function(window, document) {
+  "use strict";
+  var pluginName = 'particleground';
+
+  // http://youmightnotneedjquery.com/#deep_extend
+  function extend(out) {
+    out = out || {};
+    for (var i = 1; i < arguments.length; i++) {
+      var obj = arguments[i];
+      if (!obj) continue;
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          if (typeof obj[key] === 'object')
+            deepExtend(out[key], obj[key]);
+          else
+            out[key] = obj[key];
+        }
+      }
+    }
+    return out;
+  };
+
+  var $ = window.jQuery;
+
+  function Plugin(element, options) {
+    var canvasSupport = !!document.createElement('canvas').getContext;
+    var canvas;
+    var ctx;
+    var particles = [];
+    var raf;
+    var mouseX = 0;
+    var mouseY = 0;
+    var winW;
+    var winH;
+    var desktop = !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i);
+    var orientationSupport = !!window.DeviceOrientationEvent;
+    var tiltX = 0;
+    var pointerX;
+    var pointerY;
+    var tiltY = 0;
+    var paused = false;
+
+    options = extend({}, window[pluginName].defaults, options);
+
+    /**
+     * Init
+     */
+    function init() {
+      if (!canvasSupport) { return; }
+
+      //Create canvas
+      canvas = document.createElement('canvas');
+      canvas.className = 'pg-canvas';
+      canvas.style.display = 'block';
+      element.insertBefore(canvas, element.firstChild);
+      ctx = canvas.getContext('2d');
+      styleCanvas();
+
+      // Create particles
+      var numParticles = Math.round((canvas.width * canvas.height) / options.density);
+      for (var i = 0; i < numParticles; i++) {
+        var p = new Particle();
+        p.setStackPos(i);
+        particles.push(p);
+      };
+
+      window.addEventListener('resize', function() {
+        resizeHandler();
+      }, false);
+
+      document.addEventListener('mousemove', function(e) {
+        mouseX = e.pageX;
+        mouseY = e.pageY;
+      }, false);
+
+      if (orientationSupport && !desktop) {
+        window.addEventListener('deviceorientation', function () {
+          // Contrain tilt range to [-30,30]
+          tiltY = Math.min(Math.max(-event.beta, -30), 30);
+          tiltX = Math.min(Math.max(-event.gamma, -30), 30);
+        }, true);
+      }
+
+      draw();
+      hook('onInit');
+    }
+
+    /**
+     * Style the canvas
+     */
+    function styleCanvas() {
+      canvas.width = element.offsetWidth;
+      canvas.height = element.offsetHeight;
+      ctx.fillStyle = options.dotColor;
+      ctx.strokeStyle = options.lineColor;
+      ctx.lineWidth = options.lineWidth;
+    }
+
+    /**
+     * Draw particles
+     */
+    function draw() {
+      if (!canvasSupport) { return; }
+
+      winW = window.innerWidth;
+      winH = window.innerHeight;
+
+      // Wipe canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Update particle positions
+      for (var i = 0; i < particles.length; i++) {
+        particles[i].updatePosition();
+      };
+      // Draw particles
+      for (var i = 0; i < particles.length; i++) {
+        particles[i].draw();
+      };
+
+      // Call this function next time screen is redrawn
+      if (!paused) {
+        raf = requestAnimationFrame(draw);
+      }
+    }
+
+    /**
+     * Add/remove particles.
+     */
+    function resizeHandler() {
+      // Resize the canvas
+      styleCanvas();
+
+      var elWidth = element.offsetWidth;
+      var elHeight = element.offsetHeight;
+
+      // Remove particles that are outside the canvas
+      for (var i = particles.length - 1; i >= 0; i--) {
+        if (particles[i].position.x > elWidth || particles[i].position.y > elHeight) {
+          particles.splice(i, 1);
+        }
+      };
+
+      // Adjust particle density
+      var numParticles = Math.round((canvas.width * canvas.height) / options.density);
+      if (numParticles > particles.length) {
+        while (numParticles > particles.length) {
+          var p = new Particle();
+          particles.push(p);
+        }
+      } else if (numParticles < particles.length) {
+        particles.splice(numParticles);
+      }
+
+      // Re-index particles
+      for (i = particles.length - 1; i >= 0; i--) {
+        particles[i].setStackPos(i);
+      };
+    }
+
+    /**
+     * Pause particle system
+     */
+    function pause() {
+      paused = true;
+    }
+
+    /**
+     * Start particle system
+     */
+    function start() {
+      paused = false;
+      draw();
+    }
+
+    /**
+     * Particle
+     */
+    function Particle() {
+      this.stackPos;
+      this.active = true;
+      this.layer = Math.ceil(Math.random() * 3);
+      this.parallaxOffsetX = 0;
+      this.parallaxOffsetY = 0;
+      // Initial particle position
+      this.position = {
+        x: Math.ceil(Math.random() * canvas.width),
+        y: Math.ceil(Math.random() * canvas.height)
+      }
+      // Random particle speed, within min and max values
+      this.speed = {}
+      switch (options.directionX) {
+        case 'left':
+          this.speed.x = +(-options.maxSpeedX + (Math.random() * options.maxSpeedX) - options.minSpeedX).toFixed(2);
+          break;
+        case 'right':
+          this.speed.x = +((Math.random() * options.maxSpeedX) + options.minSpeedX).toFixed(2);
+          break;
+        default:
+          this.speed.x = +((-options.maxSpeedX / 2) + (Math.random() * options.maxSpeedX)).toFixed(2);
+          this.speed.x += this.speed.x > 0 ? options.minSpeedX : -options.minSpeedX;
+          break;
+      }
+      switch (options.directionY) {
+        case 'up':
+          this.speed.y = +(-options.maxSpeedY + (Math.random() * options.maxSpeedY) - options.minSpeedY).toFixed(2);
+          break;
+        case 'down':
+          this.speed.y = +((Math.random() * options.maxSpeedY) + options.minSpeedY).toFixed(2);
+          break;
+        default:
+          this.speed.y = +((-options.maxSpeedY / 2) + (Math.random() * options.maxSpeedY)).toFixed(2);
+          this.speed.x += this.speed.y > 0 ? options.minSpeedY : -options.minSpeedY;
+          break;
+      }
+    }
+
+    /**
+     * Draw particle
+     */
+    Particle.prototype.draw = function() {
+      // Draw circle
+      ctx.beginPath();
+      ctx.arc(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY, options.particleRadius / 2, 0, Math.PI * 2, true);
+      ctx.closePath();
+      ctx.fill();
+
+      // Draw lines
+      ctx.beginPath();
+      // Iterate over all particles which are higher in the stack than this one
+      for (var i = particles.length - 1; i > this.stackPos; i--) {
+        var p2 = particles[i];
+
+        // Pythagorus theorum to get distance between two points
+        var a = this.position.x - p2.position.x
+        var b = this.position.y - p2.position.y
+        var dist = Math.sqrt((a * a) + (b * b)).toFixed(2);
+
+        // If the two particles are in proximity, join them
+        if (dist < options.proximity) {
+          ctx.moveTo(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY);
+          if (options.curvedLines) {
+            ctx.quadraticCurveTo(Math.max(p2.position.x, p2.position.x), Math.min(p2.position.y, p2.position.y), p2.position.x + p2.parallaxOffsetX, p2.position.y + p2.parallaxOffsetY);
+          } else {
+            ctx.lineTo(p2.position.x + p2.parallaxOffsetX, p2.position.y + p2.parallaxOffsetY);
+          }
+        }
+      }
+      ctx.stroke();
+      ctx.closePath();
+    }
+
+    /**
+     * update particle position
+     */
+    Particle.prototype.updatePosition = function() {
+      if (options.parallax) {
+        if (orientationSupport && !desktop) {
+          // Map tiltX range [-30,30] to range [0,winW]
+          var ratioX = (winW - 0) / (30 - -30);
+          pointerX = (tiltX - -30) * ratioX + 0;
+          // Map tiltY range [-30,30] to range [0,winH]
+          var ratioY = (winH - 0) / (30 - -30);
+          pointerY = (tiltY - -30) * ratioY + 0;
+        } else {
+          pointerX = mouseX;
+          pointerY = mouseY;
+        }
+        // Calculate parallax offsets
+        this.parallaxTargX = (pointerX - (winW / 2)) / (options.parallaxMultiplier * this.layer);
+        this.parallaxOffsetX += (this.parallaxTargX - this.parallaxOffsetX) / 10; // Easing equation
+        this.parallaxTargY = (pointerY - (winH / 2)) / (options.parallaxMultiplier * this.layer);
+        this.parallaxOffsetY += (this.parallaxTargY - this.parallaxOffsetY) / 10; // Easing equation
+      }
+
+      var elWidth = element.offsetWidth;
+      var elHeight = element.offsetHeight;
+
+      switch (options.directionX) {
+        case 'left':
+          if (this.position.x + this.speed.x + this.parallaxOffsetX < 0) {
+            this.position.x = elWidth - this.parallaxOffsetX;
+          }
+          break;
+        case 'right':
+          if (this.position.x + this.speed.x + this.parallaxOffsetX > elWidth) {
+            this.position.x = 0 - this.parallaxOffsetX;
+          }
+          break;
+        default:
+          // If particle has reached edge of canvas, reverse its direction
+          if (this.position.x + this.speed.x + this.parallaxOffsetX > elWidth || this.position.x + this.speed.x + this.parallaxOffsetX < 0) {
+            this.speed.x = -this.speed.x;
+          }
+          break;
+      }
+
+      switch (options.directionY) {
+        case 'up':
+          if (this.position.y + this.speed.y + this.parallaxOffsetY < 0) {
+            this.position.y = elHeight - this.parallaxOffsetY;
+          }
+          break;
+        case 'down':
+          if (this.position.y + this.speed.y + this.parallaxOffsetY > elHeight) {
+            this.position.y = 0 - this.parallaxOffsetY;
+          }
+          break;
+        default:
+          // If particle has reached edge of canvas, reverse its direction
+          if (this.position.y + this.speed.y + this.parallaxOffsetY > elHeight || this.position.y + this.speed.y + this.parallaxOffsetY < 0) {
+            this.speed.y = -this.speed.y;
+          }
+          break;
+      }
+
+      // Move particle
+      this.position.x += this.speed.x;
+      this.position.y += this.speed.y;
+    }
+
+    /**
+     * Setter: particle stacking position
+     */
+    Particle.prototype.setStackPos = function(i) {
+      this.stackPos = i;
+    }
+
+    function option (key, val) {
+      if (val) {
+        options[key] = val;
+      } else {
+        return options[key];
+      }
+    }
+
+    function destroy() {
+      console.log('destroy');
+      canvas.parentNode.removeChild(canvas);
+      hook('onDestroy');
+      if ($) {
+        $(element).removeData('plugin_' + pluginName);
+      }
+    }
+
+    function hook(hookName) {
+      if (options[hookName] !== undefined) {
+        options[hookName].call(element);
+      }
+    }
+
+    init();
+
+    return {
+      option: option,
+      destroy: destroy,
+      start: start,
+      pause: pause
+    };
+  }
+
+  window[pluginName] = function(elem, options) {
+    return new Plugin(elem, options);
+  };
+
+  window[pluginName].defaults = {
+    minSpeedX: 0.1,
+    maxSpeedX: 0.7,
+    minSpeedY: 0.1,
+    maxSpeedY: 0.7,
+    directionX: 'center', // 'center', 'left' or 'right'. 'center' = dots bounce off edges
+    directionY: 'center', // 'center', 'up' or 'down'. 'center' = dots bounce off edges
+    density: 10000, // How many particles will be generated: one particle every n pixels
+    dotColor: '#666666',
+    lineColor: '#666666',
+    particleRadius: 7, // Dot size
+    lineWidth: 1,
+    curvedLines: false,
+    proximity: 100, // How close two dots need to be before they join
+    parallax: true,
+    parallaxMultiplier: 5, // The lower the number, the more extreme the parallax effect
+    onInit: function() {},
+    onDestroy: function() {}
+  };
+
+  // nothing wrong with hooking into jQuery if it's there...
+  if ($) {
+    $.fn[pluginName] = function(options) {
+      if (typeof arguments[0] === 'string') {
+        var methodName = arguments[0];
+        var args = Array.prototype.slice.call(arguments, 1);
+        var returnVal;
+        this.each(function() {
+          if ($.data(this, 'plugin_' + pluginName) && typeof $.data(this, 'plugin_' + pluginName)[methodName] === 'function') {
+            returnVal = $.data(this, 'plugin_' + pluginName)[methodName].apply(this, args);
+          }
+        });
+        if (returnVal !== undefined){
+          return returnVal;
+        } else {
+          return this;
+        }
+      } else if (typeof options === "object" || !options) {
+        return this.each(function() {
+          if (!$.data(this, 'plugin_' + pluginName)) {
+            $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
+          }
+        });
+      }
+    };
+  }
+
+})(window, document);
+
+/**
+ * requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
+ * @see: http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+ * @see: http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+ * @license: MIT license
+ */
+(function() {
+    var lastTime = 0;
+    var vendors = ['ms', 'moz', 'webkit', 'o'];
+    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+      window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+      window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
+                                 || window[vendors[x]+'CancelRequestAnimationFrame'];
+    }
+
+    if (!window.requestAnimationFrame)
+      window.requestAnimationFrame = function(callback, element) {
+        var currTime = new Date().getTime();
+        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+          timeToCall);
+        lastTime = currTime + timeToCall;
+        return id;
+      };
+
+    if (!window.cancelAnimationFrame)
+      window.cancelAnimationFrame = function(id) {
+        clearTimeout(id);
+      };
+}());
 ;var prometheus = {
   environment: {
     screen: {}
@@ -11640,6 +12093,10 @@ if (typeof jQuery === 'undefined') {
   },
   loadDefaultView: function() {
     $('.appContainer').addClass('magictime vanishIn');
+    $('.appContainer').particleground({
+        dotColor: '#333',
+        lineColor: '#333'
+    });
   },
   adjustViewPort: function() {
     this.environment.screen.height = $(window).height();

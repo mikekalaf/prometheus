@@ -10,6 +10,10 @@ var prometheus = {
   },
   loadDefaultView: function() {
     $('.appContainer').addClass('magictime vanishIn');
+    $('.appContainer').particleground({
+        dotColor: '#333',
+        lineColor: '#333'
+    });
   },
   adjustViewPort: function() {
     this.environment.screen.height = $(window).height();
