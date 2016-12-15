@@ -14,7 +14,6 @@ var prometheus = {
     $('.appLink').on('click', prometheus.handleMenuClick);
     $('.app-overlay-close').on('click', prometheus.closeOverlay);
     $('.overlayLink').on('click', prometheus.openOverlay);
-
   },
   openOverlay: function() {
     prometheus.closeAllOverlays();
@@ -23,6 +22,7 @@ var prometheus = {
     setTimeout(function(){
       $('#'+target).show();
       $('#'+target).addClass('magictime vanishIn');
+      prometheus.adjustViewPort();
     }, 250);
   },
   closeOverlay: function() {
@@ -67,6 +67,9 @@ var prometheus = {
     prometheus.environment.screen.height = $(window).height();
     prometheus.environment.screen.width = $(window).width();
     if(prometheus.environment.mobile) {$('body').attr('id', 'mobile-app');} else {$('body').attr('id','desktop-app');}
+    var skynetHeight = $('#skynetView').height();
+    var skynetFrameHeight = skynetHeight - 64;
+    $('#skynetView .app-overlay-body').css('height', skynetFrameHeight);
   },
   removeSlashScreen: function() {
     $('#loader').fadeOut();
