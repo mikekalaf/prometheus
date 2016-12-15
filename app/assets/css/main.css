@@ -12,29 +12,52 @@ body {
   position: relative;
   width: 100%;
   height: 100%; }
-  #prometheusWrapper .appContainer {
+  #prometheusWrapper .appBackground {
+    position: fixed;
+    width: 100%;
+    height: 100%; }
+  #prometheusWrapper #appMenu {
+    position: fixed;
+    width: 240px;
+    height: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: #222;
+    left: -240px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+    #prometheusWrapper #appMenu.open {
+      left: 0px; }
+  #prometheusWrapper #appContainer {
     position: relative;
     width: 100%;
     height: 100%;
+    left: 0px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
     opacity: 0; }
-    #prometheusWrapper .appContainer #topBanner {
+    #prometheusWrapper #appContainer.open {
+      left: 240px; }
+    #prometheusWrapper #appContainer #topBanner {
       position: fixed;
       width: 100%;
       top: 0px;
       text-align: center;
       background-color: rgba(0, 0, 0, 0.65); }
-      #prometheusWrapper .appContainer #topBanner .appMenuTrigger {
+      #prometheusWrapper #appContainer #topBanner .appMenuTrigger {
         position: absolute;
         left: 15px;
         top: 15px;
         padding: 2px 6px;
         border: 1px solid #333; }
-        #prometheusWrapper .appContainer #topBanner .appMenuTrigger:hover {
+        #prometheusWrapper #appContainer #topBanner .appMenuTrigger:hover {
           border: 1px solid #999;
           cursor: pointer; }
-        #prometheusWrapper .appContainer #topBanner .appMenuTrigger i {
+        #prometheusWrapper #appContainer #topBanner .appMenuTrigger i {
           color: #999; }
-      #prometheusWrapper .appContainer #topBanner .appLogo {
+      #prometheusWrapper #appContainer #topBanner .appLogo {
         position: relative;
         display: inline-block;
         text-transform: uppercase;

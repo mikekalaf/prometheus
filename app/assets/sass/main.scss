@@ -15,11 +15,38 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  .appContainer {
+  .appBackground {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  #appMenu {
+    position:fixed;
+    width: 240px;
+    height: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: #222;
+    left: -240px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    &.open {
+      left: 0px;
+    }
+  }
+  #appContainer {
     position: relative;
     width: 100%;
     height: 100%;
+    left:0px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
     opacity: 0;
+    &.open {
+      left: 240px;
+    }
     #topBanner {
       position: fixed;
       width: 100%;

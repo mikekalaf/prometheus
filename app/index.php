@@ -25,14 +25,17 @@
 	</head>
 	<body>
 		<div id="prometheusWrapper">
-			<div class="appContainer">
-				<div id="topBanner">
-						<div class="appMenuTrigger">
-							<i class="fa fa-bars" aria-hidden="true"></i>
-						</div>
-						<div class="appLogo">Prometheus</div>
+			<div class="appBackground"></div>
+				<div id="appMenu">
 				</div>
-			</div>
+				<div id="appContainer">
+					<div id="topBanner">
+							<div class="appMenuTrigger">
+								<i class="fa fa-bars" aria-hidden="true"></i>
+							</div>
+							<div class="appLogo">Prometheus</div>
+					</div>
+				</div>
 		</div>
 		<div id="prometheusSplash" class="animated fadeIn">
 			<div id="loader"></div>
