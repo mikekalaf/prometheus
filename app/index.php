@@ -25,19 +25,21 @@
 	</head>
 	<body>
 		<div id="prometheusWrapper">
-			<div id="loader"></div>
 			<div class="appContainer">
-				<div id="leftPanel"></div>
-				<div id="centerPanel"></div>
-				<div id="leftPanel"></div>
-				<div id="prometheusSplash" class="animated fadeIn">
-					<div>
-						<div class="title">Project<span>Prometheus</span></div>
-						<div class="subTitle">Version 1.0</div>
-					</div>
+				<div id="topBanner">
+						<div class="appLogo">Prometheus</div>
 				</div>
 			</div>
 		</div>
+		<div id="prometheusSplash" class="animated fadeIn">
+			<div id="loader"></div>
+			<div>
+				<div class="title">Project<span>Prometheus</span></div>
+				<div class="subTitle">Version 1.0</div>
+			</div>
+		</div>
+		<div id="appOverlay">
+	  <div>
 		<div id="modalWrapper">
 		</div>
 		<script type="text/javascript" src="assets/js/app.min.js"></script>

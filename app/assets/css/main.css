@@ -16,20 +16,40 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: scroll; }
-  #prometheusWrapper #prometheusSplash {
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    cursor: pointer; }
-    #prometheusWrapper #prometheusSplash .title {
-      color: #DDD;
-      font-size: 32px; }
-      #prometheusWrapper #prometheusSplash .title span {
-        font-weight: 700;
-        color: #FFF; }
+    opacity: 0;
+    background-image: url("../img/startech.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; }
+    #prometheusWrapper .appContainer #topBanner {
+      position: fixed;
+      width: 100%;
+      top: 0px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.85); }
+      #prometheusWrapper .appContainer #topBanner .appLogo {
+        position: relative;
+        display: inline-block;
+        text-transform: uppercase;
+        color: #E50914;
+        font-size: 18px;
+        padding: 15px;
+        font-weight: 700; }
+
+#prometheusSplash {
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-color: #000;
+  top: 0; }
+  #prometheusSplash .title {
+    color: #DDD;
+    font-size: 32px; }
+    #prometheusSplash .title span {
+      font-weight: 700;
+      color: #FFF; }

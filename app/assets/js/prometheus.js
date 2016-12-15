@@ -9,6 +9,7 @@ var prometheus = {
     $(window).on('resize', prometheus.adjustViewPort());
   },
   loadDefaultView: function() {
+    $('.appContainer').addClass('magictime vanishIn');
   },
   adjustViewPort: function() {
     this.environment.screen.height = $(window).height();
