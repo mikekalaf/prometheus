@@ -29,6 +29,29 @@ body {
     transition: all 0.3s ease; }
     #prometheusWrapper #appMenu.open {
       left: 0px; }
+    #prometheusWrapper #appMenu .menuItem {
+      position: relative;
+      padding: 8px 15px; }
+    #prometheusWrapper #appMenu .menuTitle {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-weight: 200;
+      text-transform: uppercase; }
+      #prometheusWrapper #appMenu .menuTitle span {
+        color: #FFF;
+        font-weight: 700; }
+    #prometheusWrapper #appMenu .menuHeader {
+      text-transform: uppercase; }
+    #prometheusWrapper #appMenu .menuSubHeader {
+      padding-left: 30px; }
+    #prometheusWrapper #appMenu .appLink {
+      cursor: pointer; }
+      #prometheusWrapper #appMenu .appLink:hover {
+        color: #FFF;
+        background-color: #111; }
+      #prometheusWrapper #appMenu .appLink.active {
+        color: #FFF;
+        background-color: #111; }
   #prometheusWrapper #appContainer {
     position: relative;
     width: 100%;
@@ -57,10 +80,8 @@ body {
         left: 15px;
         top: 11px;
         padding: 5px 10px;
-        border: 1px solid #333; }
-        #prometheusWrapper #appContainer #topBanner .appMenuTrigger:hover {
-          cursor: pointer;
-          background-color: #333; }
+        border: 1px solid #333;
+        cursor: pointer; }
         #prometheusWrapper #appContainer #topBanner .appMenuTrigger i {
           color: #999; }
       #prometheusWrapper #appContainer #topBanner .appLogo {

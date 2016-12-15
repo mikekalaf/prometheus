@@ -10,7 +10,20 @@ var prometheus = {
     $('.appMenuTrigger').on('click', prometheus.toggleMenu);
     $('#prometheusSplash').on('click', prometheus.removeSlashScreen);
     $('#appView').on('click', prometheus.closeMenu);
+    $('.appLink').on('click', prometheus.handleMenuClick);
 
+  },
+  clearAppView: function() {
+    setTimeout(function(){$('#appView').addClass('magictime vanishOut');}, 500);
+  },
+  showAppView: function() {
+    setTimeout(function(){$('#appView').addClass('magictime vanishIn').removeClass('vanishOut');}, 500);
+  },
+  handleMenuClick: function() {
+    $('.appLink').removeClass('active');
+    $(this).addClass('active');
+    prometheus.closeMenu();
+    prometheus.clearAppView();
   },
   loadDefaultView: function() {
     $('#appContainer').addClass('magictime vanishIn');

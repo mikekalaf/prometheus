@@ -27,6 +27,13 @@
 		<div id="prometheusWrapper">
 			<div class="appBackground"></div>
 				<div id="appMenu">
+						<div class="menuItem menuTitle">Project <span>Prometheus</span></div>
+						<div class="menuHeader menuItem appLink" data-app="skynet">Skynet</div>
+						<div class="menuHeader menuItem">Cerebro Archives</div>
+						<div class="menuSubHeader menuItem appLink" data-app="cerebro-1">Sector 1</div>
+						<div class="menuSubHeader menuItem appLink" data-app="cerebro-2">Sector 2</div>
+						<div class="menuSubHeader menuItem appLink" data-app="cerebro-3">Sector 3</div>
+						<div class="menuHeader menuItem appLink" data-app="junkcollector">JunkCollector</div>
 				</div>
 				<div id="appContainer">
 					<div id="topBanner">
@@ -36,7 +43,7 @@
 							<div class="appLogo">Prometheus</div>
 					</div>
 					<div id="appView">
-					
+							This is just a test of the app view.
 					</div>
 				</div>
 		</div>

@@ -34,6 +34,37 @@ body {
     &.open {
       left: 0px;
     }
+    .menuItem {
+      position: relative;
+      padding: 8px 15px;
+    }
+    .menuTitle {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-weight: 200;
+      text-transform: uppercase;
+      span {
+        color: #FFF;
+        font-weight: 700;
+      }
+    }
+    .menuHeader {
+      text-transform: uppercase;
+    }
+    .menuSubHeader {
+      padding-left: 30px;
+    }
+    .appLink {
+      cursor: pointer;
+      &:hover {
+        color: #FFF;
+        background-color: #111;
+      }
+      &.active {
+        color: #FFF;
+        background-color: #111; 
+      }
+    }
   }
   #appContainer {
     position: relative;
@@ -66,10 +97,7 @@ body {
         top: 11px;
         padding: 5px 10px;
         border: 1px solid #333;
-        &:hover {
-          cursor: pointer;
-          background-color: #333;
-        }
+        cursor: pointer;
         i {
           color: #999;
         }
