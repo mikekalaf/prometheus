@@ -12923,6 +12923,7 @@ if (typeof jQuery === 'undefined') {
 	}
 }());
 ;var prometheus = {
+  activeApp: 'startup',
   environment: {
     screen: {}
   },
@@ -12935,7 +12936,30 @@ if (typeof jQuery === 'undefined') {
     $('#prometheusSplash').on('click', prometheus.removeSlashScreen);
     $('#appView').on('click', prometheus.closeMenu);
     $('.appLink').on('click', prometheus.handleMenuClick);
+    $('.app-overlay-close').on('click', prometheus.closeOverlay);
+    $('.overlayLink').on('click', prometheus.openOverlay);
 
+  },
+  openOverlay: function() {
+    prometheus.closeAllOverlays();
+    var target = $(this).data('target');
+    $('#'+target).removeClass('magictime vanishOut').css('opacity', '0');
+    setTimeout(function(){
+      $('#'+target).show();
+      $('#'+target).addClass('magictime vanishIn');
+    }, 500);
+  },
+  closeOverlay: function() {
+    var target = $(this).data('target');
+    $('#'+target).addClass('magictime vanishOut');
+    setTimeout(function(){$('#'+target).hide();}, 500);
+    if (target == "skynetView") {
+      $('.appLink').removeClass('active');
+    }
+  },
+  closeAllOverlays: function() {
+    $('.app-overlay-window').addClass('magictime vanishOut');
+    setTimeout(function(){$('.app-overlay-window').hide();}, 100);
   },
   clearAppView: function() {
     setTimeout(function(){$('#appView').addClass('magictime vanishOut');}, 500);
@@ -12944,10 +12968,16 @@ if (typeof jQuery === 'undefined') {
     setTimeout(function(){$('#appView').addClass('magictime vanishIn').removeClass('vanishOut');}, 500);
   },
   handleMenuClick: function() {
-    $('.appLink').removeClass('active');
-    $(this).addClass('active');
-    prometheus.closeMenu();
-    prometheus.clearAppView();
+    var appLink = $(this).data('app');
+    if (appLink == prometheus.activeApp) {
+      prometheus.closeMenu();
+    } else {
+      $('.appLink').removeClass('active');
+      $(this).addClass('active');
+      prometheus.closeMenu();
+      prometheus.clearAppView();
+      prometheus.closeAllOverlays();
+    }
   },
   loadDefaultView: function() {
     $('#appContainer').addClass('magictime vanishIn');

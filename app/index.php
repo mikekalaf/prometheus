@@ -28,7 +28,7 @@
 			<div class="appBackground"></div>
 				<div id="appMenu">
 						<div class="menuItem menuTitle">Project <span>Prometheus</span></div>
-						<div class="menuHeader menuItem appLink" data-app="skynet">Skynet</div>
+						<div class="menuHeader menuItem appLink overlayLink" data-target="skynetView">Skynet</div>
 						<div class="menuHeader menuItem">Cerebro Archives</div>
 						<div class="menuSubHeader menuItem appLink" data-app="cerebro-1">Sector 1</div>
 						<div class="menuSubHeader menuItem appLink" data-app="cerebro-2">Sector 2</div>
@@ -38,12 +38,21 @@
 				<div id="appContainer">
 					<div id="topBanner">
 							<div class="appMenuTrigger">
-								<i class="fa fa-bars" aria-hidden="true"></i>
+								<i class="fa fa-bars"></i>
 							</div>
 							<div class="appLogo">Prometheus</div>
 					</div>
 					<div id="appView">
-							This is just a test of the app view.
+
+					</div>
+					<div id="skynetView" class="app-overlay-window">
+						<div class="app-overylay-header">
+							<div class="app-overlay-title">Skynet</div>
+							<div class="app-overlay-close" data-target="skynetView"><i class="fa fa-times"></i></div>
+						</div>
+						<div class="app-overlay-body">
+								<iframe class="app-iframe" src="https://skynet.chasingthedrift.com"></iframe>
+						</div>
 					</div>
 				</div>
 		</div>
