@@ -1,3 +1,4 @@
+<?php require('includes/prometheus.php'); ?>
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
@@ -23,5 +24,22 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	</head>
 	<body>
+		<div id="prometheusWrapper">
+			<div id="loader"></div>
+			<div class="appContainer">
+				<div id="leftPanel"></div>
+				<div id="centerPanel"></div>
+				<div id="leftPanel"></div>
+				<div id="prometheusSplash" class="animated fadeIn">
+					<div>
+						<div class="title">Project<span>Prometheus</span></div>
+						<div class="subTitle">Version 1.0</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="modalWrapper">
+		</div>
+		<script type="text/javascript" src="assets/js/app.min.js"></script>
   </body>
 </html>

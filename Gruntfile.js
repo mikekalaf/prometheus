@@ -14,6 +14,9 @@
                     src: [
                         'app/assets/css/bootstrap.css',
                         'bower_components/font-awesome/css/font-awesome.css',
+                        'bower_components/animate.css/animate.css',
+                        'bower_components/magic/magic.css',
+                        'app/assets/css/loader.css',
                         'app/assets/css/main.css'],
                     dest: 'app/assets/css/app.css'
                 },
@@ -25,6 +28,7 @@
                         'bower_components/jquery/dist/jquery.js',
                         'app/assets/js/bootstrap.js',
                         'app/assets/js/math.min.js',
+                        'app/assets/js/prometheus.js',
                     ],
                     dest: 'app/assets/js/app.js'
                 }
@@ -52,15 +56,15 @@
                 },
                 js: {
                     files: [
-                        'js/*.js'
+                        'js/prometheus.js'
                     ],
-                    tasks: ['concat:app', 'uglify:app', 'compress']
+                    tasks: ['concat:app', 'uglify:app']
                 },
                 css: {
                     files: [
                         '**/*.scss'
                     ],
-                    tasks: ['sass', 'concat:css', 'cssmin:css', 'compress']
+                    tasks: ['sass', 'concat:css', 'cssmin:css']
                 }
 
             },
