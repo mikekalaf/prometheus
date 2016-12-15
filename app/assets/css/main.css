@@ -16,16 +16,36 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    background-image: url("../img/startech.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; }
+    opacity: 0; }
+    #prometheusWrapper .appContainer::after {
+      content: "";
+      background-image: url("../img/startech.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      opacity: 0.15;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1; }
     #prometheusWrapper .appContainer #topBanner {
       position: fixed;
       width: 100%;
       top: 0px;
       text-align: center;
       background-color: rgba(0, 0, 0, 0.65); }
+      #prometheusWrapper .appContainer #topBanner .appMenuTrigger {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        padding: 2px 6px;
+        border: 1px solid #333; }
+        #prometheusWrapper .appContainer #topBanner .appMenuTrigger:hover {
+          border: 1px solid #999;
+          cursor: pointer; }
+        #prometheusWrapper .appContainer #topBanner .appMenuTrigger i {
+          color: #999; }
       #prometheusWrapper .appContainer #topBanner .appLogo {
         position: relative;
         display: inline-block;

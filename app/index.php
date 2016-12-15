@@ -27,6 +27,9 @@
 		<div id="prometheusWrapper">
 			<div class="appContainer">
 				<div id="topBanner">
+						<div class="appMenuTrigger">
+							<i class="fa fa-bars" aria-hidden="true"></i>
+						</div>
 						<div class="appLogo">Prometheus</div>
 				</div>
 			</div>
