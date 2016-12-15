@@ -37,7 +37,8 @@ body {
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    opacity: 0; }
+    opacity: 0;
+    overflow-x: hidden; }
     #prometheusWrapper #appContainer.open {
       left: 240px; }
     #prometheusWrapper #appContainer #appView {
