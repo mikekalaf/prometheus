@@ -29,6 +29,7 @@
                         'app/assets/js/bootstrap.js',
                         'app/assets/js/math.min.js',
                         'app/assets/js/jquery.particleground.js',
+                        'app/assets/js/fastclick.js',
                         'app/assets/js/prometheus.js',
                     ],
                     dest: 'app/assets/js/app.js'

@@ -34,4 +34,8 @@ var prometheus = {
   }
 };
 
+$(function() {
+    FastClick.attach(document.body);
+});
+
 prometheus.init();
