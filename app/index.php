@@ -35,13 +35,13 @@
 						<div class="menuSubHeader menuItem appLink" data-app="scruff">Sector 3</div>
 						<div class="menuHeader menuItem appLink" data-app="junkcollector">JunkCollector</div>
 				</div>
+				<div id="topBanner">
+						<div class="appMenuTrigger">
+							<i class="fa fa-bars"></i>
+						</div>
+						<div class="appLogo">Prometheus</div>
+				</div>
 				<div id="appContainer">
-					<div id="topBanner">
-							<div class="appMenuTrigger">
-								<i class="fa fa-bars"></i>
-							</div>
-							<div class="appLogo">Prometheus</div>
-					</div>
 					<div id="appView">
 
 					</div>

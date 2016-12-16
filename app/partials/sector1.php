@@ -8,6 +8,11 @@ $url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector1?favorites=".$favorit
 $request_headers = array();
 
 $fetchData = curl_handler($url, $request_headers, $blank, "GET");
-$sectorData = json_decode($fetchData);
+$sectorData = json_decode($fetchData ,true);
+echo "<div class='appGrid'>";
+foreach($sectorData['data'] as $key => $user) {
+  echo "<div class='gridItem off-screen'></div>";
+}
+echo "</div>";
 //print_r($fetchData);
 ?>

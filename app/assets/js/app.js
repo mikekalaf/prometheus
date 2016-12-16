@@ -12962,6 +12962,8 @@ if (typeof jQuery === 'undefined') {
     setTimeout(function(){
       $('#appView').html(htmlCode);
       prometheus.hideSpinner();
+      prometheus.resizeGrid();
+      prometheus.slideInGrid();
     }, 500);
   },
   grindr: {
@@ -13010,8 +13012,9 @@ if (typeof jQuery === 'undefined') {
     }
   },
   closeAllOverlays: function() {
-    $('.app-overlay-window').addClass(prometheus.overlayIn);
-    setTimeout(function(){$('.app-overlay-window').hide();}, 100);
+    $('.app-overlay-window').removeClass(prometheus.overlayIn);
+    $('.app-overlay-window').addClass(prometheus.overlayOut);
+    setTimeout(function(){$('.app-overlay-window').hide();}, 200);
   },
   clearAppView: function() {
     $('#appView').removeClass(prometheus.overlayIn);
@@ -13052,6 +13055,33 @@ if (typeof jQuery === 'undefined') {
         density: 7500
     });
   },
+  slideInGrid: function() {
+      var items = document.querySelectorAll('.gridItem');
+      for ( var i=0; i < items.length; i++ ) {
+        var moveGridItem = prometheus.getGridItem(items,i);
+        var delay = i;
+        delay *= 25;
+        setTimeout(moveGridItem, delay);
+      }
+  },
+  getGridItem: function(items, i) {
+    var item = items[i];
+     return function() {
+       $(item).removeClass('off-screen');
+      }
+  },
+  resizeGrid: function() {
+    var columns, colWidth, marginSpace;
+    if (prometheus.environment.screen.width > 768) {
+      columns = 10;
+    } else {
+      columns = 5;
+    }
+    marginSpace = (10 * columns) + 10;
+    colWidth = Math.floor((prometheus.environment.screen.width - marginSpace) / columns);
+    $('.gridItem').css('width', colWidth);
+    $('.gridItem').css('height', colWidth);
+  },
   adjustViewPort: function() {
     prometheus.environment.screen.height = $(window).height();
     prometheus.environment.screen.width = $(window).width();
@@ -13059,6 +13089,7 @@ if (typeof jQuery === 'undefined') {
     var skynetHeight = $('#skynetView').height();
     var skynetFrameHeight = skynetHeight - 64;
     $('#skynetView .app-overlay-body').css('height', skynetFrameHeight);
+    prometheus.resizeGrid();
   },
   removeSlashScreen: function() {
     $('#loader').fadeOut();
@@ -13067,10 +13098,10 @@ if (typeof jQuery === 'undefined') {
     setTimeout(function(){ prometheus.loadDefaultView(); }, 500);
   },
   toggleMenu: function() {
-    $('#appMenu, #appContainer').toggleClass('open');
+    $('#appMenu, #appContainer, #topBanner').toggleClass('open');
   },
   closeMenu: function() {
-    $('#appMenu, #appContainer').removeClass('open');
+    $('#appMenu, #appContainer, #topBanner').removeClass('open');
   }
 };
 

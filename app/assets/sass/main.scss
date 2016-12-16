@@ -66,6 +66,40 @@ body {
       }
     }
   }
+  #topBanner {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    text-align: center;
+    background-color: rgba(0,0,0, 0.65);
+    z-index: 10;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    &.open {
+      left: 240px;
+    }
+    .appMenuTrigger {
+      position: absolute;
+      left: 15px;
+      top: 11px;
+      padding: 5px 10px;
+      border: 1px solid #333;
+      cursor: pointer;
+      i {
+        color: #999;
+      }
+    }
+    .appLogo {
+      position: relative;
+      display: inline-block;
+      text-transform: uppercase;
+      color: #E50914;
+      font-size: 18px;
+      padding: 15px;
+      font-weight: 700;
+    }
+  }
   #appContainer {
     position: relative;
     width: 100%;
@@ -83,33 +117,26 @@ body {
       position: relative;
       width: 100%;
       top: 55px;
-    }
-    #topBanner {
-      position: fixed;
-      width: 100%;
-      top: 0px;
-      text-align: center;
-      background-color: rgba(0,0,0, 0.65);
-      z-index: 10;
-      .appMenuTrigger {
-        position: absolute;
-        left: 15px;
-        top: 11px;
-        padding: 5px 10px;
-        border: 1px solid #333;
-        cursor: pointer;
-        i {
-          color: #999;
-        }
-      }
-      .appLogo {
+      overflow: hidden;
+      .appGrid {
         position: relative;
-        display: inline-block;
-        text-transform: uppercase;
-        color: #E50914;
-        font-size: 18px;
-        padding: 15px;
-        font-weight: 700;
+        width: 100%;
+        .gridItem {
+          position: relative;
+          float: left;
+          background-color: #ccc;
+          margin-left: 10px;
+          margin-bottom: 10px;
+          left: 0;
+          -webkit-transition: all 1s ease;
+          -moz-transition: all 1s ease;
+          -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+          transition: all 1s ease;
+          &.off-screen {
+            left: 100%;
+          }
+        }
       }
     }
     .app-overlay-window {
@@ -179,6 +206,7 @@ body {
   cursor: pointer;
   background-color: #000;
   top: 0;
+  z-index: 15;
   .title {
     color: #DDD;
     font-size: 32px;
