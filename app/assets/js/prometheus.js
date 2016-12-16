@@ -20,6 +20,8 @@ var prometheus = {
     $('#prometheusWrapper').on('click', '.overlayLink', prometheus.openOverlay);
     $('#appView').on('click', '.grindrUser', prometheus.grindr.showUserProfile);
     $('#appContainer').scroll(prometheus.scrollHandler);
+    $('#desktop-app #appContainer').on('mouseover', '.gridItem.loaded', prometheus.gridItemHover);
+    $('#desktop-app #appContainer').on('mouseout', '.gridItem.loaded', prometheus.gridItemHoverOut);
   },
   loadData: function(dataUrl, dataCallback) {
     prometheus.showSpinner();
@@ -182,6 +184,26 @@ var prometheus = {
     $('.gridItem').css('width', colWidth);
     $('.gridItem').css('height', colWidth);
     prometheus.scrollHandler();
+  },
+  gridItemHover: function() {
+    $(this).animate({  textIndent: 1.25 }, {
+        step: function(now,fx) {
+          $(this).css('transform','scale('+now+')');
+          $(this).css('z-index', '500');
+          $(this).css('box-shadow', '0px 1px 10px 1px #242424');
+        },
+        duration:0
+    },'linear');
+  },
+  gridItemHoverOut: function() {
+    $(this).animate({  textIndent: 1 }, {
+        step: function(now,fx) {
+          $(this).css('transform','scale('+now+')');
+          $(this).css('z-index', 'auto');
+          $(this).css('box-shadow', 'none');
+        },
+        duration:0
+    },'linear');
   },
   adjustViewPort: function() {
     prometheus.environment.screen.height = $(window).height();
