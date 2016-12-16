@@ -29,7 +29,6 @@ var prometheus = {
       },
       success: function(data) {
         dataCallback(data);
-        prometheus.hideSpinner();
       }
     });
 
@@ -38,6 +37,7 @@ var prometheus = {
     prometheus.showAppView();
     setTimeout(function(){
       $('#appView').html(htmlCode);
+      prometheus.hideSpinner();
     }, 500);
   },
   grindr: {

@@ -12953,7 +12953,6 @@ if (typeof jQuery === 'undefined') {
       },
       success: function(data) {
         dataCallback(data);
-        prometheus.hideSpinner();
       }
     });
 
@@ -12962,6 +12961,7 @@ if (typeof jQuery === 'undefined') {
     prometheus.showAppView();
     setTimeout(function(){
       $('#appView').html(htmlCode);
+      prometheus.hideSpinner();
     }, 500);
   },
   grindr: {
