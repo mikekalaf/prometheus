@@ -2,6 +2,7 @@ var prometheus = {
   activeApp: 'startup',
   overlayIn: 'magictime vanishIn',
   overlayOut: 'magictime vanishOut',
+  gridData: [],
   environment: {
     screen: {}
   },
@@ -14,8 +15,9 @@ var prometheus = {
     $('#prometheusSplash').on('click', prometheus.removeSlashScreen);
     $('#appView').on('click', prometheus.closeMenu);
     $('.appLink').on('click', prometheus.handleMenuClick);
-    $('.app-overlay-close').on('click', prometheus.closeOverlay);
-    $('.overlayLink').on('click', prometheus.openOverlay);
+    $('#prometheusWrapper').on('click', '.app-overlay-close', prometheus.closeOverlay);
+    $('#prometheusWrapper').on('click', '.overlayLink', prometheus.openOverlay);
+    $('#appView').on('click', '.grindrUser', prometheus.grindr.showUserProfile);
   },
   loadData: function(dataUrl, dataCallback) {
     prometheus.showSpinner();
@@ -40,6 +42,7 @@ var prometheus = {
       prometheus.hideSpinner();
       prometheus.resizeGrid();
       prometheus.slideInGrid();
+      prometheus.runAjaxScripts();
     }, 500);
   },
   grindr: {
@@ -47,7 +50,11 @@ var prometheus = {
       prometheus.loadData('partials/sector1.php', prometheus.grindr.displayUserGrid);
     },
     displayUserGrid: function(data) {
+      prometheus.gridData = [];
       prometheus.displayAppViewData(data);
+    },
+    showUserProfile: function() {
+      var id = $(this).data('grid-id');
     }
   },
   jackd: {
@@ -60,6 +67,11 @@ var prometheus = {
   },
   junkcollector: {
     launch: function() {
+    }
+  },
+  runAjaxScripts: function() {
+    if ($("#appView #ajaxScript").length != 0) {
+      eval($('#appView #ajaxScript'));
     }
   },
   showSpinner: function() {
@@ -133,10 +145,10 @@ var prometheus = {
   },
   slideInGrid: function() {
       var items = document.querySelectorAll('.gridItem');
+      var totalDelay = (items.length *50);
       for ( var i=0; i < items.length; i++ ) {
         var moveGridItem = prometheus.getGridItem(items,i);
-        var delay = i;
-        delay *= 25;
+        var delay = (Math.floor(Math.random() * totalDelay) + 1) / 2;
         setTimeout(moveGridItem, delay);
       }
   },
@@ -146,7 +158,7 @@ var prometheus = {
        $(item).removeClass('off-screen');
       }
   },
-  resizeGrid: function() {
+  getGridItemSize: function() {
     var columns, colWidth, marginSpace;
     if (prometheus.environment.screen.width > 768) {
       columns = 10;
@@ -155,6 +167,10 @@ var prometheus = {
     }
     marginSpace = (10 * columns) + 10;
     colWidth = Math.floor((prometheus.environment.screen.width - marginSpace) / columns);
+    return colWidth;
+  },
+  resizeGrid: function() {
+    var colWidth = prometheus.getGridItemSize();
     $('.gridItem').css('width', colWidth);
     $('.gridItem').css('height', colWidth);
   },
