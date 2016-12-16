@@ -14135,7 +14135,8 @@ Copyright (c) 2014 Christian Pucci
     height: 100%;
     z-index: 15000;
 }
-#loader {
+
+#loader, #ajaxLoader {
     display: block;
     position: absolute;;
     left: 50%;
@@ -14153,7 +14154,15 @@ Copyright (c) 2014 Christian Pucci
     z-index: -1;
 }
 
-    #loader:before {
+#ajaxLoader {
+  width:100px;
+  height:100px;
+  margin: -50px 0 0 -50px;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+}
+
+    #loader:before, #ajaxLoader:before {
         content: "";
         position: absolute;
         top: 5px;
@@ -14168,7 +14177,7 @@ Copyright (c) 2014 Christian Pucci
         animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
     }
 
-    #loader:after {
+    #loader:after, #ajaxLoader:after {
         content: "";
         position: absolute;
         top: 15px;
@@ -14277,7 +14286,7 @@ html {
 body {
   height: 100%;
   min-height: 100%;
-  background-color: #000;
+  background-color: #000000;
   color: #999999;
   font-family: 'Open Sans', Arial; }
 
@@ -14424,3 +14433,36 @@ body {
     #prometheusSplash .title span {
       font-weight: 700;
       color: #FFF; }
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px; }
+
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px; }
+
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; }
+
+::-webkit-scrollbar-thumb:active {
+  background: #000000; }
+
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px; }
+
+::-webkit-scrollbar-track:hover {
+  background: #666666; }
+
+::-webkit-scrollbar-track:active {
+  background: #333333; }
+
+::-webkit-scrollbar-corner {
+  background: transparent; }

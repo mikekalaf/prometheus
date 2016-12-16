@@ -1,5 +1,7 @@
 var prometheus = {
   activeApp: 'startup',
+  overlayIn: 'magictime vanishIn',
+  overlayOut: 'magictime vanishOut',
   environment: {
     screen: {}
   },
@@ -15,33 +17,90 @@ var prometheus = {
     $('.app-overlay-close').on('click', prometheus.closeOverlay);
     $('.overlayLink').on('click', prometheus.openOverlay);
   },
+  loadData: function(dataUrl, dataCallback) {
+    prometheus.showSpinner();
+    $.ajax({
+      type: "GET",
+      timeout: 3000,
+      url: dataUrl,
+      error: function(data) {
+        alert('Error:  Unable to retrieve data from source.');
+        prometheus.hideSpinner();
+      },
+      success: function(data) {
+        dataCallback(data);
+        prometheus.hideSpinner();
+      }
+    });
+
+  },
+  displayAppViewData: function(htmlCode) {
+    prometheus.showAppView();
+    setTimeout(function(){
+      $('#appView').html(htmlCode);
+    }, 500);
+  },
+  grindr: {
+    launch: function() {
+      prometheus.loadData('partials/sector1.php', prometheus.grindr.displayUserGrid);
+    },
+    displayUserGrid: function(data) {
+      prometheus.displayAppViewData(data);
+    }
+  },
+  jackd: {
+    launch: function() {
+    }
+  },
+  scruff: {
+    launch: function() {
+    }
+  },
+  junkcollector: {
+    launch: function() {
+    }
+  },
+  showSpinner: function() {
+    $('#ajaxLoader').fadeIn();
+  },
+  hideSpinner: function() {
+    $('#ajaxLoader').fadeOut();
+  },
   openOverlay: function() {
     prometheus.closeAllOverlays();
     var target = $(this).data('target');
-    $('#'+target).removeClass('magictime vanishOut').css('opacity', '0');
+    $('#'+target).removeClass(prometheus.overlayOut);
     setTimeout(function(){
       $('#'+target).show();
-      $('#'+target).addClass('magictime vanishIn');
+      $('#'+target).addClass(prometheus.overlayIn);
       prometheus.adjustViewPort();
     }, 250);
   },
   closeOverlay: function() {
     var target = $(this).data('target');
-    $('#'+target).addClass('magictime vanishOut');
+    $('#'+target).removeClass(prometheus.overlayIn);
+    $('#'+target).addClass(prometheus.overlayOut);
     setTimeout(function(){$('#'+target).hide();}, 500);
     if (target == "skynetView") {
       $('.appLink').removeClass('active');
     }
   },
   closeAllOverlays: function() {
-    $('.app-overlay-window').addClass('magictime vanishOut');
+    $('.app-overlay-window').addClass(prometheus.overlayIn);
     setTimeout(function(){$('.app-overlay-window').hide();}, 100);
   },
   clearAppView: function() {
-    setTimeout(function(){$('#appView').addClass('magictime vanishOut');}, 500);
+    $('#appView').removeClass(prometheus.overlayIn);
+    $('#appView').addClass(prometheus.overlayOut);
+    setTimeout(function(){$('#appView').hide();}, 250);
   },
   showAppView: function() {
-    setTimeout(function(){$('#appView').addClass('magictime vanishIn').removeClass('vanishOut');}, 500);
+    $('#appView').removeClass(prometheus.overlayOut);
+    setTimeout(function(){
+      $('#appView').show();
+      $('#appView').addClass(prometheus.overlayIn);
+      prometheus.adjustViewPort();
+    }, 500);
   },
   handleMenuClick: function() {
     var appLink = $(this).data('app');
@@ -53,10 +112,16 @@ var prometheus = {
       prometheus.closeMenu();
       prometheus.clearAppView();
       prometheus.closeAllOverlays();
+      if (appLink != "skynet") {
+        prometheus[appLink].launch();
+        prometheus.activeApp = appLink;
+      } else {
+        prometheus.activeApp = "skynet";
+      }
     }
   },
   loadDefaultView: function() {
-    $('#appContainer').addClass('magictime vanishIn');
+    $('#appContainer').addClass(prometheus.overlayIn);
     $('.appBackground').particleground({
         dotColor: '#333',
         lineColor: '#333',

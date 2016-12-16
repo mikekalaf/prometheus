@@ -6,7 +6,8 @@
     height: 100%;
     z-index: 15000;
 }
-#loader {
+
+#loader, #ajaxLoader {
     display: block;
     position: absolute;;
     left: 50%;
@@ -24,7 +25,15 @@
     z-index: -1;
 }
 
-    #loader:before {
+#ajaxLoader {
+  width:100px;
+  height:100px;
+  margin: -50px 0 0 -50px;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+}
+
+    #loader:before, #ajaxLoader:before {
         content: "";
         position: absolute;
         top: 5px;
@@ -39,7 +48,7 @@
         animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
     }
 
-    #loader:after {
+    #loader:after, #ajaxLoader:after {
         content: "";
         position: absolute;
         top: 15px;

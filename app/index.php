@@ -28,11 +28,11 @@
 			<div class="appBackground"></div>
 				<div id="appMenu">
 						<div class="menuItem menuTitle">Project <span>Prometheus</span></div>
-						<div class="menuHeader menuItem appLink overlayLink" data-target="skynetView">Skynet</div>
+						<div class="menuHeader menuItem appLink overlayLink" data-app="skynet" data-target="skynetView">Skynet</div>
 						<div class="menuHeader menuItem">Cerebro Archives</div>
-						<div class="menuSubHeader menuItem appLink" data-app="cerebro-1">Sector 1</div>
-						<div class="menuSubHeader menuItem appLink" data-app="cerebro-2">Sector 2</div>
-						<div class="menuSubHeader menuItem appLink" data-app="cerebro-3">Sector 3</div>
+						<div class="menuSubHeader menuItem appLink" data-app="grindr">Sector 1</div>
+						<div class="menuSubHeader menuItem appLink" data-app="jackd">Sector 2</div>
+						<div class="menuSubHeader menuItem appLink" data-app="scruff">Sector 3</div>
 						<div class="menuHeader menuItem appLink" data-app="junkcollector">JunkCollector</div>
 				</div>
 				<div id="appContainer">
@@ -54,6 +54,7 @@
 								<iframe class="app-iframe" src="https://skynet.chasingthedrift.com"></iframe>
 						</div>
 					</div>
+					<div id="ajaxLoader"></div>
 				</div>
 		</div>
 		<div id="prometheusSplash" class="animated fadeIn">
@@ -62,10 +63,6 @@
 				<div class="title">Project<span>Prometheus</span></div>
 				<div class="subTitle">Version 1.0</div>
 			</div>
-		</div>
-		<div id="appOverlay">
-	  <div>
-		<div id="modalWrapper">
 		</div>
 		<script type="text/javascript" src="assets/js/app.min.js"></script>
   </body>
