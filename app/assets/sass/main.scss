@@ -135,24 +135,26 @@ body {
       overflow: hidden;
       .appGrid {
         position: relative;
+        overflow: hidden;
         width: 100%;
         .gridItem {
           position: relative;
           float: left;
           background-color: #ccc;
-          margin-left: 10px;
-          margin-bottom: 10px;
-          left: 0;
-          opacity: 1;
+          opacity: 0;
           cursor: pointer;
-          -webkit-transition: left 1s ease;
-          -moz-transition: left 1s ease;
-          -o-transition: left 1s ease;
-          -ms-transition: left 1s ease;
-          transition: left 1s ease;
-          &.off-screen {
-            left: 100%;
-            opacity: 0;
+          -webkit-transition: all 1s ease;
+          -moz-transition: all 1s ease;
+          -o-transition: all 1s ease;
+          -ms-transition: all 1s ease;
+          transition: all 1s ease;
+          transform: scale(1);
+          &.animating {
+            transform: scale(4);
+          }
+          &.loaded {
+            opacity: 1;
+            transform: scale(1);
           }
         }
       }

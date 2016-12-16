@@ -19,12 +19,13 @@ var prometheus = {
     $('#prometheusWrapper').on('click', '.app-overlay-close', prometheus.closeOverlay);
     $('#prometheusWrapper').on('click', '.overlayLink', prometheus.openOverlay);
     $('#appView').on('click', '.grindrUser', prometheus.grindr.showUserProfile);
+    $('#appContainer').scroll(prometheus.scrollHandler);
   },
   loadData: function(dataUrl, dataCallback) {
     prometheus.showSpinner();
     $.ajax({
       type: "GET",
-      timeout: 3000,
+      timeout: 6000,
       url: dataUrl,
       error: function(data) {
         alert('Error:  Unable to retrieve data from source.');
@@ -42,7 +43,7 @@ var prometheus = {
       $('#appView').html(htmlCode);
       prometheus.hideSpinner();
       prometheus.resizeGrid();
-      prometheus.slideInGrid();
+      setTimeout(function(){prometheus.scrollHandler();},1000);
       prometheus.runAjaxScripts();
     }, 500);
   },
@@ -145,6 +146,11 @@ var prometheus = {
         density: 7500
     });
   },
+  animateGridItem: function(el) {
+    var delay = Math.random()*3000;
+    $(el).addClass('animating');
+    setTimeout(function() {$(el).addClass('loaded');}, delay);
+  },
   slideInGrid: function() {
       var items = document.querySelectorAll('.gridItem');
       var totalDelay = (items.length *50);
@@ -157,7 +163,7 @@ var prometheus = {
   getGridItem: function(items, i) {
     var item = items[i];
      return function() {
-       $(item).removeClass('off-screen');
+       $(item).removeClass('grid-animation');
       }
   },
   getGridItemSize: function() {
@@ -167,7 +173,7 @@ var prometheus = {
     } else {
       columns = 5;
     }
-    marginSpace = (10 * columns) + 10;
+    marginSpace = 0;
     colWidth = Math.floor((prometheus.environment.screen.width - marginSpace) / columns);
     return colWidth;
   },
@@ -175,6 +181,7 @@ var prometheus = {
     var colWidth = prometheus.getGridItemSize();
     $('.gridItem').css('width', colWidth);
     $('.gridItem').css('height', colWidth);
+    prometheus.scrollHandler();
   },
   adjustViewPort: function() {
     prometheus.environment.screen.height = $(window).height();
@@ -201,6 +208,22 @@ var prometheus = {
   },
   closeMenu: function() {
     $('#appMenu, #appContainer, #topBanner').removeClass('open');
+  },
+  isScrolledIntoView: function(elem) {
+    var containerScroll = document.getElementById('appContainer').scrollTop;
+    var containerView = $('#appContainer').height();
+    var viewableArea = containerScroll + containerView;
+    var elementTop = $(elem).position().top;
+    var elementBottom = elementTop + ($(elem).height() / 2);
+    var viewable = ((elementBottom <= viewableArea) && (elementTop >= containerScroll));
+    return viewable;
+  },
+  scrollHandler: function () {
+    $('.gridItem').each(function () {
+      if (prometheus.isScrolledIntoView(this) === true) {
+        prometheus.animateGridItem(this);
+      }
+    });
   }
 };
 
