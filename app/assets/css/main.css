@@ -110,11 +110,11 @@ body {
           left: 0;
           opacity: 1;
           cursor: pointer;
-          -webkit-transition: all 1s ease;
-          -moz-transition: all 1s ease;
-          -o-transition: all 1s ease;
-          -ms-transition: all 1s ease;
-          transition: all 1s ease; }
+          -webkit-transition: left 1s ease;
+          -moz-transition: left 1s ease;
+          -o-transition: left 1s ease;
+          -ms-transition: left 1s ease;
+          transition: left 1s ease; }
           #prometheusWrapper #appContainer #appView .appGrid .gridItem.off-screen {
             left: 100%;
             opacity: 0; }
