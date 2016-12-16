@@ -219,7 +219,7 @@ var prometheus = {
     return viewable;
   },
   scrollHandler: function () {
-    $('.gridItem').each(function () {
+    $('.gridItem:not(.loaded)').each(function () {
       if (prometheus.isScrolledIntoView(this) === true) {
         prometheus.animateGridItem(this);
       }
