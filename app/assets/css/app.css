@@ -14431,9 +14431,8 @@ body {
     z-index: 1000;
     background-color: black;
     border: 1px solid #666;
-    top: 40%;
+    top: 80px;
     left: 50%;
-    margin-top: -20%;
     margin-left: -40%;
     opacity: 0;
     display: none;
