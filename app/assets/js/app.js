@@ -12968,6 +12968,7 @@ if (typeof jQuery === 'undefined') {
     setTimeout(function(){
       $('#appView').html(htmlCode);
       prometheus.hideSpinner();
+      prometheus.adjustViewPort();
       prometheus.resizeGrid();
       setTimeout(function(){prometheus.scrollHandler();},1000);
       prometheus.runAjaxScripts();
@@ -13100,7 +13101,7 @@ if (typeof jQuery === 'undefined') {
       columns = 5;
     }
     marginSpace = 0;
-    colWidth = Math.floor((prometheus.environment.screen.width - marginSpace) / columns);
+    colWidth = Math.floor((prometheus.environment.gridWidth / columns));
     return colWidth;
   },
   resizeGrid: function() {
@@ -13132,6 +13133,7 @@ if (typeof jQuery === 'undefined') {
   adjustViewPort: function() {
     prometheus.environment.screen.height = $(window).height();
     prometheus.environment.screen.width = $(window).width();
+    prometheus.environment.gridWidth = $('.appGrid').width();
     if(prometheus.environment.mobile) {$('body').attr('id', 'mobile-app');} else {$('body').attr('id','desktop-app');}
     if(prometheus.environment.screen.width < 768) {
       $('body').addClass('mobile-view').removeClass('desktop-view');
