@@ -168,6 +168,8 @@ body {
           -moz-transition-timing-function: ease;
           -moz-transform: scale(1);
           text-indent: 3px;
+          background-repeat: no-repeat;
+          background-size: cover;
           &.animating {
             -webkit-transform: scale(4);
             -moz-transform: scale(4);

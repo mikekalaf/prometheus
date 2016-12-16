@@ -14418,7 +14418,9 @@ body {
           -moz-transition-duration: 1s;
           -moz-transition-timing-function: ease;
           -moz-transform: scale(1);
-          text-indent: 3px; }
+          text-indent: 3px;
+          background-repeat: no-repeat;
+          background-size: cover; }
           #prometheusWrapper #appContainer #appView .appGrid .gridItem.animating {
             -webkit-transform: scale(4);
             -moz-transform: scale(4);
