@@ -42,19 +42,17 @@
 						<div class="appLogo">Prometheus</div>
 				</div>
 				<div id="appContainer">
-					<div id="appView">
-
-					</div>
-					<div id="skynetView" class="app-overlay-window">
-						<div class="app-overylay-header">
-							<div class="app-overlay-title">Skynet</div>
-							<div class="app-overlay-close" data-target="skynetView"><i class="fa fa-times"></i></div>
-						</div>
-						<div class="app-overlay-body">
-								<iframe class="app-iframe" src="https://skynet.chasingthedrift.com"></iframe>
-						</div>
-					</div>
+					<div id="appView"></div>
 					<div id="ajaxLoader"></div>
+				</div>
+				<div id="skynetView" class="app-overlay-window">
+					<div class="app-overylay-header">
+						<div class="app-overlay-title">Skynet</div>
+						<div class="app-overlay-close" data-target="skynetView"><i class="fa fa-times"></i></div>
+					</div>
+					<div class="app-overlay-body">
+							<iframe class="app-iframe" src="https://skynet.chasingthedrift.com"></iframe>
+					</div>
 				</div>
 				<?php include('partials/sector1User.php'); ?>
 		</div>

@@ -10,6 +10,7 @@ var prometheus = {
     this.environment.mobile = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
     this.environment.screen.height = $(window).height();
     this.environment.screen.width = $(window).width();
+    prometheus.adjustViewPort();
     $(window).on('resize', prometheus.adjustViewPort);
     $('.appMenuTrigger').on('click', prometheus.toggleMenu);
     $('#prometheusSplash').on('click', prometheus.removeSlashScreen);
@@ -136,6 +137,7 @@ var prometheus = {
     }
   },
   loadDefaultView: function() {
+    $('#topBanner').fadeIn('slow');
     $('#appContainer').addClass(prometheus.overlayIn);
     $('.appBackground').particleground({
         dotColor: '#333',
@@ -178,10 +180,15 @@ var prometheus = {
     prometheus.environment.screen.height = $(window).height();
     prometheus.environment.screen.width = $(window).width();
     if(prometheus.environment.mobile) {$('body').attr('id', 'mobile-app');} else {$('body').attr('id','desktop-app');}
+    if(prometheus.environment.screen.width < 768) {
+      $('body').addClass('mobile-view');
+    } else {
+      $('body').removeClass('mobile-view');
+    }
+    prometheus.resizeGrid();
     var skynetHeight = $('#skynetView').height();
     var skynetFrameHeight = skynetHeight - 64;
     $('#skynetView .app-overlay-body').css('height', skynetFrameHeight);
-    prometheus.resizeGrid();
   },
   removeSlashScreen: function() {
     $('#loader').fadeOut();
