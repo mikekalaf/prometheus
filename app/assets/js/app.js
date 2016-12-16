@@ -13138,6 +13138,11 @@ if (typeof jQuery === 'undefined') {
     } else {
       $('body').removeClass('mobile-view');
     }
+    if(prometheus.environment.screen.width > prometheus.environment.screen.height) {
+      $('body').removeClass('portrait').addClass('landscape');
+    } else {
+      $('body').removeClass('landscape').addClass('portrait');
+    }
     prometheus.resizeGrid();
     var skynetHeight = $('#skynetView').height();
     var skynetFrameHeight = skynetHeight - 64;
