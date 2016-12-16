@@ -21,6 +21,18 @@ body {
       }
     }
   }
+  &.portrait {
+    #prometheusWrapper {
+      .userPhotoWrapper, .userInfoWrapper {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+      }
+      .app-overlay-body {
+        overflow-y: scroll;
+      }
+    }
+  }
 }
 
 
@@ -218,6 +230,29 @@ body {
       height: 100%;
     }
   }
+  .userPhotoWrapper {
+    position: relative;
+    height: 100%;
+    width:40%;
+    float: left;
+    .userPhotoContainer {
+      position: relative;
+      background-color: #CCC;
+    }
+    overflow-y: scroll;
+  }
+  .userInfoWrapper {
+    position: relative;
+    width:60%;
+    float: left;
+    height: 100%;
+    .userInfoContainer {
+      position: relative;
+      margin-left: 10px;
+      background-color: #CCC;
+    }
+    overflow-y: scroll;
+  }
   #desktop-app {
   }
 
@@ -267,7 +302,7 @@ body {
   background: #000000;
 }
 ::-webkit-scrollbar-track {
-  background: #666666;
+  background: #333333;
   border: 0px none #ffffff;
   border-radius: 50px;
 }

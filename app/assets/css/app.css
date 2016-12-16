@@ -14297,6 +14297,12 @@ body {
     top: 0;
     left: 0;
     margin-left: 0; }
+  body.portrait #prometheusWrapper .userPhotoWrapper, body.portrait #prometheusWrapper .userInfoWrapper {
+    width: 100%;
+    height: auto;
+    overflow: hidden; }
+  body.portrait #prometheusWrapper .app-overlay-body {
+    overflow-y: scroll; }
 
 #prometheusWrapper {
   position: relative;
@@ -14462,6 +14468,25 @@ body {
       border: none;
       width: 100%;
       height: 100%; }
+  #prometheusWrapper .userPhotoWrapper {
+    position: relative;
+    height: 100%;
+    width: 40%;
+    float: left;
+    overflow-y: scroll; }
+    #prometheusWrapper .userPhotoWrapper .userPhotoContainer {
+      position: relative;
+      background-color: #CCC; }
+  #prometheusWrapper .userInfoWrapper {
+    position: relative;
+    width: 60%;
+    float: left;
+    height: 100%;
+    overflow-y: scroll; }
+    #prometheusWrapper .userInfoWrapper .userInfoContainer {
+      position: relative;
+      margin-left: 10px;
+      background-color: #CCC; }
 
 #prometheusSplash {
   position: absolute;
@@ -14503,7 +14528,7 @@ body {
   background: #000000; }
 
 ::-webkit-scrollbar-track {
-  background: #666666;
+  background: #333333;
   border: 0px none #ffffff;
   border-radius: 50px; }
 

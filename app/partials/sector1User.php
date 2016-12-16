@@ -4,5 +4,13 @@
     <div class="app-overlay-close" data-target="grindrUser"><i class="fa fa-times"></i></div>
   </div>
   <div class="app-overlay-body">
+      <div class="userPhotoWrapper">
+        <div class="userPhotoContainer">
+        </div>
+      </div>
+      <div class="userInfoWrapper">
+        <div class="userInfoContainer">
+        </div>
+      </div>
   </div>
 </div>

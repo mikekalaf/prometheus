@@ -13134,19 +13134,24 @@ if (typeof jQuery === 'undefined') {
     prometheus.environment.screen.width = $(window).width();
     if(prometheus.environment.mobile) {$('body').attr('id', 'mobile-app');} else {$('body').attr('id','desktop-app');}
     if(prometheus.environment.screen.width < 768) {
-      $('body').addClass('mobile-view');
+      $('body').addClass('mobile-view').removeClass('desktop-view');
     } else {
-      $('body').removeClass('mobile-view');
+      $('body').addClass('desktop-view').removeClass('mobile-view');
     }
     if(prometheus.environment.screen.width > prometheus.environment.screen.height) {
       $('body').removeClass('portrait').addClass('landscape');
+      prometheus.layout = 'landscape';
     } else {
       $('body').removeClass('landscape').addClass('portrait');
+      prometheus.layout = 'portrait';
     }
     prometheus.resizeGrid();
-    var skynetHeight = $('#skynetView').height();
-    var skynetFrameHeight = skynetHeight - 64;
-    $('#skynetView .app-overlay-body').css('height', skynetFrameHeight);
+    prometheus.adjustOverlay();
+  },
+  adjustOverlay: function() {
+    var overlayWindowHeight = $('.vanishIn.app-overlay-window').height();
+    var overlayBodyHeight = overlayWindowHeight - 64;
+    $('.vanishIn .app-overlay-body').css('height', overlayBodyHeight);
   },
   removeSlashScreen: function() {
     $('#loader').fadeOut();
