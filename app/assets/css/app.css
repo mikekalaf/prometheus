@@ -14311,6 +14311,8 @@ body {
         padding: 0px; }
       body.mobile-view #prometheusWrapper #appContainer #appView #appSearch .searchWrapper .searchCol.rightCol {
         padding: 0px; }
+      body.mobile-view #prometheusWrapper #appContainer #appView #appSearch .searchWrapper .searchCol select, body.mobile-view #prometheusWrapper #appContainer #appView #appSearch .searchWrapper .searchCol input {
+        height: 45px !important; }
       body.mobile-view #prometheusWrapper #appContainer #appView #appSearch .searchWrapper .searchCol .last {
         margin-bottom: 10px !important; }
   body.portrait #prometheusWrapper .userPhotoWrapper, body.portrait #prometheusWrapper .userInfoWrapper {

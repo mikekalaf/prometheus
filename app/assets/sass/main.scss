@@ -38,6 +38,9 @@ body {
                 &.rightCol {
                   padding: 0px;
                 }
+                select, input {
+                  height: 45px !important;
+                }
                 .last {
                   margin-bottom: 10px !important;
                 }
