@@ -6,12 +6,13 @@ $page = (isset($_GET['page']) ? $_GET['page'] : '1');
 $order = (isset($_GET['order']) ? $_GET['order'] : 'date_added');
 $site = (isset($_GET['site']) ? $_GET['site'] : 'all');
 $type = (isset($_GET['type']) ? $_GET['type'] : 'all');
+$search = (isset($_GET['search']) ? urlencode($_GET['search']) : '');
 
 $prevPage = $page - 1;
 $nextPage = $page + 1;
-$navQuery = "&favorites=".$favorites."&limit=".$limit;
+$navQuery = "&favorites=".$favorites."&limit=".$limit."&page=".$page."&order=".$order."&site=".$site."&type=".$type."&search=".$search;
 
-$url = "http://v9.ikioskcloudapps.com/junkcollector/images?favorites=".$favorites."&limit=".$limit."&page=".$page."&order=".$order."&site=".$site."&type=".$type;
+$url = "http://v9.ikioskcloudapps.com/junkcollector/images?page=".$page.$navQuery;
 $request_headers = array();
 
 $fetchData = curl_handler($url, $request_headers, $blank, "GET");
