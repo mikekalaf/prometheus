@@ -38,6 +38,9 @@ body {
                 &.rightCol {
                   padding: 0px;
                 }
+                .last {
+                  margin-bottom: 10px !important;
+                }
               }
             }
           }
@@ -242,6 +245,20 @@ body {
             line-height: 32px;
           }
           select {
+            border: 1px solid #333;
+            background-color: #000;
+            width: 100%;
+            height: 32px;
+            margin-bottom: 10px;
+            -webkit-appearance:none;
+            border-radius: 0px;
+            padding-left: 10px;
+            padding-right: 10px;
+            &.last {
+              margin-bottom: 0px;
+            }
+          }
+          input {
             border: 1px solid #333;
             background-color: #000;
             width: 100%;

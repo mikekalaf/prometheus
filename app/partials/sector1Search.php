@@ -56,6 +56,25 @@ foreach($ethnicityOptions as $key => $value) {
   $ethnicitySelect .= "<option value='".$key."'".$selected.">".$value."</option>";
 }
 
+//relationship
+$relOptions = array();
+$relOptions[1] = "Single";
+$relOptions[2] = "Dating";
+$relOptions[3] = "Exclusive";
+$relOptions[4] = "Committed";
+$relOptions[5] = "Partnered";
+$relOptions[6] = "Engaged";
+$relOptions[7] = "Married";
+$relOptions[8] = "Open Relationship";
+
+$relSelect = "";
+foreach($relOptions as $key => $value) {
+  $selected = "";
+  if ($key == $relationship) { $selected = " selected"; }
+  $relSelect .= "<option value='".$key."'".$selected.">".$value."</option>";
+}
+
+
  ?>
 <div id="appSearch">
   <div class="appNav">
@@ -75,11 +94,19 @@ foreach($ethnicityOptions as $key => $value) {
         <option value=''>Ethnicity</option>
         <?php echo $ethnicitySelect; ?>
       </select>
+      <select class="searchParam" data-param="relationship">
+        <option value=''>Relationship</option>
+        <?php echo $relSelect; ?>
+      </select>
       <select class="searchParam" data-param="favorites">
         <?php echo $favoriteSelect; ?>
       </select>
+      <input class="searchParam last" data-param="search" placeholder="Search Query" value="<?php echo $search; ?>" />
     </div>
     <div class="searchCol rightCol">
+      <input class="searchParam" data-param="age" placeholder="Age" value="<?php echo urldecode($age); ?>" />
+      <input class="searchParam" data-param="city" placeholder="City" value="<?php echo urldecode($city); ?>" />
+      <input class="searchParam" data-param="state" placeholder="State" value="<?php echo urldecode($state); ?>" />
         <div id="appSearchSubmit" data-url="sector1.php">Search</div>
     </div>
   </div>

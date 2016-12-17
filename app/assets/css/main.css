@@ -29,6 +29,8 @@ body {
         padding: 0px; }
       body.mobile-view #prometheusWrapper #appContainer #appView #appSearch .searchWrapper .searchCol.rightCol {
         padding: 0px; }
+      body.mobile-view #prometheusWrapper #appContainer #appView #appSearch .searchWrapper .searchCol .last {
+        margin-bottom: 10px !important; }
   body.portrait #prometheusWrapper .userPhotoWrapper, body.portrait #prometheusWrapper .userInfoWrapper {
     width: 100%;
     height: auto;
@@ -202,6 +204,18 @@ body {
             padding-left: 10px;
             padding-right: 10px; }
             #prometheusWrapper #appContainer #appView #appSearch .searchWrapper select.last {
+              margin-bottom: 0px; }
+          #prometheusWrapper #appContainer #appView #appSearch .searchWrapper input {
+            border: 1px solid #333;
+            background-color: #000;
+            width: 100%;
+            height: 32px;
+            margin-bottom: 10px;
+            -webkit-appearance: none;
+            border-radius: 0px;
+            padding-left: 10px;
+            padding-right: 10px; }
+            #prometheusWrapper #appContainer #appView #appSearch .searchWrapper input.last {
               margin-bottom: 0px; }
       #prometheusWrapper #appContainer #appView .appGrid {
         position: relative;
