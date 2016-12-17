@@ -78,7 +78,6 @@ foreach($hairOptions as $key => $value) {
   <div class="searchWrapper">
     <div class="searchCol leftCol">
       <select class="searchParam" data-param="favorites">
-        <option value="">Favorites</option>
         <?php echo $favoriteSelect; ?>
       </select>
       <select class="searchParam" data-param="ethnicity">

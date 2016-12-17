@@ -20,8 +20,14 @@ $sectorData = json_decode($fetchData ,true);
 include ('junkSearch.php');
 echo "<div class='appGrid'>";
 foreach($sectorData['data'] as $key => $media) {
+  if($media['media_type'] == "video") {
+    $media['image_url'] = $media['video_poster'];
+  } else {
+    $media['image_url'] =  str_replace('_500', '_250', $media['image_url']);
+    $media['image_url'] =  str_replace('_400', '_250', $media['image_url']);
+    $media['image_url'] =  str_replace('_1280', '_250', $media['image_url']);
+  }
   $media['date_added'] = date('M d Y, g:ia', strtotime($media['date_added']));
-  if ($media['media_type'] == "video") { $media['image_url'] = $media['video_poster'];};
   echo "<div class='gridItem junkMedia overlayLink' data-target='junkMedia' data-grid-id='".$media['image_id']."' style='background-image: url(".$media['image_url'].");'></div>";
 }
 echo "</div>";

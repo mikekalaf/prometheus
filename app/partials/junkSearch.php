@@ -1,12 +1,18 @@
 <?php
 //Favorites
-$favoriteOptions = ['true', 'false'];
+$favoriteOptions = array();
+$favoriteOptions['true'] = "Favorites";
+$favoriteOptions['false'] = "Show All";
+
 $favoriteSelect = "";
-foreach($favoriteOptions as $value) {
+foreach($favoriteOptions as $key => $value) {
   $selected = "";
-  if ($value == $favorites) { $selected = " selected"; }
-  $favoriteSelect .= "<option value='".$value."'".$selected.">".$value."</option>";
+  if ($key == $favorites) { $selected = " selected"; }
+  $favoriteSelect .= "<option value='".$key."'".$selected.">".$value."</option>";
 }
+
+//Media type
+$mediaType = array();
  ?>
 <div id="appSearch">
   <div class="appNav">
