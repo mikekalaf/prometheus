@@ -27,6 +27,23 @@ var prometheus = {
     $('#desktop-app #appContainer').on('mouseover', '.gridItem.loaded', prometheus.gridItemHover);
     $('#desktop-app #appContainer').on('mouseout', '.gridItem.loaded', prometheus.gridItemHoverOut);
     $('#appView').on('click', '.navTrigger', prometheus.handleNavTrigger);
+    $('#appView').on('click', '#appSearchSubmit', prometheus.buildSearch);
+  },
+  buildSearch: function() {
+    var pageBase = $(this).data('url');
+    var searchString = "";
+    $('.searchParam').each(function(){
+      var param = $(this).data('param');
+      var paramValue = $(this).val();
+      searchString += '&'+param+'='+paramValue;
+    });
+    var searchUrl = "partials/"+pageBase+"?p=1"+searchString;
+    var thisApp = prometheus.activeApp;
+    $('#appSearch').fadeOut();
+    prometheus.fadeOutGrid();
+    setTimeout(function(){
+      prometheus.loadData(searchUrl, prometheus[thisApp].displayUserGrid);
+    },1000);
   },
   loadData: function(dataUrl, dataCallback) {
     prometheus.showSpinner();
@@ -54,6 +71,7 @@ var prometheus = {
       setTimeout(function(){prometheus.scrollHandler();},1000);
       prometheus.runAjaxScripts();
       prometheus.showSearch();
+      prometheus.adjustViewPort();
     }, 500);
   },
   grindr: {
@@ -94,9 +112,9 @@ var prometheus = {
   },
   junkcollector: {
     launch: function() {
-      prometheus.loadData('partials/junkGrid.php', prometheus.junkcollector.displayMediaGrid);
+      prometheus.loadData('partials/junkGrid.php', prometheus.junkcollector.displayUserGrid);
     },
-    displayMediaGrid: function(data) {
+    displayUserGrid: function(data) {
       prometheus.gridData = [];
       prometheus.displayAppViewData(data);
     },
@@ -201,7 +219,7 @@ var prometheus = {
     var delay = Math.random()*3000;
     $(el).addClass('animating');
     setTimeout(function() {$(el).addClass('loaded');}, delay);
-    $(el).css('background-image', 'none');
+    //$(el).css('background-image', 'none');
   },
   removeGridItem: function(items, i) {
     var item = items[i];
