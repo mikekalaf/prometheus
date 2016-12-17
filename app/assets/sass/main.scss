@@ -153,21 +153,20 @@ body {
           position: relative;
           float: left;
           background-color: #ccc;
-          opacity: 0;
+          opacity: 1;
           cursor: pointer;
-          transition-property: transform,opacity;
-          transition-duration: 1s;
-          transition-timing-function: ease;
-          transform: scale(1);
-          -webkit-transition-property: transform,opacity;
-          -webkit-transition-duration: 1s;
-          -webkit-transition-timing-function: ease;
-          -webkit-transform: scale(1);
-          -moz-transition-property: transform,opacity;
-          -moz-transition-duration: 1s;
-          -moz-transition-timing-function: ease;
-          -moz-transform: scale(1);
-          text-indent: 3px;
+          // transition-property: transform,opacity;
+          // transition-duration: 1s;
+          // transition-timing-function: ease;
+          // transform: scale(1);
+          // -webkit-transition-property: transform,opacity;
+          // -webkit-transition-duration: 1s;
+          // -webkit-transition-timing-function: ease;
+          // -webkit-transform: scale(1);
+          // -moz-transition-property: transform,opacity;
+          // -moz-transition-duration: 1s;
+          // -moz-transition-timing-function: ease;
+          // -moz-transform: scale(1);
           background-repeat: no-repeat;
           background-size: cover;
           &.animating {
@@ -177,9 +176,9 @@ body {
           }
           &.loaded {
             opacity: 1;
-            -webkit-transform: scale(1);
-            -moz-transform: scale(1);
-            transform: scale(1);
+            // -webkit-transform: scale(1);
+            // -moz-transform: scale(1);
+            // transform: scale(1);
           }
         }
       }

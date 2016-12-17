@@ -20,8 +20,8 @@ var prometheus = {
     $('#prometheusWrapper').on('click', '.overlayLink', prometheus.openOverlay);
     $('#appView').on('click', '.grindrUser', prometheus.grindr.showUserProfile);
     $('#appContainer').scroll(prometheus.scrollHandler);
-    $('#desktop-app #appContainer').on('mouseover', '.gridItem.loaded', prometheus.gridItemHover);
-    $('#desktop-app #appContainer').on('mouseout', '.gridItem.loaded', prometheus.gridItemHoverOut);
+    //$('#desktop-app #appContainer').on('mouseover', '.gridItem.loaded', prometheus.gridItemHover);
+    //$('#desktop-app #appContainer').on('mouseout', '.gridItem.loaded', prometheus.gridItemHoverOut);
   },
   loadData: function(dataUrl, dataCallback) {
     prometheus.showSpinner();
@@ -151,7 +151,7 @@ var prometheus = {
   },
   animateGridItem: function(el) {
     var delay = Math.random()*3000;
-    $(el).addClass('animating');
+    $(el).addClass('loaded');
     setTimeout(function() {$(el).addClass('loaded');}, delay);
   },
   slideInGrid: function() {
@@ -253,11 +253,11 @@ var prometheus = {
     return viewable;
   },
   scrollHandler: function () {
-    $('.gridItem:not(.loaded)').each(function () {
-      if (prometheus.isScrolledIntoView(this) === true) {
-        prometheus.animateGridItem(this);
-      }
-    });
+    // $('.gridItem:not(.loaded)').each(function () {
+    //   if (prometheus.isScrolledIntoView(this) === true) {
+    //     prometheus.animateGridItem(this);
+    //   }
+    // });
   }
 };
 
