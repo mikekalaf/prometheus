@@ -10,7 +10,7 @@ $search = (isset($_GET['search']) ? urlencode($_GET['search']) : '');
 
 $prevPage = $page - 1;
 $nextPage = $page + 1;
-$navQuery = "&favorites=".$favorites."&limit=".$limit."&page=".$page."&order=".$order."&site=".$site."&type=".$type."&search=".$search;
+$navQuery = "&favorites=".$favorites."&limit=".$limit."&order=".$order."&site=".$site."&type=".$type."&search=".$search;
 
 $url = "http://v9.ikioskcloudapps.com/junkcollector/images?page=".$page.$navQuery;
 $request_headers = array();
