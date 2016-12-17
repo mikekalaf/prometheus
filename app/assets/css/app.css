@@ -14403,9 +14403,21 @@ body {
         #prometheusWrapper #appContainer #appView .appGrid .gridItem {
           position: relative;
           float: left;
-          background-color: #ccc;
-          opacity: 1;
+          opacity: 0;
           cursor: pointer;
+          transition-property: transform,opacity;
+          transition-duration: 1s;
+          transition-timing-function: ease;
+          transform: scale(1);
+          -webkit-transition-property: transform,opacity;
+          -webkit-transition-duration: 1s;
+          -webkit-transition-timing-function: ease;
+          -webkit-transform: scale(1);
+          -moz-transition-property: transform,opacity;
+          -moz-transition-duration: 1s;
+          -moz-transition-timing-function: ease;
+          -moz-transform: scale(1);
+          text-indent: 3px;
           background-repeat: no-repeat;
           background-size: cover; }
           #prometheusWrapper #appContainer #appView .appGrid .gridItem.animating {
@@ -14413,7 +14425,10 @@ body {
             -moz-transform: scale(4);
             transform: scale(4); }
           #prometheusWrapper #appContainer #appView .appGrid .gridItem.loaded {
-            opacity: 1; }
+            opacity: 1;
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            transform: scale(1); }
   #prometheusWrapper .app-overlay-window {
     position: fixed;
     width: 80%;

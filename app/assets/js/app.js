@@ -12943,9 +12943,10 @@ if (typeof jQuery === 'undefined') {
     $('#prometheusWrapper').on('click', '.app-overlay-close', prometheus.closeOverlay);
     $('#prometheusWrapper').on('click', '.overlayLink', prometheus.openOverlay);
     $('#appView').on('click', '.grindrUser', prometheus.grindr.showUserProfile);
+    $('#appView').on('click', '.jackdUser', prometheus.jackd.showUserProfile);
     $('#appContainer').scroll(prometheus.scrollHandler);
-    //$('#desktop-app #appContainer').on('mouseover', '.gridItem.loaded', prometheus.gridItemHover);
-    //$('#desktop-app #appContainer').on('mouseout', '.gridItem.loaded', prometheus.gridItemHoverOut);
+    $('#desktop-app #appContainer').on('mouseover', '.gridItem.loaded', prometheus.gridItemHover);
+    $('#desktop-app #appContainer').on('mouseout', '.gridItem.loaded', prometheus.gridItemHoverOut);
   },
   loadData: function(dataUrl, dataCallback) {
     prometheus.showSpinner();
@@ -12988,6 +12989,14 @@ if (typeof jQuery === 'undefined') {
   },
   jackd: {
     launch: function() {
+      prometheus.loadData('partials/sector2.php', prometheus.jackd.displayUserGrid);
+    },
+    displayUserGrid: function(data) {
+      prometheus.gridData = [];
+      prometheus.displayAppViewData(data);
+    },
+    showUserProfile: function() {
+      var id = $(this).data('grid-id');
     }
   },
   scruff: {
@@ -13075,7 +13084,7 @@ if (typeof jQuery === 'undefined') {
   },
   animateGridItem: function(el) {
     var delay = Math.random()*3000;
-    $(el).addClass('loaded');
+    $(el).addClass('animating');
     setTimeout(function() {$(el).addClass('loaded');}, delay);
   },
   slideInGrid: function() {
@@ -13177,11 +13186,11 @@ if (typeof jQuery === 'undefined') {
     return viewable;
   },
   scrollHandler: function () {
-    // $('.gridItem:not(.loaded)').each(function () {
-    //   if (prometheus.isScrolledIntoView(this) === true) {
-    //     prometheus.animateGridItem(this);
-    //   }
-    // });
+    $('.gridItem:not(.loaded)').each(function () {
+      if (prometheus.isScrolledIntoView(this) === true) {
+        prometheus.animateGridItem(this);
+      }
+    });
   }
 };
 
