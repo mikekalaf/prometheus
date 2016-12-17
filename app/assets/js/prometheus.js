@@ -21,6 +21,7 @@ var prometheus = {
     $('#appView').on('click', '.grindrUser', prometheus.grindr.showUserProfile);
     $('#appView').on('click', '.jackdUser', prometheus.jackd.showUserProfile);
     $('#appView').on('click', '.scruffUser', prometheus.scruff.showUserProfile);
+    $('#appView').on('click', '.junkMedia', prometheus.junkcollector.showMedia);
     $('#appContainer').scroll(prometheus.scrollHandler);
     $('#desktop-app #appContainer').on('mouseover', '.gridItem.loaded', prometheus.gridItemHover);
     $('#desktop-app #appContainer').on('mouseout', '.gridItem.loaded', prometheus.gridItemHoverOut);
@@ -90,6 +91,14 @@ var prometheus = {
   },
   junkcollector: {
     launch: function() {
+      prometheus.loadData('partials/junkGrid.php', prometheus.junkcollector.displayMediaGrid);
+    },
+    displayMediaGrid: function(data) {
+      prometheus.gridData = [];
+      prometheus.displayAppViewData(data);
+    },
+    showMedia: function() {
+      var id = $(this).data('grid-id');
     }
   },
   runAjaxScripts: function() {
