@@ -95,13 +95,13 @@ foreach($relOptions as $key => $value) {
         <?php echo $ethnicitySelect; ?>
       </select>
       <select class="searchParam" data-param="relationship">
-        <option value=''>Relationship</option>
+        <option value=''>Relationship Status</option>
         <?php echo $relSelect; ?>
       </select>
       <select class="searchParam" data-param="favorites">
         <?php echo $favoriteSelect; ?>
       </select>
-      <input class="searchParam last" data-param="search" placeholder="Search Query" value="<?php echo $search; ?>" />
+      <input class="searchParam last" data-param="search" placeholder="Query" value="<?php echo urlencode($search); ?>" />
     </div>
     <div class="searchCol rightCol">
       <input class="searchParam" data-param="age" placeholder="Age" value="<?php echo urldecode($age); ?>" />

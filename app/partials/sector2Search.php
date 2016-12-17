@@ -1,12 +1,45 @@
 <?php
 //Favorites
-$favoriteOptions = ['Yes', 'No'];
+$favoriteOptions = array();
+$favoriteOptions['Yes'] = "Favorites";
+$favoriteOptions['No'] = "Show All";
+
 $favoriteSelect = "";
-foreach($favoriteOptions as $value) {
+foreach($favoriteOptions as $key => $value) {
   $selected = "";
-  if ($value == $favorites) { $selected = " selected"; }
-  $favoriteSelect .= "<option value='".$value."'".$selected.">".$value."</option>";
+  if ($key == $favorites) { $selected = " selected"; }
+  $favoriteSelect .= "<option value='".$key."'".$selected.">".$value."</option>";
 }
+
+//Unlocked
+$unlockedOptions = array();
+$unlockedOptions['Yes'] = "Unlocked Privates";
+$unlockedOptions['No'] = "Show All";
+
+$unlockedSelect = "";
+foreach($unlockedOptions as $key => $value) {
+  $selected = "";
+  if ($key == $private) { $selected = " selected"; }
+  $unlockedSelect .= "<option value='".$key."'".$selected.">".$value."</option>";
+}
+
+//Ethnicity
+$ethnicityOptions = array();
+$ethnicityOptions[1] = "Black";
+$ethnicityOptions[2] = "White";
+$ethnicityOptions[3] = "Latino";
+$ethnicityOptions[4] = "Middle Eastern";
+$ethnicityOptions[5] = "Mixed";
+$ethnicityOptions[6] = "Pacific Islander";
+$ethnicityOptions[7] = "Other";
+
+$ethnicitySelect = "";
+foreach($ethnicityOptions as $key => $value) {
+  $selected = "";
+  if ($key == $ethnicity) { $selected = " selected"; }
+  $ethnicitySelect .= "<option value='".$key."'".$selected.">".$value."</option>";
+}
+
  ?>
 <div id="appSearch">
   <div class="appNav">
@@ -23,12 +56,21 @@ foreach($favoriteOptions as $value) {
   <div class="searchWrapper">
     <div class="searchCol leftCol">
       <select class="searchParam" data-param="favorites">
-        <option value="">Favorites</option>
         <?php echo $favoriteSelect; ?>
+      </select>
+      <select class="searchParam" data-param="private">
+        <?php echo $unlockedSelect; ?>
+      </select>
+      <select class="searchParam last" data-param="ethnicity">
+        <option value=''>Ethnicity</option>
+        <?php echo $ethnicitySelect; ?>
       </select>
     </div>
     <div class="searchCol rightCol">
-        <div id="appSearchSubmit" data-url="sector2.php">Search</div>
+      <input class="searchParam" data-param="city" placeholder="City" value="<?php echo urldecode($city); ?>" />
+      <input class="searchParam" data-param="state" placeholder="State" value="<?php echo urldecode($state); ?>" />
+      <input class="searchParam" data-param="search" placeholder="Query" value="<?php echo urldecode($search); ?>" />
+      <div id="appSearchSubmit" data-url="sector2.php">Search</div>
     </div>
   </div>
 </div>

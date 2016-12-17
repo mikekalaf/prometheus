@@ -5,12 +5,16 @@ $favorites = (isset($_GET['favorites']) ? $_GET['favorites'] : 'No');
 $limit = (isset($_GET['limit']) ? $_GET['limit'] : '150');
 $page = (isset($_GET['page']) ? $_GET['page'] : '1');
 $private = (isset($_GET['private']) ? $_GET['private'] : 'No');
+$ethnicity = (isset($_GET['ethnicity']) ? $_GET['ethnicity'] : '');
+$city = (isset($_GET['city']) ? urlencode($_GET['city']) : '');
+$state = (isset($_GET['state']) ? urlencode($_GET['state']) : '');
+$search = (isset($_GET['search']) ? urlencode($_GET['search']) : '');
 
 $prevPage = $page - 1;
 $nextPage = $page + 1;
-$navQuery = "&favorites=".$favorites."&limit=".$limit;
+$navQuery = "&favorites=".$favorites."&limit=".$limit."&page=".$page."&private=".$private."&ethnicity=".$ethnicity."&city=".$city."&state=".$state."&search=".$search;
 
-$url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector2?favorites=".$favorites."&limit=".$limit."&page=".$page."&private=".$private;
+$url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector2?page=".$page.$navQuery;
 $request_headers = array();
 
 $fetchData = curl_handler($url, $request_headers, $blank, "GET");

@@ -4,12 +4,19 @@ include('../includes/prometheus.php');
 $favorites = (isset($_GET['favorites']) ? $_GET['favorites'] : 'No');
 $limit = (isset($_GET['limit']) ? $_GET['limit'] : '150');
 $page = (isset($_GET['page']) ? $_GET['page'] : '1');
+$ethnicity = (isset($_GET['ethnicity']) ? $_GET['ethnicity'] : '');
+$relationship = (isset($_GET['relationship']) ? $_GET['relationship'] : '');
+$search = (isset($_GET['search']) ? urlencode($_GET['search']) : '');
+$age = (isset($_GET['age']) ? urlencode($_GET['age']) : '');
+$city = (isset($_GET['city']) ? urlencode($_GET['city']) : '');
+$state = (isset($_GET['state']) ? urlencode($_GET['state']) : '');
+$body_hair = (isset($_GET['body_hair']) ? $_GET['body_hair'] : '');
 
 $prevPage = $page - 1;
 $nextPage = $page + 1;
-$navQuery = "&favorites=".$favorites."&limit=".$limit;
+$navQuery = "&favorites=".$favorites."&limit=".$limit."&ethnicity=".$ethnicity."&relationship=".$relationship."&search=".$search."&city=".$city."&state=".$state."&age=".$age."&body_hair=".$body_hair;
 
-$url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector3?favorites=".$favorites."&limit=".$limit."&page=".$page;
+$url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector3?page=".$page.$navQuery;
 $request_headers = array();
 
 $fetchData = curl_handler($url, $request_headers, $blank, "GET");

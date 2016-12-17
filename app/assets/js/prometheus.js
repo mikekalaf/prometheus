@@ -293,6 +293,8 @@ var prometheus = {
     prometheus.environment.screen.height = $(window).height();
     prometheus.environment.screen.width = $(window).width();
     prometheus.environment.gridWidth = $('.appGrid').width();
+    prometheus.environment.searchHeight = $('#appSearch').height();
+    $('.appGrid').css('min-height', prometheus.environment.searchHeight + 60);
     if(prometheus.environment.mobile) {$('body').attr('id', 'mobile-app');} else {$('body').attr('id','desktop-app');}
     if(prometheus.environment.screen.width < 768) {
       $('body').addClass('mobile-view').removeClass('desktop-view');
