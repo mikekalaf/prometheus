@@ -13143,7 +13143,9 @@ if (typeof jQuery === 'undefined') {
     var delay = Math.random()*3000;
     $(el).addClass('animating');
     setTimeout(function() {$(el).addClass('loaded');}, delay);
-    //$(el).css('background-image', 'none');
+    if (window.location.hostname == "localhost") {
+      $(el).css('background-image', 'none');
+    }
   },
   removeGridItem: function(items, i) {
     var item = items[i];

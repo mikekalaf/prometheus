@@ -26,13 +26,36 @@
 // } while ($i < $totalPages);
 
 //Favorites
-$favoriteOptions = ['Yes', 'No'];
+$favoriteOptions = array();
+$favoriteOptions['Yes'] = "Favorites";
+$favoriteOptions['No'] = "Show All";
+
 $favoriteSelect = "";
-foreach($favoriteOptions as $value) {
+foreach($favoriteOptions as $key => $value) {
   $selected = "";
-  if ($value == $favorites) { $selected = " selected"; }
-  $favoriteSelect .= "<option value='".$value."'".$selected.">".$value."</option>";
+  if ($key == $favorites) { $selected = " selected"; }
+  $favoriteSelect .= "<option value='".$key."'".$selected.">".$value."</option>";
 }
+
+//Ethnicity
+$ethnicityOptions = array();
+$ethnicityOptions[1] = "Asian";
+$ethnicityOptions[2] = "Black";
+$ethnicityOptions[3] = "Latino";
+$ethnicityOptions[4] = "Middle Eastern";
+$ethnicityOptions[5] = "Mixed";
+$ethnicityOptions[6] = "Native American";
+$ethnicityOptions[7] = "White";
+$ethnicityOptions[8] = "Other";
+$ethnicityOptions[9] = "South Asian";
+
+$ethnicitySelect = "";
+foreach($ethnicityOptions as $key => $value) {
+  $selected = "";
+  if ($key == $ethnicity) { $selected = " selected"; }
+  $ethnicitySelect .= "<option value='".$key."'".$selected.">".$value."</option>";
+}
+
  ?>
 <div id="appSearch">
   <div class="appNav">
@@ -48,8 +71,11 @@ foreach($favoriteOptions as $value) {
   </div>
   <div class="searchWrapper">
     <div class="searchCol leftCol">
+      <select class="searchParam" data-param="ethnicity">
+        <option value=''>Ethnicity</option>
+        <?php echo $ethnicitySelect; ?>
+      </select>
       <select class="searchParam" data-param="favorites">
-        <option value="">Favorites</option>
         <?php echo $favoriteSelect; ?>
       </select>
     </div>

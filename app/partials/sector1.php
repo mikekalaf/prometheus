@@ -4,11 +4,13 @@ include('../includes/prometheus.php');
 $favorites = (isset($_GET['favorites']) ? $_GET['favorites'] : 'No');
 $limit = (isset($_GET['limit']) ? $_GET['limit'] : '150');
 $page = (isset($_GET['page']) ? $_GET['page'] : '1');
+$ethnicity = (isset($_GET['ethnicity']) ? $_GET['ethnicity'] : '');
+
 $prevPage = $page - 1;
 $nextPage = $page + 1;
 $navQuery = "&favorites=".$favorites."&limit=".$limit;
 
-$url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector1?favorites=".$favorites."&limit=".$limit."&page=".$page;
+$url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector1?favorites=".$favorites."&limit=".$limit."&page=".$page."&ethnicity=".$ethnicity;
 $request_headers = array();
 
 $fetchData = curl_handler($url, $request_headers, $blank, "GET");
