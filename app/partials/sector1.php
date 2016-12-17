@@ -14,8 +14,8 @@ echo "<div class='appGrid'>";
 foreach($sectorData['data'] as $key => $user) {
   $user['date_modified'] = date('M d Y, g:ia', strtotime($user['date_modified']));
   $userData = json_encode($user);
-  //echo "<div class='gridItem grindrUser overlayLink' data-target='grindrUser' data-grid-id='".$user['profile_id']."' style='background-image: url(".$user['profile_photo'].");'></div>";
-  echo "<div class='gridItem grindrUser overlayLink' data-target='grindrUser' data-grid-id='".$user['profile_id']."'></div>";
+  echo "<div class='gridItem grindrUser overlayLink' data-target='grindrUser' data-grid-id='".$user['profile_id']."' style='background-image: url(".$user['profile_photo'].");'></div>";
+  //echo "<div class='gridItem grindrUser overlayLink' data-target='grindrUser' data-grid-id='".$user['profile_id']."'></div>";
   $ajaxScripts .= "prometheus.gridData['".$user['profile_id']."'] = ".$userData.";\r\n";
 }
 echo "</div>";
