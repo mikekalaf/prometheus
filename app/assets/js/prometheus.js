@@ -116,6 +116,9 @@ var prometheus = {
   showSearch: function() {
     $('#appSearch').fadeIn();
   },
+  hideSearch: function() {
+    $('#appSearch').fadeOut();
+  },
   runAjaxScripts: function() {
     if ($("#appView #ajaxScript").length != 0) {
       eval($('#appView #ajaxScript'));
@@ -128,6 +131,7 @@ var prometheus = {
     $('#ajaxLoader').fadeOut();
   },
   openOverlay: function() {
+    prometheus.hideSearch();
     prometheus.closeAllOverlays();
     var target = $(this).data('target');
     $('#'+target).removeClass(prometheus.overlayOut);

@@ -202,6 +202,14 @@ body {
             border: 1px solid #333;
             cursor: pointer;
             background-color: #000;
+            margin-left: 5px;
+          }
+          .navLabel {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #333;
+            background-color: #000;
+            margin-left: 5px;
           }
         }
         .searchWrapper {
@@ -338,11 +346,15 @@ body {
     }
     overflow-y: scroll;
   }
-  #desktop-app {
-  }
+}
 
-  #mobile-app {
+#desktop-app {
+  .navButton:hover, .appMenuTrigger:hover, .appSearchTrigger:hover {
+    background-color: #333 !important;
   }
+}
+
+#mobile-app {
 }
 
 #prometheusSplash {
