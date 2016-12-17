@@ -22,14 +22,14 @@ include ('junkSearch.php');
 echo "<div class='appGrid'>";
 foreach($sectorData['data'] as $key => $media) {
   if($media['media_type'] == "video") {
-    $media['image_url'] = $media['video_poster'];
+    $media['image'] = $media['video_poster'];
   } else {
-    $media['image_url'] =  str_replace('_500', '_250', $media['image_url']);
-    $media['image_url'] =  str_replace('_400', '_250', $media['image_url']);
-    $media['image_url'] =  str_replace('_1280', '_250', $media['image_url']);
+    $media['image'] =  str_replace('_500', '_250', $media['image_url']);
+    $media['image'] =  str_replace('_400', '_250', $media['image_url']);
+    $media['image'] =  str_replace('_1280', '_250', $media['image_url']);
   }
   $media['date_added'] = date('M d Y, g:ia', strtotime($media['date_added']));
-  echo "<div class='gridItem junkMedia overlayLink' data-target='junkMedia' data-grid-id='".$media['image_id']."' style='background-image: url(".$media['image_url'].");'></div>";
+  echo "<div class='gridItem junkMedia overlayLink' data-url='".$media['image_url']."' data-type='".$media['media_type']."' data-target='junkMedia' data-grid-id='".$media['image_id']."' style='background-image: url(".$media['image'].");'></div>";
 }
 echo "</div>";
 ?>
