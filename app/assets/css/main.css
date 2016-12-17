@@ -19,7 +19,9 @@ body {
     width: 100%;
     box-shadow: none;
     margin-top: -15px;
-    right: auto; }
+    right: auto;
+    border-left: none;
+    border-right: none; }
     body.mobile-view #prometheusWrapper #appContainer #appView #appSearch .searchWrapper .searchCol {
       width: 100%;
       float: none; }
