@@ -19,6 +19,28 @@ body {
         left: 0;
         margin-left: 0;
       }
+      #appContainer {
+        #appView {
+          #appSearch {
+            width:100%;
+            box-shadow: none;
+            margin-top: -15px;
+            right: auto;
+            .searchWrapper {
+              .searchCol {
+                width: 100%;
+                float: none;
+                &.leftCol {
+                  padding: 0px;
+                }
+                &.rightCol {
+                  padding: 0px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
   &.portrait {
@@ -117,6 +139,18 @@ body {
         color: #999;
       }
     }
+    .appSearchTrigger {
+      position: absolute;
+      right: 15px;
+      top: 11px;
+      padding: 5px 10px;
+      border: 1px solid #333;
+      cursor: pointer;
+      display: none;
+      i {
+        color: #999;
+      }
+    }
     .appLogo {
       position: relative;
       display: inline-block;
@@ -145,6 +179,49 @@ body {
       width: 100%;
       top: 55px;
       overflow: hidden;
+      #appSearch {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        background-color: rgba(0,0,0,0.75);
+        border: 1px solid #333;
+        box-shadow: 0px 1px 10px 1px #242424;
+        width: 50%;
+        z-index: 500;
+        display:none;
+        .appNav {
+          position: relative;
+          width: 100%;
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-top: 10px;
+          text-align: right;
+          .navButton {
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #333;
+            cursor: pointer;
+            background-color: #000;
+          }
+        }
+        .searchWrapper {
+          position: relative;
+          width: 100%;
+          padding: 10px;
+          overflow: hidden;
+          .searchCol {
+            position: relative;
+            float: left;
+            width: 50%;
+            &.leftCol {
+              padding-right: 5px;
+            }
+            &.rightCol {
+              padding-left: 5px;
+            }
+          }
+        }
+      }
       .appGrid {
         position: relative;
         overflow: hidden;
@@ -169,6 +246,7 @@ body {
           text-indent: 3px;
           background-repeat: no-repeat;
           background-size: cover;
+          background-color: #333;
           &.animating {
             -webkit-transform: scale(4);
             -moz-transform: scale(4);
@@ -179,6 +257,12 @@ body {
             -webkit-transform: scale(1);
             -moz-transform: scale(1);
             transform: scale(1);
+          }
+          &.fallOut {
+            opacity: 0;
+            -webkit-transform: scale(0);
+            -moz-transform: scale(0);
+            transform: scale(0);
           }
         }
       }

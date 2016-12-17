@@ -40,6 +40,9 @@
 							<i class="fa fa-bars"></i>
 						</div>
 						<div class="appLogo">Prometheus</div>
+						<div class="appSearchTrigger">
+							<i class="fa fa-search"></i>
+						</div>
 				</div>
 				<div id="appContainer">
 					<div id="appView"></div>

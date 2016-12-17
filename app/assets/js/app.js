@@ -12937,6 +12937,7 @@ if (typeof jQuery === 'undefined') {
     prometheus.adjustViewPort();
     $(window).on('resize', prometheus.adjustViewPort);
     $('.appMenuTrigger').on('click', prometheus.toggleMenu);
+    $('.appSearchTrigger').on('click', prometheus.showSearch);
     $('#prometheusSplash').on('click', prometheus.removeSlashScreen);
     $('#appView').on('click', prometheus.closeMenu);
     $('.appLink').on('click', prometheus.handleMenuClick);
@@ -12949,6 +12950,7 @@ if (typeof jQuery === 'undefined') {
     $('#appContainer').scroll(prometheus.scrollHandler);
     $('#desktop-app #appContainer').on('mouseover', '.gridItem.loaded', prometheus.gridItemHover);
     $('#desktop-app #appContainer').on('mouseout', '.gridItem.loaded', prometheus.gridItemHoverOut);
+    $('#appView').on('click', '.navTrigger', prometheus.handleNavTrigger);
   },
   loadData: function(dataUrl, dataCallback) {
     prometheus.showSpinner();
@@ -12975,6 +12977,7 @@ if (typeof jQuery === 'undefined') {
       prometheus.resizeGrid();
       setTimeout(function(){prometheus.scrollHandler();},1000);
       prometheus.runAjaxScripts();
+      prometheus.showSearch();
     }, 500);
   },
   grindr: {
@@ -13024,6 +13027,18 @@ if (typeof jQuery === 'undefined') {
     showMedia: function() {
       var id = $(this).data('grid-id');
     }
+  },
+  handleNavTrigger: function() {
+    var thisApp = prometheus.activeApp;
+    var thisUrl = $(this).data('url');
+    $('#appSearch').fadeOut();
+    prometheus.fadeOutGrid();
+    setTimeout(function(){
+      prometheus.loadData(thisUrl, prometheus[thisApp].displayUserGrid);
+    },1000);
+  },
+  showSearch: function() {
+    $('#appSearch').fadeIn();
   },
   runAjaxScripts: function() {
     if ($("#appView #ajaxScript").length != 0) {
@@ -13084,10 +13099,12 @@ if (typeof jQuery === 'undefined') {
       prometheus.clearAppView();
       prometheus.closeAllOverlays();
       if (appLink != "skynet") {
+        $('.appSearchTrigger').show();
         prometheus[appLink].launch();
         prometheus.activeApp = appLink;
       } else {
         prometheus.activeApp = "skynet";
+        $('.appSearchTrigger').hide();
       }
     }
   },
@@ -13104,6 +13121,21 @@ if (typeof jQuery === 'undefined') {
     var delay = Math.random()*3000;
     $(el).addClass('animating');
     setTimeout(function() {$(el).addClass('loaded');}, delay);
+    $(el).css('background-image', 'none');
+  },
+  removeGridItem: function(items, i) {
+    var item = items[i];
+    return function() {
+      $(item).addClass('fallOut');
+    }
+  },
+  fadeOutGrid: function () {
+    var items = document.querySelectorAll('.gridItem');
+    for ( var i=0; i < items.length; i++ ) {
+      var fadeGridItem = prometheus.removeGridItem(items,i);
+      var delay = Math.random()*1000;
+      setTimeout(fadeGridItem, delay);
+    }
   },
   slideInGrid: function() {
       var items = document.querySelectorAll('.gridItem');
@@ -13141,7 +13173,7 @@ if (typeof jQuery === 'undefined') {
     $(this).animate({  textIndent: 1.25 }, {
         step: function(now,fx) {
           $(this).css('transform','scale('+now+')');
-          $(this).css('z-index', '500');
+          $(this).css('z-index', '400');
           $(this).css('box-shadow', '0px 1px 10px 1px #242424');
         },
         duration:0
@@ -13204,6 +13236,14 @@ if (typeof jQuery === 'undefined') {
     return viewable;
   },
   scrollHandler: function () {
+    clearTimeout($.data(this, 'scrollTimer'));
+     $.data(this, 'scrollTimer', setTimeout(function() {
+       var containerScroll = document.getElementById('appContainer').scrollTop;
+       var searchPosition = containerScroll + 15;
+       $('#appSearch').animate({
+         top: searchPosition
+       }, 500)
+     }, 250));
     $('.gridItem:not(.loaded)').each(function () {
       if (prometheus.isScrolledIntoView(this) === true) {
         prometheus.animateGridItem(this);
