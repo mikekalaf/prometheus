@@ -56,6 +56,7 @@
 				</div>
 				<?php include('partials/sector1User.php'); ?>
 				<?php include('partials/sector2User.php'); ?>
+				<?php include('partials/sector3User.php'); ?>
 		</div>
 		<div id="prometheusSplash" class="animated fadeIn">
 			<div id="loader"></div>

@@ -12944,6 +12944,7 @@ if (typeof jQuery === 'undefined') {
     $('#prometheusWrapper').on('click', '.overlayLink', prometheus.openOverlay);
     $('#appView').on('click', '.grindrUser', prometheus.grindr.showUserProfile);
     $('#appView').on('click', '.jackdUser', prometheus.jackd.showUserProfile);
+    $('#appView').on('click', '.scruffUser', prometheus.scruff.showUserProfile);
     $('#appContainer').scroll(prometheus.scrollHandler);
     $('#desktop-app #appContainer').on('mouseover', '.gridItem.loaded', prometheus.gridItemHover);
     $('#desktop-app #appContainer').on('mouseout', '.gridItem.loaded', prometheus.gridItemHoverOut);
@@ -13001,6 +13002,14 @@ if (typeof jQuery === 'undefined') {
   },
   scruff: {
     launch: function() {
+      prometheus.loadData('partials/sector3.php', prometheus.scruff.displayUserGrid);
+    },
+    displayUserGrid: function(data) {
+      prometheus.gridData = [];
+      prometheus.displayAppViewData(data);
+    },
+    showUserProfile: function() {
+      var id = $(this).data('grid-id');
     }
   },
   junkcollector: {

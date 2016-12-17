@@ -26,7 +26,7 @@ foreach($sectorData['data'] as $key => $user) {
     $user['profile_photo'] .= $user['photo5'];
   }
   $userData = json_encode($user);
-  echo "<div class='gridItem jackdUser overlayLink' data-target='jackdUser' data-grid-id='".$user['profile_no']."' style='background-image: url(".$user['profile_photo'].");'></div>";
+  echo "<div class='gridItem jackdUser overlayLink' data-target='jackdUser' data-grid-id='".$user['profile_no']."' style='background-image: url(".$user['profile_photo']."s);'></div>";
   //echo "<div class='gridItem grindrUser overlayLink' data-target='grindrUser' data-grid-id='".$user['profile_id']."'></div>";
   $ajaxScripts .= "prometheus.gridData['".$user['profile_no']."'] = ".$userData.";\r\n";
 }
