@@ -1,7 +1,7 @@
 <?php
 //Favorites
 $favoriteOptions = array();
-$favoriteOptions['true'] = "Favorites";
+$favoriteOptions['true'] = "Show Favorites";
 $favoriteOptions['false'] = "Show All";
 
 $favoriteSelect = "";

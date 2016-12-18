@@ -70,7 +70,6 @@ var prometheus = {
       prometheus.resizeGrid();
       setTimeout(function(){prometheus.scrollHandler();},1000);
       prometheus.runAjaxScripts();
-      prometheus.showSearch();
       prometheus.adjustViewPort();
     }, 500);
   },

@@ -27,7 +27,7 @@
 
 //Favorites
 $favoriteOptions = array();
-$favoriteOptions['Yes'] = "Favorites";
+$favoriteOptions['Yes'] = "Show Favorites";
 $favoriteOptions['No'] = "Show All";
 
 $favoriteSelect = "";
