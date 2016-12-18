@@ -339,6 +339,15 @@ body {
             -moz-transform: scale(0);
             transform: scale(0);
           }
+          .indicator {
+            position: absolute;
+            display: block;
+            color: #FFF;
+            &.video {
+              bottom: 5px;
+              right: 5px;
+            }
+          }
         }
       }
     }

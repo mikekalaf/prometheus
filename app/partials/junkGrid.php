@@ -21,15 +21,17 @@ $sectorData = json_decode($fetchData ,true);
 include ('junkSearch.php');
 echo "<div class='appGrid'>";
 foreach($sectorData['data'] as $key => $media) {
+  $indicators = "";
   if($media['media_type'] == "video") {
     $media['image'] = $media['video_poster'];
+    $indicators .= "<span class='indicator video'><i class='fa fa-play'></i></span>";
   } else {
     $media['image'] =  str_replace('_500', '_250', $media['image_url']);
     $media['image'] =  str_replace('_400', '_250', $media['image_url']);
     $media['image'] =  str_replace('_1280', '_250', $media['image_url']);
   }
   $media['date_added'] = date('M d Y, g:ia', strtotime($media['date_added']));
-  echo "<div class='gridItem junkMedia overlayLink' data-favorite='".$media['favorite']."' data-url='".$media['image_url']."' data-type='".$media['media_type']."' data-target='junkMedia' data-grid-id='".$media['image_id']."' style='background-image: url(".$media['image'].");'></div>";
+  echo "<div class='gridItem junkMedia overlayLink' data-favorite='".$media['favorite']."' data-url='".$media['image_url']."' data-type='".$media['media_type']."' data-target='junkMedia' data-grid-id='".$media['image_id']."' style='background-image: url(".$media['image'].");'>".$indicators."</div>";
 }
 echo "</div>";
 ?>

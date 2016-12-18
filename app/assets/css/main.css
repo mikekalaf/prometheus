@@ -265,6 +265,13 @@ body {
             -webkit-transform: scale(0);
             -moz-transform: scale(0);
             transform: scale(0); }
+          #prometheusWrapper #appContainer #appView .appGrid .gridItem .indicator {
+            position: absolute;
+            display: block;
+            color: #FFF; }
+            #prometheusWrapper #appContainer #appView .appGrid .gridItem .indicator.video {
+              bottom: 5px;
+              right: 5px; }
   #prometheusWrapper .app-overlay-window {
     position: fixed;
     width: 80%;

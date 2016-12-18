@@ -122,7 +122,7 @@ var prometheus = {
       var id = $(this).data('grid-id');
       var type = $(this).data('type');
       var url = $(this).data('url');
-      if (window.location.hostname != "localhost4") {
+      if (window.location.hostname != "localhost") {
         if (type == "video") {
             $('#photoViewer').hide();
             $('#videoViewer').fadeIn();
