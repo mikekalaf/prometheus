@@ -290,6 +290,8 @@ body {
     -webkit-box-shadow: 0px 0px 10px 2px rgba(50, 50, 50, 0.75);
     -moz-box-shadow: 0px 0px 10px 2px rgba(50, 50, 50, 0.75);
     box-shadow: 0px 0px 10px 2px rgba(50, 50, 50, 0.75); }
+    #prometheusWrapper .app-overlay-window .app-overlay-body {
+      overflow-x: hidden; }
     #prometheusWrapper .app-overlay-window .app-overylay-header {
       position: relative;
       margin-bottom: 15px; }
@@ -332,6 +334,20 @@ body {
       margin-left: 10px;
       background-color: #CCC; }
 
+#junkMedia #galleryNav {
+  position: fixed;
+  width: 90%;
+  height: 30px;
+  top: 50%;
+  margin-top: -15px;
+  left: 50%;
+  margin-left: -45%; }
+  #junkMedia #galleryNav .navPrev {
+    position: absolute;
+    left: 0px; }
+  #junkMedia #galleryNav .navNext {
+    position: absolute;
+    right: 0px; }
 #junkMedia #photoViewer {
   display: none; }
 #junkMedia #videoViewer {
@@ -346,6 +362,9 @@ body {
   background-color: #333 !important; }
 #desktop-app #appSearchSubmit:hover {
   background-color: #E50914 !important; }
+#desktop-app .navPrev:hover, #desktop-app .navNext:hover {
+  color: #FFF;
+  cursor: pointer; }
 
 #prometheusSplash {
   position: absolute;

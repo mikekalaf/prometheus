@@ -10,5 +10,9 @@
       <div id="videoViewer">
         <iframe></iframe>
       </div>
+      <div id="galleryNav">
+        <div class="navPrev" data-swap="prev"><i class="fa fa-chevron-circle-left fa-2x"></i></div>
+        <div class="navNext" data-swap="next"><i class="fa fa-chevron-circle-right fa-2x"></i></div>
+      </div>
   </div>
 </div>

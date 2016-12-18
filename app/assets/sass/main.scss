@@ -370,6 +370,9 @@ body {
     -webkit-box-shadow: 0px 0px 10px 2px rgba(50, 50, 50, 0.75);
     -moz-box-shadow:    0px 0px 10px 2px rgba(50, 50, 50, 0.75);
     box-shadow:         0px 0px 10px 2px rgba(50, 50, 50, 0.75);
+    .app-overlay-body {
+      overflow-x: hidden;
+    }
     .app-overylay-header {
       position: relative;
       margin-bottom: 15px;
@@ -424,6 +427,23 @@ body {
 }
 
 #junkMedia {
+  #galleryNav {
+    position: fixed;
+    width: 90%;
+    height: 30px;
+    top: 50%;
+    margin-top: -15px;
+    left:50%;
+    margin-left: -45%;
+    .navPrev {
+      position: absolute;
+      left: 0px;
+    }
+    .navNext {
+      position: absolute;
+      right: 0px;
+    }
+  }
   #photoViewer {
     display: none;
   }
@@ -446,6 +466,10 @@ body {
   }
   #appSearchSubmit:hover {
     background-color: #E50914 !important;
+  }
+  .navPrev:hover, .navNext:hover {
+    color: #FFF;
+    cursor: pointer;
   }
 }
 
