@@ -13050,7 +13050,7 @@ if (typeof jQuery === 'undefined') {
         if (type == "video") {
             $('#photoViewer').hide();
             $('#videoViewer').show();
-            $('#photoViewer iframe').attr('src', url);
+            $('#videoViewer iframe').attr('src', url);
         } else {
             $('#photoViewer').show();
             $('#videoViewer').hide();

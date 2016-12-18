@@ -126,7 +126,7 @@ var prometheus = {
         if (type == "video") {
             $('#photoViewer').hide();
             $('#videoViewer').show();
-            $('#photoViewer iframe').attr('src', url);
+            $('#videoViewer iframe').attr('src', url);
         } else {
             $('#photoViewer').show();
             $('#videoViewer').hide();
@@ -165,7 +165,7 @@ var prometheus = {
   resetMedia: function() {
     //$('#photoViewer img').attr('src', '');
     //$('#photoViewer img').fadeOut();
-    //$('#photoViewer iframe').attr('src', '');
+    //$('#videoViewer iframe').attr('src', '');
   },
   openOverlay: function() {
     prometheus.hideSearch();
