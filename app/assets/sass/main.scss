@@ -28,6 +28,7 @@ body {
         }
         .adminContainer {
           right: 0;
+          bottom: 35px;
         }
       }
       #appContainer {
@@ -463,6 +464,12 @@ body {
       padding: 5px 10px;
       text-align: center;
       margin-bottom: 10px;
+      &.addFavorite {
+        display: none;
+      }
+      &.removeFavorite {
+        display: none;
+      }
       &.last {
         margin-bottom: 0;
       }

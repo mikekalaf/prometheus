@@ -22,7 +22,8 @@ body {
       left: 50%;
       margin-left: -18px; }
     body.mobile-view #prometheusWrapper #adminOptions .adminContainer {
-      right: 0; }
+      right: 0;
+      bottom: 35px; }
   body.mobile-view #prometheusWrapper #appContainer #appView #appSearch {
     width: 100%;
     box-shadow: none;
@@ -367,6 +368,10 @@ body {
       padding: 5px 10px;
       text-align: center;
       margin-bottom: 10px; }
+      #adminOptions .adminContainer .adminButton.addFavorite {
+        display: none; }
+      #adminOptions .adminContainer .adminButton.removeFavorite {
+        display: none; }
       #adminOptions .adminContainer .adminButton.last {
         margin-bottom: 0; }
 
