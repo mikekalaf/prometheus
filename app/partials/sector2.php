@@ -12,7 +12,7 @@ $search = (isset($_GET['search']) ? urlencode($_GET['search']) : '');
 
 $prevPage = $page - 1;
 $nextPage = $page + 1;
-$navQuery = "&favorites=".$favorites."&limit=".$limit."&page=".$page."&private=".$private."&ethnicity=".$ethnicity."&city=".$city."&state=".$state."&search=".$search;
+$navQuery = "&favorites=".$favorites."&limit=".$limit."&private=".$private."&ethnicity=".$ethnicity."&city=".$city."&state=".$state."&search=".$search;
 
 $url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector2?page=".$page.$navQuery;
 $request_headers = array();
