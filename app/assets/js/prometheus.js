@@ -460,7 +460,7 @@ $(function() {
 });
 
 $(function() {
-   $("#photoViewer, #videoViewer").swipe( {
+   $("#photoViewer, #videoViewer iframe").swipe( {
      swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
        alert("You swiped " + direction );
      }
