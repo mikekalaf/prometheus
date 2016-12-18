@@ -23,7 +23,28 @@ $ajaxScripts = "";
 
 include ('sector2Search.php');
 echo "<div class='appGrid'>";
+$userCount = count($sectorData['data']) - 1;
+$i = 0;
 foreach($sectorData['data'] as $key => $user) {
+  $indicators = "";
+  $prev = "";
+  $next = "";
+  $loadNextPage = "";
+  $loadPrevPage = "";
+  if($i > 0) {
+    $offset = $i-1;
+    $prev = " data-prev='".$sectorData['data'][$offset]['protocol_id']."' ";
+  }
+  if($i < $userCount) {
+    $offset = $i+1;
+    $next = " data-next='".$sectorData['data'][$offset]['protocol_id']."' ";
+  }
+  if($i == $userCount) {
+    $loadNextPage = " data-loadnextpage='Yes' ";
+  }
+  if($page > 1) {
+    $loadPrevPage = " data-loadprevpage='Yes' ";
+  }
   $user['date_modified'] = date('M d Y, g:ia', strtotime($user['date_modified']));
   $user['profile_photo'] = "https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=";
   if (!empty($user['photo1'])) {
@@ -38,9 +59,11 @@ foreach($sectorData['data'] as $key => $user) {
     $user['profile_photo'] .= $user['photo5'];
   }
   $userData = json_encode($user);
-  echo "<div class='gridItem jackdUser overlayLink' data-target='jackdUser' data-grid-id='".$user['profile_no']."' style='background-image: url(".$user['profile_photo']."s);'></div>";
+  $favoriteUser = " data-favorite='".$user['favorite']."' ";
+  echo "<div id='".$user['protocol_id']."' class='gridItem jackdUser overlayLink' ".$loadPrevPage.$loadNextPage.$prev.$next.$favoriteUser." data-target='jackdUser' data-grid-id='".$user['profile_no']."' style='background-image: url(".$user['profile_photo']."s);'></div>";
   //echo "<div class='gridItem grindrUser overlayLink' data-target='grindrUser' data-grid-id='".$user['profile_id']."'></div>";
   $ajaxScripts .= "prometheus.gridData['".$user['profile_no']."'] = ".$userData.";\r\n";
+  $i++;
 }
 echo "</div>";
 echo "<script id='ajaxScript'>\r\n";

@@ -19,7 +19,7 @@ body {
         left: 0;
         margin-left: 0;
       }
-      #adminOptions {
+      .adminOptions {
         width: 100%;
         right: 0;
         .adminToggle {
@@ -441,7 +441,7 @@ body {
   }
 }
 
-#adminOptions {
+.adminOptions {
   position: absolute;
   bottom: 10px;
   width:40%;
@@ -476,6 +476,25 @@ body {
       &.last {
         margin-bottom: 0;
       }
+    }
+  }
+}
+.userItem {
+  .profileNav {
+    position: fixed;
+    width: 90%;
+    height: 30px;
+    top: 50%;
+    margin-top: -15px;
+    left:50%;
+    margin-left: -45%;
+    .navPrev {
+      position: absolute;
+      left: 0px;
+    }
+    .navNext {
+      position: absolute;
+      right: 0px;
     }
   }
 }

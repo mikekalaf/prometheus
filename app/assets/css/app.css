@@ -14298,16 +14298,16 @@ body {
     top: 0;
     left: 0;
     margin-left: 0; }
-  body.mobile-view #prometheusWrapper #adminOptions {
+  body.mobile-view #prometheusWrapper .adminOptions {
     width: 100%;
     right: 0; }
-    body.mobile-view #prometheusWrapper #adminOptions .adminToggle {
+    body.mobile-view #prometheusWrapper .adminOptions .adminToggle {
       left: 50%;
       margin-left: -18px; }
-    body.mobile-view #prometheusWrapper #adminOptions .adminContainer {
+    body.mobile-view #prometheusWrapper .adminOptions .adminContainer {
       right: 0;
       bottom: 35px; }
-      body.mobile-view #prometheusWrapper #adminOptions .adminContainer .adminButton {
+      body.mobile-view #prometheusWrapper .adminOptions .adminContainer .adminButton {
         padding: 15px; }
   body.mobile-view #prometheusWrapper #appContainer #appView #appSearch {
     width: 100%;
@@ -14628,24 +14628,24 @@ body {
       margin-left: 10px;
       background-color: #CCC; }
 
-#adminOptions {
+.adminOptions {
   position: absolute;
   bottom: 10px;
   width: 40%;
   right: 20px;
   padding: 10px; }
-  #adminOptions .adminToggle {
+  .adminOptions .adminToggle {
     position: absolute;
     right: 0px;
     bottom: 0px; }
-  #adminOptions .adminContainer {
+  .adminOptions .adminContainer {
     position: relative;
     background-color: rgba(0, 0, 0, 0.65);
     padding: 10px;
     width: 100%;
     bottom: 25px;
     right: 25px; }
-    #adminOptions .adminContainer .adminButton {
+    .adminOptions .adminContainer .adminButton {
       position: relative;
       text-transform: uppercase;
       background-color: #000;
@@ -14653,12 +14653,27 @@ body {
       padding: 5px 10px;
       text-align: center;
       margin-bottom: 10px; }
-      #adminOptions .adminContainer .adminButton.addFavorite {
+      .adminOptions .adminContainer .adminButton.addFavorite {
         display: none; }
-      #adminOptions .adminContainer .adminButton.removeFavorite {
+      .adminOptions .adminContainer .adminButton.removeFavorite {
         display: none; }
-      #adminOptions .adminContainer .adminButton.last {
+      .adminOptions .adminContainer .adminButton.last {
         margin-bottom: 0; }
+
+.userItem .profileNav {
+  position: fixed;
+  width: 90%;
+  height: 30px;
+  top: 50%;
+  margin-top: -15px;
+  left: 50%;
+  margin-left: -45%; }
+  .userItem .profileNav .navPrev {
+    position: absolute;
+    left: 0px; }
+  .userItem .profileNav .navNext {
+    position: absolute;
+    right: 0px; }
 
 #junkMedia #galleryNav {
   position: fixed;

@@ -15037,6 +15037,7 @@ if (typeof jQuery === 'undefined') {
   overlayOut: 'magictime vanishOut',
   gridData: [],
   activeItem: 'none',
+  profileContainer: 'none',
   testImages: [
     'http://67.media.tumblr.com/839b70392b1db50dfa79e96f0b6abf5a/tumblr_nkjak81tF51u845p1o1_1280.jpg',
     'http://www.wallpaperup.com/uploads/wallpapers/2013/12/23/203584/big_thumb_cbdf852aa89a5109d8cc404108c5152a.jpg',
@@ -15075,9 +15076,9 @@ if (typeof jQuery === 'undefined') {
     $('.appLink').on('click', prometheus.handleMenuClick);
     $('#prometheusWrapper').on('click', '.app-overlay-close', prometheus.closeOverlay);
     $('#prometheusWrapper').on('click', '.overlayLink', prometheus.openOverlay);
-    $('#appView').on('click', '.grindrUser', prometheus.grindr.showUserProfile);
-    $('#appView').on('click', '.jackdUser', prometheus.jackd.showUserProfile);
-    $('#appView').on('click', '.scruffUser', prometheus.scruff.showUserProfile);
+    $('#appView').on('click', '.grindrUser', prometheus.initUserProfile);
+    $('#appView').on('click', '.jackdUser', prometheus.initUserProfile);
+    $('#appView').on('click', '.scruffUser', prometheus.initUserProfile);
     $('#appView').on('click', '.junkMedia', prometheus.junkcollector.showMedia);
     $('#appContainer').scroll(prometheus.scrollHandler);
     $('#desktop-app #appContainer').on('mouseover', '.gridItem.loaded', prometheus.gridItemHover);
@@ -15092,6 +15093,54 @@ if (typeof jQuery === 'undefined') {
     $('#prometheusWrapper').on('click', '.addFavorite', prometheus.addFavorite);
     $('#prometheusWrapper').on('click', '.removeFavorite', prometheus.removeFavorite);
     $('#prometheusWrapper').on('click', '.deleteItem', prometheus.deleteItem);
+  },
+  initUserProfile: function() {
+    var protocolId = $(this).attr('id');
+    prometheus.setupProfileWindow(protocolId);
+  },
+  setupProfileWindow: function(id) {
+    var el = '#'+id;
+    var prev = $(el).data('prev');
+    var next = $(el).data('next');
+    var prevType = $(el).data('prevtype');
+    var nextType = $(el).data('nexttype');
+    var loadNextPage = $(el).data('loadnextpage');
+    var loadPrevPage = $(el).data('loadprevpage');
+    var favorite = $(el).data('favorite');
+    var container = prometheus.profileContainer;
+    prometheus.activeItem = id;
+    $(container+'.navPrev').attr('data-target', prev);
+    $(container+'.navNext').attr('data-target', next);
+    $(container+'.navPrev').attr('data-type', prevType);
+    $(container+'.navNext').attr('data-type', nextType);
+
+    if(favorite == 'Yes') {
+      $(container+'.adminButton.addFavorite').hide();
+      $(container+'.adminButton.removeFavorite').show();
+    } else {
+      $(container+'.adminButton.addFavorite').show();
+      $(container+'.adminButton.removeFavorite').hide();
+    }
+    if (prev == undefined) {
+      $(container+'.navPrev').hide();
+    } else {
+      $(container+'.navPrev').show();
+    }
+    if (next == undefined) {
+      $(container+'.navNext').hide();
+    } else {
+      $(container+'.navNext').show();
+    }
+    if(loadNextPage == 'Yes') {
+      $(container+'.navNext').addClass('loadNextPage').show();
+    } else {
+      $(container+'.navNext').removeClass('loadNextPage');
+    }
+    if(loadPrevPage == 'Yes') {
+      $(container+'.navPrev').addClass('loadPrevPage').show();
+    } else {
+      $(container+'.navPrev').removeClass('loadPrevPage');
+    }
   },
   deleteItem: function() {
     var confirmDelete = confirm("Are you sure you want to delete this item?");
@@ -15442,6 +15491,8 @@ if (typeof jQuery === 'undefined') {
   },
   handleMenuClick: function() {
     var appLink = $(this).data('app');
+    var profileContainer = $(this).data('profile');
+    prometheus.profileContainer = '#'+profileContainer+" ";
     if (appLink == prometheus.activeApp) {
       prometheus.closeMenu();
     } else {

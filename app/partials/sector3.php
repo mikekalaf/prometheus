@@ -25,12 +25,35 @@ $ajaxScripts = "";
 
 include ('sector3Search.php');
 echo "<div class='appGrid'>";
+$userCount = count($sectorData['data']) - 1;
+$i = 0;
 foreach($sectorData['data'] as $key => $user) {
+  $indicators = "";
+  $prev = "";
+  $next = "";
+  $loadNextPage = "";
+  $loadPrevPage = "";
+  if($i > 0) {
+    $offset = $i-1;
+    $prev = " data-prev='".$sectorData['data'][$offset]['protocol_id']."' ";
+  }
+  if($i < $userCount) {
+    $offset = $i+1;
+    $next = " data-next='".$sectorData['data'][$offset]['protocol_id']."' ";
+  }
+  if($i == $userCount) {
+    $loadNextPage = " data-loadnextpage='Yes' ";
+  }
+  if($page > 1) {
+    $loadPrevPage = " data-loadprevpage='Yes' ";
+  }
   $user['date_modified'] = date('M d Y, g:ia', strtotime($user['date_modified']));
   $userData = json_encode($user);
-  echo "<div class='gridItem scruffUser overlayLink' data-target='scruffUser' data-grid-id='".$user['profile_id']."' style='background-image: url(".$user['thumbnail'].");'></div>";
+  $favoriteUser = " data-favorite='".$user['favorite']."' ";
+  echo "<div id='".$user['protocol_id']."' class='gridItem scruffUser overlayLink' ".$loadPrevPage.$loadNextPage.$prev.$next.$favoriteUser." data-target='scruffUser' data-grid-id='".$user['profile_id']."' style='background-image: url(".$user['thumbnail'].");'></div>";
   //echo "<div class='gridItem grindrUser overlayLink' data-target='grindrUser' data-grid-id='".$user['profile_id']."'></div>";
   $ajaxScripts .= "prometheus.gridData['".$user['profile_id']."'] = ".$userData.";\r\n";
+  $i++;
 }
 echo "</div>";
 echo "<script id='ajaxScript'>\r\n";

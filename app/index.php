@@ -30,9 +30,9 @@
 						<div class="menuItem menuTitle">Project <span>Prometheus</span></div>
 						<div class="menuHeader menuItem appLink overlayLink" data-app="skynet" data-target="skynetView">Skynet</div>
 						<div class="menuHeader menuItem">Cerebro Archives</div>
-						<div class="menuSubHeader menuItem appLink" data-app="grindr">Sector 1</div>
-						<div class="menuSubHeader menuItem appLink" data-app="jackd">Sector 2</div>
-						<div class="menuSubHeader menuItem appLink" data-app="scruff">Sector 3</div>
+						<div class="menuSubHeader menuItem appLink" data-app="grindr" data-profile="grindrUser">Sector 1</div>
+						<div class="menuSubHeader menuItem appLink" data-app="jackd" data-profile="jackdUser">Sector 2</div>
+						<div class="menuSubHeader menuItem appLink" data-app="scruff" data-profile="scruffUser">Sector 3</div>
 						<div class="menuHeader menuItem appLink" data-app="junkcollector">JunkCollector</div>
 				</div>
 				<div id="topBanner">
