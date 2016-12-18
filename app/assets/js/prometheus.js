@@ -28,6 +28,7 @@ var prometheus = {
     $('#desktop-app #appContainer').on('mouseout', '.gridItem.loaded', prometheus.gridItemHoverOut);
     $('#appView').on('click', '.navTrigger', prometheus.handleNavTrigger);
     $('#appView').on('click', '#appSearchSubmit', prometheus.buildSearch);
+    $('#appView').on('click', '.junkMedia', prometheus.junkcollector.showMedia);
   },
   buildSearch: function() {
     var pageBase = $(this).data('url');
@@ -119,6 +120,19 @@ var prometheus = {
     },
     showMedia: function() {
       var id = $(this).data('grid-id');
+      var type = $(this).data('type');
+      var url = $(this).data('url');
+      if (window.location.hostname != "localhost") {
+        if (type == "video") {
+            $('#photoViewer').hide();
+            $('#videoViewer').show();
+        } else {
+            $('#photoViewer').show();
+            $('#videoViewer').hide();
+            $('#photoViewer img').attr('src', url);
+            $('#photoViewer img').fadeIn();
+        }
+      }
     }
   },
   handleNavTrigger: function() {
@@ -147,6 +161,10 @@ var prometheus = {
   hideSpinner: function() {
     $('#ajaxLoader').fadeOut();
   },
+  resetMedia: function() {
+    //$('#photoViewer img').attr('src', '');
+    //$('#photoViewer img').fadeOut();
+  },
   openOverlay: function() {
     prometheus.hideSearch();
     prometheus.closeAllOverlays();
@@ -166,11 +184,13 @@ var prometheus = {
     if (target == "skynetView") {
       $('.appLink').removeClass('active');
     }
+    prometheus.resetMedia();
   },
   closeAllOverlays: function() {
     $('.app-overlay-window').removeClass(prometheus.overlayIn);
     $('.app-overlay-window').addClass(prometheus.overlayOut);
     setTimeout(function(){$('.app-overlay-window').hide();}, 200);
+    prometheus.resetMedia();
   },
   clearAppView: function() {
     $('#appView').removeClass(prometheus.overlayIn);

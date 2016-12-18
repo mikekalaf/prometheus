@@ -12952,6 +12952,7 @@ if (typeof jQuery === 'undefined') {
     $('#desktop-app #appContainer').on('mouseout', '.gridItem.loaded', prometheus.gridItemHoverOut);
     $('#appView').on('click', '.navTrigger', prometheus.handleNavTrigger);
     $('#appView').on('click', '#appSearchSubmit', prometheus.buildSearch);
+    $('#appView').on('click', '.junkMedia', prometheus.junkcollector.showMedia);
   },
   buildSearch: function() {
     var pageBase = $(this).data('url');
@@ -13043,6 +13044,19 @@ if (typeof jQuery === 'undefined') {
     },
     showMedia: function() {
       var id = $(this).data('grid-id');
+      var type = $(this).data('type');
+      var url = $(this).data('url');
+      if (window.location.hostname != "localhost") {
+        if (type == "video") {
+            $('#photoViewer').hide();
+            $('#videoViewer').show();
+        } else {
+            $('#photoViewer').show();
+            $('#videoViewer').hide();
+            $('#photoViewer img').attr('src', url);
+            $('#photoViewer img').fadeIn();
+        }
+      }
     }
   },
   handleNavTrigger: function() {
@@ -13071,6 +13085,10 @@ if (typeof jQuery === 'undefined') {
   hideSpinner: function() {
     $('#ajaxLoader').fadeOut();
   },
+  resetMedia: function() {
+    //$('#photoViewer img').attr('src', '');
+    //$('#photoViewer img').fadeOut();
+  },
   openOverlay: function() {
     prometheus.hideSearch();
     prometheus.closeAllOverlays();
@@ -13090,11 +13108,13 @@ if (typeof jQuery === 'undefined') {
     if (target == "skynetView") {
       $('.appLink').removeClass('active');
     }
+    prometheus.resetMedia();
   },
   closeAllOverlays: function() {
     $('.app-overlay-window').removeClass(prometheus.overlayIn);
     $('.app-overlay-window').addClass(prometheus.overlayOut);
     setTimeout(function(){$('.app-overlay-window').hide();}, 200);
+    prometheus.resetMedia();
   },
   clearAppView: function() {
     $('#appView').removeClass(prometheus.overlayIn);

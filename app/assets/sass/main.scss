@@ -323,7 +323,6 @@ body {
       }
     }
   }
-  //Desktop and Mobile Specific
   .app-overlay-window {
     position: fixed;
     width: 80%;
@@ -395,6 +394,18 @@ body {
   }
 }
 
+#junkMedia {
+  #photoViewer {
+      img {
+        width: 100%;
+      }
+  }
+  #videoViewer {
+
+  }
+}
+
+//Desktop and Mobile Specific
 #desktop-app {
   .navButton:hover, .appMenuTrigger:hover, .appSearchTrigger:hover {
     background-color: #333 !important;

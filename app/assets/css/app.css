@@ -14600,6 +14600,9 @@ body {
       margin-left: 10px;
       background-color: #CCC; }
 
+#junkMedia #photoViewer img {
+  width: 100%; }
+
 #desktop-app .navButton:hover, #desktop-app .appMenuTrigger:hover, #desktop-app .appSearchTrigger:hover {
   background-color: #333 !important; }
 #desktop-app #appSearchSubmit:hover {
