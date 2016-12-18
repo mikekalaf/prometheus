@@ -24,7 +24,7 @@ foreach($sectorData['data'] as $key => $media) {
   $indicators = "";
   if($media['media_type'] == "video") {
     $media['image'] = $media['video_poster'];
-    $indicators .= "<span class='indicator video'><i class='fa fa-play'></i></span>";
+    $indicators .= "<span class='indicator video'><i class='fa fa-camera'></i></span>";
   } else {
     $media['image'] =  str_replace('_500', '_250', $media['image_url']);
     $media['image'] =  str_replace('_400', '_250', $media['image_url']);
