@@ -15179,7 +15179,7 @@ if (typeof jQuery === 'undefined') {
         $('#photoViewer, #videoViewer').hide();
         $('#photoViewer, #videoViewer').removeClass(animation);
         prometheus.junkcollector.showMedia(null, target);
-      },1000);
+      },400);
     },
     showMedia: function(e, target) {
       if (target) {
@@ -15239,7 +15239,7 @@ if (typeof jQuery === 'undefined') {
             $('#videoViewer iframe').attr('src', url);
             setTimeout(function(){
               $('#videoViewer iframe').fadeTo("slow",1);
-            },650);
+            },1000);
         } else {
             $('#videoViewer').hide();
             $('#photoViewer').fadeIn();
@@ -15493,7 +15493,7 @@ $(function() {
 });
 
 $(function() {
-   $("#junkMedia .app-overlay-body, #videoViewer iframe").swipe( {
+   $("#junkMedia .app-overlay-body").swipe( {
      swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
        if (direction == "left") {
          $('.navNext').click();

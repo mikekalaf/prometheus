@@ -146,7 +146,7 @@ var prometheus = {
         $('#photoViewer, #videoViewer').hide();
         $('#photoViewer, #videoViewer').removeClass(animation);
         prometheus.junkcollector.showMedia(null, target);
-      },1000);
+      },400);
     },
     showMedia: function(e, target) {
       if (target) {
@@ -206,7 +206,7 @@ var prometheus = {
             $('#videoViewer iframe').attr('src', url);
             setTimeout(function(){
               $('#videoViewer iframe').fadeTo("slow",1);
-            },650);
+            },1000);
         } else {
             $('#videoViewer').hide();
             $('#photoViewer').fadeIn();
