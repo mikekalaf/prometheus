@@ -15493,7 +15493,7 @@ $(function() {
 });
 
 $(function() {
-   $("#photoViewer, #videoViewer iframe").swipe( {
+   $("#junkMedia .app-overlay-body, #videoViewer iframe").swipe( {
      swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
        if (direction == "left") {
          $('.navNext').click();
