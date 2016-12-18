@@ -13006,7 +13006,6 @@ if (typeof jQuery === 'undefined') {
     $('.navNextPage').click();
   },
   loadPrevPage: function() {
-    alert('Loading Previous Page');
     prometheus.closeAllOverlays();
     $('.navPrevPage').click();
   },
@@ -13131,7 +13130,7 @@ if (typeof jQuery === 'undefined') {
             $('#videoViewer iframe').attr('src', url);
             setTimeout(function(){
               $('#videoViewer iframe').fadeTo("slow",1);
-            },1000);
+            },650);
         } else {
             $('#videoViewer').hide();
             $('#photoViewer').fadeIn();
