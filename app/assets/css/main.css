@@ -351,12 +351,21 @@ body {
 #junkMedia #photoViewer {
   display: none; }
 #junkMedia #videoViewer {
+  position: relative;
   display: none;
   width: 100%;
   height: 100%; }
   #junkMedia #videoViewer iframe {
     width: 100%;
     height: 95%; }
+  #junkMedia #videoViewer .videoSwipe {
+    position: absolute;
+    height: 35%;
+    width: 100%; }
+    #junkMedia #videoViewer .videoSwipe.top {
+      top: 0; }
+    #junkMedia #videoViewer .videoSwipe.bottom {
+      bottom: 0; }
 
 #desktop-app .navButton:hover, #desktop-app .appMenuTrigger:hover, #desktop-app .appSearchTrigger:hover {
   background-color: #333 !important; }
