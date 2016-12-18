@@ -19,9 +19,9 @@
       <?php if ($isAdmin) { ?>
         <div id="adminOptions">
           <div class="adminContainer">
-            <div class="adminButton addFavorite" data-type="junk">Add to Favorites</div>
-            <div class="adminButton removeFavorite" data-type="junk">Remove from Favorites</div>
-            <div class="adminButton deleteItem last" data-type="junk">Delete</div>
+            <div class="adminButton addFavorite" data-app="junkcollector">Add to Favorites</div>
+            <div class="adminButton removeFavorite" data-app="junkcollector">Remove from Favorites</div>
+            <div class="adminButton deleteItem last" data-app="junkcollector">Delete</div>
           </div>
           <div class="adminToggle">
               <i class='fa fa-3x fa-cog'></i>

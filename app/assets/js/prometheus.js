@@ -65,15 +65,21 @@ var prometheus = {
     if (confirmDelete) {
       prometheus.closeAllOverlays();
       $('#'+prometheus.activeItem).fadeOut();
+      var thisApp = $(this).data('app');
+      prometheus[thisApp].deleteItem();
     }
   },
   addFavorite: function() {
     $('.addFavorite').hide();
     $('.removeFavorite').show();
+    var thisApp = $(this).data('app');
+    prometheus[thisApp].addFavorite();
   },
   removeFavorite: function() {
     $('.addFavorite').show();
     $('.removeFavorite').hide();
+    var thisApp = $(this).data('app');
+    prometheus[thisApp].removeFavorite();
   },
   toggleAdmin: function() {
     $('.adminContainer').fadeToggle();
@@ -93,6 +99,18 @@ var prometheus = {
     setTimeout(function(){
       prometheus.loadData(searchUrl, prometheus[thisApp].displayUserGrid);
     },1000);
+  },
+  remotePing: function(url) {
+    $.ajax({
+      type: "GET",
+      timeout: 6000,
+      url: url,
+      error: function(data) {
+        alert('Error:  Unable to retrieve data from source.');
+      },
+      success: function(data) {
+      }
+    });
   },
   loadData: function(dataUrl, dataCallback) {
     prometheus.showSpinner();
@@ -140,6 +158,15 @@ var prometheus = {
     },
     showUserProfile: function() {
       var id = $(this).data('grid-id');
+    },
+    addFavorite: function() {
+
+    },
+    removeFavorite: function() {
+
+    },
+    deleteItem: function() {
+
     }
   },
   jackd: {
@@ -152,6 +179,15 @@ var prometheus = {
     },
     showUserProfile: function() {
       var id = $(this).data('grid-id');
+    },
+    addFavorite: function() {
+
+    },
+    removeFavorite: function() {
+
+    },
+    deleteItem: function() {
+
     }
   },
   scruff: {
@@ -164,6 +200,15 @@ var prometheus = {
     },
     showUserProfile: function() {
       var id = $(this).data('grid-id');
+    },
+    addFavorite: function() {
+
+    },
+    removeFavorite: function() {
+
+    },
+    deleteItem: function() {
+
     }
   },
   junkcollector: {
@@ -173,6 +218,20 @@ var prometheus = {
     displayUserGrid: function(data) {
       prometheus.gridData = [];
       prometheus.displayAppViewData(data);
+    },
+    addFavorite: function() {
+        var url = "http://v9.ikioskcloudapps.com/junkcollector/favorite/"+prometheus.activeItem+"?favorite=Yes";
+        prometheus.remotePing(url);
+        $('#'+prometheus.activeItem).attr('data-favorite', 'Yes');
+    },
+    removeFavorite: function() {
+      var url = "http://v9.ikioskcloudapps.com/junkcollector/favorite/"+prometheus.activeItem+"?favorite=No";
+      prometheus.remotePing(url);
+      $('#'+prometheus.activeItem).attr('data-favorite', 'Yes');
+    },
+    deleteItem: function() {
+      var url = "http://v9.ikioskcloudapps.com/junkcollector/delete/"+prometheus.activeItem;
+      prometheus.remotePing(url);
     },
     gallerySwap: function() {
       var swap = $(this).data('swap');
