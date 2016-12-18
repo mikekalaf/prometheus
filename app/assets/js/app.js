@@ -13050,6 +13050,7 @@ if (typeof jQuery === 'undefined') {
         if (type == "video") {
             $('#photoViewer').hide();
             $('#videoViewer').show();
+            $('#photoViewer iframe').attr('src', url);
         } else {
             $('#photoViewer').show();
             $('#videoViewer').hide();
@@ -13088,6 +13089,7 @@ if (typeof jQuery === 'undefined') {
   resetMedia: function() {
     //$('#photoViewer img').attr('src', '');
     //$('#photoViewer img').fadeOut();
+    //$('#photoViewer iframe').attr('src', '');
   },
   openOverlay: function() {
     prometheus.hideSearch();

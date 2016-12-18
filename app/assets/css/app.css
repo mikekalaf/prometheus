@@ -14607,6 +14607,10 @@ body {
       margin-left: 10px;
       background-color: #CCC; }
 
+#junkMedia #videoViewer iframe {
+  width: 100%;
+  height: 100%; }
+
 #desktop-app .navButton:hover, #desktop-app .appMenuTrigger:hover, #desktop-app .appSearchTrigger:hover {
   background-color: #333 !important; }
 #desktop-app #appSearchSubmit:hover {
