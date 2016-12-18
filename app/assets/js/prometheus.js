@@ -459,4 +459,12 @@ $(function() {
     FastClick.attach(document.body);
 });
 
+$(function() {
+   $("#photoViewer, #videoViewer").swipe( {
+     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+       alert("You swiped " + direction );
+     }
+   });
+ });
+
 prometheus.init();

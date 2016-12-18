@@ -26,6 +26,7 @@
                     },
                     src: [
                         'bower_components/jquery/dist/jquery.js',
+                        'bower_components/jquery-touchswipe/jquery.touchSwipe.js',
                         'app/assets/js/bootstrap.js',
                         'app/assets/js/math.min.js',
                         'app/assets/js/jquery.particleground.js',

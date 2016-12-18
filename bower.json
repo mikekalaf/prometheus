@@ -8,7 +8,8 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "font-awesome": "~4.3.0",
-    "animate.css": "^3.5.2"
+    "animate.css": "^3.5.2",
+    "jquery-touchswipe": "^1.6.18"
   },
   "resolutions": {
     "jquery": "~2.1.1"
