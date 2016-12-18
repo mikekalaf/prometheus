@@ -15255,15 +15255,15 @@ if (typeof jQuery === 'undefined') {
     addFavorite: function() {
         var url = "http://v9.ikioskcloudapps.com/junkcollector/favorite/"+prometheus.activeItem+"?favorite=Yes";
         prometheus.remotePing(url);
-        $('#'+prometheus.activeItem).attr('data-favorite', 'Yes');
+        $('#'+prometheus.activeItem).data('favorite', 'Yes');
     },
     removeFavorite: function() {
       var url = "http://v9.ikioskcloudapps.com/junkcollector/favorite/"+prometheus.activeItem+"?favorite=No";
       prometheus.remotePing(url);
-      $('#'+prometheus.activeItem).attr('data-favorite', 'Yes');
+      $('#'+prometheus.activeItem).data('favorite', 'No');
     },
     deleteItem: function() {
-      var url = "http://v9.ikioskcloudapps.com/junkcollector/delete/"+prometheus.activeItem+"?favorite=No";
+      var url = "http://v9.ikioskcloudapps.com/junkcollector/delete/"+prometheus.activeItem;
       prometheus.remotePing(url);
     },
     gallerySwap: function() {
