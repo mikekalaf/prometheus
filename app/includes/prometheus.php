@@ -17,4 +17,10 @@
       curl_close($ch);
       return $responseData;
   }
+
+  if (isset($_GET['admin'])) {
+    $isAdmin = true;
+  } else {
+    $isAdmin = false;
+  }
  ?>

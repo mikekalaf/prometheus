@@ -16,5 +16,17 @@
         <div class="navPrev" data-swap="prev"><i class="fa fa-chevron-circle-left fa-2x"></i></div>
         <div class="navNext" data-swap="next"><i class="fa fa-chevron-circle-right fa-2x"></i></div>
       </div>
+      <?php if ($isAdmin) { ?>
+        <div id="adminOptions">
+          <div class="adminContainer">
+            <div class="adminButton addFavorite" data-type="junk">Add to Favorites</div>
+            <div class="adminButton removeFavorite" data-type="junk">Remove from Favorites</div>
+            <div class="adminButton deleteItem last" data-type="junk">Delete</div>
+          </div>
+          <div class="adminToggle">
+              <i class='fa fa-3x fa-cog'></i>
+          </div>
+        </div>
+      <?php } ?>
   </div>
 </div>

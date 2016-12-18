@@ -15036,6 +15036,7 @@ if (typeof jQuery === 'undefined') {
   overlayIn: 'magictime vanishIn',
   overlayOut: 'magictime vanishOut',
   gridData: [],
+  activeItem: 'none',
   testImages: [
     'http://67.media.tumblr.com/839b70392b1db50dfa79e96f0b6abf5a/tumblr_nkjak81tF51u845p1o1_1280.jpg',
     'http://www.wallpaperup.com/uploads/wallpapers/2013/12/23/203584/big_thumb_cbdf852aa89a5109d8cc404108c5152a.jpg',
@@ -15087,6 +15088,10 @@ if (typeof jQuery === 'undefined') {
     $('#junkMedia').on('click', '.navNext', prometheus.junkcollector.gallerySwap);
     $('#prometheusWrapper').on('click', '.loadNextPage', prometheus.loadNextPage);
     $('#prometheusWrapper').on('click', '.loadPrevPage', prometheus.loadPrevPage);
+    $('#prometheusWrapper').on('click', '.adminToggle', prometheus.toggleAdmin)
+  },
+  toggleAdmin: function() {
+    $('.adminContainer').fadeToggle();
   },
   buildSearch: function() {
     var pageBase = $(this).data('url');
@@ -15202,6 +15207,7 @@ if (typeof jQuery === 'undefined') {
         $('#photoViewer, #videoViewer').removeClass(animation);
         prometheus.junkcollector.showMedia(null, target);
       },400);
+      $('.adminContainer').fadeOut();
     },
     showMedia: function(e, target) {
       if (target) {
@@ -15227,6 +15233,7 @@ if (typeof jQuery === 'undefined') {
         var loadNextPage = $(this).data('loadnextpage');
         var loadPrevPage = $(this).data('loadprevpage');
       }
+      prometheus.activeItem = id;
 
       $('.navPrev').attr('data-target', prev);
       $('.navNext').attr('data-target', next);
@@ -15324,12 +15331,14 @@ if (typeof jQuery === 'undefined') {
       $('.appLink').removeClass('active');
     }
     prometheus.resetMedia();
+    $('.adminContainer').fadeOut();
   },
   closeAllOverlays: function() {
     $('.app-overlay-window').removeClass(prometheus.overlayIn);
     $('.app-overlay-window').addClass(prometheus.overlayOut);
     setTimeout(function(){$('.app-overlay-window').hide();}, 200);
     prometheus.resetMedia();
+    $('.adminContainer').fadeOut();
   },
   clearAppView: function() {
     $('#appView').removeClass(prometheus.overlayIn);

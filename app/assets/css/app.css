@@ -14297,6 +14297,14 @@ body {
     top: 0;
     left: 0;
     margin-left: 0; }
+  body.mobile-view #prometheusWrapper #adminOptions {
+    width: 100%;
+    right: 0; }
+    body.mobile-view #prometheusWrapper #adminOptions .adminToggle {
+      left: 50%;
+      margin-left: -18px; }
+    body.mobile-view #prometheusWrapper #adminOptions .adminContainer {
+      right: 0; }
   body.mobile-view #prometheusWrapper #appContainer #appView #appSearch {
     width: 100%;
     box-shadow: none;
@@ -14616,6 +14624,34 @@ body {
       margin-left: 10px;
       background-color: #CCC; }
 
+#adminOptions {
+  position: absolute;
+  bottom: 10px;
+  width: 40%;
+  right: 20px;
+  padding: 10px; }
+  #adminOptions .adminToggle {
+    position: absolute;
+    right: 0px;
+    bottom: 0px; }
+  #adminOptions .adminContainer {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 10px;
+    width: 100%;
+    bottom: 25px;
+    right: 25px; }
+    #adminOptions .adminContainer .adminButton {
+      position: relative;
+      text-transform: uppercase;
+      background-color: #000;
+      border: 1px solid #333;
+      padding: 5px 10px;
+      text-align: center;
+      margin-bottom: 10px; }
+      #adminOptions .adminContainer .adminButton.last {
+        margin-bottom: 0; }
+
 #junkMedia #galleryNav {
   position: fixed;
   width: 90%;
@@ -14656,6 +14692,13 @@ body {
 #desktop-app .navPrev:hover, #desktop-app .navNext:hover {
   color: #FFF;
   cursor: pointer; }
+#desktop-app .adminToggle:hover {
+  color: #FFF;
+  cursor: pointer; }
+#desktop-app .adminButton:hover {
+  background-color: #E50914 !important;
+  color: #FFF !important;
+  cursor: pointer !important; }
 
 #prometheusSplash {
   position: absolute;
