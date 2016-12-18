@@ -24,6 +24,8 @@ body {
     body.mobile-view #prometheusWrapper #adminOptions .adminContainer {
       right: 0;
       bottom: 35px; }
+      body.mobile-view #prometheusWrapper #adminOptions .adminContainer .adminButton {
+        padding: 15px; }
   body.mobile-view #prometheusWrapper #appContainer #appView #appSearch {
     width: 100%;
     box-shadow: none;

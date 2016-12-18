@@ -14160,6 +14160,7 @@ Copyright (c) 2014 Christian Pucci
   margin: -50px 0 0 -50px;
   background-color: rgba(0,0,0,0.5);
   display: none;
+  z-index: 5000;
 }
 
     #loader:before, #ajaxLoader:before {
@@ -14306,6 +14307,8 @@ body {
     body.mobile-view #prometheusWrapper #adminOptions .adminContainer {
       right: 0;
       bottom: 35px; }
+      body.mobile-view #prometheusWrapper #adminOptions .adminContainer .adminButton {
+        padding: 15px; }
   body.mobile-view #prometheusWrapper #appContainer #appView #appSearch {
     width: 100%;
     box-shadow: none;

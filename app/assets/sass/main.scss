@@ -29,6 +29,9 @@ body {
         .adminContainer {
           right: 0;
           bottom: 35px;
+          .adminButton {
+            padding: 15px;
+          }
         }
       }
       #appContainer {
