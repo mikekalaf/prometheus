@@ -332,7 +332,7 @@ var prometheus = {
   },
   adjustOverlay: function() {
     var overlayWindowHeight = $('.vanishIn.app-overlay-window').height();
-    var overlayBodyHeight = overlayWindowHeight - 64;
+    var overlayBodyHeight = overlayWindowHeight - 49;
     $('.vanishIn .app-overlay-body').css('height', overlayBodyHeight);
   },
   removeSlashScreen: function() {

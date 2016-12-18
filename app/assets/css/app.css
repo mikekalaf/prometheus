@@ -14315,12 +14315,19 @@ body {
         height: 45px !important; }
       body.mobile-view #prometheusWrapper #appContainer #appView #appSearch .searchWrapper .searchCol .last {
         margin-bottom: 10px !important; }
+  body.landscape #prometheusWrapper #junkMedia #photoViewer {
+    text-align: center;
+    height: 100%; }
+    body.landscape #prometheusWrapper #junkMedia #photoViewer img {
+      height: 100%; }
   body.portrait #prometheusWrapper .userPhotoWrapper, body.portrait #prometheusWrapper .userInfoWrapper {
     width: 100%;
     height: auto;
     overflow: hidden; }
   body.portrait #prometheusWrapper .app-overlay-body {
     overflow-y: scroll; }
+  body.portrait #prometheusWrapper #junkMedia #photoViewer img {
+    width: 100%; }
 
 #prometheusWrapper {
   position: relative;
@@ -14599,9 +14606,6 @@ body {
       position: relative;
       margin-left: 10px;
       background-color: #CCC; }
-
-#junkMedia #photoViewer img {
-  width: 100%; }
 
 #desktop-app .navButton:hover, #desktop-app .appMenuTrigger:hover, #desktop-app .appSearchTrigger:hover {
   background-color: #333 !important; }

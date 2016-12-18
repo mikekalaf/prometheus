@@ -51,6 +51,19 @@ body {
       }
     }
   }
+  &.landscape {
+    #prometheusWrapper {
+      #junkMedia {
+        #photoViewer {
+            text-align: center;
+            height: 100%;
+            img {
+              height: 100%;
+            }
+        }
+      }
+    }
+  }
   &.portrait {
     #prometheusWrapper {
       .userPhotoWrapper, .userInfoWrapper {
@@ -60,6 +73,13 @@ body {
       }
       .app-overlay-body {
         overflow-y: scroll;
+      }
+      #junkMedia {
+        #photoViewer {
+            img {
+              width: 100%;
+            }
+        }
       }
     }
   }
@@ -396,9 +416,7 @@ body {
 
 #junkMedia {
   #photoViewer {
-      img {
-        width: 100%;
-      }
+
   }
   #videoViewer {
 
