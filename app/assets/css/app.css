@@ -14325,7 +14325,7 @@ body {
     height: auto;
     overflow: hidden; }
   body.portrait #prometheusWrapper .app-overlay-body {
-    overflow-y: scroll; }
+    overflow-y: auto; }
   body.portrait #prometheusWrapper #junkMedia #photoViewer img {
     width: 100%; }
 
@@ -14592,7 +14592,7 @@ body {
     height: 100%;
     width: 40%;
     float: left;
-    overflow-y: scroll; }
+    overflow-y: auto; }
     #prometheusWrapper .userPhotoWrapper .userPhotoContainer {
       position: relative;
       background-color: #CCC; }
@@ -14601,18 +14601,21 @@ body {
     width: 60%;
     float: left;
     height: 100%;
-    overflow-y: scroll; }
+    overflow-y: auto; }
     #prometheusWrapper .userInfoWrapper .userInfoContainer {
       position: relative;
       margin-left: 10px;
       background-color: #CCC; }
 
+#junkMedia #photoViewer {
+  display: none; }
 #junkMedia #videoViewer {
+  display: none;
   width: 100%;
   height: 100%; }
   #junkMedia #videoViewer iframe {
     width: 100%;
-    height: 100%; }
+    height: 95%; }
 
 #desktop-app .navButton:hover, #desktop-app .appMenuTrigger:hover, #desktop-app .appSearchTrigger:hover {
   background-color: #333 !important; }

@@ -72,7 +72,7 @@ body {
         overflow: hidden;
       }
       .app-overlay-body {
-        overflow-y: scroll;
+        overflow-y: auto;
       }
       #junkMedia {
         #photoViewer {
@@ -398,7 +398,7 @@ body {
       position: relative;
       background-color: #CCC;
     }
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   .userInfoWrapper {
     position: relative;
@@ -410,20 +410,21 @@ body {
       margin-left: 10px;
       background-color: #CCC;
     }
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }
 
 #junkMedia {
   #photoViewer {
-
+    display: none;
   }
   #videoViewer {
+    display:none;
     width: 100%;
     height: 100%;
     iframe {
       width: 100%;
-      height: 100%;
+      height: 95%;
     }
 
   }

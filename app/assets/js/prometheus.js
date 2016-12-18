@@ -122,13 +122,13 @@ var prometheus = {
       var id = $(this).data('grid-id');
       var type = $(this).data('type');
       var url = $(this).data('url');
-      if (window.location.hostname != "localhost") {
+      if (window.location.hostname != "localhost4") {
         if (type == "video") {
             $('#photoViewer').hide();
-            $('#videoViewer').show();
+            $('#videoViewer').fadeIn();
             $('#videoViewer iframe').attr('src', url);
         } else {
-            $('#photoViewer').show();
+            $('#photoViewer').fadeIn();
             $('#videoViewer').hide();
             $('#photoViewer img').attr('src', url);
             $('#photoViewer img').fadeIn();

@@ -45,7 +45,7 @@ foreach($mediaType as $key => $value) {
         <?php echo $favoriteSelect; ?>
       </select>
       <select class="searchParam" data-param="type">
-        <option value="">Show All</option>
+        <option value="">Show All Media Types</option>
         <?php echo $mediaSelect; ?>
       </select>
     </div>
