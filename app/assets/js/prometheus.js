@@ -3,8 +3,30 @@ var prometheus = {
   overlayIn: 'magictime vanishIn',
   overlayOut: 'magictime vanishOut',
   gridData: [],
+  testImages: [
+    'http://67.media.tumblr.com/839b70392b1db50dfa79e96f0b6abf5a/tumblr_nkjak81tF51u845p1o1_1280.jpg',
+    'http://www.wallpaperup.com/uploads/wallpapers/2013/12/23/203584/big_thumb_cbdf852aa89a5109d8cc404108c5152a.jpg',
+    'http://captainbluehen.com/wp-content/Tom-Welling-smallville.jpg',
+    'https://s3-us-west-2.amazonaws.com/airgbuzz/media/uploads/buzz_images/march2016/.thumbnails/mariahew.jpg/mariahew-800x0.jpg',
+    'http://www.themarysue.com/wp-content/uploads/2015/07/Jean_Grey_Phoenix.jpg'
+  ],
+  testVideos: [
+    'https://www.youtube.com/embed/FN16QhUxV1I',
+    'https://www.youtube.com/embed/DRFX6PEVsDw',
+    'https://www.youtube.com/embed/4U2B0qZxmQI',
+    'https://www.youtube.com/embed/zMK_X6GxYQo',
+    'https://www.youtube.com/embed/ru-xwKDF5w4'
+  ],
   environment: {
     screen: {}
+  },
+  getTestImage: function() {
+    var randImage = prometheus.testImages[Math.floor(Math.random() * prometheus.testImages.length)];
+    return randImage;
+  },
+  getTestVideo: function() {
+    var randVideo = prometheus.testVideos[Math.floor(Math.random() * prometheus.testVideos.length)];
+    return randVideo;
   },
   init: function() {
     this.environment.mobile = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
@@ -198,7 +220,6 @@ var prometheus = {
         $('.navPrev').removeClass('loadPrevPage');
       }
 
-      if (window.location.hostname != "localhost3") {
         if (type == "video") {
             $('#photoViewer').hide();
             $('#videoViewer iframe').css('opacity',0);
@@ -213,6 +234,9 @@ var prometheus = {
             $('#photoViewer img').attr('src', url);
             $('#photoViewer img').fadeIn();
         }
+      if (window.location.hostname == "localhost") {
+        $('#photoViewer img').attr('src', prometheus.getTestImage());
+        $('#videoViewer iframe').attr('src', prometheus.getTestVideo());
       }
     }
   },
