@@ -12954,6 +12954,8 @@ if (typeof jQuery === 'undefined') {
     $('#appView').on('click', '#appSearchSubmit', prometheus.buildSearch);
     $('#junkMedia').on('click', '.navPrev', prometheus.junkcollector.gallerySwap);
     $('#junkMedia').on('click', '.navNext', prometheus.junkcollector.gallerySwap);
+    $('#prometheusWrapper').on('click', '.loadNextPage', prometheus.loadNextPage);
+    $('#prometheusWrapper').on('click', '.loadPrevPage', prometheus.loadPrevPage);
   },
   buildSearch: function() {
     var pageBase = $(this).data('url');
@@ -12998,6 +13000,15 @@ if (typeof jQuery === 'undefined') {
       prometheus.runAjaxScripts();
       prometheus.adjustViewPort();
     }, 500);
+  },
+  loadNextPage: function() {
+    prometheus.closeAllOverlays();
+    $('.navNextPage').click();
+  },
+  loadPrevPage: function() {
+    alert('Loading Previous Page');
+    prometheus.closeAllOverlays();
+    $('.navPrevPage').click();
   },
   grindr: {
     launch: function() {
@@ -13051,7 +13062,7 @@ if (typeof jQuery === 'undefined') {
       if (type == "video") { typeTarget = "#videoViewer"; } else {
         typeTarget = "#photoViewer";
       }
-      if (swap == "prev") { animation = "magictime spaceOUt"; }
+      if (swap == "prev") { animation = "magictime slideRight"; }
       if (swap == "next") { animation = "magictime slideLeft"; }
       $('#photoViewer, #videoViewer').addClass(animation);
       setTimeout(function(){
@@ -13072,6 +13083,9 @@ if (typeof jQuery === 'undefined') {
         var next = $(el).data('next');
         var prevType = $(el).data('prevtype');
         var nextType = $(el).data('nexttype');
+        var loadNextPage = $(el).data('loadnextpage');
+        var loadPrevPage = $(el).data('loadprevpage');
+
       } else {
         var id = $(this).data('grid-id');
         var type = $(this).data('type');
@@ -13080,7 +13094,10 @@ if (typeof jQuery === 'undefined') {
         var next = $(this).data('next');
         var prevType = $(this).data('prevtype');
         var nextType = $(this).data('nexttype');
+        var loadNextPage = $(this).data('loadnextpage');
+        var loadPrevPage = $(this).data('loadprevpage');
       }
+
       $('.navPrev').attr('data-target', prev);
       $('.navNext').attr('data-target', next);
       $('.navPrev').attr('data-type', prevType);
@@ -13095,14 +13112,29 @@ if (typeof jQuery === 'undefined') {
       } else {
         $('.navNext').show();
       }
+      if(loadNextPage == 'Yes') {
+        $('.navNext').addClass('loadNextPage').show();
+      } else {
+        $('.navNext').removeClass('loadNextPage');
+      }
+      if(loadPrevPage == 'Yes') {
+        $('.navPrev').addClass('loadPrevPage').show();
+      } else {
+        $('.navPrev').removeClass('loadPrevPage');
+      }
+
       if (window.location.hostname != "localhost3") {
         if (type == "video") {
             $('#photoViewer').hide();
-            $('#videoViewer iframe').attr('src', url);
+            $('#videoViewer iframe').css('opacity',0);
             $('#videoViewer').fadeIn();
+            $('#videoViewer iframe').attr('src', url);
+            setTimeout(function(){
+              $('#videoViewer iframe').fadeTo("slow",1);
+            },1000);
         } else {
-            $('#photoViewer').fadeIn();
             $('#videoViewer').hide();
+            $('#photoViewer').fadeIn();
             $('#photoViewer img').attr('src', url);
             $('#photoViewer img').fadeIn();
         }

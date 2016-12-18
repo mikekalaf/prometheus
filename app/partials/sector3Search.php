@@ -67,11 +67,11 @@ foreach($hairOptions as $key => $value) {
   <div class="appNav">
     <?php
       if (!empty($sectorData['prev_page_url'])) {
-        echo "<div class='navButton navTrigger' data-url='partials/sector3.php?page=".$prevPage.$navQuery."'><i class='fa fa-chevron-left'></i></div>";
+        echo "<div class='navButton navTrigger navPrevPage' data-url='partials/sector3.php?page=".$prevPage.$navQuery."'><i class='fa fa-chevron-left'></i></div>";
       }
         echo "<div class='navLabel'>".number_format($sectorData['from'])." to ".number_format($sectorData['to'])." of ".number_format($sectorData['total'])."</div>";
       if (!empty($sectorData['next_page_url'])) {
-        echo "<div class='navButton navTrigger' data-url='partials/sector3.php?page=".$nextPage.$navQuery."'><i class='fa fa-chevron-right'></i></div>";
+        echo "<div class='navButton navTrigger navNextPage' data-url='partials/sector3.php?page=".$nextPage.$navQuery."'><i class='fa fa-chevron-right'></i></div>";
       }
       ?>
   </div>

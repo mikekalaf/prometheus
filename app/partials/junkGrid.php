@@ -20,12 +20,14 @@ $sectorData = json_decode($fetchData ,true);
 
 include ('junkSearch.php');
 echo "<div class='appGrid'>";
-$imageCount = count($sectorData['data']);
+$imageCount = count($sectorData['data']) - 1;
 $i = 0;
 foreach($sectorData['data'] as $key => $media) {
   $indicators = "";
   $prev = "";
   $next = "";
+  $loadNextPage = "";
+  $loadPrevPage = "";
   if($i > 0) {
     $offset = $i-1;
     $prev = " data-prev='".$sectorData['data'][$offset]['image_id']."' data-prevtype='".$sectorData['data'][$offset]['media_type']."' ";
@@ -33,6 +35,12 @@ foreach($sectorData['data'] as $key => $media) {
   if($i < $imageCount) {
     $offset = $i+1;
     $next = " data-next='".$sectorData['data'][$offset]['image_id']."' data-nexttype='".$sectorData['data'][$offset]['media_type']."' ";
+  }
+  if($i == $imageCount) {
+    $loadNextPage = " data-loadnextpage='Yes' ";
+  }
+  if($page > 1) {
+    $loadPrevPage = " data-loadprevpage='Yes' ";
   }
   if($media['media_type'] == "video") {
     $media['image'] = $media['video_poster'];
@@ -43,7 +51,7 @@ foreach($sectorData['data'] as $key => $media) {
     $media['image'] =  str_replace('_1280', '_250', $media['image_url']);
   }
   $media['date_added'] = date('M d Y, g:ia', strtotime($media['date_added']));
-  echo "<div id='".$media['image_id']."' class='gridItem junkMedia overlayLink' ".$prev.$next." data-favorite='".$media['favorite']."' data-url='".$media['image_url']."' data-type='".$media['media_type']."' data-target='junkMedia' data-grid-id='".$media['image_id']."' style='background-image: url(".$media['image'].");'>".$indicators."</div>";
+  echo "<div id='".$media['image_id']."' class='gridItem junkMedia overlayLink' ".$loadPrevPage.$loadNextPage.$prev.$next." data-favorite='".$media['favorite']."' data-url='".$media['image_url']."' data-type='".$media['media_type']."' data-target='junkMedia' data-grid-id='".$media['image_id']."' style='background-image: url(".$media['image'].");'>".$indicators."</div>";
   $i++;
 }
 echo "</div>";
