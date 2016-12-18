@@ -462,7 +462,11 @@ $(function() {
 $(function() {
    $("#photoViewer, #videoViewer iframe").swipe( {
      swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-       alert("You swiped " + direction );
+       if (direction == "left") {
+         $('.navNext').click();
+       } else {
+         $('.navPrev').click();
+       }
      }
    });
  });
