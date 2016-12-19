@@ -66,6 +66,8 @@ body {
     overflow: hidden; }
   body.portrait #prometheusWrapper .userInfoContainer {
     margin-left: 0; }
+    body.portrait #prometheusWrapper .userInfoContainer .userInfoTabs {
+      margin-top: 10px; }
   body.portrait #prometheusWrapper .app-overlay-body {
     overflow-y: auto; }
   body.portrait #prometheusWrapper #junkMedia #photoViewer img {
@@ -407,6 +409,34 @@ body {
   .userItem .profileNav .navNext {
     position: absolute;
     right: 0px; }
+.userItem .userInfoTabs {
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
+  overflow: hidden; }
+  .userItem .userInfoTabs .infoTabTrigger {
+    position: relative;
+    width: 33%;
+    margin-right: 10px;
+    text-transform: uppercase;
+    border: 1px solid #333;
+    background-color: #000;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+    .userItem .userInfoTabs .infoTabTrigger.active {
+      border: 1px solid #96060d;
+      background-color: #96060d;
+      color: #FFF; }
+    .userItem .userInfoTabs .infoTabTrigger.last {
+      margin-right: 0px; }
+.userItem .infoTab {
+  display: none; }
+  .userItem .infoTab.active {
+    display: block; }
 
 #junkMedia #galleryNav {
   position: fixed;
@@ -455,6 +485,9 @@ body {
   background-color: #E50914 !important;
   color: #FFF !important;
   cursor: pointer !important; }
+#desktop-app .infoTabTrigger:hover {
+  cursor: pointer !important;
+  color: #FFF !important; }
 
 #prometheusSplash {
   position: absolute;

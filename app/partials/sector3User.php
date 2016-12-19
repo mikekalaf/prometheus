@@ -15,6 +15,9 @@
         <div class="userInfoContainer">
           <div class="userInfoContainer">
             <div class="userInfoTabs">
+              <div class="infoTabTrigger default active" data-target="userPhotoStream">Photos</div>
+              <div class="infoTabTrigger" data-target="userProfileInfo">Profile</div>
+              <div class="infoTabTrigger" data-target="userLocationHistory">Location History</div>
             </div>
             <div class="userPhotoStream infoTab active">
             </div>

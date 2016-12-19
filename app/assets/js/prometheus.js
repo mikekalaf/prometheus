@@ -8,8 +8,6 @@ var prometheus = {
   testImages: [
     'http://67.media.tumblr.com/839b70392b1db50dfa79e96f0b6abf5a/tumblr_nkjak81tF51u845p1o1_1280.jpg',
     'http://www.wallpaperup.com/uploads/wallpapers/2013/12/23/203584/big_thumb_cbdf852aa89a5109d8cc404108c5152a.jpg',
-    'http://captainbluehen.com/wp-content/Tom-Welling-smallville.jpg',
-    'https://s3-us-west-2.amazonaws.com/airgbuzz/media/uploads/buzz_images/march2016/.thumbnails/mariahew.jpg/mariahew-800x0.jpg',
     'http://www.themarysue.com/wp-content/uploads/2015/07/Jean_Grey_Phoenix.jpg'
   ],
   testVideos: [
@@ -63,6 +61,15 @@ var prometheus = {
     $('#prometheusWrapper .userItem').on('click', '.navPrev, .navNext', prometheus.userSwap);
     $('#prometheusWrapper .userItem').on('click', '.loadNextPage', prometheus.loadNextPage);
     $('#prometheusWrapper .userItem').on('click', '.loadPrevPage', prometheus.loadNextPage);
+    $('#prometheusWrapper .userItem').on('click', '.infoTabTrigger', prometheus.loadInfoTab);
+
+  },
+  loadInfoTab:function() {
+    var tab = $(this).data('target');
+    $('.infoTabTrigger').removeClass('active');
+    $(this).addClass('active');
+    $('.infoTab').removeClass('active');
+    $('.'+tab).addClass('active');
   },
   initUserProfile: function() {
     var protocolId = $(this).attr('id');
@@ -237,11 +244,20 @@ var prometheus = {
       var activeId = prometheus.activeItem;
       var dataSource = $('#'+activeId).data('grid-id');
       var userPhoto = prometheus.gridData[dataSource].profile_photo;
+      var userData = prometheus.gridData[dataSource];
+      //Set Username
+      if (userData.display_name != '') {
+        $(container+'.app-overlay-title').html(userData.display_name);
+      } else {
+        $(container+'.app-overlay-title').html('Sector 1 User');
+      }
       if (window.location.hostname == "localhost") {
         userPhoto = prometheus.getTestImage();
       }
       $(container+'.userPhoto img').attr('src', userPhoto);
       $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').fadeIn();
+      $(container+'.infoTabTrigger.default').click();
+      prometheus.adjustInfoTabs();
     },
     addFavorite: function() {
 
@@ -613,6 +629,11 @@ var prometheus = {
         duration:0
     },'linear');
   },
+  adjustInfoTabs: function() {
+      var tabContainerWidth = $('.userInfoTabs').width();
+      var tabWidth = (tabContainerWidth - 20) / 3;
+      $('.infoTabTrigger').css('width', tabWidth);
+  },
   adjustViewPort: function() {
     prometheus.environment.screen.height = $(window).height();
     prometheus.environment.screen.width = $(window).width();
@@ -639,6 +660,7 @@ var prometheus = {
     var overlayWindowHeight = $('.vanishIn.app-overlay-window').height();
     var overlayBodyHeight = overlayWindowHeight - 49;
     $('.vanishIn .app-overlay-body').css('height', overlayBodyHeight);
+    prometheus.adjustInfoTabs();
   },
   removeSlashScreen: function() {
     $('#loader').fadeOut();
