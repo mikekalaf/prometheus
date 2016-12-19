@@ -15111,14 +15111,14 @@ if (typeof jQuery === 'undefined') {
       if (swap == "prev") { animation = "magictime slideRight"; }
       if (swap == "next") { animation = "magictime slideLeft"; }
       $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').addClass(animation);
-        setTimeout(function(){
-          $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').hide();
-          $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').removeClass(animation);
-          $(container+'.userPhotoStream').html('');
-          $(container+'.userData').html('');
-          $(container+'.userPhoto img').attr('src', '');
-          prometheus.setupProfileWindow(target);
-        },500);
+      prometheus.setupProfileWindow(target);
+      setTimeout(function(){
+        $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').hide();
+        $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').removeClass(animation);
+        $(container+'.userPhotoStream').html('');
+        $(container+'.userData').html('');
+        $(container+'.userPhoto img').attr('src', '');
+      },500);
     }
   },
   setupProfileWindow: function(id) {
@@ -15164,7 +15164,9 @@ if (typeof jQuery === 'undefined') {
     } else {
       $(container+'.navPrev').removeClass('loadPrevPage');
     }
-    prometheus[prometheus.activeApp].showUserProfile();
+    setTimeout(function(){
+      prometheus[prometheus.activeApp].showUserProfile();
+    },600);
   },
   deleteItem: function() {
     var confirmDelete = confirm("Are you sure you want to delete this item?");

@@ -43,7 +43,7 @@ foreach($sectorData['data'] as $key => $user) {
   if($i == $userCount) {
     $loadNextPage = " data-loadnextpage='Yes' ";
   }
-  if($page > 1) {
+  if($page > 1 && $i == 0) {
     $loadPrevPage = " data-loadprevpage='Yes' ";
   }
   $user['date_modified'] = date('M d Y, g:ia', strtotime($user['date_modified']));

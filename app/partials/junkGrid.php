@@ -39,7 +39,7 @@ foreach($sectorData['data'] as $key => $media) {
   if($i == $imageCount) {
     $loadNextPage = " data-loadnextpage='Yes' ";
   }
-  if($page > 1) {
+  if($page > 1 && $i == 0) {
     $loadPrevPage = " data-loadprevpage='Yes' ";
   }
   if($media['media_type'] == "video") {
