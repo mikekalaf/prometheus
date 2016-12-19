@@ -15767,6 +15767,10 @@ if (typeof jQuery === 'undefined') {
   }
 };
 
+window.onorientationchange = function(){
+  prometheus.adjustViewPort();
+}
+
 $(function() {
     FastClick.attach(document.body);
 });
