@@ -640,6 +640,16 @@ $(function() {
        }
      }
    });
+   $(".userItem .app-overlay-body").swipe( {
+     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+       var container = prometheus.profileContainer;
+       if (direction == "left") {
+         $(container+'.navNext').click();
+       } else {
+         $(container+'.navPrev').click();
+       }
+     }
+   });
  });
 
 prometheus.init();
