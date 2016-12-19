@@ -6,10 +6,21 @@
   <div class="app-overlay-body">
       <div class="userPhotoWrapper">
         <div class="userPhotoContainer">
+          <div class="userPhoto">
+            <img src='' />
+          </div>
         </div>
       </div>
       <div class="userInfoWrapper">
         <div class="userInfoContainer">
+          <div class="userInfoTabs">
+          </div>
+          <div class="userPhotoStream infoTab active">
+          </div>
+          <div class="userProfileInfo infoTab">
+          </div>
+          <div class="userLocationHistory infoTab">
+          </div>
         </div>
       </div>
       <div class="profileNav">

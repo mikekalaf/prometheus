@@ -14331,11 +14331,24 @@ body {
     text-align: center;
     height: 100%; }
     body.landscape #prometheusWrapper #junkMedia #photoViewer img {
+      height: 100%;
+      width: auto; }
+  body.landscape #prometheusWrapper .userPhotoWrapper {
+    height: 100%; }
+    body.landscape #prometheusWrapper .userPhotoWrapper .userPhotoContainer {
       height: 100%; }
+      body.landscape #prometheusWrapper .userPhotoWrapper .userPhotoContainer .userPhoto {
+        height: 100%; }
+        body.landscape #prometheusWrapper .userPhotoWrapper .userPhotoContainer .userPhoto img {
+          max-width: 100%;
+          max-height: 100%;
+          width: auto; }
   body.portrait #prometheusWrapper .userPhotoWrapper, body.portrait #prometheusWrapper .userInfoWrapper {
     width: 100%;
     height: auto;
     overflow: hidden; }
+  body.portrait #prometheusWrapper .userInfoContainer {
+    margin-left: 0; }
   body.portrait #prometheusWrapper .app-overlay-body {
     overflow-y: auto; }
   body.portrait #prometheusWrapper #junkMedia #photoViewer img {
@@ -14610,13 +14623,17 @@ body {
       height: 100%; }
   #prometheusWrapper .userPhotoWrapper {
     position: relative;
-    height: 100%;
     width: 40%;
     float: left;
     overflow-y: auto; }
     #prometheusWrapper .userPhotoWrapper .userPhotoContainer {
       position: relative;
-      background-color: #CCC; }
+      width: 100%; }
+      #prometheusWrapper .userPhotoWrapper .userPhotoContainer .userPhoto {
+        position: relative;
+        width: 100%; }
+        #prometheusWrapper .userPhotoWrapper .userPhotoContainer .userPhoto img {
+          width: 100%; }
   #prometheusWrapper .userInfoWrapper {
     position: relative;
     width: 60%;
@@ -14625,8 +14642,7 @@ body {
     overflow-y: auto; }
     #prometheusWrapper .userInfoWrapper .userInfoContainer {
       position: relative;
-      margin-left: 10px;
-      background-color: #CCC; }
+      margin-left: 10px; }
 
 .adminOptions {
   position: absolute;

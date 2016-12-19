@@ -15093,10 +15093,30 @@ if (typeof jQuery === 'undefined') {
     $('#prometheusWrapper').on('click', '.addFavorite', prometheus.addFavorite);
     $('#prometheusWrapper').on('click', '.removeFavorite', prometheus.removeFavorite);
     $('#prometheusWrapper').on('click', '.deleteItem', prometheus.deleteItem);
+    $('#prometheusWrapper .userItem').on('click', '.navPrev, .navNext', prometheus.userSwap);
+
   },
   initUserProfile: function() {
     var protocolId = $(this).attr('id');
     prometheus.setupProfileWindow(protocolId);
+  },
+  userSwap: function(event) {
+    event.stopPropagation();
+    var swap = $(this).data('swap');
+    var animation;
+    var target = $(this).attr('data-target');
+    var container = prometheus.profileContainer;
+    if (swap == "prev") { animation = "magictime slideRight"; }
+    if (swap == "next") { animation = "magictime slideLeft"; }
+    $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').addClass(animation);
+    setTimeout(function(){
+      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').hide();
+      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').removeClass(animation);
+      $(container+'.userPhotoStream').html('');
+      $(container+'.userData').html('');
+      $(container+'.userPhoto img').attr('src', '');
+      prometheus.setupProfileWindow(target);
+    },500);
   },
   setupProfileWindow: function(id) {
     var el = '#'+id;
@@ -15141,6 +15161,7 @@ if (typeof jQuery === 'undefined') {
     } else {
       $(container+'.navPrev').removeClass('loadPrevPage');
     }
+    prometheus[prometheus.activeApp].showUserProfile();
   },
   deleteItem: function() {
     var confirmDelete = confirm("Are you sure you want to delete this item?");
@@ -15163,7 +15184,8 @@ if (typeof jQuery === 'undefined') {
     var thisApp = $(this).data('app');
     prometheus[thisApp].removeFavorite();
   },
-  toggleAdmin: function() {
+  toggleAdmin: function(event) {
+    event.stopPropagation();
     $('.adminContainer').fadeToggle();
   },
   buildSearch: function() {
@@ -15239,7 +15261,15 @@ if (typeof jQuery === 'undefined') {
       prometheus.displayAppViewData(data);
     },
     showUserProfile: function() {
-      var id = $(this).data('grid-id');
+      var container = prometheus.profileContainer;
+      var activeId = prometheus.activeItem;
+      var dataSource = $('#'+activeId).data('grid-id');
+      var userPhoto = prometheus.gridData[dataSource].profile_photo;
+      if (window.location.hostname == "localhost") {
+        userPhoto = prometheus.getTestImage();
+      }
+      $(container+'.userPhoto img').attr('src', userPhoto);
+      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').fadeIn();
     },
     addFavorite: function() {
 
@@ -15260,7 +15290,15 @@ if (typeof jQuery === 'undefined') {
       prometheus.displayAppViewData(data);
     },
     showUserProfile: function() {
-      var id = $(this).data('grid-id');
+      var container = prometheus.profileContainer;
+      var activeId = prometheus.activeItem;
+      var dataSource = $('#'+activeId).data('grid-id');
+      var userPhoto = prometheus.gridData[dataSource].profile_photo;
+      if (window.location.hostname == "localhost") {
+        userPhoto = prometheus.getTestImage();
+      }
+      $(container+'.userPhoto img').attr('src', userPhoto);
+      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').fadeIn();
     },
     addFavorite: function() {
 
@@ -15281,7 +15319,15 @@ if (typeof jQuery === 'undefined') {
       prometheus.displayAppViewData(data);
     },
     showUserProfile: function() {
-      var id = $(this).data('grid-id');
+      var container = prometheus.profileContainer;
+      var activeId = prometheus.activeItem;
+      var dataSource = $('#'+activeId).data('grid-id');
+      var userPhoto = prometheus.gridData[dataSource].profile_photo;
+      if (window.location.hostname == "localhost") {
+        userPhoto = prometheus.getTestImage();
+      }
+      $(container+'.userPhoto img').attr('src', userPhoto);
+      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').fadeIn();
     },
     addFavorite: function() {
 
@@ -15315,7 +15361,8 @@ if (typeof jQuery === 'undefined') {
       var url = "http://v9.ikioskcloudapps.com/junkcollector/delete/"+prometheus.activeItem;
       prometheus.remotePing(url);
     },
-    gallerySwap: function() {
+    gallerySwap: function(event) {
+      event.stopPropagation();
       var swap = $(this).data('swap');
       var animation, typeTarget;
       var target = $(this).attr('data-target');
