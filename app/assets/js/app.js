@@ -15290,7 +15290,9 @@ if (typeof jQuery === 'undefined') {
       $(container+'.userPhoto img').attr('src', userPhoto);
       $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').fadeIn();
       $(container+'.infoTabTrigger.default').click();
-      prometheus.adjustInfoTabs();
+      setTimeout(function(){
+        prometheus.adjustInfoTabs();
+      },400)
     },
     addFavorite: function() {
 
