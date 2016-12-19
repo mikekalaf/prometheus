@@ -734,9 +734,11 @@ var prometheus = {
   }
 };
 
-window.onorientationchange = function(){
-  prometheus.adjustViewPort();
-}
+$(window).on( "orientationchange", function( event ) {
+  setTimeout(function(){
+    prometheus.adjustViewPort();
+  },500);
+});
 
 $(function() {
     FastClick.attach(document.body);
