@@ -14723,6 +14723,8 @@ body {
   background-size: cover;
   margin-right: 10px;
   margin-bottom: 10px; }
+.userItem .userPhotoStream div:nth-child(3n+3) {
+  margin-right: 0px; }
 .userItem .infoTab {
   display: none; }
   .userItem .infoTab.active {

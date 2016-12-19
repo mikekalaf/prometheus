@@ -238,7 +238,13 @@ var prometheus = {
     });
   },
   buildPhotoList: function(list) {
-
+    if(list.length > 0) {
+      for (var i = 0; i < list.length; i++) {
+        var fullsize = list[i].photo_url;
+        var thumbnail = fullsize.replace('profile/1024x1024','thumb/320x320');
+        prometheus.addUserPhoto(thumbnail,fullsize);
+      }
+    }
   },
   addUserPhoto: function(thumbnail, fullsize) {
     var container = prometheus.profileContainer;

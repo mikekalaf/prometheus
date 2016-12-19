@@ -560,6 +560,9 @@ body {
       margin-right: 10px;
       margin-bottom: 10px;
     }
+    div:nth-child(3n+3) {
+      margin-right: 0px;
+    }
   }
   .infoTab {
     display: none;
