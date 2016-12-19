@@ -15283,7 +15283,7 @@ if (typeof jQuery === 'undefined') {
     var container = prometheus.profileContainer;
     var $userPhoto = $("<div>",{"class": "userPhotoTrigger"});
     $userPhoto.attr('data-fullsize', fullsize);
-    $userPhoto.css('background-image', 'url('+fullsize+')');
+    $userPhoto.css('background-image', 'url('+thumbnail+')');
     $(container+'.userPhotoStream').append($userPhoto);
     $userPhoto.fadeTo("slow",1);
     prometheus.adjustInfoTabs();
@@ -15360,11 +15360,28 @@ if (typeof jQuery === 'undefined') {
       var activeId = prometheus.activeItem;
       var dataSource = $('#'+activeId).data('grid-id');
       var userPhoto = prometheus.gridData[dataSource].profile_photo;
+      var userThumbnail = prometheus.gridData[dataSource].thumbnail;
+      var userData = prometheus.gridData[dataSource];
+      var photoArray = ['photo1','photo2','photo3','photo4','photo5'];
       if (window.location.hostname == "localhost") {
         userPhoto = prometheus.getTestImage();
       }
+      //Set Username
+      if (userData.first_name != '' || userData.last_name != '') {
+        $(container+'.app-overlay-title').html(userData.first_name+' '+userData.last_name);
+      } else {
+        $(container+'.app-overlay-title').html('Sector 3 User');
+      }
       $(container+'.userPhoto img').attr('src', userPhoto);
-      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').fadeIn();
+      $(container+'.infoTabTrigger.default').click();
+      for (var i = 0; i < photoArray.length; i++) {
+        if(photoArray[i] != '') {
+          var thisThumb = userData[photoArray[i]].replace('http://s','https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s');
+          var thisPhoto = thisThumb;
+          thisThumb += 's';
+          prometheus.addUserPhoto(thisThumb, thisPhoto);
+        }
+      }
     },
     addFavorite: function() {
 
@@ -15389,11 +15406,21 @@ if (typeof jQuery === 'undefined') {
       var activeId = prometheus.activeItem;
       var dataSource = $('#'+activeId).data('grid-id');
       var userPhoto = prometheus.gridData[dataSource].profile_photo;
+      var userThumbnail = prometheus.gridData[dataSource].thumbnail;
+      var userData = prometheus.gridData[dataSource];
       if (window.location.hostname == "localhost") {
         userPhoto = prometheus.getTestImage();
       }
+      //Set Username
+      if (userData.display_name != '') {
+        $(container+'.app-overlay-title').html(userData.display_name);
+      } else {
+        $(container+'.app-overlay-title').html('Sector 2 User');
+      }
       $(container+'.userPhoto img').attr('src', userPhoto);
-      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').fadeIn();
+      $(container+'.infoTabTrigger.default').click();
+      prometheus.addUserPhoto(userThumbnail, userPhoto);
+      prometheus.getPhotoList('sector1', activeId);
     },
     addFavorite: function() {
 
@@ -15708,11 +15735,12 @@ if (typeof jQuery === 'undefined') {
     },'linear');
   },
   adjustInfoTabs: function() {
-      var tabContainerWidth = $('.userInfoTabs').width();
-      var tabWidth = Math.floor((tabContainerWidth - 20) / 3);
-      $('.infoTabTrigger').css('width', tabWidth);
-      $('.userPhotoTrigger').css('width', tabWidth);
-      $('.userPhotoTrigger').css('height', tabWidth);
+    var container = prometheus.profileContainer;
+    var tabContainerWidth = $(container+'.userInfoTabs').width();
+    var tabWidth = Math.floor((tabContainerWidth - 20) / 3);
+    $(container+'.infoTabTrigger').css('width', tabWidth);
+    $(container+'.userPhotoTrigger').css('width', tabWidth);
+    $(container+'.userPhotoTrigger').css('height', tabWidth);
   },
   adjustViewPort: function() {
     prometheus.environment.screen.height = $(window).height();
