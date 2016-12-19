@@ -61,7 +61,8 @@ var prometheus = {
     $('#prometheusWrapper').on('click', '.removeFavorite', prometheus.removeFavorite);
     $('#prometheusWrapper').on('click', '.deleteItem', prometheus.deleteItem);
     $('#prometheusWrapper .userItem').on('click', '.navPrev, .navNext', prometheus.userSwap);
-
+    $('#prometheusWrapper .userItem').on('click', '.loadNextPage', prometheus.loadNextPage);
+    $('#prometheusWrapper .userItem').on('click', '.loadPrevPage', prometheus.loadNextPage);
   },
   initUserProfile: function() {
     var protocolId = $(this).attr('id');
@@ -69,21 +70,23 @@ var prometheus = {
   },
   userSwap: function(event) {
     event.stopPropagation();
-    var swap = $(this).data('swap');
-    var animation;
-    var target = $(this).attr('data-target');
-    var container = prometheus.profileContainer;
-    if (swap == "prev") { animation = "magictime slideRight"; }
-    if (swap == "next") { animation = "magictime slideLeft"; }
-    $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').addClass(animation);
-    setTimeout(function(){
-      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').hide();
-      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').removeClass(animation);
-      $(container+'.userPhotoStream').html('');
-      $(container+'.userData').html('');
-      $(container+'.userPhoto img').attr('src', '');
-      prometheus.setupProfileWindow(target);
-    },500);
+    if (!$(this).hasClass("loadNextPage") && !$(this).hasClass("loadPrevPage")) {
+      var swap = $(this).data('swap');
+      var animation;
+      var target = $(this).attr('data-target');
+      var container = prometheus.profileContainer;
+      if (swap == "prev") { animation = "magictime slideRight"; }
+      if (swap == "next") { animation = "magictime slideLeft"; }
+      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').addClass(animation);
+        setTimeout(function(){
+          $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').hide();
+          $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').removeClass(animation);
+          $(container+'.userPhotoStream').html('');
+          $(container+'.userData').html('');
+          $(container+'.userPhoto img').attr('src', '');
+          prometheus.setupProfileWindow(target);
+        },500);
+    }
   },
   setupProfileWindow: function(id) {
     var el = '#'+id;
@@ -679,24 +682,29 @@ $(function() {
 
 $(function() {
    $("#junkMedia .app-overlay-body").swipe( {
-     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-       if (direction == "left") {
-         $('.navNext').click();
-       } else {
-         $('.navPrev').click();
-       }
-     }
+     swipeLeft: appSwipeLeft,
+     swipeRight: appSwipeRight,
+     allowPageScroll: "vertical"
    });
    $(".userItem .app-overlay-body").swipe( {
-     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-       var container = prometheus.profileContainer;
-       if (direction == "left") {
-         $(container+'.navNext').click();
-       } else {
-         $(container+'.navPrev').click();
-       }
-     }
+     swipeLeft: appSwipeLeftExt,
+     swipeRight: appSwipeRightExt,
+     allowPageScroll: "vertical"
    });
+   function appSwipeLeft(event, direction, distance, duration, fingerCount) {
+     $('.navNext').click();
+   }
+   function appSwipeRight(event, direction, distance, duration, fingerCount) {
+     $('.navPrev').click();
+   }
+   function appSwipeLeftExt(event, direction, distance, duration, fingerCount) {
+     var container = prometheus.profileContainer;
+     $(container+'.navNext').click();
+   }
+   function appSwipeRightExt(event, direction, distance, duration, fingerCount) {
+     var container = prometheus.profileContainer;
+     $(container+'.navPrev').click();
+   }
  });
 
 prometheus.init();
