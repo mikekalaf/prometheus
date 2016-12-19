@@ -147,7 +147,7 @@ var prometheus = {
     },750);
     setTimeout(function(){
       prometheus.adjustInfoTabs();
-    },1500);
+    },800);
   },
   deleteItem: function() {
     var confirmDelete = confirm("Are you sure you want to delete this item?");
