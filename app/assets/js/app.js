@@ -15096,7 +15096,22 @@ if (typeof jQuery === 'undefined') {
     $('#prometheusWrapper .userItem').on('click', '.loadNextPage', prometheus.loadNextPage);
     $('#prometheusWrapper .userItem').on('click', '.loadPrevPage', prometheus.loadNextPage);
     $('#prometheusWrapper .userItem').on('click', '.infoTabTrigger', prometheus.loadInfoTab);
-
+    $('#prometheusWrapper .userItem').on('click', '.userPhotoTrigger', prometheus.swapUserPhoto);
+  },
+  swapUserPhoto: function() {
+    var newImage = $(this).data('fullsize');
+    var container = prometheus.profileContainer;
+    var animationOut = "magictime vanishOut";
+    var animationIn = "magicTime vanishIn";
+    $(container+'.userPhotoWrapper img').addClass(animationOut);
+    setTimeout(function(){
+      $(container+'.userPhotoWrapper img').attr('src', newImage);
+      $(container+'.userPhotoWrapper img').removeClass(animationOut);
+      $(container+'.userPhotoWrapper img').css('opacity', 0);
+    },400);
+    setTimeout(function(){
+      $(container+'.userPhotoWrapper img').fadeTo('slow',1);
+    },800);
   },
   loadInfoTab:function() {
     var tab = $(this).data('target');
