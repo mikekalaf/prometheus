@@ -15123,9 +15123,6 @@ if (typeof jQuery === 'undefined') {
       setTimeout(function(){
         $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').hide();
         $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').removeClass(animation);
-        $(container+'.userPhotoStream').html('');
-        $(container+'.userData').html('');
-        $(container+'.userPhoto img').attr('src', '');
       },500);
     }
   },
@@ -15173,8 +15170,17 @@ if (typeof jQuery === 'undefined') {
       $(container+'.navPrev').removeClass('loadPrevPage');
     }
     setTimeout(function(){
+      $(container+'.userPhotoStream').html('');
+      $(container+'.userData').html('');
+      $(container+'.userPhoto img').attr('src', '');
       prometheus[prometheus.activeApp].showUserProfile();
     },600);
+    setTimeout(function(){
+      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').fadeIn();
+    },750);
+    setTimeout(function(){
+      prometheus.adjustInfoTabs();
+    },1500);
   },
   deleteItem: function() {
     var confirmDelete = confirm("Are you sure you want to delete this item?");
@@ -15268,7 +15274,7 @@ if (typeof jQuery === 'undefined') {
     var $userPhoto = $("<div>",{"class": "userPhotoTrigger"});
     $userPhoto.attr('data-fullsize', fullsize);
     $userPhoto.css('background-image', 'url('+fullsize+')');
-    $(container+'.userPhotoStream').append($userPhoto);
+    $(container+'.userPhotoStream').prepend($userPhoto);
     prometheus.adjustInfoTabs();
   },
   displayAppViewData: function(htmlCode) {
@@ -15316,13 +15322,9 @@ if (typeof jQuery === 'undefined') {
         userPhoto = prometheus.getTestImage();
       }
       $(container+'.userPhoto img').attr('src', userPhoto);
-      $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').fadeIn();
       $(container+'.infoTabTrigger.default').click();
       prometheus.addUserPhoto(userThumbnail, userPhoto);
       prometheus.getPhotoList('sector1', activeId);
-      setTimeout(function(){
-        prometheus.adjustInfoTabs();
-      },400)
     },
     addFavorite: function() {
 
