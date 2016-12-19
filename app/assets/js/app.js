@@ -15376,7 +15376,7 @@ if (typeof jQuery === 'undefined') {
       $(container+'.infoTabTrigger.default').click();
       for (var i = 0; i < photoArray.length; i++) {
         if(photoArray[i] != '') {
-          var thisThumb = userData[photoArray[i]].replace('http://s','https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s');
+          var thisThumb = userData[photoArray[i]];
           var thisPhoto = thisThumb;
           thisThumb += 's';
           prometheus.addUserPhoto(thisThumb, thisPhoto);

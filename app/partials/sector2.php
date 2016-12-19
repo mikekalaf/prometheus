@@ -46,7 +46,7 @@ foreach($sectorData['data'] as $key => $user) {
     $loadPrevPage = " data-loadprevpage='Yes' ";
   }
   $user['date_modified'] = date('M d Y, g:ia', strtotime($user['date_modified']));
-  $user['profile_photo'] = "https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=";
+  $user['profile_photo'] = "";
   if (!empty($user['photo1'])) {
     $user['profile_photo'] .= $user['photo1'];
   } else if (!empty($user['photo2'])) {
