@@ -15666,7 +15666,7 @@ if (typeof jQuery === 'undefined') {
   },
   adjustInfoTabs: function() {
       var tabContainerWidth = $('.userInfoTabs').width();
-      var tabWidth = (tabContainerWidth - 20) / 3;
+      var tabWidth = Math.floor((tabContainerWidth - 20) / 3);
       $('.infoTabTrigger').css('width', tabWidth);
   },
   adjustViewPort: function() {
