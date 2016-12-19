@@ -15041,6 +15041,7 @@ if (typeof jQuery === 'undefined') {
   testImages: [
     'http://67.media.tumblr.com/839b70392b1db50dfa79e96f0b6abf5a/tumblr_nkjak81tF51u845p1o1_1280.jpg',
     'http://www.wallpaperup.com/uploads/wallpapers/2013/12/23/203584/big_thumb_cbdf852aa89a5109d8cc404108c5152a.jpg',
+    'http://www.themarysue.com/wp-content/uploads/2015/07/Jean_Grey_Phoenix.jpg',
     'http://www.themarysue.com/wp-content/uploads/2015/07/Jean_Grey_Phoenix.jpg'
   ],
   testVideos: [

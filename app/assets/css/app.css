@@ -14810,7 +14810,7 @@ body {
   height: 0px; }
 
 ::-webkit-scrollbar-thumb {
-  background: #e1e1e1;
+  background: rgba(255, 255, 255, 0.1);
   border: 0px none #ffffff;
   border-radius: 50px; }
 
@@ -14821,7 +14821,7 @@ body {
   background: #000000; }
 
 ::-webkit-scrollbar-track {
-  background: #333333;
+  background: transparent;
   border: 0px none #ffffff;
   border-radius: 50px; }
 
