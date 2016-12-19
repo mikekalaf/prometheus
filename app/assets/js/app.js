@@ -15284,7 +15284,8 @@ if (typeof jQuery === 'undefined') {
     var $userPhoto = $("<div>",{"class": "userPhotoTrigger"});
     $userPhoto.attr('data-fullsize', fullsize);
     $userPhoto.css('background-image', 'url('+fullsize+')');
-    $(container+'.userPhotoStream').prepend($userPhoto);
+    $(container+'.userPhotoStream').append($userPhoto);
+    $userPhoto.fadeTo("slow",1);
     prometheus.adjustInfoTabs();
   },
   displayAppViewData: function(htmlCode) {
