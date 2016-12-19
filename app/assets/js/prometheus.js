@@ -148,6 +148,9 @@ var prometheus = {
     setTimeout(function(){
       prometheus.adjustInfoTabs();
     },800);
+    setTimeout(function(){
+      prometheus.adjustInfoTabs();
+    },1500);
   },
   deleteItem: function() {
     var confirmDelete = confirm("Are you sure you want to delete this item?");
