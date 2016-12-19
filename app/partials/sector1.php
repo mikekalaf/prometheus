@@ -27,6 +27,7 @@ echo "<div class='appGrid'>";
 $userCount = count($sectorData['data']) - 1;
 $i = 0;
 foreach($sectorData['data'] as $key => $user) {
+  
   $indicators = "";
   $prev = "";
   $next = "";

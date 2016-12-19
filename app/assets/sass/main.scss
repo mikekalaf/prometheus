@@ -551,6 +551,16 @@ body {
       }
     }
   }
+  .userPhotoStream {
+    .userPhotoTrigger {
+      position: relative;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  }
   .infoTab {
     display: none;
     &.active {
@@ -628,6 +638,9 @@ body {
   .infoTabTrigger:hover {
     cursor: pointer !important;
     color: #FFF !important;
+  }
+  .userPhotoTrigger {
+    cursor: pointer !important;
   }
 }
 

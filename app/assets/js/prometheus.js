@@ -70,6 +70,7 @@ var prometheus = {
     $(this).addClass('active');
     $('.infoTab').removeClass('active');
     $('.'+tab).addClass('active');
+    prometheus.adjustInfoTabs();
   },
   initUserProfile: function() {
     var protocolId = $(this).attr('id');
@@ -209,7 +210,33 @@ var prometheus = {
         dataCallback(data);
       }
     });
+  },
+  getPhotoList: function(sector, id) {
+    var dataUrl = "http://v9.ikioskcloudapps.com/shield/x-gene/"+sector+"/photos?protocol_id="+id;
+    $.ajax({
+      type: "GET",
+      timeout: 6000,
+      url: dataUrl,
+      dataType: 'json',
+      jsonp: false,
+      error: function(data) {
+        alert('Error:  Unable to retrieve data from source.');
+      },
+      success: function(data) {
+        prometheus.buildPhotoList(data.data);
+      }
+    });
+  },
+  buildPhotoList: function(list) {
 
+  },
+  addUserPhoto: function(thumbnail, fullsize) {
+    var container = prometheus.profileContainer;
+    var $userPhoto = $("<div>",{"class": "userPhotoTrigger"});
+    $userPhoto.attr('data-fullsize', fullsize);
+    $userPhoto.css('background-image', 'url('+fullsize+')');
+    $(container+'.userPhotoStream').append($userPhoto);
+    prometheus.adjustInfoTabs();
   },
   displayAppViewData: function(htmlCode) {
     prometheus.showAppView();
@@ -244,6 +271,7 @@ var prometheus = {
       var activeId = prometheus.activeItem;
       var dataSource = $('#'+activeId).data('grid-id');
       var userPhoto = prometheus.gridData[dataSource].profile_photo;
+      var userThumbnail = prometheus.gridData[dataSource].thumbnail;
       var userData = prometheus.gridData[dataSource];
       //Set Username
       if (userData.display_name != '') {
@@ -257,6 +285,8 @@ var prometheus = {
       $(container+'.userPhoto img').attr('src', userPhoto);
       $(container+'.userPhotoWrapper, '+container+'.userInfoWrapper').fadeIn();
       $(container+'.infoTabTrigger.default').click();
+      prometheus.addUserPhoto(userThumbnail, userPhoto);
+      prometheus.getPhotoList('sector1', activeId);
       setTimeout(function(){
         prometheus.adjustInfoTabs();
       },400)
@@ -635,6 +665,8 @@ var prometheus = {
       var tabContainerWidth = $('.userInfoTabs').width();
       var tabWidth = Math.floor((tabContainerWidth - 20) / 3);
       $('.infoTabTrigger').css('width', tabWidth);
+      $('.userPhotoTrigger').css('width', tabWidth);
+      $('.userPhotoTrigger').css('height', tabWidth);
   },
   adjustViewPort: function() {
     prometheus.environment.screen.height = $(window).height();

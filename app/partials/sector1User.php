@@ -19,7 +19,6 @@
             <div class="infoTabTrigger last" data-target="userLocationHistory">Location History</div>
           </div>
           <div class="userPhotoStream infoTab active">
-            PhotoStream
           </div>
           <div class="userProfileInfo infoTab">
             Profile Info

@@ -14716,6 +14716,13 @@ body {
       color: #FFF; }
     .userItem .userInfoTabs .infoTabTrigger.last {
       margin-right: 0px; }
+.userItem .userPhotoStream .userPhotoTrigger {
+  position: relative;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 10px;
+  margin-bottom: 10px; }
 .userItem .infoTab {
   display: none; }
   .userItem .infoTab.active {
@@ -14771,6 +14778,8 @@ body {
 #desktop-app .infoTabTrigger:hover {
   cursor: pointer !important;
   color: #FFF !important; }
+#desktop-app .userPhotoTrigger {
+  cursor: pointer !important; }
 
 #prometheusSplash {
   position: absolute;
