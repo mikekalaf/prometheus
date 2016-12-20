@@ -14,13 +14,13 @@
       <div class="userInfoWrapper">
         <div class="userInfoContainer">
           <div class="userInfoTabs">
-            <div class="infoTabTrigger default active" data-target="userPhotoStream">Photos</div>
-            <div class="infoTabTrigger" data-target="userProfileInfo">Profile</div>
+            <div class="infoTabTrigger default active" data-target="userProfileInfo">Profile</div>
+            <div class="infoTabTrigger" data-target="userPhotoStream">Photos</div>
             <div class="infoTabTrigger last" data-target="userLocationHistory">Location History</div>
           </div>
-          <div class="userPhotoStream infoTab active">
+          <div class="userPhotoStream infoTab">
           </div>
-          <div class="userProfileInfo infoTab userData">
+          <div class="userProfileInfo infoTab active userData">
             Profile Info
           </div>
           <div class="userLocationHistory infoTab userData">
