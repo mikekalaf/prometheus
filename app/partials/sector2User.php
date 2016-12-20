@@ -33,8 +33,8 @@
       <?php if ($isAdmin) { ?>
         <div class="adminOptions">
           <div class="adminContainer">
-            <div class="adminButton addFavorite" data-app="jackd">Add to Favorites</div>
-            <div class="adminButton removeFavorite" data-app="jackd">Remove from Favorites</div>
+            <div class="adminButton addFavorite last" data-app="jackd">Add to Favorites</div>
+            <div class="adminButton removeFavorite last" data-app="jackd">Remove from Favorites</div>
           </div>
           <div class="adminToggle">
               <i class='fa fa-3x fa-cog'></i>

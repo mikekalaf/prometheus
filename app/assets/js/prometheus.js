@@ -320,10 +320,14 @@ var prometheus = {
       prometheus.getPhotoList('sector1', activeId);
     },
     addFavorite: function() {
-
+      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector1/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
+      prometheus.remotePing(url);
+      $('#'+prometheus.activeItem).data('favorite', 'Yes');
     },
     removeFavorite: function() {
-
+      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector1/favorite?protocol_id="+prometheus.activeItem+"&action=No";
+      prometheus.remotePing(url);
+      $('#'+prometheus.activeItem).data('favorite', 'No');
     },
     deleteItem: function() {
 
@@ -366,10 +370,14 @@ var prometheus = {
       }
     },
     addFavorite: function() {
-
+      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector2/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
+      prometheus.remotePing(url);
+      $('#'+prometheus.activeItem).data('favorite', 'Yes');
     },
     removeFavorite: function() {
-
+      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector2/favorite?protocol_id="+prometheus.activeItem+"&action=No";
+      prometheus.remotePing(url);
+      $('#'+prometheus.activeItem).data('favorite', 'No');
     },
     deleteItem: function() {
 
@@ -405,10 +413,14 @@ var prometheus = {
       prometheus.getPhotoList('sector1', activeId);
     },
     addFavorite: function() {
-
+      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector3/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
+      prometheus.remotePing(url);
+      $('#'+prometheus.activeItem).data('favorite', 'Yes');
     },
     removeFavorite: function() {
-
+      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector3/favorite?protocol_id="+prometheus.activeItem+"&action=No";
+      prometheus.remotePing(url);
+      $('#'+prometheus.activeItem).data('favorite', 'No');
     },
     deleteItem: function() {
 
