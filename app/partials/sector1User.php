@@ -20,10 +20,10 @@
           </div>
           <div class="userPhotoStream infoTab active">
           </div>
-          <div class="userProfileInfo infoTab">
+          <div class="userProfileInfo infoTab userData">
             Profile Info
           </div>
-          <div class="userLocationHistory infoTab">
+          <div class="userLocationHistory infoTab userData">
             Location History
           </div>
         </div>

@@ -15153,6 +15153,7 @@ if (typeof jQuery === 'undefined') {
     var favorite = $(el).data('favorite');
     var container = prometheus.profileContainer;
     prometheus.activeItem = id;
+    $('.adminContainer').fadeOut();
     $(container+'.navPrev').attr('data-target', prev);
     $(container+'.navNext').attr('data-target', next);
     $(container+'.navPrev').attr('data-type', prevType);
@@ -15185,6 +15186,7 @@ if (typeof jQuery === 'undefined') {
     } else {
       $(container+'.navPrev').removeClass('loadPrevPage');
     }
+
     setTimeout(function(){
       $(container+'.userPhotoStream').html('');
       $(container+'.userData').html('');
@@ -15303,6 +15305,15 @@ if (typeof jQuery === 'undefined') {
     $userPhoto.fadeTo("slow",1);
     prometheus.adjustInfoTabs();
   },
+  displayUserInfo: function(header, content) {
+    var container = prometheus.profileContainer;
+    if (content !='' && content != undefined) {
+      var $userInfo = $("<div>",{"class": "userInfo"});
+      $userInfo.append("<div class='userInfoHeader'>"+header+"</div>");
+      $userInfo.append("<div class='userInfoContent'>"+content+"</div>");
+      $(container+'.userProfileInfo').append($userInfo);
+    }
+  },
   displayAppViewData: function(htmlCode) {
     prometheus.showAppView();
     setTimeout(function(){
@@ -15351,6 +15362,9 @@ if (typeof jQuery === 'undefined') {
       $(container+'.infoTabTrigger.default').click();
       prometheus.addUserPhoto(userThumbnail, userPhoto);
       prometheus.getPhotoList('sector1', activeId);
+      prometheus.displayUserInfo('Age', userData.age);
+      prometheus.displayUserInfo('About Me', userData.about_me);
+      prometheus.displayUserInfo('Last Updated', userData.date_modified);
     },
     addFavorite: function() {
       var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector1/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
@@ -15401,6 +15415,14 @@ if (typeof jQuery === 'undefined') {
           prometheus.addUserPhoto(thisThumb, thisPhoto);
         }
       }
+      prometheus.displayUserInfo('Age', userData.age);
+      prometheus.displayUserInfo('Location', userData.location);
+      prometheus.displayUserInfo('About Me', userData.profile_text);
+      prometheus.displayUserInfo('Interests', userData.interests);
+      prometheus.displayUserInfo('Activities', userData.activities);
+      prometheus.displayUserInfo('Movies', userData.movies);
+
+      prometheus.displayUserInfo('Last Updated', userData.date_modified);
     },
     addFavorite: function() {
       var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector2/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
@@ -15444,6 +15466,10 @@ if (typeof jQuery === 'undefined') {
       $(container+'.infoTabTrigger.default').click();
       prometheus.addUserPhoto(userThumbnail, userPhoto);
       prometheus.getPhotoList('sector1', activeId);
+      prometheus.displayUserInfo('Age', userData.age);
+      prometheus.displayUserInfo('About Me', userData.about_me);
+      prometheus.displayUserInfo('Ideal Match', userData.ideal);
+      prometheus.displayUserInfo('Last Updated', userData.date_modified);
     },
     addFavorite: function() {
       var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector3/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";

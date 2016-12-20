@@ -14681,7 +14681,6 @@ body {
 .userItem .profileNav {
   position: fixed;
   width: 90%;
-  height: 30px;
   top: 50%;
   margin-top: -15px;
   left: 50%;
@@ -14728,6 +14727,18 @@ body {
     opacity: 0; }
   .userItem .userPhotoStream div:nth-child(3n+3) {
     margin-right: 0px; }
+.userItem .userProfileInfo {
+  position: relative;
+  margin-top: 20px; }
+  .userItem .userProfileInfo .userInfoHeader {
+    position: relative;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 12px; }
+  .userItem .userProfileInfo .userInfoContent {
+    position: relative;
+    margin-bottom: 15px;
+    font-size: 13px; }
 .userItem .infoTab {
   display: none; }
   .userItem .infoTab.active {

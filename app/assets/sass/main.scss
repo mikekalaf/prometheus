@@ -509,7 +509,6 @@ body {
   .profileNav {
     position: fixed;
     width: 90%;
-    height: 30px;
     top: 50%;
     margin-top: -15px;
     left:50%;
@@ -564,6 +563,21 @@ body {
     }
     div:nth-child(3n+3) {
       margin-right: 0px;
+    }
+  }
+  .userProfileInfo {
+    position: relative;
+    margin-top: 20px;
+    .userInfoHeader {
+        position: relative;
+        color: #FFF;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+    .userInfoContent {
+        position: relative;
+        margin-bottom: 15px;
+        font-size: 13px;
     }
   }
   .infoTab {
