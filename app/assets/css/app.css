@@ -14739,6 +14739,10 @@ body {
     position: relative;
     margin-bottom: 15px;
     font-size: 13px; }
+.userItem .userLocationHistory .locationMap {
+  position: relative;
+  width: 100%;
+  height: 400px; }
 .userItem .infoTab {
   display: none; }
   .userItem .infoTab.active {

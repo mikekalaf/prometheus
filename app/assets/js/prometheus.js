@@ -238,6 +238,9 @@ var prometheus = {
       }
     });
   },
+  getLocationList: function(id) {
+
+  },
   getPhotoList: function(sector, id) {
     var dataUrl = "http://v9.ikioskcloudapps.com/shield/x-gene/"+sector+"/photos?protocol_id="+id;
     $.ajax({
@@ -332,6 +335,7 @@ var prometheus = {
       prometheus.displayUserInfo('Age', userData.age);
       prometheus.displayUserInfo('About Me', userData.about_me);
       prometheus.displayUserInfo('Last Updated', userData.date_modified);
+      prometheus.getLocationList(activeId);
     },
     addFavorite: function() {
       var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector1/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
@@ -388,8 +392,8 @@ var prometheus = {
       prometheus.displayUserInfo('Interests', userData.interests);
       prometheus.displayUserInfo('Activities', userData.activities);
       prometheus.displayUserInfo('Movies', userData.movies);
-
       prometheus.displayUserInfo('Last Updated', userData.date_modified);
+      prometheus.getLocationList(activeId);
     },
     addFavorite: function() {
       var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector2/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
@@ -437,6 +441,7 @@ var prometheus = {
       prometheus.displayUserInfo('About Me', userData.about_me);
       prometheus.displayUserInfo('Ideal Match', userData.ideal);
       prometheus.displayUserInfo('Last Updated', userData.date_modified);
+      prometheus.getLocationList(activeId);
     },
     addFavorite: function() {
       var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector3/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";

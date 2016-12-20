@@ -15,14 +15,14 @@
         <div class="userInfoContainer">
           <div class="userInfoTabs">
             <div class="infoTabTrigger default active" data-target="userProfileInfo">Profile</div>
-            <div class="infoTabTrigger" data-target="userPhotoStream">Photos</div>
-            <div class="infoTabTrigger last" data-target="userLocationHistory">Location History</div>
+            <div class="infoTabTrigger last" data-target="userPhotoStream">Photos</div>
           </div>
           <div class="userPhotoStream infoTab">
           </div>
           <div class="userProfileInfo infoTab userData active">
           </div>
-          <div class="userLocationHistory infoTab userData">
+          <div class="userLocationHistory infoTab">
+            <div id="jackdMap" class="locationMap"></div>
           </div>
         </div>
       </div>

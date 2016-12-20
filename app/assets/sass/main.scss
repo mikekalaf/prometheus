@@ -580,6 +580,13 @@ body {
         font-size: 13px;
     }
   }
+  .userLocationHistory {
+    .locationMap {
+      position: relative;
+      width: 100%;
+      height: 400px;
+    }
+  }
   .infoTab {
     display: none;
     &.active {
