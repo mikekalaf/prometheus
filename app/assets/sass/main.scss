@@ -465,6 +465,60 @@ body {
     }
     overflow-y: auto;
   }
+  #cerebroMap {
+    position: relative;
+    width: 100%;
+    .mapInfoWrapper {
+        position: relative;
+        width: 350px;
+        overflow: hidden;
+      }
+    .mapPhoto {
+        position: relative;
+        width: 150px;
+        overflow: hidden;
+        float: left;
+      }
+
+      .mapPhoto img {
+        width: 100%;
+      }
+
+      .mapTitle {
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .mapData {
+        font-size: 11px;
+        color: #666
+      }
+
+      .mapInfo {
+        position: relative;
+        float: left;
+        margin-left: 10px;
+        width: 190px;
+      }
+
+      .mapHeader {
+        position: relative;
+        font-size: 10px;
+        margin-top: 10px;
+      }
+      .mapLocationDesc {
+        color: #666
+      }
+
+      .gpsData {
+        color: #666
+      }
+
+      .mapTimeDisplay {
+        color: #666
+      }
+
+  }
 }
 
 .adminOptions {

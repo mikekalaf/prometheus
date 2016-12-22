@@ -362,6 +362,41 @@ body {
     #prometheusWrapper .userInfoWrapper .userInfoContainer {
       position: relative;
       margin-left: 10px; }
+  #prometheusWrapper #cerebroMap {
+    position: relative;
+    width: 100%; }
+    #prometheusWrapper #cerebroMap .mapInfoWrapper {
+      position: relative;
+      width: 350px;
+      overflow: hidden; }
+    #prometheusWrapper #cerebroMap .mapPhoto {
+      position: relative;
+      width: 150px;
+      overflow: hidden;
+      float: left; }
+    #prometheusWrapper #cerebroMap .mapPhoto img {
+      width: 100%; }
+    #prometheusWrapper #cerebroMap .mapTitle {
+      font-size: 14px;
+      font-weight: 400; }
+    #prometheusWrapper #cerebroMap .mapData {
+      font-size: 11px;
+      color: #666; }
+    #prometheusWrapper #cerebroMap .mapInfo {
+      position: relative;
+      float: left;
+      margin-left: 10px;
+      width: 190px; }
+    #prometheusWrapper #cerebroMap .mapHeader {
+      position: relative;
+      font-size: 10px;
+      margin-top: 10px; }
+    #prometheusWrapper #cerebroMap .mapLocationDesc {
+      color: #666; }
+    #prometheusWrapper #cerebroMap .gpsData {
+      color: #666; }
+    #prometheusWrapper #cerebroMap .mapTimeDisplay {
+      color: #666; }
 
 .adminOptions {
   position: absolute;

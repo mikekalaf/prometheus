@@ -15036,6 +15036,7 @@ if (typeof jQuery === 'undefined') {
   overlayIn: 'magictime vanishIn',
   overlayOut: 'magictime vanishOut',
   gridData: [],
+  userMap: [],
   activeItem: 'none',
   profileContainer: 'none',
   testImages: [
@@ -15344,6 +15345,52 @@ if (typeof jQuery === 'undefined') {
     displayUserMap: function(data) {
       prometheus.mapData = [];
       prometheus.displayAppViewData(data);
+    },
+    drawBeacon: function(i) {
+      return function() {
+        var activeBeacon = prometheus.userMap[i];
+        var url = "http://skynet.chasingthedrift.com/api/index.php?action=finduser&id="+activeBeacon.protocol_id;
+        $.ajax({
+          type: "GET",
+          timeout: 6000,
+          dataType: "json",
+          url: url,
+          error: function(data) {
+            alert('Error:  Unable to retrieve data from source.');
+          },
+          success: function(data) {
+            var marker = new google.maps.Marker({
+                 position: {lat: parseFloat(activeBeacon.lat),lng: parseFloat(activeBeacon.lon)},
+                 animation: google.maps.Animation.DROP,
+                 map: prometheus.googlemap
+             });
+             var photo = data.fullsize;
+             var about = data.about;
+             var age = data.age;
+             var name = data.display_name;
+             var lat = parseFloat(activeBeacon.lat).toFixed(4);
+             var lon = parseFloat(activeBeacon.lon).toFixed(4);
+             var gps = lat+", "+lon;
+             var content = "<div class='infoWindow'><div class='mapInfoWrapper'><div class='mapPhoto'><img src='"+photo+"' /></div><div class='mapInfo'><div class='mapTitle'>"+name+"</div><div class='mapHeader'>Age</div><div class='mapData'>"+age+"</div><div class='mapHeader'>About Me</div><div class='mapData'>"+about+"</div><div class='mapHeader'>GPS Coordinates</div><div class='mapData'>"+gps+"</div><div class='mapHeader'>Timestamp</div><div class='mapData'>"+activeBeacon.trackingDate+"</div></div></div></div>";
+             var infowindow = new google.maps.InfoWindow();
+
+             google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+                 return function() {
+                     infowindow.setContent(content);
+                     infowindow.open(prometheus.googlemap, marker);
+                 };
+             })(marker,content,infowindow));
+          }
+        });
+      }
+    },
+    displayMapBeacons: function() {
+      var beaconArray = prometheus.userMap;
+      for (var i = 0; i < beaconArray.length; i++) {
+        var delay = Math.random()*10000;
+        var beacon = prometheus.cerebromap.drawBeacon(i);
+        setTimeout(beacon, delay);
+      }
     }
   },
   grindr: {
@@ -15811,6 +15858,7 @@ if (typeof jQuery === 'undefined') {
     prometheus.environment.screen.width = $(window).width();
     prometheus.environment.gridWidth = $('.appGrid').width();
     prometheus.environment.searchHeight = $('#appSearch').height();
+    prometheus.environment.appContainerHeight = $('#appContainer').height();
     $('.appGrid').css('min-height', prometheus.environment.searchHeight + 60);
     if(prometheus.environment.mobile) {$('body').attr('id', 'mobile-app');} else {$('body').attr('id','desktop-app');}
     if(prometheus.environment.screen.width < 768) {
@@ -15825,6 +15873,7 @@ if (typeof jQuery === 'undefined') {
       $('body').removeClass('landscape').addClass('portrait');
       prometheus.layout = 'portrait';
     }
+    $('#cerebroMap').css('height', prometheus.environment.appContainerHeight - 55);
     prometheus.resizeGrid();
     prometheus.adjustOverlay();
   },
