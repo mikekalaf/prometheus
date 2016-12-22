@@ -304,6 +304,15 @@ var prometheus = {
     prometheus.closeAllOverlays();
     $('.navPrevPage').click();
   },
+  cerebromap: {
+    launch: function() {
+      prometheus.loadData('partials/map.php', prometheus.cerebromap.displayUserMap);
+    },
+    displayUserMap: function(data) {
+      prometheus.mapData = [];
+      prometheus.displayAppViewData(data);
+    }
+  },
   grindr: {
     launch: function() {
       prometheus.loadData('partials/sector1.php', prometheus.grindr.displayUserGrid);
@@ -335,7 +344,6 @@ var prometheus = {
       prometheus.displayUserInfo('Age', userData.age);
       prometheus.displayUserInfo('About Me', userData.about_me);
       prometheus.displayUserInfo('Last Updated', userData.date_modified);
-      prometheus.getLocationList(activeId);
     },
     addFavorite: function() {
       var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector1/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
@@ -379,7 +387,7 @@ var prometheus = {
       $(container+'.userPhoto img').attr('src', userPhoto);
       $(container+'.infoTabTrigger.default').click();
       for (var i = 0; i < photoArray.length; i++) {
-        if(photoArray[i] != '') {
+        if(userData[photoArray[i]] != '') {
           var thisThumb = userData[photoArray[i]];
           var thisPhoto = thisThumb;
           thisThumb += 's';
@@ -393,7 +401,6 @@ var prometheus = {
       prometheus.displayUserInfo('Activities', userData.activities);
       prometheus.displayUserInfo('Movies', userData.movies);
       prometheus.displayUserInfo('Last Updated', userData.date_modified);
-      prometheus.getLocationList(activeId);
     },
     addFavorite: function() {
       var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector2/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
@@ -441,7 +448,6 @@ var prometheus = {
       prometheus.displayUserInfo('About Me', userData.about_me);
       prometheus.displayUserInfo('Ideal Match', userData.ideal);
       prometheus.displayUserInfo('Last Updated', userData.date_modified);
-      prometheus.getLocationList(activeId);
     },
     addFavorite: function() {
       var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector3/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";

@@ -33,6 +33,7 @@
 						<div class="menuSubHeader menuItem appLink" data-app="grindr" data-profile="grindrUser">Sector 1</div>
 						<div class="menuSubHeader menuItem appLink" data-app="jackd" data-profile="jackdUser">Sector 2</div>
 						<div class="menuSubHeader menuItem appLink" data-app="scruff" data-profile="scruffUser">Sector 3</div>
+						<div class="menuSubHeader menuItem appLink" data-app="cerebromap">User Map</div>
 						<div class="menuHeader menuItem appLink" data-app="junkcollector">JunkCollector</div>
 				</div>
 				<div id="topBanner">
