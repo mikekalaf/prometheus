@@ -4,6 +4,7 @@ var prometheus = {
   overlayOut: 'magictime vanishOut',
   gridData: [],
   userMap: [],
+  mapMarkers: [],
   activeItem: 'none',
   profileContainer: 'none',
   testImages: [
@@ -323,7 +324,7 @@ var prometheus = {
           dataType: "json",
           url: url,
           error: function(data) {
-            alert('Error:  Unable to retrieve data from source.');
+            console.log('Error:  Unable to retrieve data from source.');
           },
           success: function(data) {
             var marker = new google.maps.Marker({
@@ -347,6 +348,8 @@ var prometheus = {
                      infowindow.open(prometheus.googlemap, marker);
                  };
              })(marker,content,infowindow));
+
+             prometheus.mapMarkers.push(marker);
           }
         });
       }
