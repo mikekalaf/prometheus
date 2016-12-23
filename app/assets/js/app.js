@@ -15940,7 +15940,7 @@ if (typeof jQuery === 'undefined') {
   }
 };
 
-//prometheus.init();
+prometheus.init();
 
 $(window).on( "orientationchange", function( event ) {
   setTimeout(function(){
@@ -15979,8 +15979,14 @@ $(function() {
    }
  });
 
+ var geoOptions = {
+  enableHighAccuracy: true,
+  timeout: 10000,
+  maximumAge: 0
+};
+
  if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(cerebroScan, showError);
+      navigator.geolocation.getCurrentPosition(cerebroScan, showError, geoOptions);
   }
 
 function cerebroScan(position) {
