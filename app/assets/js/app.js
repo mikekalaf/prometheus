@@ -15369,7 +15369,7 @@ var prometheus = {
     drawBeacon: function(i) {
       return function() {
         var activeBeacon = prometheus.userMap[i];
-        var url = "http://skynet.chasingthedrift.com/api/index.php?action=finduser&id="+activeBeacon.protocol_id;
+        var url = "https://skynet.chasingthedrift.com/api/index.php?action=finduser&id="+activeBeacon.protocol_id;
         $.ajax({
           type: "GET",
           timeout: 6000,
