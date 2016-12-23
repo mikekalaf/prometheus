@@ -110,7 +110,7 @@ var prometheus = {
     $('#'+tab+' .gridInit').addClass('gridItem');
     setTimeout(function(){
       prometheus.adjustViewPort();
-    },200)
+    },500)
   },
   initUserProfile: function() {
     var protocolId = $(this).attr('id');

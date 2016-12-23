@@ -22,9 +22,9 @@ login_grindr();
  $scruffUsers = scruffGetNearbyUsers($lat, $long);
  ?>
  <div id="skynetNavigation">
-   <div id="skynetGrindr" class="skynetTab default active" data-target="grindrGrid">Grindr</div>
-   <div id="skynetJackd" class="skynetTab" data-target="jackdGrid">Jackd</div>
-   <div id="skynetScruff" class="skynetTab last" data-target=scruffGrid>Scruff</div>
+   <div id="skynetGrindr" class="skynetTab default active" data-target="grindrGrid">Sector 1</div>
+   <div id="skynetJackd" class="skynetTab" data-target="jackdGrid">Sector 2</div>
+   <div id="skynetScruff" class="skynetTab last" data-target=scruffGrid>Sector 3</div>
 </div>
 <div id="skynetTabWrapper">
   <div id="grindrGrid" class="appGrid skynetTabContainer active">
