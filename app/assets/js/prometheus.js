@@ -108,7 +108,9 @@ var prometheus = {
     $('.skynetTabContainer').removeClass('active');
     $('#'+tab).addClass('active');
     $('#'+tab+' .gridInit').addClass('gridItem');
-    prometheus.adjustViewPort();
+    setTimeout(function(){
+      prometheus.adjustViewPort();
+    },200)
   },
   initUserProfile: function() {
     var protocolId = $(this).attr('id');
