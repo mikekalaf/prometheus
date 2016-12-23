@@ -50,6 +50,7 @@ foreach($sectorData['data'] as $key => $media) {
     $media['image'] =  str_replace('_400', '_250', $media['image_url']);
     $media['image'] =  str_replace('_1280', '_250', $media['image_url']);
   }
+  $media['image'] = str_replace('http://', 'https://', $media['image']);
   $media['date_added'] = date('M d Y, g:ia', strtotime($media['date_added']));
   echo "<div id='".$media['image_id']."' class='gridItem junkMedia overlayLink' ".$loadPrevPage.$loadNextPage.$prev.$next." data-favorite='".$media['favorite']."' data-url='".$media['image_url']."' data-type='".$media['media_type']."' data-target='junkMedia' data-grid-id='".$media['image_id']."' style='background-image: url(".$media['image'].");'>".$indicators."</div>";
   $i++;
