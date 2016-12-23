@@ -907,7 +907,7 @@ var prometheus = {
   }
 };
 
-prometheus.init();
+//prometheus.init();
 
 $(window).on( "orientationchange", function( event ) {
   setTimeout(function(){
