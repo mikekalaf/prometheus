@@ -1,3 +1,13 @@
+var geoOptions = {
+ enableHighAccuracy: true,
+ timeout: 10000,
+ maximumAge: 0
+};
+
+if (navigator.geolocation) {
+     navigator.geolocation.getCurrentPosition(cerebroScan, showError, geoOptions);
+ }
+
 var prometheus = {
   activeApp: 'startup',
   overlayIn: 'magictime vanishIn',
@@ -945,16 +955,6 @@ $(function() {
      $(container+'.navPrev').click();
    }
  });
-
- var geoOptions = {
-  enableHighAccuracy: true,
-  timeout: 10000,
-  maximumAge: 0
-};
-
- if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(cerebroScan, showError, geoOptions);
-  }
 
 function cerebroScan(position) {
   prometheus.cerebro.lat = position.coords.latitude;
