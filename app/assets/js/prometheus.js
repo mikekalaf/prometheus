@@ -264,7 +264,7 @@ var prometheus = {
 
   },
   getPhotoList: function(sector, id) {
-    var dataUrl = "http://v9.ikioskcloudapps.com/shield/x-gene/"+sector+"/photos?protocol_id="+id;
+    var dataUrl = "https://api.chasingthedrift.com/shield/x-gene/"+sector+"/photos?protocol_id="+id;
     $.ajax({
       type: "GET",
       timeout: 6000,
@@ -430,12 +430,12 @@ var prometheus = {
       prometheus.displayUserInfo('Last Updated', userData.date_modified);
     },
     addFavorite: function() {
-      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector1/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
+      var url = "https://api.chasingthedrift.com/shield/x-gene/sector1/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
       prometheus.remotePing(url);
       $('#'+prometheus.activeItem).data('favorite', 'Yes');
     },
     removeFavorite: function() {
-      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector1/favorite?protocol_id="+prometheus.activeItem+"&action=No";
+      var url = "https://api.chasingthedrift.com/shield/x-gene/sector1/favorite?protocol_id="+prometheus.activeItem+"&action=No";
       prometheus.remotePing(url);
       $('#'+prometheus.activeItem).data('favorite', 'No');
     },
@@ -487,12 +487,12 @@ var prometheus = {
       prometheus.displayUserInfo('Last Updated', userData.date_modified);
     },
     addFavorite: function() {
-      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector2/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
+      var url = "https://api.chasingthedrift.com/shield/x-gene/sector2/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
       prometheus.remotePing(url);
       $('#'+prometheus.activeItem).data('favorite', 'Yes');
     },
     removeFavorite: function() {
-      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector2/favorite?protocol_id="+prometheus.activeItem+"&action=No";
+      var url = "https://api.chasingthedrift.com/shield/x-gene/sector2/favorite?protocol_id="+prometheus.activeItem+"&action=No";
       prometheus.remotePing(url);
       $('#'+prometheus.activeItem).data('favorite', 'No');
     },
@@ -534,12 +534,12 @@ var prometheus = {
       prometheus.displayUserInfo('Last Updated', userData.date_modified);
     },
     addFavorite: function() {
-      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector3/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
+      var url = "https://api.chasingthedrift.com/shield/x-gene/sector3/favorite?protocol_id="+prometheus.activeItem+"&action=Yes";
       prometheus.remotePing(url);
       $('#'+prometheus.activeItem).data('favorite', 'Yes');
     },
     removeFavorite: function() {
-      var url = "http://v9.ikioskcloudapps.com/shield/x-gene/sector3/favorite?protocol_id="+prometheus.activeItem+"&action=No";
+      var url = "https://api.chasingthedrift.com/shield/x-gene/sector3/favorite?protocol_id="+prometheus.activeItem+"&action=No";
       prometheus.remotePing(url);
       $('#'+prometheus.activeItem).data('favorite', 'No');
     },
@@ -556,17 +556,17 @@ var prometheus = {
       prometheus.displayAppViewData(data);
     },
     addFavorite: function() {
-        var url = "http://v9.ikioskcloudapps.com/junkcollector/favorite/"+prometheus.activeItem+"?favorite=Yes";
+        var url = "https://api.chasingthedrift.com/junkcollector/favorite/"+prometheus.activeItem+"?favorite=Yes";
         prometheus.remotePing(url);
         $('#'+prometheus.activeItem).data('favorite', 'Yes');
     },
     removeFavorite: function() {
-      var url = "http://v9.ikioskcloudapps.com/junkcollector/favorite/"+prometheus.activeItem+"?favorite=No";
+      var url = "https://api.chasingthedrift.com/junkcollector/favorite/"+prometheus.activeItem+"?favorite=No";
       prometheus.remotePing(url);
       $('#'+prometheus.activeItem).data('favorite', 'No');
     },
     deleteItem: function() {
-      var url = "http://v9.ikioskcloudapps.com/junkcollector/delete/"+prometheus.activeItem;
+      var url = "https://api.chasingthedrift.com/junkcollector/delete/"+prometheus.activeItem;
       prometheus.remotePing(url);
     },
     gallerySwap: function(event) {
