@@ -1,8 +1,8 @@
 <?php
-// if(($_SERVER['SERVER_PORT'] != '443') && ($_SERVER['HTTP_HOST'] == "prometheus.chasingthedrift.com")) {
-//     header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-//     exit();
-// }
+if(($_SERVER['SERVER_PORT'] != '443') && ($_SERVER['HTTP_HOST'] == "prometheus.chasingthedrift.com")) {
+    header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+    exit();
+}
 require('includes/prometheus.php'); ?>
 <!DOCTYPE html>
 <html lang="en-us">
