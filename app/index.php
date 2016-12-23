@@ -67,7 +67,7 @@ require('includes/prometheus.php'); ?>
 				<div class="subTitle">Version 1.0</div>
 			</div>
 		</div>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuVIyhoWZ0kI2uHPuBGjaXMLb6dmkMg-A"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuVIyhoWZ0kI2uHPuBGjaXMLb6dmkMg-A&sensor=true"></script>
 		<script type="text/javascript" src="assets/js/app.min.js"></script>
   </body>
 </html>
