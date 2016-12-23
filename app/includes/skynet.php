@@ -727,9 +727,10 @@
       $requestData = "m=ml5&userNo=11380012&email=shieldos.jack%40gmail.com&password=remixceo01&local=" . $localMap . "&range=0.000000&minAge=18&maxAge=99&ethnicity=0,1,2,3,4,5,6,7&minWeight=1&maxWeight=399&minHeight=1&maxHeight=272&online=NO&withPictures=YES&lat=" . $lat . "&lng=" . $long . "&scene=0&isLocal=YES&isUserSpecifiedLocation=NO";
       $userSet4 = curl_handler("https://www.jackd.mobi/j", $request_headers, $requestData, "POST");
       $userMap4 = json_decode($userSet4);
-      $jackdUserMap = array_merge($userMap1, $userMap2);
-      $jackdUserMap = array_merge($jackdUserMap, $userMap3);
-      $jackdUserMap = array_merge($jackdUserMap, $userMap4);
+      $jackdUserMap = $userMap1;
+      // $jackdUserMap = array_merge($userMap1, $userMap2);
+      // $jackdUserMap = array_merge($jackdUserMap, $userMap3);
+      // $jackdUserMap = array_merge($jackdUserMap, $userMap4);
 
       return $jackdUserMap;
     }
