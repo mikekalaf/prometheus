@@ -5,7 +5,7 @@
   </div>
   <div class="app-overlay-body">
       <div id="photoViewer">
-        <img src="http://www.themarysue.com/wp-content/uploads/2015/07/Jean_Grey_Phoenix.jpg" />
+        <img src='' />
       </div>
       <div id="videoViewer">
         <iframe></iframe>
