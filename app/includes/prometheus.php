@@ -1,7 +1,6 @@
 <?php
   ob_start();
   session_start();
-  header('Content-type text/html; charset=UTF-8');
   $blank = "";
 
   function curl_handler($url, $request_headers, $data, $method) {
