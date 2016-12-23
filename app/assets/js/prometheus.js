@@ -107,7 +107,8 @@ var prometheus = {
     $(this).addClass('active');
     $('.skynetTabContainer').removeClass('active');
     $('#'+tab).addClass('active');
-    prometheus.adjustInfoTabs();
+    $('#'+tab+' .gridInit').addClass('gridItem');
+    prometheus.adjustViewPort();
   },
   initUserProfile: function() {
     var protocolId = $(this).attr('id');
@@ -391,6 +392,9 @@ var prometheus = {
     displayUserGrid: function(data) {
       prometheus.gridData = [];
       prometheus.displayAppViewData(data);
+      setTimeout(function(){
+        $('#skynetGrindr').click();
+      },1000);
     }
   },
   grindr: {

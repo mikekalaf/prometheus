@@ -9,6 +9,6 @@
     } else {
         $photo = $user['publicPicture3'];
     }
-    echo "<div class='gridItem' style='background-image: url(https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/".$photo."s)'></div>";
+    echo "<div class='gridInit' style='background-image: url(https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/".$photo."s)'></div>";
   }
 ?>
