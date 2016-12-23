@@ -15040,6 +15040,7 @@ if (typeof jQuery === 'undefined') {
   mapMarkers: [],
   activeItem: 'none',
   profileContainer: 'none',
+  cerebro: {},
   testImages: [
     'http://67.media.tumblr.com/839b70392b1db50dfa79e96f0b6abf5a/tumblr_nkjak81tF51u845p1o1_1280.jpg',
     'http://www.wallpaperup.com/uploads/wallpapers/2013/12/23/203584/big_thumb_cbdf852aa89a5109d8cc404108c5152a.jpg',
@@ -15072,7 +15073,6 @@ if (typeof jQuery === 'undefined') {
     $(window).on('resize', prometheus.adjustViewPort);
     $('.appMenuTrigger').on('click', prometheus.toggleMenu);
     $('.appSearchTrigger').on('click', prometheus.showSearch);
-    $('#prometheusSplash').on('click', prometheus.removeSlashScreen);
     $('#appView').on('click', prometheus.closeMenu);
     $('.appLink').on('click', prometheus.handleMenuClick);
     $('#prometheusWrapper').on('click', '.app-overlay-close', prometheus.closeOverlay);
@@ -15099,6 +15099,7 @@ if (typeof jQuery === 'undefined') {
     $('#prometheusWrapper .userItem').on('click', '.loadPrevPage', prometheus.loadNextPage);
     $('#prometheusWrapper .userItem').on('click', '.infoTabTrigger', prometheus.loadInfoTab);
     $('#prometheusWrapper .userItem').on('click', '.userPhotoTrigger', prometheus.swapUserPhoto);
+    $('#prometheusWrapper').on('click', '.skynetTab', prometheus.loadSkynetTab);
   },
   swapUserPhoto: function() {
     var newImage = $(this).data('fullsize');
@@ -15121,6 +15122,14 @@ if (typeof jQuery === 'undefined') {
     $(this).addClass('active');
     $('.infoTab').removeClass('active');
     $('.'+tab).addClass('active');
+    prometheus.adjustInfoTabs();
+  },
+  loadSkynetTab: function () {
+    var tab = $(this).data('target');
+    $('.skynetTab').removeClass('active');
+    $(this).addClass('active');
+    $('.skynetTabContainer').removeClass('active');
+    $('#'+tab).addClass('active');
     prometheus.adjustInfoTabs();
   },
   initUserProfile: function() {
@@ -15262,7 +15271,7 @@ if (typeof jQuery === 'undefined') {
     prometheus.showSpinner();
     $.ajax({
       type: "GET",
-      timeout: 6000,
+      timeout: 10000,
       url: dataUrl,
       error: function(data) {
         alert('Error:  Unable to retrieve data from source.');
@@ -15394,6 +15403,17 @@ if (typeof jQuery === 'undefined') {
         var beacon = prometheus.cerebromap.drawBeacon(i);
         setTimeout(beacon, delay);
       }
+    }
+  },
+  skynet: {
+    launch:function() {
+      var lat = prometheus.cerebro.lat;
+      var long = prometheus.cerebro.long;
+      prometheus.loadData('partials/skynet.php?lat='+lat+'&long='+long, prometheus.skynet.displayUserGrid);
+    },
+    displayUserGrid: function(data) {
+      prometheus.gridData = [];
+      prometheus.displayAppViewData(data);
     }
   },
   grindr: {
@@ -15717,10 +15737,6 @@ if (typeof jQuery === 'undefined') {
     $('#'+target).removeClass(prometheus.overlayIn);
     $('#'+target).addClass(prometheus.overlayOut);
     setTimeout(function(){$('#'+target).hide();}, 500);
-    if (target == "skynetView") {
-      $('.appLink').removeClass('active');
-    }
-    prometheus.resetMedia();
     $('.adminContainer').fadeOut();
   },
   closeAllOverlays: function() {
@@ -15755,14 +15771,13 @@ if (typeof jQuery === 'undefined') {
       prometheus.closeMenu();
       prometheus.clearAppView();
       prometheus.closeAllOverlays();
-      if (appLink != "skynet") {
-        $('.appSearchTrigger').show();
-        prometheus[appLink].launch();
-        prometheus.activeApp = appLink;
-      } else {
-        prometheus.activeApp = "skynet";
+      if (appLink == "skynet") {
         $('.appSearchTrigger').hide();
+      } else {
+        $('.appSearchTrigger').show();
       }
+      prometheus[appLink].launch();
+      prometheus.activeApp = appLink;
     }
   },
   loadDefaultView: function() {
@@ -15852,9 +15867,12 @@ if (typeof jQuery === 'undefined') {
     var container = prometheus.profileContainer;
     var tabContainerWidth = $(container+'.userInfoTabs').width();
     var tabWidth = Math.floor((tabContainerWidth - 20) / 3);
+    var skynetTabContainer = $('#skynetNavigation').width();
+    var skynetTabWidth = Math.floor((skynetTabContainer - 20) / 3);
     $(container+'.infoTabTrigger').css('width', tabWidth);
     $(container+'.userPhotoTrigger').css('width', tabWidth);
     $(container+'.userPhotoTrigger').css('height', tabWidth);
+    $('.skynetTab').css('width', skynetTabWidth);
   },
   adjustViewPort: function() {
     prometheus.environment.screen.height = $(window).height();
@@ -15887,9 +15905,7 @@ if (typeof jQuery === 'undefined') {
     prometheus.adjustInfoTabs();
   },
   removeSlashScreen: function() {
-    $('#loader').fadeOut();
-    setTimeout(function(){ $('#prometheusSplash').addClass('fadeOut'); }, 200);
-    $(this).fadeOut('slow');
+    $('#loader, #prometheusSplash').fadeOut();
     setTimeout(function(){ prometheus.loadDefaultView(); }, 500);
   },
   toggleMenu: function() {
@@ -15923,6 +15939,8 @@ if (typeof jQuery === 'undefined') {
     });
   }
 };
+
+prometheus.init();
 
 $(window).on( "orientationchange", function( event ) {
   setTimeout(function(){
@@ -15961,4 +15979,29 @@ $(function() {
    }
  });
 
-prometheus.init();
+ if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(cerebroScan, showError);
+  }
+
+function cerebroScan(position) {
+  prometheus.cerebro.lat = position.coords.latitude;
+  prometheus.cerebro.long = position.coords.longitude;
+  prometheus.removeSlashScreen();
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            console.log('User denied the request for Geolocation');
+            break;
+        case error.POSITION_UNAVAILABLE:
+            console.log('Location information is unavailable');
+            break;
+        case error.TIMEOUT:
+            console.log('The request to get user location timed out')
+            break;
+        case error.UNKNOWN_ERROR:
+            console.log('An unknown error occurred');
+            break;
+    }
+}

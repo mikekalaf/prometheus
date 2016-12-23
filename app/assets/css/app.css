@@ -14784,6 +14784,38 @@ body {
   .userItem .infoTab.active {
     display: block; }
 
+#skynetNavigation {
+  position: relative;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: 100%;
+  overflow: hidden; }
+  #skynetNavigation .skynetTab {
+    position: relative;
+    position: relative;
+    float: left;
+    width: 32%;
+    margin-right: 10px;
+    text-transform: uppercase;
+    border: 1px solid #333;
+    background-color: #000;
+    text-align: center;
+    padding: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+    #skynetNavigation .skynetTab.active {
+      border: 1px solid #96060d;
+      background-color: #96060d;
+      color: #FFF; }
+    #skynetNavigation .skynetTab.last {
+      margin-right: 0px; }
+
+.skynetTabContainer {
+  display: none; }
+  .skynetTabContainer.active {
+    display: block; }
+
 #junkMedia #galleryNav {
   position: fixed;
   width: 90%;
@@ -14831,7 +14863,7 @@ body {
   background-color: #E50914 !important;
   color: #FFF !important;
   cursor: pointer !important; }
-#desktop-app .infoTabTrigger:hover {
+#desktop-app .infoTabTrigger:hover, #desktop-app .skynetTab:hover {
   cursor: pointer !important;
   color: #FFF !important; }
 #desktop-app .userPhotoTrigger {
@@ -14846,7 +14878,6 @@ body {
   justify-content: center;
   width: 100%;
   height: 100%;
-  cursor: pointer;
   background-color: #000;
   top: 0;
   z-index: 15; }

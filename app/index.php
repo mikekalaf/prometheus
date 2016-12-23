@@ -1,4 +1,9 @@
-<?php require('includes/prometheus.php'); ?>
+<?php
+if(($_SERVER['SERVER_PORT'] != '443') && ($_SERVER['HTTP_HOST'] == "prometheus.chasingthedrift.com")) {
+    header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+    exit();
+}
+require('includes/prometheus.php'); ?>
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
@@ -29,12 +34,12 @@
 			<div class="appBackground"></div>
 				<div id="appMenu">
 						<div class="menuItem menuTitle">Project <span>Prometheus</span></div>
-						<div class="menuHeader menuItem appLink overlayLink" data-app="skynet" data-target="skynetView">Skynet</div>
+						<div class="menuHeader menuItem appLink" data-app="skynet">Skynet</div>
+						<div class="menuSubHeader menuItem appLink" data-app="cerebromap">User Map</div>
 						<div class="menuHeader menuItem">Cerebro Archives</div>
 						<div class="menuSubHeader menuItem appLink" data-app="grindr" data-profile="grindrUser">Sector 1</div>
 						<div class="menuSubHeader menuItem appLink" data-app="jackd" data-profile="jackdUser">Sector 2</div>
 						<div class="menuSubHeader menuItem appLink" data-app="scruff" data-profile="scruffUser">Sector 3</div>
-						<div class="menuSubHeader menuItem appLink" data-app="cerebromap">User Map</div>
 						<div class="menuHeader menuItem appLink" data-app="junkcollector">JunkCollector</div>
 				</div>
 				<div id="topBanner">
@@ -49,15 +54,6 @@
 				<div id="appContainer">
 					<div id="appView"></div>
 					<div id="ajaxLoader"></div>
-				</div>
-				<div id="skynetView" class="app-overlay-window">
-					<div class="app-overylay-header">
-						<div class="app-overlay-title">Skynet</div>
-						<div class="app-overlay-close" data-target="skynetView"><i class="fa fa-times"></i></div>
-					</div>
-					<div class="app-overlay-body">
-							<iframe class="app-iframe" src="https://skynet.chasingthedrift.com"></iframe>
-					</div>
 				</div>
 				<?php include('partials/sector1User.php'); ?>
 				<?php include('partials/sector2User.php'); ?>

@@ -1,6 +1,7 @@
 <?php
   ob_start();
   session_start();
+  header('Content-type text/html; charset=UTF-8');
   $blank = "";
 
   function curl_handler($url, $request_headers, $data, $method) {
@@ -11,6 +12,7 @@
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
       curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $request_headers);
+      //curl_setopt($ch, CURLOPT_ENCODING ,"");
       $responseData = curl_exec($ch);
       $responseHeaders = curl_getinfo($ch);
       $err = curl_error($ch);
@@ -23,4 +25,5 @@
   } else {
     $isAdmin = false;
   }
+
  ?>
