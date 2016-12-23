@@ -57,6 +57,7 @@ require('includes/prometheus.php'); ?>
 				<?php include('partials/sector1User.php'); ?>
 				<?php include('partials/sector2User.php'); ?>
 				<?php include('partials/sector3User.php'); ?>
+        <?php include('partials/cerebroProfile.php'); ?>
 				<?php include('partials/mediaViewer.php'); ?>
 		</div>
 		<div id="prometheusSplash" class="animated fadeIn">

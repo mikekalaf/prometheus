@@ -8,13 +8,13 @@ foreach ($scruffUsers['results'] as $key => $user) {
   $next = "";
   if($i > 0) {
     $offset = $i-1;
-    $prev = "&prev=".$scruffArray[$offset]['id'];
+    $prev = " data-prev='scruff-".$scruffArray[$offset]['id']."' ";
   }
   if($i < $scruffUserCount) {
     $offset = $i+1;
-    $next = "&next=".$scruffArray[$offset]['id'];
+    $next = " data-next='scruff-".$scruffArray[$offset]['id']."' ";
   }
-  echo "<div class='gridInit cerebroProfile' data-url='partials/cerebro/scruff.php?id=".$user['id'].$prev.$next."' style='background-image: url(https://cdn-profiles.scruffapp.com/".$user['id']."-thumbnail?version=14)'></div>";
+  echo "<div id='scruff-".$user['id']."' class='gridInit cerebroProfile overlayLink' data-target='cerebroProfile' data-url='partials/cerebro/scruff.php?id=".$user['id']."' ".$prev.$next." style='background-image: url(https://cdn-profiles.scruffapp.com/".$user['id']."-thumbnail?version=14)'></div>";
   $i++;
 }
  ?>

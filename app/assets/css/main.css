@@ -438,10 +438,10 @@ body {
   margin-top: -15px;
   left: 50%;
   margin-left: -45%; }
-  .userItem .profileNav .navPrev {
+  .userItem .profileNav .navPrev, .userItem .profileNav .cerebroNavPrev {
     position: absolute;
     left: 0px; }
-  .userItem .profileNav .navNext {
+  .userItem .profileNav .navNext, .userItem .profileNav .cerebroNavNext {
     position: absolute;
     right: 0px; }
 .userItem .userInfoTabs {
@@ -570,7 +570,7 @@ body {
   background-color: #333 !important; }
 #desktop-app #appSearchSubmit:hover {
   background-color: #E50914 !important; }
-#desktop-app .navPrev:hover, #desktop-app .navNext:hover {
+#desktop-app .navPrev:hover, #desktop-app .navNext:hover, #desktop-app .cerebroNavNext:hover, #desktop-app .cerebroNavPrev:hover {
   color: #FFF;
   cursor: pointer; }
 #desktop-app .adminToggle:hover {

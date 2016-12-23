@@ -17,7 +17,10 @@ var prometheus = {
   mapMarkers: [],
   activeItem: 'none',
   profileContainer: 'none',
-  cerebro: {},
+
+  cerebro: {
+    activeProfile: 'none'
+  },
   testImages: [
     'http://67.media.tumblr.com/839b70392b1db50dfa79e96f0b6abf5a/tumblr_nkjak81tF51u845p1o1_1280.jpg',
     'http://www.wallpaperup.com/uploads/wallpapers/2013/12/23/203584/big_thumb_cbdf852aa89a5109d8cc404108c5152a.jpg',
@@ -77,6 +80,78 @@ var prometheus = {
     $('#prometheusWrapper .userItem').on('click', '.infoTabTrigger', prometheus.loadInfoTab);
     $('#prometheusWrapper .userItem').on('click', '.userPhotoTrigger', prometheus.swapUserPhoto);
     $('#prometheusWrapper').on('click', '.skynetTab', prometheus.loadSkynetTab);
+    $('#prometheusWrapper').on('click', '.cerebroProfile', prometheus.loadUserProfile);
+    $('#prometheusWrapper').on('click', '.cerebroNavPrev, .cerebroNavNext', prometheus.cerebroSwap);
+  },
+  cerebroSwap: function() {
+    var swap = $(this).data('swap');
+    var animation, targetId, next, prev;
+    var activeProfile = prometheus.cerebro.activeProfile;
+    var el = '#'+activeProfile;
+    var prefix = $(el).data('prefix');
+    next = $(el).data('next');
+    prev = $(el).data('prev');
+    if (swap == "prev") {
+      animation = "magictime slideRight";
+      targetId = prev;
+    }
+    if (swap == "next") {
+      animation = "magictime slideLeft";
+      targetId = next;
+    }
+    var e = '';
+    $('#ajaxContainer').addClass(animation);
+    setTimeout(function(){
+      $('#ajaxContainer').hide();
+      $('#ajaxContainer').removeClass(animation);
+      prometheus.loadUserProfile(e, targetId);
+    },500);
+  },
+  loadUserProfile: function(e, target) {
+    if (target) {
+      var targetId = target;
+      var url = $('#'+target).data('url');
+    } else {
+      var url = $(this).data('url');
+      var targetId = $(this).attr('id');
+    }
+    var el = '#'+targetId;
+    var prev = $(el).data('prev');
+    var next = $(el).data('next');
+    prometheus.cerebro.activeProfile = targetId;
+
+    if (prev == undefined) {
+      $('.cerebroNavPrev').hide();
+    } else {
+      $('.cerebroNavPrev').show();
+    }
+    if (next == undefined) {
+      $('.cerebroNavNext').hide();
+    } else {
+      $('.cerebroNavNext').show();
+    }
+
+    $('#ajaxContainer').html('');
+    $('#ajaxContainer').fadeOut();
+    prometheus.showOverlaySpinner();
+    $.ajax({
+      type: "GET",
+      timeout: 6000,
+      url: url,
+      error: function(data) {
+        console.log('Error:  Unable to retrieve data from source.');
+        prometheus.hideOverlaySpinner();
+        prometheus.closeAllOverlays();
+      },
+      success: function(data) {
+        prometheus.hideOverlaySpinner();
+        $('#ajaxContainer').html(data);
+        $('#ajaxContainer').fadeIn('slow');
+        setTimeout(function() {
+          prometheus.adjustOverlay();
+        },500);
+      }
+    });
   },
   swapUserPhoto: function() {
     var newImage = $(this).data('fullsize');
@@ -699,6 +774,12 @@ var prometheus = {
   hideSpinner: function() {
     $('#ajaxLoader').fadeOut();
   },
+  showOverlaySpinner: function() {
+    $('#overlayLoader').fadeIn();
+  },
+  hideOverlaySpinner: function() {
+    $('#overlayLoader').fadeOut();
+  },
   resetMedia: function() {
     //$('#photoViewer img').attr('src', '');
     //$('#photoViewer img').fadeOut();
@@ -941,11 +1022,22 @@ $(function() {
      swipeRight: appSwipeRight,
      allowPageScroll: "vertical"
    });
+   $("#ajaxContainer").swipe( {
+     swipeLeft: appSwipeLeftCerebro,
+     swipeRight: appSwipeRightCerebro,
+     allowPageScroll: "vertical"
+   });
    $(".userItem .app-overlay-body").swipe( {
      swipeLeft: appSwipeLeftExt,
      swipeRight: appSwipeRightExt,
      allowPageScroll: "vertical"
    });
+   function appSwipeLeftCerebro(event, direction, distance, duration, fingerCount) {
+     $('.cerebroNavNext').click();
+   }
+   function appSwipeRightCerebro(event, direction, distance, duration, fingerCount) {
+     $('.cerebroNavPrev').click();
+   }
    function appSwipeLeft(event, direction, distance, duration, fingerCount) {
      $('.navNext').click();
    }

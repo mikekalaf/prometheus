@@ -7,7 +7,7 @@
     z-index: 15000;
 }
 
-#loader, #ajaxLoader {
+#loader, #ajaxLoader, #overlayLoader {
     display: block;
     position: absolute;;
     left: 50%;
@@ -25,7 +25,7 @@
     z-index: -1;
 }
 
-#ajaxLoader {
+#ajaxLoader, #overlayLoader  {
   width:100px;
   height:100px;
   margin: -50px 0 0 -50px;
@@ -34,7 +34,7 @@
   z-index: 5000;
 }
 
-    #loader:before, #ajaxLoader:before {
+    #loader:before, #ajaxLoader:before, #overlayLoader:before {
         content: "";
         position: absolute;
         top: 5px;
@@ -49,7 +49,7 @@
         animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
     }
 
-    #loader:after, #ajaxLoader:after {
+    #loader:after, #ajaxLoader:after, #overlayLoader:after  {
         content: "";
         position: absolute;
         top: 15px;

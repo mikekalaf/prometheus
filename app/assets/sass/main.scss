@@ -568,11 +568,11 @@ body {
     margin-top: -15px;
     left:50%;
     margin-left: -45%;
-    .navPrev {
+    .navPrev, .cerebroNavPrev {
       position: absolute;
       left: 0px;
     }
-    .navNext {
+    .navNext, .cerebroNavNext {
       position: absolute;
       right: 0px;
     }
@@ -740,7 +740,7 @@ body {
   #appSearchSubmit:hover {
     background-color: #E50914 !important;
   }
-  .navPrev:hover, .navNext:hover {
+  .navPrev:hover, .navNext:hover, .cerebroNavNext:hover, .cerebroNavPrev:hover {
     color: #FFF;
     cursor: pointer;
   }

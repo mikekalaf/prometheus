@@ -14136,7 +14136,7 @@ Copyright (c) 2014 Christian Pucci
     z-index: 15000;
 }
 
-#loader, #ajaxLoader {
+#loader, #ajaxLoader, #overlayLoader {
     display: block;
     position: absolute;;
     left: 50%;
@@ -14154,7 +14154,7 @@ Copyright (c) 2014 Christian Pucci
     z-index: -1;
 }
 
-#ajaxLoader {
+#ajaxLoader, #overlayLoader  {
   width:100px;
   height:100px;
   margin: -50px 0 0 -50px;
@@ -14163,7 +14163,7 @@ Copyright (c) 2014 Christian Pucci
   z-index: 5000;
 }
 
-    #loader:before, #ajaxLoader:before {
+    #loader:before, #ajaxLoader:before, #overlayLoader:before {
         content: "";
         position: absolute;
         top: 5px;
@@ -14178,7 +14178,7 @@ Copyright (c) 2014 Christian Pucci
         animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
     }
 
-    #loader:after, #ajaxLoader:after {
+    #loader:after, #ajaxLoader:after, #overlayLoader:after  {
         content: "";
         position: absolute;
         top: 15px;
@@ -14721,10 +14721,10 @@ body {
   margin-top: -15px;
   left: 50%;
   margin-left: -45%; }
-  .userItem .profileNav .navPrev {
+  .userItem .profileNav .navPrev, .userItem .profileNav .cerebroNavPrev {
     position: absolute;
     left: 0px; }
-  .userItem .profileNav .navNext {
+  .userItem .profileNav .navNext, .userItem .profileNav .cerebroNavNext {
     position: absolute;
     right: 0px; }
 .userItem .userInfoTabs {
@@ -14853,7 +14853,7 @@ body {
   background-color: #333 !important; }
 #desktop-app #appSearchSubmit:hover {
   background-color: #E50914 !important; }
-#desktop-app .navPrev:hover, #desktop-app .navNext:hover {
+#desktop-app .navPrev:hover, #desktop-app .navNext:hover, #desktop-app .cerebroNavNext:hover, #desktop-app .cerebroNavPrev:hover {
   color: #FFF;
   cursor: pointer; }
 #desktop-app .adminToggle:hover {
