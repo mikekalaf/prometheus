@@ -48,7 +48,7 @@ if (!empty($user['displayName'])) { $title = $user['profileId'];}
        <?php } ?>
        <div class="userProfileInfo infoTab active">
          <?php if ($photoArchive['count'] > 0) { ?>
-           <div class="cerebroHeader">Photos</div>
+           <div class="userInfoTitle">Photos</div>
            <div class="cerebroPhotos">
              <?php
                foreach ($photoArchive as $key => $photo) {
@@ -60,7 +60,7 @@ if (!empty($user['displayName'])) { $title = $user['profileId'];}
              ?>
            </div>
          <?php } ?>
-         <div class="cerebroHeader">Profile Details</div>
+         <div class="userInfoTitle">Profile Details</div>
        </div>
        <div class="userLocation infoTab">
          Location History

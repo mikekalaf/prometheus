@@ -293,7 +293,7 @@
     }
 
     function isProd() {
-      if ($_SERVER['HTTP_HOST'] == "skynet.chasingthedrift.com") {
+      if ($_SERVER['HTTP_HOST'] == "prometheus.chasingthedrift.com") {
         return true;
       } else {
         return false;

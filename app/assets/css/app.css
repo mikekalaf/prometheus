@@ -14772,6 +14772,13 @@ body {
     margin-right: 0px; }
 .userItem .userProfileInfo {
   position: relative; }
+  .userItem .userProfileInfo .userInfoTitle {
+    position: relative;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-top: 5px;
+    border-top: 1px dotted #333; }
   .userItem .userProfileInfo .userInfoHeader {
     position: relative;
     color: #FFF;
