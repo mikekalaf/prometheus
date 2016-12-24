@@ -14298,6 +14298,8 @@ body {
     top: 0;
     left: 0;
     margin-left: 0; }
+  body.mobile-view #prometheusWrapper .cerebroPhotos a:nth-child(3n+3) {
+    margin-right: 0px; }
   body.mobile-view #prometheusWrapper .adminOptions {
     width: 100%;
     right: 0; }
@@ -14797,8 +14799,8 @@ body {
     .userItem .userProfileInfo .cerebroPhotos .cerebro-thumb {
       position: relative;
       display: inline-block;
-      width: 100px;
-      height: 100px;
+      width: 117px;
+      height: 117px;
       margin-right: 10px;
       margin-bottom: 10px;
       background-repeat: no-repeat;

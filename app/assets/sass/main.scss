@@ -19,6 +19,11 @@ body {
         left: 0;
         margin-left: 0;
       }
+      .cerebroPhotos {
+        a:nth-child(3n+3) {
+          margin-right: 0px;
+        }
+      }
       .adminOptions {
         width: 100%;
         right: 0;
@@ -661,8 +666,8 @@ body {
       .cerebro-thumb {
         position: relative;
         display: inline-block;
-        width: 100px;
-        height: 100px;
+        width: 117px;
+        height: 117px;
         margin-right: 10px;
         margin-bottom: 10px;
         background-repeat: no-repeat;
