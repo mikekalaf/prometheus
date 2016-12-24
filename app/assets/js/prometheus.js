@@ -164,9 +164,10 @@ var prometheus = {
       success: function(data) {
         prometheus.hideOverlaySpinner();
         $('#ajaxContainer').html(data);
-        $('#ajaxContainer').fadeIn('slow');
-        $('#cerebroProfile .profileNav').fadeIn();
         setTimeout(function() {
+          $('.userPhoto img').fadeTo('slow',1);
+          $('#ajaxContainer').fadeIn('slow');
+          $('#cerebroProfile .profileNav').fadeIn();
           prometheus.adjustOverlay();
         },500);
       }
@@ -190,8 +191,9 @@ var prometheus = {
       success: function(data) {
         prometheus.hideOverlaySpinner();
         $('#ajaxContainer').html(data);
-        $('#ajaxContainer').fadeIn('slow');
         setTimeout(function() {
+          $('.userPhoto img').fadeTo('slow',1);
+          $('#ajaxContainer').fadeIn('slow');
           prometheus.adjustOverlay();
         },500);
       }

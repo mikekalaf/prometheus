@@ -448,6 +448,7 @@ body {
         position: relative;
         width: 100%;
         img {
+          opacity: 0;
           width: 100%;
         }
       }
@@ -520,6 +521,12 @@ body {
         color: #666
       }
 
+  }
+  #ajaxContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,1);
   }
 }
 

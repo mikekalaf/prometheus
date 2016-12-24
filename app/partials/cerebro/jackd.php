@@ -40,5 +40,25 @@
   <div class="app-overlay-close" data-target="cerebroProfile"><i class="fa fa-times"></i></div>
 </div>
 <div class="app-overlay-body">
-
+  <div class="userPhotoWrapper">
+    <div class="userPhotoContainer">
+      <div class="userPhoto">
+        <img src="https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/<?php echo $photo; ?>" />
+      </div>
+    </div>
+  </div>
+  <div class="userInfoWrapper">
+    <div class="userInfoContainer">
+      <div class="userInfoTabs">
+        <div class="infoTabTrigger default active" data-target="userProfileInfo">Profile</div>
+        <div class="infoTabTrigger last" data-target="userLocation">Location</div>
+      </div>
+      <div class="userProfileInfo infoTab active">
+        Profile Info
+      </div>
+      <div class="userLocation infoTab">
+        Location History
+      </div>
+    </div>
+  </div>
 </div>

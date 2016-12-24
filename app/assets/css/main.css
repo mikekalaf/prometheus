@@ -352,6 +352,7 @@ body {
         position: relative;
         width: 100%; }
         #prometheusWrapper .userPhotoWrapper .userPhotoContainer .userPhoto img {
+          opacity: 0;
           width: 100%; }
   #prometheusWrapper .userInfoWrapper {
     position: relative;
@@ -399,6 +400,11 @@ body {
       color: #666; }
     #prometheusWrapper #cerebroMap .mapTimeDisplay {
       color: #666; }
+  #prometheusWrapper #ajaxContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: black; }
 
 .adminOptions {
   position: absolute;
