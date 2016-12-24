@@ -6,8 +6,24 @@ $request_headers = array();
 $fetchData = curl_handler($url, $request_headers, $blank, "GET");
 $sectorData = json_decode($fetchData ,true);
 
+//Cleanup the Duplicates
+$protocolArray = array();
+$deleteArray = array();
+foreach($sectorData['data'] as $key => $gpspoint) {
+  if (in_array($gpspoint['protocol_id'], $protocolArray)) {
+    $deleteArray[] = $key;
+  } else {
+    $protocolArray[] = $gpspoint['protocol_id'];
+  }
+}
+
+foreach($deleteArray as $key) {
+  unset($sectorData['data'][$key]);
+}
+
 $ajaxScripts = "";
 foreach($sectorData['data'] as $key => $beacon) {
+  $protocolArray[] = $beacon['protocol_id'];
   $beacon['trackingDate'] = date('M d Y, g:ia', strtotime($beacon['date_created']));
   //$beacon['userData'] = "http://skynet.chasingthedrift.com/api/index.php?action=finduser&id=".$beacon['protocol_id'];
   $ajaxScripts .= "prometheus.userMap.push(".json_encode($beacon).");\r\n";
