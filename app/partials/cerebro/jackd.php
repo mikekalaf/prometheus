@@ -12,10 +12,9 @@
       $shieldUserProfile = getShieldProfile("profiles_jackd", "profile_no", $thisProfileId);
       //Download images
       if ($shieldUserProfile['image_scan'] == "0") {
-          $cdn = "http://cdn.chasingthedrift.com/sector2download.php?id="+$showUserProfile['protocol_id'];
+          $cdn = "http://cdn.chasingthedrift.com/sector2download.php?id=".$showUserProfile['protocol_id'];
           $cdnHeaders = array();
           $cdnFetch = curl_handler($cdn, $cdnHeaders, "", "GET");
-          echo $cdn;
       } else {
         $useCDN = true;
       }
