@@ -83,6 +83,7 @@ var prometheus = {
     $('#prometheusWrapper').on('click', '.cerebroProfile', prometheus.loadUserProfile);
     $('#prometheusWrapper').on('click', '.cerebroNavPrev, .cerebroNavNext', prometheus.cerebroSwap);
     $('#prometheusWrapper').on('click', '.mapPhoto', prometheus.loadMapProfile);
+    $('#prometheusWrapper').on('click', '.cerebro-thumb', prometheus.swapCerebroPhoto);
   },
   cerebroSwap: function() {
     event.stopPropagation();
@@ -198,6 +199,20 @@ var prometheus = {
         },500);
       }
     });
+  },
+  swapCerebroPhoto: function() {
+    var newImage = $(this).data('image');
+    var animationOut = "magictime vanishOut";
+    var animationIn = "magicTime vanishIn";
+    $('.userPhotoWrapper img').addClass(animationOut);
+    setTimeout(function(){
+      $('.userPhotoWrapper img').attr('src', newImage);
+      $('.userPhotoWrapper img').removeClass(animationOut);
+      $('.userPhotoWrapper img').css('opacity', 0);
+    },400);
+    setTimeout(function(){
+      $('.userPhotoWrapper img').fadeTo('slow',1);
+    },800);
   },
   swapUserPhoto: function() {
     var newImage = $(this).data('fullsize');

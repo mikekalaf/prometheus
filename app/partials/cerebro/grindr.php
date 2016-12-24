@@ -54,7 +54,7 @@ if (!empty($user['displayName'])) { $title = $user['profileId'];}
                foreach ($photoArchive as $key => $photo) {
                  if($photo['photo_url']) {
                    $photo['photo_url'] = str_replace("http:", "https:", $photo['photo_url']);
-                   echo "<a class='cerebro-thumb' style='background-image: url(".$photo['photo_url'].")'></a>";
+                   echo "<a class='cerebro-thumb' data-image='".$photo['photo_url']."' style='background-image: url(".$photo['photo_url'].")'></a>";
                  }
                }
              ?>
