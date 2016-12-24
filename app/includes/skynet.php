@@ -823,38 +823,40 @@
   }
 
   function login_grindr() {
-      $payload = [];
-      $payload['email'] = "cerebro.apps@gmail.com";
-      $payload['password'] = "remixceo01";
-      $payload['token'] = "fq922WqfbEo:APA91bH_bWl0AZp5z4B1fx39TjdmnbZsmwwz-jbj0ITTGOXeLTlsbqMvAWpFph2nO4VgscYCHnywsCK9QnXkaSjHtnP0jx5vfJ5UJs65Oyzd4f62R6vNSrNUy1U9rx5ASwOeS97YHQ9q";
-      $requestPayload = json_encode($payload);
-      $url = "https://grindr.mobi/v3/sessions";
-      $request_headers = array();
-      $request_headers[] = 'Content-Type: application/json; charset=utf-8';
-      $request_headers[] = 'User-Agent: grindr3/3.0.1.4529;4529;Unknown;Android 4.4.4';
-      $request_headers[] = 'Accept: */*';
-      $ch = curl_init();
-      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-      curl_setopt($ch, CURLOPT_URL, $url);
-      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      curl_setopt($ch, CURLOPT_POST, true);
-      curl_setopt($ch, CURLOPT_POSTFIELDS, $requestPayload);
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $request_headers);
-      //curl_setopt($ch, CURLOPT_HEADER, true);
-      $auth = curl_exec($ch);
-      $authResponse = json_decode($auth);
-      curl_close($ch);
+      if (!$_SESSION['sessionId']) {  
+        $payload = [];
+        $payload['email'] = "cerebro.apps@gmail.com";
+        $payload['password'] = "remixceo01";
+        $payload['token'] = "fq922WqfbEo:APA91bH_bWl0AZp5z4B1fx39TjdmnbZsmwwz-jbj0ITTGOXeLTlsbqMvAWpFph2nO4VgscYCHnywsCK9QnXkaSjHtnP0jx5vfJ5UJs65Oyzd4f62R6vNSrNUy1U9rx5ASwOeS97YHQ9q";
+        $requestPayload = json_encode($payload);
+        $url = "https://grindr.mobi/v3/sessions";
+        $request_headers = array();
+        $request_headers[] = 'Content-Type: application/json; charset=utf-8';
+        $request_headers[] = 'User-Agent: grindr3/3.0.1.4529;4529;Unknown;Android 4.4.4';
+        $request_headers[] = 'Accept: */*';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $requestPayload);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $request_headers);
+        //curl_setopt($ch, CURLOPT_HEADER, true);
+        $auth = curl_exec($ch);
+        $authResponse = json_decode($auth);
+        curl_close($ch);
 
-      $_SESSION['authToken'] = $authResponse->{'authToken'};
-      $_SESSION['sessionId'] = $authResponse->{'sessionId'};
-      $_SESSION['grindrToken'] = "fq922WqfbEo:APA91bH_bWl0AZp5z4B1fx39TjdmnbZsmwwz-jbj0ITTGOXeLTlsbqMvAWpFph2nO4VgscYCHnywsCK9QnXkaSjHtnP0jx5vfJ5UJs65Oyzd4f62R6vNSrNUy1U9rx5ASwOeS97YHQ9q";
-      if (isset($_GET['debug'])) {
-          echo "<h3>Establishing Connection to Cerebro...</h3>";
-          echo "<p>Auth Token: <span>".$_SESSION['authToken']."</span></p>";
-          echo "<p>SessionId: <span>".$_SESSION['sessionId']."</span></p>";
-          echo "<p>Connection successful...</p>";
-          echo "<hr>";
-          echo "<h3>Processing Login</h3>";
+        $_SESSION['authToken'] = $authResponse->{'authToken'};
+        $_SESSION['sessionId'] = $authResponse->{'sessionId'};
+        $_SESSION['grindrToken'] = "fq922WqfbEo:APA91bH_bWl0AZp5z4B1fx39TjdmnbZsmwwz-jbj0ITTGOXeLTlsbqMvAWpFph2nO4VgscYCHnywsCK9QnXkaSjHtnP0jx5vfJ5UJs65Oyzd4f62R6vNSrNUy1U9rx5ASwOeS97YHQ9q";
+        if (isset($_GET['debug'])) {
+            echo "<h3>Establishing Connection to Cerebro...</h3>";
+            echo "<p>Auth Token: <span>".$_SESSION['authToken']."</span></p>";
+            echo "<p>SessionId: <span>".$_SESSION['sessionId']."</span></p>";
+            echo "<p>Connection successful...</p>";
+            echo "<hr>";
+            echo "<h3>Processing Login</h3>";
+        }
       }
   }
 

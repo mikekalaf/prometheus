@@ -1,5 +1,7 @@
 <?php
 require('../../includes/skynet.php');
+login_grindr();
+
 $thisProfileId = $_GET['id'];
 if (!empty($thisProfileId)) {
   $user = grindrGetUserProfile($thisProfileId);
