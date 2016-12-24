@@ -64,9 +64,12 @@ if (!empty($user['displayName'])) { $title = $user['displayName'];}
            </div>
          <?php } ?>
        </div>
+       <?php if ($showMap == true) { ?>
        <div class="userLocation infoTab">
-         Location History
+       <?php displayUserData('GPS Location', $user['feetDisplay']." ft / ".$user['milesDisplay']." miles away"); ?>
+       <iframe class="cerebro-iframe" src="partials/cerebro/geoMap.php?app=grindr&id=<?php echo $user['profileId']; ?>&protocol_id=<?php echo $shieldUserProfile['protocol_id']; ?>"></iframe>
        </div>
+       <?php } ?>
      </div>
    </div>
  </div>
