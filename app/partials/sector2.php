@@ -37,7 +37,7 @@ foreach($sectorData['data'] as $key => $user) {
   }
   if($i < $userCount) {
     $offset = $i+1;
-    $next = " data-next='".$sectorData['data'][$offset]['protocol_id']."' ";
+    $next = " data-next='jackd-".$sectorData['data'][$offset]['profile_no']."' ";
   }
   if($i == $userCount) {
     $loadNextPage = " data-loadnextpage='Yes' ";
@@ -58,16 +58,8 @@ foreach($sectorData['data'] as $key => $user) {
   } else if (!empty($user['photo5'])) {
     $user['profile_photo'] .= $user['photo5'];
   }
-  $userData = json_encode($user);
-  $favoriteUser = " data-favorite='".$user['favorite']."' ";
-  echo "<div id='".$user['protocol_id']."' class='gridItem jackdUser overlayLink' ".$loadPrevPage.$loadNextPage.$prev.$next.$favoriteUser." data-target='jackdUser' data-grid-id='".$user['profile_no']."' style='background-image: url(".$user['profile_photo']."s);'></div>";
-  //echo "<div class='gridItem grindrUser overlayLink' data-target='grindrUser' data-grid-id='".$user['profile_id']."'></div>";
-  $ajaxScripts .= "prometheus.gridData['".$user['profile_no']."'] = ".$userData.";\r\n";
+  echo "<div id='jackd-".$user['profile_no']."' class='gridItem cerebroProfile overlayLink'  data-url='partials/cerebro/jackd.php?id=".$user['profile_no']."' ".$loadPrevPage.$loadNextPage.$prev.$next." data-target='cerebroProfile' style='background-image: url(https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=".$user['profile_photo']."s);'></div>";
   $i++;
 }
 echo "</div>";
-echo "<script id='ajaxScript'>\r\n";
-echo $ajaxScripts;
-echo "</script>\r\n";
-//print_r($fetchData);
 ?>

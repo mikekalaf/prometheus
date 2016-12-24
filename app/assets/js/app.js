@@ -15117,28 +15117,32 @@ var prometheus = {
     $('#prometheusWrapper').on('click', '.cerebroNavPrev, .cerebroNavNext', prometheus.cerebroSwap);
   },
   cerebroSwap: function() {
-    var swap = $(this).data('swap');
-    var animation, targetId, next, prev;
-    var activeProfile = prometheus.cerebro.activeProfile;
-    var el = '#'+activeProfile;
-    var prefix = $(el).data('prefix');
-    next = $(el).data('next');
-    prev = $(el).data('prev');
-    if (swap == "prev") {
-      animation = "magictime slideRight";
-      targetId = prev;
+    event.stopPropagation();
+    if (!$(this).hasClass("loadNextPage") && !$(this).hasClass("loadPrevPage")) {
+      var swap = $(this).data('swap');
+      var animation, targetId, next, prev;
+      var activeProfile = prometheus.cerebro.activeProfile;
+      var el = '#'+activeProfile;
+      var prefix = $(el).data('prefix');
+      next = $(el).data('next');
+      prev = $(el).data('prev');
+      if (swap == "prev") {
+        animation = "magictime slideRight";
+        targetId = prev;
+      }
+      if (swap == "next") {
+        animation = "magictime slideLeft";
+        targetId = next;
+      }
+      var e = '';
+      $('#cerebroProfile .profileNav').hide();
+      $('#ajaxContainer').addClass(animation);
+      setTimeout(function(){
+        $('#ajaxContainer').hide();
+        $('#ajaxContainer').removeClass(animation);
+        prometheus.loadUserProfile(e, targetId);
+      },500);
     }
-    if (swap == "next") {
-      animation = "magictime slideLeft";
-      targetId = next;
-    }
-    var e = '';
-    $('#ajaxContainer').addClass(animation);
-    setTimeout(function(){
-      $('#ajaxContainer').hide();
-      $('#ajaxContainer').removeClass(animation);
-      prometheus.loadUserProfile(e, targetId);
-    },500);
   },
   loadUserProfile: function(e, target) {
     if (target) {
@@ -15151,6 +15155,8 @@ var prometheus = {
     var el = '#'+targetId;
     var prev = $(el).data('prev');
     var next = $(el).data('next');
+    var loadNextPage = $(el).data('loadnextpage');
+    var loadPrevPage = $(el).data('loadprevpage');
     prometheus.cerebro.activeProfile = targetId;
 
     if (prev == undefined) {
@@ -15163,9 +15169,20 @@ var prometheus = {
     } else {
       $('.cerebroNavNext').show();
     }
+    if(loadNextPage == 'Yes') {
+      $('.cerebroNavNext').addClass('loadNextPage').show();
+    } else {
+      $('.cerebroNavNext').removeClass('loadNextPage');
+    }
+    if(loadPrevPage == 'Yes') {
+      $('.cerebroNavPrev').addClass('loadPrevPage').show();
+    } else {
+      $('.cerebroNavPrev').removeClass('loadPrevPage');
+    }
 
     $('#ajaxContainer').html('');
     $('#ajaxContainer').fadeOut();
+    $('#cerebroProfile .profileNav').hide();
     prometheus.showOverlaySpinner();
     $.ajax({
       type: "GET",
@@ -15180,6 +15197,7 @@ var prometheus = {
         prometheus.hideOverlaySpinner();
         $('#ajaxContainer').html(data);
         $('#ajaxContainer').fadeIn('slow');
+        $('#cerebroProfile .profileNav').fadeIn();
         setTimeout(function() {
           prometheus.adjustOverlay();
         },500);
@@ -15429,10 +15447,12 @@ var prometheus = {
     }, 500);
   },
   loadNextPage: function() {
+    event.stopPropagation();
     prometheus.closeAllOverlays();
     $('.navNextPage').click();
   },
   loadPrevPage: function() {
+    event.stopPropagation();
     prometheus.closeAllOverlays();
     $('.navPrevPage').click();
   },
@@ -15782,6 +15802,7 @@ var prometheus = {
     }
   },
   handleNavTrigger: function() {
+    event.stopPropagation();
     var thisApp = prometheus.activeApp;
     var thisUrl = $(this).data('url');
     $('#appSearch').fadeOut();

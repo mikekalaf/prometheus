@@ -35,11 +35,11 @@ foreach($sectorData['data'] as $key => $user) {
   $loadPrevPage = "";
   if($i > 0) {
     $offset = $i-1;
-    $prev = " data-prev='".$sectorData['data'][$offset]['protocol_id']."' ";
+    $prev = " data-prev='grindr-".$sectorData['data'][$offset]['profile_id']."' ";
   }
   if($i < $userCount) {
     $offset = $i+1;
-    $next = " data-next='".$sectorData['data'][$offset]['protocol_id']."' ";
+    $next = " data-next='grindr-".$sectorData['data'][$offset]['profile_id']."' ";
   }
   if($i == $userCount) {
     $loadNextPage = " data-loadnextpage='Yes' ";
@@ -49,14 +49,8 @@ foreach($sectorData['data'] as $key => $user) {
   }
   $user['date_modified'] = date('M d Y, g:ia', strtotime($user['date_modified']));
   $userData = json_encode($user);
-  $favoriteUser = " data-favorite='".$user['favorite']."' ";
-  echo "<div id='".$user['protocol_id']."' class='gridItem grindrUser overlayLink' ".$loadPrevPage.$loadNextPage.$prev.$next.$favoriteUser." data-target='grindrUser' data-grid-id='".$user['profile_id']."' style='background-image: url(".$user['thumbnail'].");'></div>";
-  //echo "<div class='gridItem grindrUser overlayLink' data-target='grindrUser' data-grid-id='".$user['profile_id']."'></div>";
-  $ajaxScripts .= "prometheus.gridData['".$user['profile_id']."'] = ".$userData.";\r\n";
+  echo "<div id='grindr-".$user['profile_id']."' class='gridItem cerebroProfile overlayLink' data-url='partials/cerebro/grindr.php?id=".$user['profile_id']."' ".$loadPrevPage.$loadNextPage.$prev.$next." data-target='cerebroProfile' style='background-image: url(".$user['thumbnail'].");'></div>";
   $i++;
 }
 echo "</div>";
-echo "<script id='ajaxScript'>\r\n";
-echo $ajaxScripts;
-echo "</script>\r\n";
 ?>
