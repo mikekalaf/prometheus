@@ -69,19 +69,19 @@
       <div class="userProfileInfo infoTab active <?php if (!$showMap) { echo " nomap "; } ?>">
         <div class="cerebroPhotos">
           <?php if (!empty($user['publicPicture1'])) { ?>
-             <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture1']; ?>s" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture1']; ?>s)"></a>
+             <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture1']; ?>" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture1']; ?>s)"></a>
            <?php } ?>
            <?php if (!empty($user['publicPicture2'])) { ?>
-               <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture2']; ?>s" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture2']; ?>s)"></a>
+               <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture2']; ?>" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture2']; ?>s)"></a>
             <?php } ?>
             <?php if (!empty($user['publicPicture3'])) { ?>
-                <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture3']; ?>s" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture3']; ?>s)"></a>
+                <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture3']; ?>" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture3']; ?>s)"></a>
              <?php } ?>
              <?php if (!empty($shieldUserProfile['photo4'])) { ?>
-                 <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo4']; ?>s" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo4']; ?>s)"></a>
+                 <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo4']; ?>" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo4']; ?>s)"></a>
              <?php } ?>
              <?php if (!empty($shieldUserProfile['photo5'])) { ?>
-                 <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo5']; ?>s" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo5']; ?>s)"></a>
+                 <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo5']; ?>" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo5']; ?>s)"></a>
              <?php } ?>
         </div>
       </div>
