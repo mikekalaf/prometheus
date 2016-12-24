@@ -67,6 +67,7 @@ require('includes/prometheus.php'); ?>
 				<div class="subTitle">Version 1.0</div>
 			</div>
 		</div>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuVIyhoWZ0kI2uHPuBGjaXMLb6dmkMg-A"></script>
 		<script type="text/javascript" src="assets/js/app.js"></script>
   </body>

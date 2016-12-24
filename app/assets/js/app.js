@@ -15115,6 +15115,7 @@ var prometheus = {
     $('#prometheusWrapper').on('click', '.skynetTab', prometheus.loadSkynetTab);
     $('#prometheusWrapper').on('click', '.cerebroProfile', prometheus.loadUserProfile);
     $('#prometheusWrapper').on('click', '.cerebroNavPrev, .cerebroNavNext', prometheus.cerebroSwap);
+    $('#prometheusWrapper').on('click', '.mapPhoto', prometheus.loadMapProfile);
   },
   cerebroSwap: function() {
     event.stopPropagation();
@@ -15198,6 +15199,31 @@ var prometheus = {
         $('#ajaxContainer').html(data);
         $('#ajaxContainer').fadeIn('slow');
         $('#cerebroProfile .profileNav').fadeIn();
+        setTimeout(function() {
+          prometheus.adjustOverlay();
+        },500);
+      }
+    });
+  },
+  loadMapProfile: function() {
+    var url = $(this).data('url');
+    $('#ajaxContainer').html('');
+    $('#ajaxContainer').fadeOut();
+    $('#cerebroProfile .profileNav').hide();
+    prometheus.showOverlaySpinner();
+    $.ajax({
+      type: "GET",
+      timeout: 6000,
+      url: url,
+      error: function(data) {
+        console.log('Error:  Unable to retrieve data from source.');
+        prometheus.hideOverlaySpinner();
+        prometheus.closeAllOverlays();
+      },
+      success: function(data) {
+        prometheus.hideOverlaySpinner();
+        $('#ajaxContainer').html(data);
+        $('#ajaxContainer').fadeIn('slow');
         setTimeout(function() {
           prometheus.adjustOverlay();
         },500);
@@ -15479,7 +15505,6 @@ var prometheus = {
           success: function(data) {
             var marker = new google.maps.Marker({
                  position: {lat: parseFloat(activeBeacon.lat),lng: parseFloat(activeBeacon.lon)},
-                 animation: google.maps.Animation.DROP,
                  map: prometheus.googlemap
              });
              var photo = data.fullsize;
@@ -15489,7 +15514,8 @@ var prometheus = {
              var lat = parseFloat(activeBeacon.lat).toFixed(4);
              var lon = parseFloat(activeBeacon.lon).toFixed(4);
              var gps = lat+", "+lon;
-             var content = "<div class='infoWindow'><div class='mapInfoWrapper'><div class='mapPhoto'><img src='"+photo+"' /></div><div class='mapInfo'><div class='mapTitle'>"+name+"</div><div class='mapHeader'>Age</div><div class='mapData'>"+age+"</div><div class='mapHeader'>About Me</div><div class='mapData'>"+about+"</div><div class='mapHeader'>GPS Coordinates</div><div class='mapData'>"+gps+"</div><div class='mapHeader'>Timestamp</div><div class='mapData'>"+activeBeacon.trackingDate+"</div></div></div></div>";
+             var url = data.url;
+             var content = "<div class='infoWindow'><div class='mapInfoWrapper'><div class='mapPhoto overlayLink' data-target='cerebroProfile' data-url='"+url+"'><img src='"+photo+"' /></div><div class='mapInfo'><div class='mapTitle'>"+name+"</div><div class='mapHeader'>Age</div><div class='mapData'>"+age+"</div><div class='mapHeader'>About Me</div><div class='mapData'>"+about+"</div><div class='mapHeader'>GPS Coordinates</div><div class='mapData'>"+gps+"</div><div class='mapHeader'>Timestamp</div><div class='mapData'>"+activeBeacon.trackingDate+"</div></div></div></div>";
              var infowindow = new google.maps.InfoWindow();
 
              google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
@@ -15507,7 +15533,7 @@ var prometheus = {
     displayMapBeacons: function() {
       var beaconArray = prometheus.userMap;
       for (var i = 0; i < beaconArray.length; i++) {
-        var delay = Math.random()*10000;
+        var delay = Math.random()*60000;
         var beacon = prometheus.cerebromap.drawBeacon(i);
         setTimeout(beacon, delay);
       }

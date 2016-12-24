@@ -373,7 +373,8 @@ body {
       position: relative;
       width: 150px;
       overflow: hidden;
-      float: left; }
+      float: left;
+      cursor: pointer; }
     #prometheusWrapper #cerebroMap .mapPhoto img {
       width: 100%; }
     #prometheusWrapper #cerebroMap .mapTitle {
