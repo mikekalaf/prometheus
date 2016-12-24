@@ -545,7 +545,7 @@ var prometheus = {
     displayMapBeacons: function() {
       var beaconArray = prometheus.userMap;
       for (var i = 0; i < beaconArray.length; i++) {
-        var delay = i*100;
+        var delay = i*500;
         var beacon = prometheus.cerebromap.drawBeacon(i);
         setTimeout(beacon, delay);
       }
