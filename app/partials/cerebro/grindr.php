@@ -63,6 +63,10 @@ if (!empty($user['displayName'])) { $title = $user['displayName'];}
              ?>
            </div>
          <?php } ?>
+         <div class="cerebroFavorite">
+           <div class="favoriteToggle <?php if ($shieldUserProfile['favorite'] == "Yes") { echo " active "; }?>" data-url="https://api.chasingthedrift.com/shield/x-gene/sector1/favorite?protocol_id=<?php echo $shieldUserProfile['protocol_id']; ?>&action=Yes">Add to Favorites</div>
+           <div class="favoriteToggle <?php if ($shieldUserProfile['favorite'] == "No") { echo " active "; }?>"  data-url="https://api.chasingthedrift.com/shield/x-gene/sector1/favorite?protocol_id=<?php echo $shieldUserProfile['protocol_id']; ?>&action=No">Remove from Favorites</div>
+         </div>
          <div class="cerebroDetails">
            <?php
            displayLastSeen('grindr', $user['seen']);

@@ -84,6 +84,12 @@ var prometheus = {
     $('#prometheusWrapper').on('click', '.cerebroNavPrev, .cerebroNavNext', prometheus.cerebroSwap);
     $('#prometheusWrapper').on('click', '.mapPhoto', prometheus.loadMapProfile);
     $('#prometheusWrapper').on('click', '.cerebro-thumb', prometheus.swapCerebroPhoto);
+    $('#prometheusWrapper').on('click', '.favoriteToggle', prometheus.toggleFavorite);
+  },
+  toggleFavorite: function() {
+    var url = $(this).data('url');
+    $('.favoriteToggle').toggleClass('active');
+    prometheus.remotePing(url);
   },
   cerebroSwap: function() {
     event.stopPropagation();
@@ -104,13 +110,15 @@ var prometheus = {
         targetId = next;
       }
       var e = '';
-      $('#cerebroProfile .profileNav').hide();
-      $('#ajaxContainer').addClass(animation);
-      setTimeout(function(){
-        $('#ajaxContainer').hide();
-        $('#ajaxContainer').removeClass(animation);
-        prometheus.loadUserProfile(e, targetId);
-      },500);
+      if (targetId != '' && targetId != undefined) {
+        $('#cerebroProfile .profileNav').hide();
+        $('#ajaxContainer').addClass(animation);
+        setTimeout(function(){
+          $('#ajaxContainer').hide();
+          $('#ajaxContainer').removeClass(animation);
+          prometheus.loadUserProfile(e, targetId);
+        },500);
+      }
     }
   },
   cdnFetch: function() {

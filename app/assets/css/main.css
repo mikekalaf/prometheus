@@ -503,6 +503,20 @@ body {
     margin-right: 0px; }
 .userItem .userProfileInfo {
   position: relative; }
+  .userItem .userProfileInfo .cerebroFavorite {
+    position: relative;
+    margin-bottom: 10px; }
+  .userItem .userProfileInfo .favoriteToggle {
+    position: relative;
+    text-transform: uppercase;
+    border: 1px solid #333;
+    background-color: #000;
+    text-align: center;
+    padding: 3px;
+    display: none;
+    cursor: pointer; }
+    .userItem .userProfileInfo .favoriteToggle.active {
+      display: block; }
   .userItem .userProfileInfo .userInfoTitle {
     position: relative;
     color: #666;

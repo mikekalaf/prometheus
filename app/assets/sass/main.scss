@@ -652,6 +652,23 @@ body {
   }
   .userProfileInfo {
     position: relative;
+    .cerebroFavorite {
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .favoriteToggle {
+        position: relative;
+        text-transform: uppercase;
+        border: 1px solid #333;
+        background-color: #000;
+        text-align: center;
+        padding: 3px;
+        display: none;
+        cursor: pointer;
+      &.active {
+        display: block;
+      }
+    }
     .userInfoTitle {
       position: relative;
       color: #666;

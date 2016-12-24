@@ -90,6 +90,10 @@
                  <a class="cerebro-thumb" data-image="<?php echo $photoPrefix.$shieldUserProfile['photo5']; ?>" style="background-image: url(<?php echo $photoPrefix.$shieldUserProfile['photo5']; ?>s)"></a>
              <?php } ?>
         </div>
+        <div class="cerebroFavorite">
+          <div class="favoriteToggle <?php if ($shieldUserProfile['favorite'] == "Yes") { echo " active "; }?>" data-url="https://api.chasingthedrift.com/shield/x-gene/sector2/favorite?protocol_id=<?php echo $shieldUserProfile['protocol_id']; ?>&action=Yes">Add to Favorites</div>
+          <div class="favoriteToggle <?php if ($shieldUserProfile['favorite'] == "No") { echo " active "; }?>"  data-url="https://api.chasingthedrift.com/shield/x-gene/sector2/favorite?protocol_id=<?php echo $shieldUserProfile['protocol_id']; ?>&action=No">Remove from Favorites</div>
+        </div>
         <div class="cerebroDetails">
           <?php
             displayLastSeen('jackd', $user['lastLoginDate']);
