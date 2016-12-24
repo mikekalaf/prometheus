@@ -63,6 +63,19 @@ if (!empty($user['displayName'])) { $title = $user['displayName'];}
              ?>
            </div>
          <?php } ?>
+         <div class="cerebroDetails">
+           <?php
+           displayLastSeen('grindr', $user['seen']);
+           $user['socialMediaLinks']['facebook'] = $user['socialNetworks']['facebook']['userId'];
+           $user['socialMediaLinks']['instagram'] = $user['socialNetworks']['instagram']['userId'];
+           $user['socialMediaLinks']['twitter'] = $user['socialNetworks']['twitter']['userId'];
+           displayUserData('Age', $user['age']);
+           displayUserData('Ethnicity', $managedFields['grindr'][ethnicity][$user['ethnicity']]);
+           displayUserData('Relationship Status', $managedFields['grindr'][relationshipStatus][$user['relationshipStatus']]);
+           displaySocialMedia('grindr', $user['socialMediaLinks']);
+           displayUserData('About Me', $user['aboutMe']);
+            ?>
+         </div>
        </div>
        <?php if ($showMap == true) { ?>
        <div class="userLocation infoTab">

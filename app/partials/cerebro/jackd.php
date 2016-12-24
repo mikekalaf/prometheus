@@ -90,6 +90,18 @@
                  <a class="cerebro-thumb" data-image="<?php echo $photoPrefix.$shieldUserProfile['photo5']; ?>" style="background-image: url(<?php echo $photoPrefix.$shieldUserProfile['photo5']; ?>s)"></a>
              <?php } ?>
         </div>
+        <div class="cerebroDetails">
+          <?php
+            displayLastSeen('jackd', $user['lastLoginDate']);
+            displayUserData('Age', $user['age']);
+            displayUserData('Location', $user['location']);
+            displayUserData('About Me', $user['profileText']);
+            displayUserData('Interests', $user['interests']);
+            displayUserData('Movies', $user['movies']);
+            displayUserData('Activities', $user['activities']);
+            displayUserData('Music', $user['music']);
+          ?>
+        </div>
       </div>
       <div class="userLocation infoTab">
         <?php if ($showMap == true) { ?>
@@ -99,7 +111,7 @@
            <!-- Remote Map -->
         <?php if ($showRemoteMap == true) { ?>
            <?php displayUserData('GPS Location', $user['feetDisplay']." ft / ".$user['milesDisplay']." miles away"); ?>
-           <iframe class="cerebro-iframe" src="partials/cerebro/geoMapRemote.php?app=jackd&id=<?php echo $user['userNo']; ?>&protocol_id=<?php echo $shieldUserProfile['protocol_id']; ?>&lat=<?php echo $shieldUserProfile['lat']; ?>&lng=<?php echo $shieldUserProfile['lon']; ?>"></iframe>          
+           <iframe class="cerebro-iframe" src="partials/cerebro/geoMapRemote.php?app=jackd&id=<?php echo $user['userNo']; ?>&protocol_id=<?php echo $shieldUserProfile['protocol_id']; ?>&lat=<?php echo $shieldUserProfile['lat']; ?>&lng=<?php echo $shieldUserProfile['lon']; ?>"></iframe>
         <?php } ?>
       </div>
     </div>

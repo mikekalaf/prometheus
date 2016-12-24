@@ -440,11 +440,23 @@ body {
         padding-bottom: 5px;
       }
     }
-
+    .cerebro-header {
+      margin-bottom: 0px;
+      color: #FFF;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+    .cerebro-content {
+      font-size: 12px;
+      margin-top: 5px;
+    }
     iframe {
       border: none;
       width: 100%;
       height: 100%;
+      &.cerebro-iframe {
+        height: 250px;
+      }
     }
   }
   .userPhotoWrapper {

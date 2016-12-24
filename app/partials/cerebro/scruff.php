@@ -48,7 +48,14 @@
          <div class="infoTabTrigger last" data-target="userLocation">Location</div>
        </div>
        <div class="userProfileInfo infoTab active">
-         Profile Info
+         <div class="cerebroDetails">
+           <?php
+            displayLastSeen('scruff', $user['last_login']);
+            displayUserData('Location', $user['city']);
+            displayUserData('About Me', $user['about']);
+            displayUserData('Ideal Match', $user['ideal']);
+           ?>
+         </div>
        </div>
        <div class="userLocation infoTab">
          <!-- Location -->

@@ -14623,10 +14623,20 @@ body {
         cursor: pointer;
         padding-top: 5px;
         padding-bottom: 5px; }
+    #prometheusWrapper .app-overlay-window .cerebro-header {
+      margin-bottom: 0px;
+      color: #FFF;
+      font-size: 14px;
+      text-transform: uppercase; }
+    #prometheusWrapper .app-overlay-window .cerebro-content {
+      font-size: 12px;
+      margin-top: 5px; }
     #prometheusWrapper .app-overlay-window iframe {
       border: none;
       width: 100%;
       height: 100%; }
+      #prometheusWrapper .app-overlay-window iframe.cerebro-iframe {
+        height: 250px; }
   #prometheusWrapper .userPhotoWrapper {
     position: relative;
     width: 40%;

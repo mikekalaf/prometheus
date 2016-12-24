@@ -353,16 +353,13 @@
       if (!empty($socialLinks)) {
         $content = "";
         if (!empty($socialLinks['facebook'])) {
-          $icon = "social_facebook_fill";
-          $content .= "<a href='http://www.facebook.com/".$socialLinks['facebook']."' target='_blank' class='external'><i class='f7-icons'>".$icon."</i></a> ";
+          $content .= "<a href='http://www.facebook.com/".$socialLinks['facebook']."' target='_blank' class='external'><i class='fa fa-2x fa-facebook-square'></i></a> ";
         }
         if (!empty($socialLinks['instagram'])) {
-          $icon = "social_instagram_fill";
-          $content .= "<a href='http://www.instagram.com/".$socialLinks['instagram']."' target='_blank' class='external'><i class='f7-icons'>".$icon."</i></a> ";
+          $content .= "<a href='http://www.instagram.com/".$socialLinks['instagram']."' target='_blank' class='external'><i class='fa fa-2x fa-instagram'></i></a> ";
         }
         if (!empty($socialLinks['twitter'])) {
-          $icon = "social_twitter_fill";
-          $content .= "<a href='http://www.twitter.com/".$socialLinks['twitter']."' target='_blank' class='external'><i class='f7-icons'>".$icon."</i></a> ";
+          $content .= "<a href='http://www.twitter.com/".$socialLinks['twitter']."' target='_blank' class='external'><i class='fa fa-2x fa-twitter'></i></a> ";
         }
         if (!empty($content)) {
           $display = "<p class='cerebro-header'>Social Media</p>";
@@ -856,7 +853,7 @@
             echo "<hr>";
             echo "<h3>Processing Login</h3>";
         }
-      
+
   }
 
   function user_exists_jackd($id) {
