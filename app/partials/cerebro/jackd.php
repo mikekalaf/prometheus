@@ -32,7 +32,7 @@
           }
         }
     }
-  $title = "Profile Detail";
+  $title = $user['userNo'];
   if (!empty($user['firstName'])) { $title = $user['firstName']." ".$user['lastName'];}
  ?>
 <div class="app-overylay-header">

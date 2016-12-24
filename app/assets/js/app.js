@@ -15199,9 +15199,10 @@ var prometheus = {
         prometheus.hideOverlaySpinner();
         $('#ajaxContainer').html(data);
         setTimeout(function() {
-          $('.userPhoto img').fadeTo('slow',1);
+          $('.userPhoto img').fadeTo('slow',0);
           $('#ajaxContainer').fadeIn('slow');
           $('#cerebroProfile .profileNav').fadeIn();
+          prometheus.adjustInfoTabs();
           prometheus.adjustOverlay();
         },500);
       }
@@ -15226,7 +15227,7 @@ var prometheus = {
         prometheus.hideOverlaySpinner();
         $('#ajaxContainer').html(data);
         setTimeout(function() {
-          $('.userPhoto img').fadeTo('slow',1);
+          $('.userPhoto img').fadeTo('slow',0);
           $('#ajaxContainer').fadeIn('slow');
           prometheus.adjustOverlay();
         },500);
@@ -16026,11 +16027,11 @@ var prometheus = {
   },
   adjustInfoTabs: function() {
     var container = prometheus.profileContainer;
-    var tabContainerWidth = $(container+'.userInfoTabs').width();
-    var tabWidth = Math.floor((tabContainerWidth - 10) / 2);
+    var tabContainerWidth = $('#cerebroProfile .userInfoTabs').width();
+    var tabWidth = Math.floor((tabContainerWidth - 12) / 2);
     var skynetTabContainer = $('#skynetNavigation').width();
     var skynetTabWidth = Math.floor((skynetTabContainer - 20) / 3);
-    $(container+'.infoTabTrigger').css('width', tabWidth);
+    $('#cerebroProfile .infoTabTrigger').css('width', tabWidth);
     $(container+'.userPhotoTrigger').css('width', tabWidth);
     $(container+'.userPhotoTrigger').css('height', tabWidth);
     $('.skynetTab').css('width', skynetTabWidth);

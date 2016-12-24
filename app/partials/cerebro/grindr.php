@@ -23,8 +23,8 @@ if ($user['showDistance'] == 1  && $user['distance'] != 0) {
       $showMap = true;
     }
 }
-$title = "Profile Detail";
-if (!empty($user['displayName'])) { $title = $user['profileId'];}
+$title = $user['profileId'];
+if (!empty($user['displayName'])) { $title = $user['displayName'];}
  ?>
  <div class="app-overylay-header">
    <div class="app-overlay-title"><?php echo $title; ?></div>
