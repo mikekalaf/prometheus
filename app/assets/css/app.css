@@ -14347,6 +14347,8 @@ body {
     width: 100%;
     height: auto;
     overflow: hidden; }
+  body.portrait #prometheusWrapper .userProfileInfo.nomap {
+    margin-top: 10px; }
   body.portrait #prometheusWrapper .userInfoContainer {
     margin-left: 0; }
     body.portrait #prometheusWrapper .userInfoContainer .userInfoTabs {
@@ -14772,8 +14774,6 @@ body {
     margin-right: 0px; }
 .userItem .userProfileInfo {
   position: relative; }
-  .userItem .userProfileInfo.nomap {
-    margin-top: 10px; }
   .userItem .userProfileInfo .userInfoTitle {
     position: relative;
     color: #666;

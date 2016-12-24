@@ -101,6 +101,11 @@ body {
         height: auto;
         overflow: hidden;
       }
+      .userProfileInfo {
+        &.nomap {
+          margin-top: 10px;
+        }
+      }
       .userInfoContainer {
         margin-left: 0;
         .userInfoTabs {
@@ -630,9 +635,6 @@ body {
   }
   .userProfileInfo {
     position: relative;
-    &.nomap {
-      margin-top: 10px;
-    }
     .userInfoTitle {
       position: relative;
       color: #666;

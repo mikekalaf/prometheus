@@ -49,12 +49,30 @@
   </div>
   <div class="userInfoWrapper">
     <div class="userInfoContainer">
+      <?php if ($showMap || $showRemoteMap) { ?>
       <div class="userInfoTabs">
         <div class="infoTabTrigger default active" data-target="userProfileInfo">Profile</div>
         <div class="infoTabTrigger last" data-target="userLocation">Location</div>
       </div>
-      <div class="userProfileInfo infoTab active">
-        Profile Info
+      <?php } ?>
+      <div class="userProfileInfo infoTab active <?php if (!$showMap) { echo " nomap "; } ?>">
+        <div class="cerebroPhotos">
+          <?php if (!empty($user['publicPicture1'])) { ?>
+             <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture1']; ?>s" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture1']; ?>s)"></a>
+           <?php } ?>
+           <?php if (!empty($user['publicPicture2'])) { ?>
+               <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture2']; ?>s" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture2']; ?>s)"></a>
+            <?php } ?>
+            <?php if (!empty($user['publicPicture3'])) { ?>
+                <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture3']; ?>s" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/'.$user['publicPicture3']; ?>s)"></a>
+             <?php } ?>
+             <?php if (!empty($shieldUserProfile['photo4'])) { ?>
+                 <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo4']; ?>s" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo4']; ?>s)"></a>
+             <?php } ?>
+             <?php if (!empty($shieldUserProfile['photo5'])) { ?>
+                 <a class="cerebro-thumb" data-image="<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo5']; ?>s" style="background-image: url(<?php echo 'https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image='.$shieldUserProfile['photo5']; ?>s)"></a>
+             <?php } ?>
+        </div>
       </div>
       <div class="userLocation infoTab">
         Location History
