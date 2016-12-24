@@ -11,6 +11,8 @@ require('includes/prometheus.php'); ?>
 		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
 		<title>Project Prometheus</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="noindex, nofollow"/>
+
 		<!-- Basic Styles -->
 		<link rel="stylesheet" type="text/css" media="screen" href="assets/css/app.min.css">
 		<!-- FAVICONS -->
