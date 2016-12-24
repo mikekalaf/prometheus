@@ -60,7 +60,6 @@ if (!empty($user['displayName'])) { $title = $user['profileId'];}
              ?>
            </div>
          <?php } ?>
-         <div class="userInfoTitle">Profile Details</div>
        </div>
        <div class="userLocation infoTab">
          Location History
