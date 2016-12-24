@@ -50,8 +50,7 @@ foreach($sectorData['data'] as $key => $user) {
   if($page > 1 && $i == 0) {
     $loadPrevPage = " data-loadprevpage='Yes' ";
   }
-  $user['date_modified'] = date('M d Y, g:ia', strtotime($user['date_modified']));
-  $userData = json_encode($user);
+  $user['thumbnail'] = str_replace('http://', 'https://', $user['thumbnail']);
   echo "<div id='grindr-".$user['profile_id']."' class='gridItem cerebroProfile overlayLink' data-url='partials/cerebro/grindr.php?id=".$user['profile_id']."' ".$loadPrevPage.$loadNextPage.$prev.$next." data-target='cerebroProfile' style='background-image: url(".$user['thumbnail'].");'></div>";
   $i++;
 }
