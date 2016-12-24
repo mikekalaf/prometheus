@@ -14774,7 +14774,7 @@ body {
   position: relative; }
   .userItem .userProfileInfo .userInfoTitle {
     position: relative;
-    color: #FFF;
+    color: #333;
     text-transform: uppercase;
     font-size: 14px;
     padding-top: 5px;
@@ -14782,7 +14782,7 @@ body {
     margin-bottom: 10px; }
   .userItem .userProfileInfo .userInfoHeader {
     position: relative;
-    color: #DDD;
+    color: #FFF;
     text-transform: uppercase;
     font-size: 12px; }
   .userItem .userProfileInfo .userInfoContent {
@@ -14801,7 +14801,8 @@ body {
       margin-right: 10px;
       margin-bottom: 10px;
       background-repeat: no-repeat;
-      background-size: cover; }
+      background-size: cover;
+      cursor: pointer; }
 .userItem .userLocationHistory .locationMap {
   position: relative;
   width: 100%;

@@ -632,7 +632,7 @@ body {
     position: relative;
     .userInfoTitle {
       position: relative;
-      color: #FFF;
+      color: #333;
       text-transform: uppercase;
       font-size: 14px;
       padding-top: 5px;
@@ -641,7 +641,7 @@ body {
     }
     .userInfoHeader {
         position: relative;
-        color: #DDD;
+        color: #FFF;
         text-transform: uppercase;
         font-size: 12px;
     }
@@ -663,6 +663,7 @@ body {
         margin-bottom: 10px;
         background-repeat: no-repeat;
         background-size: cover;
+        cursor: pointer;
       }
     }
   }
