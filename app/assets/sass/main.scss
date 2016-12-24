@@ -657,10 +657,12 @@ body {
       .cerebro-thumb {
         position: relative;
         display: inline-block;
-        width: 125px;
-        height: 125px;
-        margin-left: 10px;
-        margin-bottom: 15px;
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        background-repeat: no-repeat;
+        background-size: cover;
       }
     }
   }
