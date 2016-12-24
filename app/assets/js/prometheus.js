@@ -179,7 +179,7 @@ var prometheus = {
   filterPhotos: function() {
     var seen = {};
     $('.cerebro-thumb').each(function() {
-        var txt = $(this).attr('data-image');
+        var txt = $(this).data('image');
         if (seen[txt])
             $(this).remove();
         else

@@ -15204,6 +15204,7 @@ var prometheus = {
           $('#cerebroProfile .profileNav').fadeIn();
           prometheus.adjustInfoTabs();
           prometheus.adjustOverlay();
+          prometheus.filterPhotos();
         },500);
       }
     });
@@ -15211,7 +15212,7 @@ var prometheus = {
   filterPhotos: function() {
     var seen = {};
     $('.cerebro-thumb').each(function() {
-        var txt = $(this).attr('data-image');
+        var txt = $(this).data('image');
         if (seen[txt])
             $(this).remove();
         else
@@ -15241,6 +15242,7 @@ var prometheus = {
           $('#ajaxContainer').fadeIn('slow');
           prometheus.adjustInfoTabs();
           prometheus.adjustOverlay();
+          prometheus.filterPhotos();
         },500);
       }
     });
