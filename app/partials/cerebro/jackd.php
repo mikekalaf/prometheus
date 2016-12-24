@@ -27,7 +27,7 @@
     }
   }
     if ($useCDN) {
-      $photo = str_replace('http://s.jackd.mobi/', 'https://cdn.chasingthedrift.com/prometheus/jackd/');
+      $photo = str_replace('http://s.jackd.mobi/', 'https://cdn.chasingthedrift.com/prometheus/jackd/', $photo);
     }
     $showMap = false;
     $showRemoteMap = false;
