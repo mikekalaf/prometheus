@@ -26,8 +26,8 @@ if ($userGeoMap) {
         src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../../js/math.js"></script>
-    <script type="text/javascript" src="../../js/geoLocation.js"></script>
+    <script type="text/javascript" src="../../assets/js/math.js"></script>
+    <script type="text/javascript" src="../../assets/js/geoLocation.js"></script>
     <script type="text/javascript">
         var cerebroBeacons = <?php echo $userGeoMap; ?>;
         console.log(cerebroBeacons);
