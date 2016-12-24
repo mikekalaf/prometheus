@@ -13,6 +13,8 @@ if (!empty($thisProfileId)) {
   }
 }
 
+$photoArchive[]['photo_url'] = "https://cdns.grindr.com/images/profile/1024x1024/".$user['profileImageMediaHash'];
+
 $showMap = false;
 if ($user['showDistance'] == 1  && $user['distance'] != 0) {
     $user['miles']  = $user['distance'] * 0.000621371;
@@ -48,7 +50,6 @@ if (!empty($user['displayName'])) { $title = $user['displayName'];}
        <?php } ?>
        <div class="userProfileInfo infoTab active">
          <?php if ($photoArchive['count'] > 0) { ?>
-           <div class="userInfoTitle">Photos</div>
            <div class="cerebroPhotos">
              <?php
                foreach ($photoArchive as $key => $photo) {
