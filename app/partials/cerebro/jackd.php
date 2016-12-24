@@ -15,7 +15,7 @@
           $cdn = "http://cdn.chasingthedrift.com/sector2download.php?id=".$shieldUserProfile['protocol_id'];
           $cdnHeaders = array();
           $cdnFetch = curl_handler($cdn, $cdnHeaders, "", "GET");
-          $useCDN = true;
+          echo "This is some bullshit";
       } else {
         $useCDN = true;
       }
