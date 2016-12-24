@@ -823,7 +823,6 @@
   }
 
   function login_grindr() {
-      if (!$_SESSION['sessionId']) {  
         $payload = [];
         $payload['email'] = "cerebro.apps@gmail.com";
         $payload['password'] = "remixceo01";
@@ -857,7 +856,7 @@
             echo "<hr>";
             echo "<h3>Processing Login</h3>";
         }
-      }
+      
   }
 
   function user_exists_jackd($id) {

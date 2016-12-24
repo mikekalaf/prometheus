@@ -1,5 +1,8 @@
 <?php
-include('../includes/prometheus.php');
+require('../includes/skynet.php');
+if (!isset($_SESSION['authToken'])) {
+  login_grindr();
+}
 
 $favorites = (isset($_GET['favorites']) ? $_GET['favorites'] : 'No');
 $limit = (isset($_GET['limit']) ? $_GET['limit'] : '150');
