@@ -59,7 +59,7 @@
   <div class="userPhotoWrapper">
     <div class="userPhotoContainer">
       <div class="userPhoto">
-        <img src="<?php echo $photo; ?>" />
+        <img src="<?php echo $photoPrefix.$photo; ?>" />
       </div>
     </div>
   </div>
