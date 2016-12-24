@@ -495,7 +495,6 @@ body {
     text-transform: uppercase;
     font-size: 14px;
     padding-top: 5px;
-    border-top: 1px dotted #666;
     margin-bottom: 10px; }
   .userItem .userProfileInfo .userInfoHeader {
     position: relative;
