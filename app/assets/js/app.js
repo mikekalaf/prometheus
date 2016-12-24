@@ -15208,6 +15208,16 @@ var prometheus = {
       }
     });
   },
+  filterPhotos: function() {
+    var seen = {};
+    $('.cerebro-thumb').each(function() {
+        var txt = $(this).attr('data-image');
+        if (seen[txt])
+            $(this).remove();
+        else
+            seen[txt] = true;
+    });
+  },
   loadMapProfile: function() {
     var url = $(this).data('url');
     $('#ajaxContainer').html('');
@@ -15229,6 +15239,7 @@ var prometheus = {
         setTimeout(function() {
           $('.userPhoto img').fadeTo('slow',1);
           $('#ajaxContainer').fadeIn('slow');
+          prometheus.adjustInfoTabs();
           prometheus.adjustOverlay();
         },500);
       }

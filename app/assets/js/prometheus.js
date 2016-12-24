@@ -171,8 +171,19 @@ var prometheus = {
           $('#cerebroProfile .profileNav').fadeIn();
           prometheus.adjustInfoTabs();
           prometheus.adjustOverlay();
+          prometheus.filterPhotos();
         },500);
       }
+    });
+  },
+  filterPhotos: function() {
+    var seen = {};
+    $('.cerebro-thumb').each(function() {
+        var txt = $(this).attr('data-image');
+        if (seen[txt])
+            $(this).remove();
+        else
+            seen[txt] = true;
     });
   },
   loadMapProfile: function() {
@@ -196,7 +207,9 @@ var prometheus = {
         setTimeout(function() {
           $('.userPhoto img').fadeTo('slow',1);
           $('#ajaxContainer').fadeIn('slow');
+          prometheus.adjustInfoTabs();
           prometheus.adjustOverlay();
+          prometheus.filterPhotos();
         },500);
       }
     });
