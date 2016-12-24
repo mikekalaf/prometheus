@@ -58,7 +58,13 @@ foreach($sectorData['data'] as $key => $user) {
   } else if (!empty($user['photo5'])) {
     $user['profile_photo'] .= $user['photo5'];
   }
-  echo "<div id='jackd-".$user['profile_no']."' class='gridItem cerebroProfile overlayLink'  data-url='partials/cerebro/jackd.php?id=".$user['profile_no']."' ".$loadPrevPage.$loadNextPage.$prev.$next." data-target='cerebroProfile' style='background-image: url(https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=".$user['profile_photo']."s);'></div>";
+  $cdnScan = "";
+  $cdnData = "";
+  if($user['image_scan'] == '0') {
+    $cdnScan = " fetchcdn ";
+    $cdnData = " data-cdn = '".$user['protocol_id']."'";
+  }
+  echo "<div id='jackd-".$user['profile_no']."' class='gridItem cerebroProfile overlayLink ".$cdnScan."' data-url='partials/cerebro/jackd.php?id=".$user['profile_no']."' ".$cdnData.$loadPrevPage.$loadNextPage.$prev.$next." data-target='cerebroProfile' style='background-image: url(https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=".$user['profile_photo']."s);'></div>";
   $i++;
 }
 echo "</div>";

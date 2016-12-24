@@ -113,6 +113,17 @@ var prometheus = {
       },500);
     }
   },
+  cdnFetch: function() {
+    $('.fetchcdn').each(function () {
+      var id = $(this).data('cdn');
+      var total = $('.fetchcdn').size();
+      var delay = Math.random()*60000;
+      setTimeout(function() {
+        var url = "https://cdn.chasingthedrift.com/sector2download.php?id="+id;
+        prometheus.remotePing(url);
+      },delay);
+    });
+  },
   loadUserProfile: function(e, target) {
     if (target) {
       var targetId = target;
@@ -391,7 +402,7 @@ var prometheus = {
       timeout: 6000,
       url: url,
       error: function(data) {
-        alert('Error:  Unable to retrieve data from source.');
+        consoe.log('Unable to retrieve data from source: '+url);
       },
       success: function(data) {
       }
@@ -466,9 +477,12 @@ var prometheus = {
       prometheus.adjustViewPort();
       prometheus.resizeGrid();
       setTimeout(function(){prometheus.scrollHandler();},1000);
-      prometheus.runAjaxScripts();
-      prometheus.adjustViewPort();
-    }, 500);
+        prometheus.runAjaxScripts();
+        prometheus.adjustViewPort();
+        if(prometheus.activeApp == "jackd") {
+          prometheus.cdnFetch();
+        }
+      }, 500);
   },
   loadNextPage: function() {
     event.stopPropagation();

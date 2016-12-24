@@ -1,6 +1,7 @@
 <?php
   require('../../includes/skynet.php');
   $thisProfileId = $_GET['id'];
+  $useCDN = false;
   if (!empty($thisProfileId)) {
     $user = jackdGetUserProfile($thisProfileId);
     if (isProd()) {
@@ -9,6 +10,13 @@
       }
       jackdUpdatePhotos($user);
       $shieldUserProfile = getShieldProfile("profiles_jackd", "profile_no", $thisProfileId);
+      //Download images
+      if ($shieldUserProfile['image_scan'] == "0") {
+          $cdn = "http://cdn.chasingthedrift.com/sector2download.php?id="+$showUserProfile['protocol_id'];
+          $cdnHeaders = array();
+          $cdnFetch = curl_handler($cdn, $cdnHeaders, "", "GET");
+          $useCDN = true;
+      }
     }
     if (!empty($user['publicPicture1'])) {
         $photo = $user['publicPicture1'];
@@ -18,6 +26,9 @@
         $photo = $user['publicPicture3'];
     }
   }
+    if ($useCDN) {
+      $photo = str_replace('http://s.jackd.mobi/', 'https://cdn.chasingthedrift.com/prometheus/jackd/');
+    }
     $showMap = false;
     $showRemoteMap = false;
     if ($user['distance'] != 0) {
@@ -43,7 +54,7 @@
   <div class="userPhotoWrapper">
     <div class="userPhotoContainer">
       <div class="userPhoto">
-        <img src="https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=http://s.jackd.mobi/<?php echo $photo; ?>" />
+        <img src="<?php echo $photo; ?>" />
       </div>
     </div>
   </div>
