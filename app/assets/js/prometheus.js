@@ -979,7 +979,7 @@ var prometheus = {
   adjustInfoTabs: function() {
     var container = prometheus.profileContainer;
     var tabContainerWidth = $(container+'.userInfoTabs').width();
-    var tabWidth = Math.floor((tabContainerWidth - 20) / 3);
+    var tabWidth = Math.floor((tabContainerWidth - 10) / 2);
     var skynetTabContainer = $('#skynetNavigation').width();
     var skynetTabWidth = Math.floor((skynetTabContainer - 20) / 3);
     $(container+'.infoTabTrigger').css('width', tabWidth);

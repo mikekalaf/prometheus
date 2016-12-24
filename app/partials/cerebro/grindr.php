@@ -40,12 +40,27 @@ if (!empty($user['displayName'])) { $title = $user['profileId'];}
    </div>
    <div class="userInfoWrapper">
      <div class="userInfoContainer">
+       <?php if ($showMap) { ?>
        <div class="userInfoTabs">
          <div class="infoTabTrigger default active" data-target="userProfileInfo">Profile</div>
          <div class="infoTabTrigger last" data-target="userLocation">Location</div>
        </div>
+       <?php } ?>
        <div class="userProfileInfo infoTab active">
-         Profile Info
+         <?php if ($photoArchive['count'] > 0) { ?>
+           <div class="cerebroHeader">Photos</div>
+           <div class="cerebroPhotos">
+             <?php
+               foreach ($photoArchive as $key => $photo) {
+                 if($photo['photo_url']) {
+                   $photo['photo_url'] = str_replace("http:", "https:", $photo['photo_url']);
+                   echo "<a class='cerebro-thumb' data-background='".$photo['photo_url']."'></a>";
+                 }
+               }
+             ?>
+           </div>
+         <?php } ?>
+         <div class="cerebroHeader">Profile Details</div>
        </div>
        <div class="userLocation infoTab">
          Location History

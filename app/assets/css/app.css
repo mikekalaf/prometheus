@@ -14771,8 +14771,7 @@ body {
   .userItem .userPhotoStream div:nth-child(3n+3) {
     margin-right: 0px; }
 .userItem .userProfileInfo {
-  position: relative;
-  margin-top: 20px; }
+  position: relative; }
   .userItem .userProfileInfo .userInfoHeader {
     position: relative;
     color: #FFF;
