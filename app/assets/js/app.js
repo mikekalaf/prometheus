@@ -15227,7 +15227,7 @@ var prometheus = {
         prometheus.hideOverlaySpinner();
         $('#ajaxContainer').html(data);
         setTimeout(function() {
-          $('.userPhoto img').fadeTo('slow',0);
+          $('.userPhoto img').fadeTo('slow',1);
           $('#ajaxContainer').fadeIn('slow');
           prometheus.adjustOverlay();
         },500);
