@@ -92,7 +92,15 @@
         </div>
       </div>
       <div class="userLocation infoTab">
-        Location History
+        <?php if ($showMap == true) { ?>
+           <?php displayUserData('GPS Location', $user['feetDisplay']." ft / ".$user['milesDisplay']." miles away"); ?>
+           <iframe class="cerebro-iframe" src="partials/cerebro/geoMap.php?app=jackd&id=<?php echo $user['userNo']; ?>&protocol_id=<?php echo $shieldUserProfile['protocol_id']; ?>"></iframe>
+        <?php } ?>
+           <!-- Remote Map -->
+        <?php if ($showRemoteMap == true) { ?>
+           <?php displayUserData('GPS Location', $user['feetDisplay']." ft / ".$user['milesDisplay']." miles away"); ?>
+           <iframe class="cerebro-iframe" src="partials/cerebro/geoMapRemote.php?app=jackd&id=<?php echo $user['userNo']; ?>&protocol_id=<?php echo $shieldUserProfile['protocol_id']; ?>&lat=<?php echo $shieldUserProfile['lat']; ?>&lng=<?php echo $shieldUserProfile['lon']; ?>"></iframe>          
+        <?php } ?>
       </div>
     </div>
   </div>

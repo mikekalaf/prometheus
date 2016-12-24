@@ -26,7 +26,7 @@
         $showRemoteMap = true;
       }
     }
-  $title = "Scruff Profile Detail";
+  $title = $user['id'];
   if (!empty($user['name'])) { $title = $user['name'];}
  ?>
  <div class="app-overylay-header">
@@ -51,7 +51,16 @@
          Profile Info
        </div>
        <div class="userLocation infoTab">
-         Location History
+         <!-- Location -->
+              <?php if ($showMap == true) { ?>
+                <?php displayUserData('GPS Location', $user['feetDisplay']." ft / ".$user['milesDisplay']." miles away"); ?>
+                <iframe class="cerebro-iframe" src="partials/cerebro/geoMap.php?app=scruff&id=<?php echo $user['id']; ?>&protocol_id=<?php echo $shieldUserProfile['protocol_id']; ?>"></iframe>
+              <?php } ?>
+              <!-- Remote Map -->
+              <?php if ($showRemoteMap == true) { ?>
+                <?php displayUserData('GPS Location', $user['feetDisplay']." ft / ".$user['milesDisplay']." miles away"); ?>
+                <iframe class="cerebro-iframe" src="partials/cerebro/geoMapRemote.php?app=scruff&id=<?php echo $user['id']; ?>&protocol_id=<?php echo $shieldUserProfile['protocol_id']; ?>&lat=<?php echo $shieldUserProfile['lat']; ?>&lng=<?php echo $shieldUserProfile['lon']; ?>"></iframe>
+              <?php } ?>
        </div>
      </div>
    </div>
