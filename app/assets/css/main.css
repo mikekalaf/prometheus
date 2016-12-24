@@ -464,7 +464,7 @@ body {
     border: 1px solid #333;
     background-color: #000;
     text-align: center;
-    padding: 5px;
+    padding: 0px;
     float: left;
     white-space: nowrap;
     overflow: hidden;
@@ -489,6 +489,8 @@ body {
     margin-right: 0px; }
 .userItem .userProfileInfo {
   position: relative; }
+  .userItem .userProfileInfo.nomap {
+    margin-top: 10px; }
   .userItem .userProfileInfo .userInfoTitle {
     position: relative;
     color: #666;

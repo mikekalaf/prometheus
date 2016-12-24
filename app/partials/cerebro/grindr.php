@@ -48,7 +48,8 @@ if (!empty($user['displayName'])) { $title = $user['displayName'];}
          <div class="infoTabTrigger last" data-target="userLocation">Location</div>
        </div>
        <?php } ?>
-       <div class="userProfileInfo infoTab active">
+       <div class="userProfileInfo infoTab active <?php if (!$showMap) { echo " nomap "; } ?>
+">
          <?php if ($photoArchive['count'] > 0) { ?>
            <div class="cerebroPhotos">
              <?php

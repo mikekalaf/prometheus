@@ -598,7 +598,7 @@ body {
       border: 1px solid #333;
       background-color: #000;
       text-align: center;
-      padding: 5px;
+      padding: 0px;
       float: left;
       white-space: nowrap;
       overflow: hidden;
@@ -630,6 +630,9 @@ body {
   }
   .userProfileInfo {
     position: relative;
+    &.nomap {
+      margin-top: 10px;
+    }
     .userInfoTitle {
       position: relative;
       color: #666;
