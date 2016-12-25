@@ -16,6 +16,7 @@ if (!empty($thisProfileId)) {
   }
 }
 
+
 if (!isset($user['profileId'])) {
   $user['fullsize'] = $shieldUserProfile['profile_photo'];
   $user['showDistance'] = 0;
@@ -30,6 +31,9 @@ if (!isset($user['profileId'])) {
   $user['relationshipStatus'] = $shieldUserProfile['relationship_status'];
   $user['aboutMe'] = $shieldUserProfile['about_me'];
 }
+
+echo "User<br>";
+print_r($user);
 
 $photoArchive[]['photo_url'] = "https://cdns.grindr.com/images/profile/1024x1024/".$user['profileImageMediaHash'];
 
