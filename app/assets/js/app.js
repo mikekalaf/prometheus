@@ -15118,6 +15118,16 @@ var prometheus = {
     $('#prometheusWrapper').on('click', '.mapPhoto', prometheus.loadMapProfile);
     $('#prometheusWrapper').on('click', '.cerebro-thumb', prometheus.swapCerebroPhoto);
     $('#prometheusWrapper').on('click', '.favoriteToggle', prometheus.toggleFavorite);
+    $('#prometheusWrapper').on('click', '#searchButton', prometheus.cerebroSearch);
+  },
+  cerebroSearch: function() {
+    var searchQuery = $('#searchQuery').val();
+    if(searchQuery != '' && searchQuery != undefined) {
+      prometheus.loadData('partials/skynet.php?search='+searchQuery, prometheus.cerebroSearchResponse);
+    }
+  },
+  cerebroSearchResponse: function(data) {
+    prometheus.displayAppViewData(data);
   },
   toggleFavorite: function() {
     var url = $(this).data('url');

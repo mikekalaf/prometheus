@@ -14839,6 +14839,40 @@ body {
   .userItem .infoTab.active {
     display: block; }
 
+#skynetSearch {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  overflow: hidden; }
+  #skynetSearch .searchInput {
+    position: relative;
+    float: left;
+    width: 75%;
+    padding-right: 10px; }
+    #skynetSearch .searchInput #searchQuery {
+      border: 1px solid #333;
+      background-color: #000;
+      width: 100%;
+      height: 28px;
+      -webkit-appearance: none;
+      border-radius: 0px;
+      padding-left: 10px;
+      padding-right: 10px; }
+  #skynetSearch .searchSubmit {
+    position: relative;
+    width: 25%;
+    float: right; }
+    #skynetSearch .searchSubmit #searchButton {
+      text-transform: uppercase;
+      border: 1px solid #96060d;
+      background-color: #96060d;
+      text-align: center;
+      padding: 3px;
+      cursor: pointer;
+      color: #fff; }
+
 #skynetNavigation {
   position: relative;
   margin-bottom: 10px;
@@ -14848,13 +14882,13 @@ body {
   overflow: hidden; }
   #skynetNavigation .skynetTab {
     position: relative;
-    position: relative;
     float: left;
     width: 32%;
     margin-right: 10px;
     text-transform: uppercase;
     border: 1px solid #333;
     background-color: #000;
+    color: #FFF;
     text-align: center;
     padding: 3px;
     white-space: nowrap;

@@ -693,6 +693,9 @@
       $localMap = "";
       $request_headers = jackdGetHeaders();
 
+      $loginQuery = "client_version=3.0.2&device_id=12E950F5-E1FC-4F62-B28E-D08529F27CA3&email=shieldos.jack%40gmail.com&lang=en&lat=" . $lat . "&lng=" . $long . "&m=l&model=iPhone&osType=i&password=remixceo01&systemName=iPhone%20OS&systemVersion=8.4";
+      $loginFetch = curl_handler("https://www.jackd.mobi/j", $request_headers, $loginQuery, "POST");
+
       //Set 1
       $requestData = "m=ml5&userNo=11380012&email=shieldos.jack%40gmail.com&password=remixceo01&local=" . $localMap . "&range=0.000000&minAge=18&maxAge=99&ethnicity=0,1,2,3,4,5,6,7&minWeight=1&maxWeight=399&minHeight=1&maxHeight=272&online=NO&withPictures=YES&lat=" . $lat . "&lng=" . $long . "&scene=0&isLocal=YES&isUserSpecifiedLocation=YES";
       $userSet1 = curl_handler("https://www.jackd.mobi/j", $request_headers, $requestData, "POST");

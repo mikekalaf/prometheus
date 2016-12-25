@@ -21,6 +21,14 @@ login_grindr();
  $jackdUsers = jackdGetNearbyUsers($lat, $long);
  $scruffUsers = scruffGetNearbyUsers($lat, $long);
  ?>
+ <div id="skynetSearch">
+   <div class="searchInput">
+     <input id="searchQuery" type="search" placeholder="Enter an address to search" value="<?php echo urldecode($_GET['search']); ?>">
+   </div>
+   <div class="searchSubmit">
+     <div id="searchButton">Search</div>
+   </div>
+ </div>
  <div id="skynetNavigation">
    <div id="skynetGrindr" class="skynetTab default active" data-target="grindrGrid">Sector 1</div>
    <div id="skynetJackd" class="skynetTab" data-target="jackdGrid">Sector 2</div>
