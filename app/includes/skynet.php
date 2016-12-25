@@ -383,6 +383,7 @@
     $location = $_SESSION['lat'].",".$_SESSION['long'];
     $reverseGeoCode = getAddress($location);
 
+    if ($user['profileId'] != ''  && isset($user['profileId'])) {
      $profile = array();
      $profile['protocol_id'] = create_guid();
      $profile['profile_id'] = $user['profileId'];
@@ -460,6 +461,7 @@
               $insertSQL = trim($insertSQL);
               mysql_select_db($database_ikiosk, $ikiosk);
               $Result1 = mysql_query($insertSQL, $ikiosk) or die(mysql_error());
+            }
   }
 
     function grindrGetHeaders() {

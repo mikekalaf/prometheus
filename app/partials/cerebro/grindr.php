@@ -17,7 +17,7 @@ if (!empty($thisProfileId)) {
 }
 
 
-if (isProd() && (!isset($user['profileId']))) {
+if (isProd() && (!isset($user['profileId'])) && user_exists_grindr($thisProfileId)) {
   $user['fullsize'] = $shieldUserProfile['profile_photo'];
   $user['showDistance'] = 0;
   $user['profileId'] =  $shieldUserProfile['profile_id'];
@@ -46,6 +46,7 @@ if ($user['showDistance'] == 1  && $user['distance'] != 0) {
 }
 $title = $user['profileId'];
 if (!empty($user['displayName'])) { $title = $user['displayName'];}
+if (!empty($user['profileId'])) {
  ?>
  <div class="app-overylay-header">
    <div class="app-overlay-title"><?php echo $title; ?></div>
@@ -107,3 +108,12 @@ if (!empty($user['displayName'])) { $title = $user['displayName'];}
      </div>
    </div>
  </div>
+<?php } else { ?>
+  <div class="app-overylay-header">
+    <div class="app-overlay-title">Connection Error</div>
+    <div class="app-overlay-close" data-target="cerebroProfile"><i class="fa fa-times"></i></div>
+  </div>
+  <div class="app-overlay-body">
+    <p>Opps, it looks like we were unable to connect to the server to retrieve this profile.  Please try again.</p>
+  </div>
+<?php } ?>
