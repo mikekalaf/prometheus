@@ -15128,6 +15128,9 @@ var prometheus = {
   },
   cerebroSearchResponse: function(data) {
     prometheus.displayAppViewData(data);
+    setTimeout(function() {
+      prometheus.adjustViewPort();
+    },2000);
   },
   toggleFavorite: function() {
     var url = $(this).data('url');
