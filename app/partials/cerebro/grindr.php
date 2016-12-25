@@ -17,7 +17,7 @@ if (!empty($thisProfileId)) {
 }
 
 
-if (isProd() && (!isset($user['profileId'])) {
+if (isProd() && (!isset($user['profileId']))) {
   $user['fullsize'] = $shieldUserProfile['profile_photo'];
   $user['showDistance'] = 0;
   $user['profileId'] =  $shieldUserProfile['profile_id'];
