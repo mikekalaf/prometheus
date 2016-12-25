@@ -701,16 +701,16 @@
       $userSet1 = curl_handler("https://www.jackd.mobi/j", $request_headers, $requestData, "POST");
       //Set 2
       $userMap1 = json_decode($userSet1, true);
-      foreach ($userMap1 as $user) {
-          $prop = 'userNo';
-          $localMap .= $user->$prop . ",";
-      }
-      $localMap = substr($localMap, 0, -1);
-      $requestData = "m=ml5&userNo=11380012&email=shieldos.jack%40gmail.com&password=remixceo01&local=" . $localMap . "&range=0.000000&minAge=18&maxAge=99&ethnicity=0,1,2,3,4,5,6,7&minWeight=1&maxWeight=399&minHeight=1&maxHeight=272&online=NO&withPictures=YES&lat=" . $lat . "&lng=" . $long . "&scene=0&isLocal=YES&isUserSpecifiedLocation=NO";
-      $userSet2 = curl_handler("https://www.jackd.mobi/j", $request_headers, $requestData, "POST");
-      //Set 3
-      $localMap .= ",";
-      $userMap2 = json_decode($userSet2, true);
+      // foreach ($userMap1 as $user) {
+      //     $prop = 'userNo';
+      //     $localMap .= $user->$prop . ",";
+      // }
+      // $localMap = substr($localMap, 0, -1);
+      // $requestData = "m=ml5&userNo=11380012&email=shieldos.jack%40gmail.com&password=remixceo01&local=" . $localMap . "&range=0.000000&minAge=18&maxAge=99&ethnicity=0,1,2,3,4,5,6,7&minWeight=1&maxWeight=399&minHeight=1&maxHeight=272&online=NO&withPictures=YES&lat=" . $lat . "&lng=" . $long . "&scene=0&isLocal=YES&isUserSpecifiedLocation=NO";
+      // $userSet2 = curl_handler("https://www.jackd.mobi/j", $request_headers, $requestData, "POST");
+      // //Set 3
+      // $localMap .= ",";
+      // $userMap2 = json_decode($userSet2, true);
       // foreach ($userMap2 as $user) {
       //     $prop = 'userNo';
       //     $localMap .= $user->$prop . ",";
@@ -727,7 +727,8 @@
       // $requestData = "m=ml5&userNo=11380012&email=shieldos.jack%40gmail.com&password=remixceo01&local=" . $localMap . "&range=0.000000&minAge=18&maxAge=99&ethnicity=0,1,2,3,4,5,6,7&minWeight=1&maxWeight=399&minHeight=1&maxHeight=272&online=NO&withPictures=YES&lat=" . $lat . "&lng=" . $long . "&scene=0&isLocal=YES&isUserSpecifiedLocation=NO";
       // $userSet4 = curl_handler("https://www.jackd.mobi/j", $request_headers, $requestData, "POST");
       // $userMap4 = json_decode($userSet4);
-      $jackdUserMap = array_merge($userMap1, $userMap2);
+      $jackdUserMap = $userMap1;
+      // $jackdUserMap = array_merge($userMap1, $userMap2);
       // $jackdUserMap = array_merge($jackdUserMap, $userMap3);
       // $jackdUserMap = array_merge($jackdUserMap, $userMap4);
 

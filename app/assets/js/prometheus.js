@@ -90,14 +90,16 @@ var prometheus = {
   cerebroSearch: function() {
     var searchQuery = $('#searchQuery').val();
     if(searchQuery != '' && searchQuery != undefined) {
+      prometheus.clearAppView();
+      prometheus.closeAllOverlays();
       prometheus.loadData('partials/skynet.php?search='+searchQuery, prometheus.cerebroSearchResponse);
     }
   },
   cerebroSearchResponse: function(data) {
     prometheus.displayAppViewData(data);
-    setTimeout(function() {
-      prometheus.adjustViewPort();
-    },2000);
+    setTimeout(function(){
+      $('#skynetGrindr').click();
+    },1000);
   },
   toggleFavorite: function() {
     var url = $(this).data('url');
