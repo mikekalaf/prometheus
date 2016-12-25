@@ -16157,6 +16157,10 @@ var prometheus = {
   },
   removeSlashScreen: function() {
     $('#loader, #prometheusSplash').fadeOut();
+    var lat = prometheus.cerebro.lat;
+    var long = prometheus.cerebro.long;
+    var url = "partials/initGps.php?lat="+lat+"&long="+long;
+    prometheus.remotePing(url);
     setTimeout(function(){ prometheus.loadDefaultView(); }, 500);
   },
   toggleMenu: function() {
