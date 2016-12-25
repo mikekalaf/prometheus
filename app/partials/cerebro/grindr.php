@@ -6,7 +6,7 @@ $thisProfileId = $_GET['id'];
 if (!empty($thisProfileId)) {
   $user = grindrGetUserProfile($thisProfileId);
   $user['fullsize'] = "https://cdns.grindr.com/images/profile/1024x1024/".$user['profileImageMediaHash'];
-  if (isProd()) {
+  if (isProd() && (isset($user['profileId']))) {
     if (!user_exists_grindr($thisProfileId)) {
       saveGrindrUserProfile($user);
     }
@@ -17,7 +17,7 @@ if (!empty($thisProfileId)) {
 }
 
 
-if (!isset($user['profileId'])) {
+if (isProd() && (!isset($user['profileId'])) {
   $user['fullsize'] = $shieldUserProfile['profile_photo'];
   $user['showDistance'] = 0;
   $user['profileId'] =  $shieldUserProfile['profile_id'];
@@ -31,9 +31,6 @@ if (!isset($user['profileId'])) {
   $user['relationshipStatus'] = $shieldUserProfile['relationship_status'];
   $user['aboutMe'] = $shieldUserProfile['about_me'];
 }
-
-echo "User<br>";
-print_r($user);
 
 $photoArchive[]['photo_url'] = "https://cdns.grindr.com/images/profile/1024x1024/".$user['profileImageMediaHash'];
 
