@@ -35,13 +35,13 @@ require('includes/prometheus.php'); ?>
 			<div class="appBackground"></div>
 				<div id="appMenu">
 						<div class="menuItem menuTitle">Project <span>Prometheus</span></div>
-						<div class="menuHeader menuItem appLink" data-app="skynet">Cerebro</div>
-						<div class="menuSubHeader menuItem appLink" data-app="cerebromap">User Map</div>
+						<div id="app-cerebro" class="menuHeader menuItem appLink" data-app="skynet">Cerebro</div>
+						<div id="app-map" class="menuSubHeader menuItem appLink" data-app="cerebromap">User Map</div>
 						<div class="menuHeader menuItem">S.H.I.E.L.D. Archives</div>
-						<div class="menuSubHeader menuItem appLink" data-app="grindr" data-profile="grindrUser">Sector 1</div>
-						<div class="menuSubHeader menuItem appLink" data-app="jackd" data-profile="jackdUser">Sector 2</div>
-						<div class="menuSubHeader menuItem appLink" data-app="scruff" data-profile="scruffUser">Sector 3</div>
-						<div class="menuHeader menuItem appLink" data-app="junkcollector">JunkCollector</div>
+						<div id="app-sector1" class="menuSubHeader menuItem appLink" data-app="grindr" data-profile="grindrUser">Sector 1</div>
+						<div id="app-sector2" class="menuSubHeader menuItem appLink" data-app="jackd" data-profile="jackdUser">Sector 2</div>
+						<div id="app-sector3" class="menuSubHeader menuItem appLink" data-app="scruff" data-profile="scruffUser">Sector 3</div>
+						<div id="app-junk" class="menuHeader menuItem appLink" data-app="junkcollector">JunkCollector</div>
 				</div>
 				<div id="topBanner">
 						<div class="appMenuTrigger">

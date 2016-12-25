@@ -15119,6 +15119,39 @@ var prometheus = {
     $('#prometheusWrapper').on('click', '.cerebro-thumb', prometheus.swapCerebroPhoto);
     $('#prometheusWrapper').on('click', '.favoriteToggle', prometheus.toggleFavorite);
     $('#prometheusWrapper').on('click', '#searchButton', prometheus.cerebroSearch);
+    prometheus.router();
+  },
+  router: function() {
+    var hash = window.location.hash;
+    hash = hash.replace('#', '');
+    var locationParams = hash.split("/");
+    var appPrefix = locationParams[0]+"-"+locationParams[1];
+    switch(appPrefix) {
+      case "cerebro-index":
+        $('#app-cerebro').click();
+        break;
+      case "cerebro-map":
+        $('#app-map').click();
+        break;
+      case "shield-sector1":
+        $('#app-sector1').click();
+        break;
+      case "shield-sector2":
+        $('#app-sector2').click();
+        break;
+      case "shield-sector3":
+        $('#app-sector3').click();
+        break;
+      case "junk-index":
+        $('#app-junk').click();
+        break;
+    }
+    console.log(hash);
+    console.log(locationParams);
+  },
+  navigate: function(path) {
+    var current = window.location.href;
+    window.location.href = current.replace(/#(.*)$/, '') + '#' + path;
   },
   cerebroSearch: function() {
     var searchQuery = $('#searchQuery').val();
@@ -15553,6 +15586,7 @@ var prometheus = {
   cerebromap: {
     launch: function() {
       prometheus.loadData('partials/map.php', prometheus.cerebromap.displayUserMap);
+      prometheus.navigate('cerebro/map');
     },
     displayUserMap: function(data) {
       prometheus.mapData = [];
@@ -15612,6 +15646,7 @@ var prometheus = {
       var lat = prometheus.cerebro.lat;
       var long = prometheus.cerebro.long;
       prometheus.loadData('partials/skynet.php?lat='+lat+'&long='+long, prometheus.skynet.displayUserGrid);
+      prometheus.navigate('cerebro/index');
     },
     displayUserGrid: function(data) {
       prometheus.gridData = [];
@@ -15624,6 +15659,7 @@ var prometheus = {
   grindr: {
     launch: function() {
       prometheus.loadData('partials/sector1.php', prometheus.grindr.displayUserGrid);
+      prometheus.navigate('shield/sector1');
     },
     displayUserGrid: function(data) {
       prometheus.gridData = [];
@@ -15670,6 +15706,7 @@ var prometheus = {
   jackd: {
     launch: function() {
       prometheus.loadData('partials/sector2.php', prometheus.jackd.displayUserGrid);
+      prometheus.navigate('shield/sector2');
     },
     displayUserGrid: function(data) {
       prometheus.gridData = [];
@@ -15727,6 +15764,7 @@ var prometheus = {
   scruff: {
     launch: function() {
       prometheus.loadData('partials/sector3.php', prometheus.scruff.displayUserGrid);
+      prometheus.navigate('shield/sector3');
     },
     displayUserGrid: function(data) {
       prometheus.gridData = [];
@@ -15774,6 +15812,7 @@ var prometheus = {
   junkcollector: {
     launch: function() {
       prometheus.loadData('partials/junkGrid.php', prometheus.junkcollector.displayUserGrid);
+      prometheus.navigate('junk/index');
     },
     displayUserGrid: function(data) {
       prometheus.gridData = [];
