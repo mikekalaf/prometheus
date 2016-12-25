@@ -9,8 +9,8 @@
       </div>
       <div id="videoViewer">
         <iframe></iframe>
-        <div class="videoSwipe top"></div>
-        <div class="videoSwipe bottom"></div>
+        <!--<div class="videoSwipe top"></div>
+        <div class="videoSwipe bottom"></div>-->
       </div>
       <div id="galleryNav">
         <div class="navPrev" data-swap="prev"><i class="fa fa-chevron-circle-left fa-2x"></i></div>
@@ -21,12 +21,13 @@
           <div class="adminContainer">
             <div class="adminButton addFavorite" data-app="junkcollector">Add to Favorites</div>
             <div class="adminButton removeFavorite" data-app="junkcollector">Remove from Favorites</div>
+            <?php if ($isAdmin) { ?>
             <div class="adminButton deleteItem last" data-app="junkcollector">Delete</div>
+            <?php } ?>
           </div>
           <div class="adminToggle">
               <i class='fa fa-3x fa-cog'></i>
           </div>
         </div>
-      <?php } ?>
   </div>
 </div>
