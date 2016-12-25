@@ -5,6 +5,7 @@ login_grindr();
 $thisProfileId = $_GET['id'];
 if (!empty($thisProfileId)) {
   $user = grindrGetUserProfile($thisProfileId);
+  $user['fullsize'] = "https://cdns.grindr.com/images/profile/1024x1024/".$user['profileImageMediaHash'];
   if (isProd()) {
     if (!user_exists_grindr($thisProfileId)) {
       saveGrindrUserProfile($user);
@@ -13,6 +14,21 @@ if (!empty($thisProfileId)) {
     $shieldUserProfile = getShieldProfile("profiles_grindr", "profile_id", $thisProfileId);
     $photoArchive = getPhotoArchives($shieldUserProfile['protocol_id']);
   }
+}
+
+if (!isset($user['profileId'])) {
+  $user['fullsize'] = $shieldUserProfile['profile_photo'];
+  $user['showDistance'] = 0;
+  $user['profileId'] =  $shieldUserProfile['profile_id'];
+  $user['displayName'] =  $shieldUserProfile['display_name'];
+  $user['seen'] = '';
+  $user['socialMediaLinks']['facebook'] = $shieldUserProfile['facebook'];
+  $user['socialMediaLinks']['instagram'] = $shieldUserProfile['instagram'];
+  $user['socialMediaLinks']['twitter'] = $shieldUserProfile['twitter'];
+  $user['age'] = $shieldUserProfile['age'];
+  $user['ethnicity'] = $shieldUserProfile['ethnicity'];
+  $user['relationshipStatus'] = $shieldUserProfile['relationship_status'];
+  $user['aboutMe'] = $shieldUserProfile['about_me'];
 }
 
 $photoArchive[]['photo_url'] = "https://cdns.grindr.com/images/profile/1024x1024/".$user['profileImageMediaHash'];
@@ -38,7 +54,7 @@ if (!empty($user['displayName'])) { $title = $user['displayName'];}
    <div class="userPhotoWrapper">
      <div class="userPhotoContainer">
        <div class="userPhoto">
-         <img src="https://cdns.grindr.com/images/profile/1024x1024/<?php echo $user['profileImageMediaHash']; ?>" />
+         <img src="<?php echo $user['fullsize']; ?>" />
        </div>
      </div>
    </div>
