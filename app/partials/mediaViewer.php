@@ -9,8 +9,8 @@
       </div>
       <div id="videoViewer">
         <iframe></iframe>
-        <!--<div class="videoSwipe top"></div>
-        <div class="videoSwipe bottom"></div>-->
+        <div class="videoSwipe top"></div>
+        <div class="videoSwipe bottom"></div>
       </div>
       <div id="galleryNav">
         <div class="navPrev" data-swap="prev"><i class="fa fa-chevron-circle-left fa-2x"></i></div>

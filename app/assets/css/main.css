@@ -625,7 +625,6 @@ body {
 #junkMedia #galleryNav {
   position: fixed;
   width: 90%;
-  height: 30px;
   top: 50%;
   margin-top: -15px;
   left: 50%;
@@ -648,12 +647,12 @@ body {
     height: 95%; }
   #junkMedia #videoViewer .videoSwipe {
     position: absolute;
-    height: 35%;
+    height: 25%;
     width: 100%; }
     #junkMedia #videoViewer .videoSwipe.top {
       top: 0; }
     #junkMedia #videoViewer .videoSwipe.bottom {
-      bottom: 0; }
+      bottom: 30px; }
 
 #desktop-app .navButton:hover, #desktop-app .appMenuTrigger:hover, #desktop-app .appSearchTrigger:hover {
   background-color: #333 !important; }
