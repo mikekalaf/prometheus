@@ -86,13 +86,14 @@ var prometheus = {
     $('#prometheusWrapper').on('click', '.cerebro-thumb', prometheus.swapCerebroPhoto);
     $('#prometheusWrapper').on('click', '.favoriteToggle', prometheus.toggleFavorite);
     $('#prometheusWrapper').on('click', '#searchButton', prometheus.cerebroSearch);
-    prometheus.router();
   },
   router: function() {
     var hash = window.location.hash;
     hash = hash.replace('#', '');
+    var sectorUrl;
     var locationParams = hash.split("/");
     var appPrefix = locationParams[0]+"-"+locationParams[1];
+    var sectorPrefix = locationParams[0];
     switch(appPrefix) {
       case "cerebro-index":
         $('#app-cerebro').click();
@@ -113,8 +114,21 @@ var prometheus = {
         $('#app-junk').click();
         break;
     }
-    console.log(hash);
-    console.log(locationParams);
+    switch(sectorPrefix) {
+      case "grindr":
+        sectorUrl = "partials/cerebro/grindr.php?id="+locationParams[1];
+        prometheus.loadProfileFromHash(sectorUrl);
+        break;
+      case "jackd":
+        sectorUrl = "partials/cerebro/jackd.php?id="+locationParams[1];
+        prometheus.loadProfileFromHash(sectorUrl);
+        break;
+      case "scruff":
+        sectorUrl = "partials/cerebro/scruff.php?id="+locationParams[1];
+        prometheus.loadProfileFromHash(sectorUrl);
+        break;
+    }
+
   },
   navigate: function(path) {
     var current = window.location.href;
@@ -188,6 +202,11 @@ var prometheus = {
       var url = $(this).data('url');
       var targetId = $(this).attr('id');
     }
+
+    var router = targetId.split("-");
+    var routerHash = router[0]+'/'+router[1];
+    prometheus.navigate(routerHash);
+
     var el = '#'+targetId;
     var prev = $(el).data('prev');
     var next = $(el).data('next');
@@ -251,6 +270,42 @@ var prometheus = {
             $(this).remove();
         else
             seen[txt] = true;
+    });
+  },
+  loadProfileFromHash: function(url) {
+    prometheus.hideSearch();
+    prometheus.closeAllOverlays();
+    var target = "cerebroProfile";
+    $('#'+target).removeClass(prometheus.overlayOut);
+    setTimeout(function(){
+      $('#'+target).show();
+      $('#'+target).addClass(prometheus.overlayIn);
+      prometheus.adjustViewPort();
+    }, 250);
+    $('#ajaxContainer').html('');
+    $('#ajaxContainer').fadeOut();
+    $('#cerebroProfile .profileNav').hide();
+    prometheus.showOverlaySpinner();
+    $.ajax({
+      type: "GET",
+      timeout: 6000,
+      url: url,
+      error: function(data) {
+        console.log('Error:  Unable to retrieve data from source.');
+        prometheus.hideOverlaySpinner();
+        prometheus.closeAllOverlays();
+      },
+      success: function(data) {
+        prometheus.hideOverlaySpinner();
+        $('#ajaxContainer').html(data);
+        setTimeout(function() {
+          $('.userPhoto img').fadeTo('slow',1);
+          $('#ajaxContainer').fadeIn('slow');
+          prometheus.adjustInfoTabs();
+          prometheus.adjustOverlay();
+          prometheus.filterPhotos();
+        },500);
+      }
     });
   },
   loadMapProfile: function() {
@@ -1128,7 +1183,10 @@ var prometheus = {
     var long = prometheus.cerebro.long;
     var url = "partials/initGps.php?lat="+lat+"&long="+long;
     prometheus.remotePing(url);
-    setTimeout(function(){ prometheus.loadDefaultView(); }, 500);
+    setTimeout(function(){
+      prometheus.loadDefaultView();
+      prometheus.router();
+    }, 500);
   },
   toggleMenu: function() {
     $('#appMenu, #appContainer, #topBanner').toggleClass('open');
