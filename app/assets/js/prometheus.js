@@ -510,10 +510,10 @@ var prometheus = {
   remotePing: function(url) {
     $.ajax({
       type: "GET",
-      timeout: 6000,
+      timeout: 10000,
       url: url,
       error: function(data) {
-        consoe.log('Unable to retrieve data from source: '+url);
+        console.log('Unable to retrieve data from source: '+url);
       },
       success: function(data) {
       }
