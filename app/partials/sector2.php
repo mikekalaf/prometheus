@@ -63,8 +63,12 @@ foreach($sectorData['data'] as $key => $user) {
   if($user['image_scan'] == '0') {
     $cdnScan = " fetchcdn ";
     $cdnData = " data-cdn = '".$user['protocol_id']."'";
+    $thumbnail = "https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=".$user['profile_photo']."s";
+  } else {
+    $thumbnail = str_replace('http://s.jackd.mobi/','https://cdn.chasingthedrift.com/prometheus/jackd/', $user['profile_photo']);
+    $thumbnail .= "s";
   }
-  echo "<div id='jackd-".$user['profile_no']."' class='gridItem cerebroProfile overlayLink ".$cdnScan."' data-url='partials/cerebro/jackd.php?id=".$user['profile_no']."' ".$cdnData.$loadPrevPage.$loadNextPage.$prev.$next." data-target='cerebroProfile' style='background-image: url(https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=".$user['profile_photo']."s);'></div>";
+  echo "<div id='jackd-".$user['profile_no']."' class='gridItem cerebroProfile overlayLink ".$cdnScan."' data-url='partials/cerebro/jackd.php?id=".$user['profile_no']."' ".$cdnData.$loadPrevPage.$loadNextPage.$prev.$next." data-target='cerebroProfile' style='background-image: url(".$thumbnail.");'></div>";
   $i++;
 }
 echo "</div>";
