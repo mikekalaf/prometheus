@@ -503,6 +503,7 @@ var prometheus = {
     var thisApp = prometheus.activeApp;
     $('#appSearch').fadeOut();
     prometheus.fadeOutGrid();
+    prometheus.navigate("shield/"+pageBase+"/search/"+searchString);
     setTimeout(function(){
       prometheus.loadData(searchUrl, prometheus[thisApp].displayUserGrid);
     },1000);
@@ -510,7 +511,7 @@ var prometheus = {
   remotePing: function(url) {
     $.ajax({
       type: "GET",
-      timeout: 10000,
+      timeout: 20000,
       url: url,
       error: function(data) {
         console.log('Unable to retrieve data from source: '+url);
