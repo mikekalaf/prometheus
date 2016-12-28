@@ -4,12 +4,15 @@ require('../../includes/skynet.php');
 if (isset($_GET['app']) && isset($_GET['id'])) {
     if ($_GET['app'] == "grindr") {
         $userGeoMap = json_encode(getGrindrGeoMap($_GET['id']));
+        $userType = "profiles_grindr";
     }
     if ($_GET['app'] == "jackd") {
         $userGeoMap = json_encode(getJackdGeoMap($_GET['id']));
+        $userType = "profiles_jackd";
     }
     if ($_GET['app'] == "scruff") {
         $userGeoMap = json_encode(getScruffGeoMap($_GET['id']));
+        $userType = "profiles_scruff";
     }
 }
 if ($userGeoMap) {
@@ -39,7 +42,7 @@ if ($userGeoMap) {
 <iframe id="geoLocation" style="border:none;width:100%; height:250px;"></iframe>
 <script type="text/javascript">
     document.getElementById('geoLocation').src = "https://www.google.com/maps/embed/v1/search?key=AIzaSyCuVIyhoWZ0kI2uHPuBGjaXMLb6dmkMg-A&q=loc:" + userLocation.lat + ", " + userLocation.lon;
-    $.ajax({url: "track.php?protocol_id=<?php echo $_GET['protocol_id']; ?>&lat="+userLocation.lat+"&long="+userLocation.lon, success: function(result){
+    $.ajax({url: "track.php?protocol_id=<?php echo $_GET['protocol_id']; ?>&user_type=<?php echo $userType ?>&lat="+userLocation.lat+"&long="+userLocation.lon, success: function(result){
             console.log('Tracking user location...')
         }});
 </script>
