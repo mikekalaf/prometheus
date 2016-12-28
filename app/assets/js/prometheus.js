@@ -651,6 +651,9 @@ var prometheus = {
           setTimeout(beacon, 0);
         }
       },1500);
+      setTimeout(function() {
+        var markerCluster = new MarkerClusterer(prometheus.googlemap, prometheus.mapMarkers,{imagePath: 'assets/img/m'});
+      },2000);
     }
   },
   skynet: {
