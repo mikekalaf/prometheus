@@ -31,6 +31,8 @@ foreach($sectorData['data'] as $key => $beacon) {
     $checkScan = mysql_query($query_checkScan, $ikiosk) or die(mysql_error());
     $row_checkScan = mysql_fetch_assoc($checkScan);
     $totalRows_checkScan = mysql_num_rows($checkScan);
+    echo $query_checkScan;
+    echo $totalRows_checkScan;
     if ($totalRows_checkScan == 0){
       switch($beacon['user_type']) {
           case "profiles_grindr":
