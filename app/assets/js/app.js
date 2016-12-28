@@ -15672,6 +15672,8 @@ var prometheus = {
                  infowindow.open(prometheus.googlemap, marker);
              };
          })(marker,content,infowindow));
+
+         prometheus.mapMarkers.push(marker);
       }
     },
     displayMapBeacons: function() {
