@@ -2,11 +2,11 @@
 require('../../includes/skynet.php');
 
 function recordTrack() {
-  global $ikiosk, $database_ikiosk, $protocol_id, $thisLat, $thisLong;
+  global $ikiosk, $database_ikiosk, $protocol_id, $thisLat, $thisLong, $thisUserType;
   $trackingID = create_guid();
   $datecreated = date("Y-m-d H:i:s");
 
-  $updateTracking = "INSERT INTO geo_tracking (`tracking_id`, `protocol_id`, `lat`, `lon`, `user_type`,`date_created`) VALUES ('".$trackingID."', '".$protocol_id."', '".$thisLat."', '".$thisLong."', '".$thisUserType."','".$datecreated."')";
+  $updateTracking = "INSERT INTO geo_tracking (`tracking_id`, `protocol_id`, `lat`, `lon`, `user_type`,`date_created`) VALUES ('".$trackingID."', '".$protocol_id."', '".$thisLat."', '".$thisLong."', '".$thisUserType."', '".$datecreated."')";
   mysql_select_db($database_ikiosk, $ikiosk);
   $result = mysql_query($updateTracking, $ikiosk) or die(mysql_error());
   echo "User tracking complete";
