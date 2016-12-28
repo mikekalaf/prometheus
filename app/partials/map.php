@@ -70,8 +70,8 @@ foreach($sectorData['data'] as $key => $beacon) {
             } else if (!empty($row_checkScan['photo5'])) {
               $beacon['fullsize'] = $row_checkScan['photo5'];
             }
-            $beacon['fullsize'] = "https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=".$userData['fullsize'];
-            $beacon['thumbnail'] = $userData['fullsize']."s";
+            $beacon['fullsize'] = "https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=".$beacon['fullsize'];
+            $beacon['thumbnail'] = $beacon['fullsize']."s";
             $beacon['url'] = "partials/cerebro/jackd.php?id=".$row_checkScan['profile_no'];
 
         }
