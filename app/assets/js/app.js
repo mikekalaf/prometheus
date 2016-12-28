@@ -15655,7 +15655,7 @@ var prometheus = {
              position: {lat: parseFloat(activeBeacon.lat),lng: parseFloat(activeBeacon.lon)},
              map: prometheus.googlemap
          });
-         var photo = activeBeacon.fullsize;
+         var photo = activeBeacon.thumbnail;
          var about = activeBeacon.about;
          var age = activeBeacon.age;
          var name = activeBeacon.display_name;
