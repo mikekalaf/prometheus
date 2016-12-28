@@ -15678,7 +15678,7 @@ var prometheus = {
       var beaconArray = prometheus.userMap;
       for (var i = 0; i < beaconArray.length; i++) {
         var beacon = prometheus.cerebromap.drawBeacon(i);
-        beacon();
+        setTimeout(beacon, 0);
       }
     }
   },
