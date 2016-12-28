@@ -89,7 +89,7 @@ var styledMapType = new google.maps.StyledMapType(
 var mapCenter = {lat: 40.748441, lng: -73.985664};
 setTimeout(function() {
   prometheus.googlemap = new google.maps.Map(document.getElementById('cerebroMap'), {
-   zoom: 5,
+   zoom: 3,
    center: mapCenter
   });
   prometheus.googlemap.mapTypes.set('styled_map', styledMapType);
