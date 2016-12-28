@@ -652,7 +652,7 @@ var prometheus = {
         }
       },1500);
       setTimeout(function() {
-        var markerCluster = new MarkerClusterer(prometheus.googlemap, prometheus.mapMarkers,{imagePath: 'assets/img/m'});
+        var markerCluster = new MarkerClusterer(prometheus.googlemap, prometheus.mapMarkers,{imagePath: 'assets/img/m/m'});
       },2000);
     }
   },
