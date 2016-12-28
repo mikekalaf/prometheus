@@ -15675,11 +15675,13 @@ var prometheus = {
       }
     },
     displayMapBeacons: function() {
-      var beaconArray = prometheus.userMap;
-      for (var i = 0; i < beaconArray.length; i++) {
-        var beacon = prometheus.cerebromap.drawBeacon(i);
-        setTimeout(beacon, 0);
-      }
+      setTimeout(function() {
+        var beaconArray = prometheus.userMap;
+        for (var i = 0; i < beaconArray.length; i++) {
+          var beacon = prometheus.cerebromap.drawBeacon(i);
+          setTimeout(beacon, 0);
+        }
+      },1500);
     }
   },
   skynet: {
