@@ -25,6 +25,58 @@ $ajaxScripts = "";
 foreach($sectorData['data'] as $key => $beacon) {
   $protocolArray[] = $beacon['protocol_id'];
   $beacon['trackingDate'] = date('M d Y, g:ia', strtotime($beacon['date_created']));
+  if (isProd()) {
+    mysql_select_db($database_ikiosk, $ikiosk);
+    $query_checkScan = "SELECT * FROM ".$beacon['user_type']." WHERE protocol_id = '".$beacon['protocol_id']."'";
+    $checkScan = mysql_query($query_checkScan, $ikiosk) or die(mysql_error());
+    $row_checkScan = mysql_fetch_assoc($checkScan);
+    $totalRows_checkScan = mysql_num_rows($checkScan);
+    if ($totalRows_checkScan == 0){
+      switch($beacon['user_type']) {
+          case "profiles_grindr":
+            $beacon['type'] = "Sector 1";
+            $beacon['id'] = $row_checkScan['profile_id'];
+            $beacon['display_name'] = $row_checkScan['display_name'];
+            $beacon['age'] = $row_checkScan['age'];
+            $beacon['about'] = $row_checkScan['about_me'];
+            $beacon['thumbnail'] = $row_checkScan['thumbnail'];
+            $beacon['fullsize'] = $row_checkScan['profile_photo'];
+            $beacon['url'] = "partials/cerebro/grindr.php?id=".$row_checkScan['profile_id'];
+            break;
+          case "profiles_scruff":
+            $beacon['type'] = "Sector 3";
+            $beacon['id'] = $row_checkScan['profile_id'];
+            $beacon['display_name'] = $row_checkScan['display_name'];
+            $beacon['age'] = $row_checkScan['age'];
+            $beacon['about'] = $row_checkScan['about_me'];
+            $beacon['thumbnail'] = $row_checkScan['thumbnail'];
+            $beacon['fullsize'] = $row_checkScan['profile_photo'];
+            $beacon['url'] = "partials/cerebro/scruff.php?id=".$row_checkScan['profile_id'];
+            break;
+          case "profiles_jackd":
+            $beacon['type'] = "Sector 2";
+            $beacon['id'] = $row_checkScan['profile_no'];
+            $beacon['display_name'] = $row_checkScan['first_name'].$row_checkScan['last_name'];
+            $beacon['age'] = $row_checkScan['age'];
+            $beacon['about'] = $row_checkScan['profile_text'];
+            if (!empty($row_checkScan['photo1'])) {
+              $beacon['fullsize'] = $row_checkScan['photo1'];
+            } else if (!empty($row_checkScan['photo2'])) {
+              $beacon['fullsize'] = $row_checkScan['photo2'];
+            } else if (!empty($row_checkScan['photo3'])) {
+              $beacon['fullsize'] = $row_checkScan['photo3'];
+            } else if (!empty($row_checkScan['photo4'])) {
+              $beacon['fullsize'] = $row_checkScan['photo4'];
+            } else if (!empty($row_checkScan['photo5'])) {
+              $beacon['fullsize'] = $row_checkScan['photo5'];
+            }
+            $beacon['fullsize'] = "https://skynet.chasingthedrift.com/pages/embed/imageProxy.php?image=".$userData['fullsize'];
+            $beacon['thumbnail'] = $userData['fullsize']."s";
+            $beacon['url'] = "partials/cerebro/jackd.php?id=".$row_checkScan['profile_no'];
+
+        }
+    }
+  }
   //$beacon['userData'] = "http://skynet.chasingthedrift.com/api/index.php?action=finduser&id=".$beacon['protocol_id'];
   $ajaxScripts .= "prometheus.userMap.push(".json_encode($beacon).");\r\n";
 }
