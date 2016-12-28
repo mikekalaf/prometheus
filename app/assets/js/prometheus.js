@@ -618,41 +618,27 @@ var prometheus = {
     drawBeacon: function(i) {
       return function() {
         var activeBeacon = prometheus.userMap[i];
-        var url = "https://skynet.chasingthedrift.com/api/index.php?action=finduser&id="+activeBeacon.protocol_id;
-        $.ajax({
-          type: "GET",
-          timeout: 6000,
-          dataType: "json",
-          url: url,
-          error: function(data) {
-            console.log('Error:  Unable to retrieve data from source.');
-          },
-          success: function(data) {
-            var marker = new google.maps.Marker({
-                 position: {lat: parseFloat(activeBeacon.lat),lng: parseFloat(activeBeacon.lon)},
-                 map: prometheus.googlemap
-             });
-             var photo = data.fullsize;
-             var about = data.about;
-             var age = data.age;
-             var name = data.display_name;
-             var lat = parseFloat(activeBeacon.lat).toFixed(4);
-             var lon = parseFloat(activeBeacon.lon).toFixed(4);
-             var gps = lat+", "+lon;
-             var url = data.url;
-             var content = "<div class='infoWindow'><div class='mapInfoWrapper'><div class='mapPhoto overlayLink' data-target='cerebroProfile' data-url='"+url+"'><img src='"+photo+"' /></div><div class='mapInfo'><div class='mapTitle'>"+name+"</div><div class='mapHeader'>Age</div><div class='mapData'>"+age+"</div><div class='mapHeader'>About Me</div><div class='mapData'>"+about+"</div><div class='mapHeader'>GPS Coordinates</div><div class='mapData'>"+gps+"</div><div class='mapHeader'>Timestamp</div><div class='mapData'>"+activeBeacon.trackingDate+"</div></div></div></div>";
-             var infowindow = new google.maps.InfoWindow();
+        var marker = new google.maps.Marker({
+             position: {lat: parseFloat(activeBeacon.lat),lng: parseFloat(activeBeacon.lon)},
+             map: prometheus.googlemap
+         });
+         var photo = activeBeacon.fullsize;
+         var about = activeBeacon.about;
+         var age = activeBeacon.age;
+         var name = activeBeacon.display_name;
+         var lat = parseFloat(activeBeacon.lat).toFixed(4);
+         var lon = parseFloat(activeBeacon.lon).toFixed(4);
+         var gps = lat+", "+lon;
+         var url = activeBeacon.url;
+         var content = "<div class='infoWindow'><div class='mapInfoWrapper'><div class='mapPhoto overlayLink' data-target='cerebroProfile' data-url='"+url+"'><img src='"+photo+"' /></div><div class='mapInfo'><div class='mapTitle'>"+name+"</div><div class='mapHeader'>Age</div><div class='mapData'>"+age+"</div><div class='mapHeader'>About Me</div><div class='mapData'>"+about+"</div><div class='mapHeader'>GPS Coordinates</div><div class='mapData'>"+gps+"</div><div class='mapHeader'>Timestamp</div><div class='mapData'>"+activeBeacon.trackingDate+"</div></div></div></div>";
+         var infowindow = new google.maps.InfoWindow();
 
-             google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
-                 return function() {
-                     infowindow.setContent(content);
-                     infowindow.open(prometheus.googlemap, marker);
-                 };
-             })(marker,content,infowindow));
-
-             prometheus.mapMarkers.push(marker);
-          }
-        });
+         google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+             return function() {
+                 infowindow.setContent(content);
+                 infowindow.open(prometheus.googlemap, marker);
+             };
+         })(marker,content,infowindow));
       }
     },
     displayMapBeacons: function() {
