@@ -77,7 +77,6 @@ foreach($sectorData['data'] as $key => $beacon) {
         }
     }
   }
-  print_r($beacon);
   //$beacon['userData'] = "http://skynet.chasingthedrift.com/api/index.php?action=finduser&id=".$beacon['protocol_id'];
   $ajaxScripts .= "prometheus.userMap.push(".json_encode($beacon).");\r\n";
 }
