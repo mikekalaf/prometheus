@@ -15625,7 +15625,7 @@ var prometheus = {
         prometheus.runAjaxScripts();
         prometheus.adjustViewPort();
         if(prometheus.activeApp == "jackd") {
-          prometheus.cdnFetch();
+          //prometheus.cdnFetch();
         }
       }, 500);
   },
@@ -15684,9 +15684,9 @@ var prometheus = {
           setTimeout(beacon, 0);
         }
       },1500);
-      setTimeout(function() {
-        var markerCluster = new MarkerClusterer(prometheus.googlemap, prometheus.mapMarkers,{imagePath: 'assets/img/m/m'});
-      },2000);
+      // setTimeout(function() {
+      //   var markerCluster = new MarkerClusterer(prometheus.googlemap, prometheus.mapMarkers,{imagePath: 'assets/img/m/m'});
+      // },2000);
     }
   },
   skynet: {
