@@ -25,7 +25,6 @@ $ajaxScripts = "";
 foreach($sectorData['data'] as $key => $beacon) {
   $protocolArray[] = $beacon['protocol_id'];
   $beacon['trackingDate'] = date('M d Y, g:ia', strtotime($beacon['date_created']));
-  print_r($beacon);
   if (isProd()) {
     mysql_select_db($database_ikiosk, $ikiosk);
     $query_checkScan = "SELECT * FROM ".$beacon['user_type']." WHERE protocol_id = '".$beacon['protocol_id']."'";
