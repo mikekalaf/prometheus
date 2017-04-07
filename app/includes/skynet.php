@@ -741,7 +741,7 @@
       $geohash=new GeoHash;
       $locationHash = $geohash->encode($long, $lat);
 
-      $url = "https://grindr.mobi/v3/locations/".$locationHash."4/profiles?online=false&photoOnly=true";
+      $url = "https://grindr.mobi/v3/locations/".$locationHash."4/profiles";
       $request_headers = grindrGetHeaders();
       $grindrResults = curl_handler($url, $request_headers, $data, "GET");
       return json_decode($grindrResults, true);
