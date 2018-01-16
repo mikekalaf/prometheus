@@ -821,6 +821,7 @@
           echo "<hr>";
       }
       curl_close($ch);
+      echo $responseData;
       return $responseData;
   }
 
