@@ -5,7 +5,6 @@ login_grindr();
 $thisProfileId = $_GET['id'];
 if (!empty($thisProfileId)) {
   $user = grindrGetUserProfile($thisProfileId);
-  print_r($user);
   $user['fullsize'] = "https://cdns.grindr.com/images/profile/1024x1024/".$user['profileImageMediaHash'];
   if (isProd() && (isset($user['profileId']))) {
     if (!user_exists_grindr($thisProfileId)) {

@@ -477,6 +477,7 @@
       $url = "https://grindr.mobi/v3/profiles/".$id;
       $request_headers = grindrGetHeaders();
       $grindrResults = curl_handler($url, $request_headers, $data, "GET");
+      echo "Results: ".$grindrResults;
       $user = json_decode($grindrResults, true);
       $thisUser = $user['profiles'][0];
       return $thisUser;
