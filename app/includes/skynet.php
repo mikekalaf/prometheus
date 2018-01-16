@@ -811,7 +811,7 @@
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
       curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $request_headers);
-      curl_setopt($ch, CURLOPT_HEADER, true);
+      curl_setopt($ch, CURLOPT_HEADER, false);
       curl_setopt($ch, CURLINFO_HEADER_OUT, true);
       $responseData = curl_exec($ch);
       $responseHeaders = curl_getinfo($ch);
