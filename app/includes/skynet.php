@@ -811,8 +811,8 @@
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
       curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
       curl_setopt($ch, CURLOPT_HTTPHEADER, $request_headers);
-      //curl_setopt($ch, CURLOPT_HEADER, true);
-      //curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+      curl_setopt($ch, CURLOPT_HEADER, true);
+      curl_setopt($ch, CURLINFO_HEADER_OUT, true);
       $responseData = curl_exec($ch);
       $responseHeaders = curl_getinfo($ch);
       $err = curl_error($ch);
@@ -833,7 +833,7 @@
         $url = "https://grindr.mobi/v3/sessions";
         $request_headers = array();
         $request_headers[] = 'Content-Type: application/json; charset=utf-8';
-        $request_headers[] = 'User-Agent: grindr3/3.0.1.4529;4529;Unknown;Android 4.4.4';
+        $request_headers[] = 'User-Agent: grindr3/3.13.0.5600;4529;Unknown;Android 4.4.4';
         $request_headers[] = 'Accept: */*';
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
