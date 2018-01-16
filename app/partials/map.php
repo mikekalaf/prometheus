@@ -6,6 +6,9 @@ $request_headers = array();
 $fetchData = curl_handler($url, $request_headers, $blank, "GET");
 $sectorData = json_decode($fetchData ,true);
 
+echo "Testing fetch data";
+echo $sectorData;
+
 //Cleanup the Duplicates
 $protocolArray = array();
 $deleteArray = array();
