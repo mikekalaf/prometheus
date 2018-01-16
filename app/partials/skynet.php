@@ -17,7 +17,6 @@ login_grindr();
    $_SESSION['long'] = $long;
    $title = $_GET['search'];
  }
-//$grindrUsers = grindrGetNearbyUsers($lat, $long);
  $jackdUsers = jackdGetNearbyUsers($lat, $long);
  $scruffUsers = scruffGetNearbyUsers($lat, $long);
  ?>
@@ -30,15 +29,14 @@ login_grindr();
    </div>
  </div>
  <div id="skynetNavigation">
-   <div id="skynetGrindr" class="skynetTab default" data-target="grindrGrid">Sector 1</div>
+   <div id="skynetGrindr" class="skynetTab" data-target="grindrGrid">Sector 1</div>
    <div id="skynetJackd" class="skynetTab default active" data-target="jackdGrid">Sector 2</div>
    <div id="skynetScruff" class="skynetTab last" data-target=scruffGrid>Sector 3</div>
 </div>
 <div id="skynetTabWrapper">
-  <div id="grindrGrid" class="appGrid skynetTabContainer active">
-    <?php //include('grindrGrid.php'); ?>
+  <div id="grindrGrid" class="appGrid skynetTabContainer">
   </div>
-  <div id="jackdGrid" class="appGrid skynetTabContainer">
+  <div id="jackdGrid" class="appGrid skynetTabContainer active">
     <?php include('jackdGrid.php'); ?>
   </div>
   <div id="scruffGrid" class="appGrid skynetTabContainer">
