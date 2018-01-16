@@ -4,7 +4,6 @@ include('../includes/skynet.php');
 $url = "http://v9.ikioskcloudapps.com/shield/cerebro/map";
 $request_headers = array();
 $fetchData = curl_handler($url, $request_headers, $blank, "GET");
-echo $fetchData;
 $sectorData = json_decode($fetchData ,true);
 
 //Cleanup the Duplicates
