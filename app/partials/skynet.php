@@ -1,5 +1,7 @@
 <?php
 require('../includes/skynet.php');
+login_grindr();
+
 //GPS Data
  $lat = $_GET['lat'];
  $long = $_GET['long'];
@@ -15,6 +17,7 @@ require('../includes/skynet.php');
    $_SESSION['long'] = $long;
    $title = $_GET['search'];
  }
+ $grindrUsers = grindrGetNearbyUsers($lat, $long);
  $jackdUsers = jackdGetNearbyUsers($lat, $long);
  $scruffUsers = scruffGetNearbyUsers($lat, $long);
  ?>
@@ -27,14 +30,15 @@ require('../includes/skynet.php');
    </div>
  </div>
  <div id="skynetNavigation">
-   <div id="skynetGrindr" class="skynetTab" data-target="grindrGrid">Sector 1</div>
-   <div id="skynetJackd" class="skynetTab default active" data-target="jackdGrid">Sector 2</div>
+   <div id="skynetGrindr" class="skynetTab default active" data-target="grindrGrid">Sector 1</div>
+   <div id="skynetJackd" class="skynetTab" data-target="jackdGrid">Sector 2</div>
    <div id="skynetScruff" class="skynetTab last" data-target=scruffGrid>Sector 3</div>
 </div>
 <div id="skynetTabWrapper">
-  <div id="grindrGrid" class="appGrid skynetTabContainer">
+  <div id="grindrGrid" class="appGrid skynetTabContainer active">
+    <?php include('grindrGrid.php'); ?>
   </div>
-  <div id="jackdGrid" class="appGrid skynetTabContainer active">
+  <div id="jackdGrid" class="appGrid skynetTabContainer">
     <?php include('jackdGrid.php'); ?>
   </div>
   <div id="scruffGrid" class="appGrid skynetTabContainer">
