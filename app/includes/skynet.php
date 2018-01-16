@@ -801,7 +801,7 @@
   }
 
   function curl_handler($url, $request_headers, $data, $method) {
-      if (isset($_GET['debug'])) {
+      if (!isset($_GET['debug'])) {
           echo "<hr>" . $data . "<hr>";
       }
       $ch = curl_init();
@@ -816,7 +816,7 @@
       $responseData = curl_exec($ch);
       $responseHeaders = curl_getinfo($ch);
       $err = curl_error($ch);
-      if (isset($_GET['debug'])) {
+      if (!isset($_GET['debug'])) {
           print_r($responseHeaders);
           echo "<hr>";
       }
