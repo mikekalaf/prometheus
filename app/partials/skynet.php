@@ -1,7 +1,5 @@
 <?php
 require('../includes/skynet.php');
-login_grindr();
-
 //GPS Data
  $lat = $_GET['lat'];
  $long = $_GET['long'];
