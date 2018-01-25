@@ -41,7 +41,7 @@ if ($userGeoMap) {
 <body style="margin: 0px;">
 <iframe id="geoLocation" style="border:none;width:100%; height:250px;"></iframe>
 <script type="text/javascript">
-    document.getElementById('geoLocation').src = "https://www.google.com/maps/embed/v1/search?key=AIzaSyCuVIyhoWZ0kI2uHPuBGjaXMLb6dmkMg-A&q=loc:" + userLocation.lat + ", " + userLocation.lon;
+    document.getElementById('geoLocation').src = "https://www.google.com/maps/embed/v1/search?key=AIzaSyCuVIyhoWZ0kI2uHPuBGjaXMLb6dmkMg-A&q=" + userLocation.lat + "," + userLocation.lon;
     $.ajax({url: "track.php?protocol_id=<?php echo $_GET['protocol_id']; ?>&user_type=<?php echo $userType ?>&lat="+userLocation.lat+"&long="+userLocation.lon, success: function(result){
             console.log('Tracking user location...')
         }});
