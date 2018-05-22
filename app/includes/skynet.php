@@ -467,7 +467,7 @@
     function grindrGetHeaders() {
       $headersGrindr = array();
       $headersGrindr[] = 'Content-Type: application/json; charset=utf-8';
-      $headersGrindr[] = 'User-Agent: grindr3/3.23.0.4529;4529;Unknown;Android 4.4.4';
+      $headersGrindr[] = 'User-Agent: grindr3/3.28.4.4529;4529;Unknown;Android 4.4.4';
       $headersGrindr[] = 'Accept: */*';
       $headersGrindr[] = 'Authorization: Grindr3 '.$_SESSION['sessionId'];
       return $headersGrindr;
