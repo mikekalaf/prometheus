@@ -748,7 +748,7 @@
 
       function getAddressReverse($address){
           $address = str_replace(" ", "+", $address);
-          $url = "http://maps.google.com/maps/api/geocode/json?latlng=$address&sensor=false";
+          $url = "https://maps.google.com/maps/api/geocode/json?latlng=$address&sensor=false&key=AIzaSyCuVIyhoWZ0kI2uHPuBGjaXMLb6dmkMg-A";
           $ch = curl_init();
           curl_setopt($ch, CURLOPT_URL, $url);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -782,7 +782,7 @@
 
   function getAddress($address){
       $address = str_replace(" ", "+", $address);
-      $url = "http://maps.google.com/maps/api/geocode/json?address=$address&sensor=false";
+      $url = "https://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&key=AIzaSyCuVIyhoWZ0kI2uHPuBGjaXMLb6dmkMg-A";
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, $url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
