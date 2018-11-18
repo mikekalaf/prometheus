@@ -255,7 +255,7 @@
       foreach($geoMap as $key => $value) {
           $geohash=new GeoHash;
           $locationHash = $geohash->encode($geoMap[$key]['lon'], $geoMap[$key]['lat']);
-          $url = "https://grindr.mobi/v3/locations/".$locationHash."4/profiles?photoOnly=true";
+          $url = "https://grindr.mobi/v4/locations/".$geohash."s/profiles?pageNumber=1";
           $request_headers = grindrGetHeaders();
           $results = curl_handler($url, $request_headers, $data, "GET");
           $userData = grindrGetUserProfile($profileId);
@@ -738,11 +738,10 @@
     }
 
     function grindrGetNearbyUsers($lat, $long) {
+      $request_headers = grindrGetHeaders();
       $geohash=new GeoHash;
       $locationHash = $geohash->encode($long, $lat);
-
-      $url = "https://grindr.mobi/v3/locations/".$locationHash."4/profiles";
-      $request_headers = grindrGetHeaders();
+      $url = "https://grindr.mobi/v4/locations/".$locationHash."s/profiles?pageNumber=1";
       $grindrResults = curl_handler($url, $request_headers, $data, "GET");
       return json_decode($grindrResults, true);
     }
@@ -833,7 +832,7 @@
         $url = "https://grindr.mobi/v3/sessions";
         $request_headers = array();
         $request_headers[] = 'Content-Type: application/json; charset=utf-8';
-        $request_headers[] = 'User-Agent: grindr3/3.13.0.5600;4529;Unknown;Android 4.4.4';
+        $request_headers[] = 'User-Agent: grindr3/3.28.4.5600;4529;Unknown;Android 4.4.4';
         $request_headers[] = 'Accept: */*';
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);

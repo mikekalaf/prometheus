@@ -17,6 +17,7 @@
       $err = curl_error($ch);
       curl_close($ch);
       return $responseData;
+
   }
 
   if (isset($_GET['admin'])) {
