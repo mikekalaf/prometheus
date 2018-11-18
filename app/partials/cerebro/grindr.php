@@ -94,6 +94,9 @@ if (!empty($user['profileId'])) {
            displayUserData('Age', $user['age']);
            displayUserData('Ethnicity', $managedFields['grindr'][ethnicity][$user['ethnicity']]);
            displayUserData('Relationship Status', $managedFields['grindr'][relationshipStatus][$user['relationshipStatus']]);
+           displayUserData('Body Type', $managedFields['grindr'][bodyType][$user['bodyType']]);
+           displayUserData('Sexual Position', $managedFields['grindr'][sexualPosition][$user['sexualPosition']]);
+           displayUserData('HIV Status', $managedFields['grindr'][hivStatus][$user['hivStatus']]);
            displaySocialMedia('grindr', $user['socialMediaLinks']);
            displayUserData('About Me', $user['aboutMe']);
             ?>

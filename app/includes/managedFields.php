@@ -19,4 +19,22 @@ $managedFields['grindr'][relationshipStatus][6] = 'Engaged';
 $managedFields['grindr'][relationshipStatus][7] = 'Married';
 $managedFields['grindr'][relationshipStatus][8] = 'Open Relationship';
 
+
+$managedFields['grindr'][bodyType][1] = 'Toned';
+$managedFields['grindr'][bodyType][2] = 'Average';
+$managedFields['grindr'][bodyType][3] = 'Large';
+$managedFields['grindr'][bodyType][4] = 'Muscular';
+$managedFields['grindr'][bodyType][5] = 'Slim';
+$managedFields['grindr'][bodyType][6] = 'Stocky';
+
+$managedFields['grindr'][hivStatus][1] = 'Negative';
+$managedFields['grindr'][hivStatus][2] = 'Negative, on PrEP';
+$managedFields['grindr'][hivStatus][3] = 'Positive';
+$managedFields['grindr'][hivStatus][4] = 'Positive, Undetectable';
+
+$managedFields['grindr'][sexualPosition][1] = 'Top';
+$managedFields['grindr'][sexualPosition][3] = 'Versatile';
+$managedFields['grindr'][sexualPosition][4] = 'Vers Bottom';
+$managedFields['grindr'][sexualPosition][2] = 'Bottom';
+$managedFields['grindr'][sexualPosition][5] = 'Vers Top';
 ?>

@@ -251,11 +251,11 @@
   }
 
   function getGrindrGeoMap($profileId) {
-      $geoMap = generateGeoMap();
+      $geoMap = generateGeoMap($lat, $lng);
       foreach($geoMap as $key => $value) {
           $geohash=new GeoHash;
           $locationHash = $geohash->encode($geoMap[$key]['lon'], $geoMap[$key]['lat']);
-          $url = "https://grindr.mobi/v4/locations/".$geohash."s/profiles?pageNumber=1";
+          $url = "https://grindr.mobi/v4/locations/".$locationHash."s/profiles?pageNumber=1";
           $request_headers = grindrGetHeaders();
           $results = curl_handler($url, $request_headers, $data, "GET");
           $userData = grindrGetUserProfile($profileId);
